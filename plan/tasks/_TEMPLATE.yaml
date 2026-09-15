@@ -1,0 +1,25 @@
+# 任务合同模板 — 复制后填充，文件名 = <里程碑>-<短名>.yaml
+task: <M?-short-name>
+plan_ref: "PLAN_v1.1.md <节号> —— 必须能指回方案原文"
+gate_required: null          # 或 "M1_PASSED" 等；start_task.py 会强制检查
+budget: { wall_clock_h: 24, gpu_hours: 8 }
+
+steps:
+  - "步骤1（可被验收的动词开头）"
+
+deliverables:
+  - outputs/<M?>/<artifact>
+
+acceptance:                  # 全部由 scripts/accept_check.py 机械判定，模型无判定权
+  - { type: file_exists, path: "outputs/<M?>/<artifact>" }
+  # - { type: csv_min_rows, path: "...", min_rows: 5 }
+  # - { type: content_contains, path: "...", needle: "..." }
+  # - { type: metric_min, path: "outputs/.../metrics.json", key: "recall.fault_macro", min: 0.5 }
+
+forbidden:
+  - "本任务特有的禁令（全局禁令见 CLAUDE.md，无需重复）"
+
+notes:
+  - "命令行、数据路径、注意事项"
+
+human_gate_after: null       # 或 "M3" 等

@@ -1,0 +1,40 @@
+# 任务合同 — M1 数据核查（Week-1 作业；PLAN v1.1 §3/§8/§11）
+task: M1-data-audit
+plan_ref: "PLAN_v1.1.md §3 数据格局与充分性判定；§8 M1 行；Week-1 作业清单"
+gate_required: null          # M1 是第一个任务，无前置门
+budget: { wall_clock_h: 24, gpu_hours: 2 }
+
+steps:
+  - "下载 InsPLAD（Mendeley/GitHub，见 notes），统计 FD 子集逐类实例数"
+  - "核查 InsPLAD 文献评测协议：部件级 or 图像级？k-shot 划分惯例？指标定义？"
+  - "下载 STN-PLAD，产出标注类别清单：有无故障/异常类、资产类别数、图像尺寸"
+  - "整理三个数据集许可条款（论文使用/再分发合规）"
+  - "写充分性判定：对照 PLAN §3.2 三条件，逐条给证据与结论"
+
+deliverables:
+  - outputs/M1/insplad_fd_class_stats.csv
+  - outputs/M1/stnplad_label_audit.md
+  - outputs/M1/insplad_eval_protocol.md
+  - outputs/M1/licenses.md
+  - outputs/M1/data_verdict.md
+
+acceptance:
+  - { type: file_exists, path: "outputs/M1/insplad_fd_class_stats.csv" }
+  - { type: csv_min_rows, path: "outputs/M1/insplad_fd_class_stats.csv", min_rows: 5 }
+  - { type: file_exists, path: "outputs/M1/insplad_eval_protocol.md" }
+  - { type: content_contains, path: "outputs/M1/data_verdict.md", needle: "条件1" }
+  - { type: content_contains, path: "outputs/M1/data_verdict.md", needle: "条件2" }
+  - { type: content_contains, path: "outputs/M1/data_verdict.md", needle: "条件3" }
+  - { type: content_contains, path: "outputs/M1/data_verdict.md", needle: "判定：" }
+
+forbidden:
+  - "除下载数据外的一切训练"
+  - "修改 data/splits/**（本任务不得生成划分文件）"
+
+notes:
+  - "InsPLAD: https://data.mendeley.com/datasets/5n3fjgvfyz/1 ; https://github.com/andreluizbvs/InsPLAD"
+  - "STN-PLAD: https://datasetninja.com/stn-plad ; https://github.com/andreluizbvs/PLAD"
+  - "CPLID: https://github.com/InsulatorData/InsulatorDataSet"
+  - "统计表建议列: split,class,n_images,n_instances,min_box_px"
+
+human_gate_after: M1   # PASS 后由人类裁决是否 touch registry/gates/M1_PASSED
