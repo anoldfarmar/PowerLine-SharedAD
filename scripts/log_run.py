@@ -25,7 +25,7 @@ def git_commit():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--task", required=True)
-    ap.add_argument("--status", required=True, choices=["PASS", "FAIL"])
+    ap.add_argument("--status", required=True, choices=["PASS", "FAIL", "PENDING"])
     ap.add_argument("--note", default="")
     ap.add_argument("--result", default="")
     a = ap.parse_args()

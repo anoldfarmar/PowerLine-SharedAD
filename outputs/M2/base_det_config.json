@@ -1,0 +1,41 @@
+{
+  "task": "M2-proto-head-v0",
+  "step": "base_detector_training",
+  "created": "2026-09-16",
+  "command": "yolo detect train data=/root/autodl-tmp/data/yolo_det/data.yaml model=/root/autodl-tmp/third_party/yolov8n.pt epochs=60 imgsz=1280 batch=8 device=0 project=/root/autodl-tmp/runs name=yolov8n_det seed=0 exist_ok=True",
+  "hyperparams": {
+    "model": "/root/autodl-tmp/third_party/yolov8n.pt",
+    "model_variant": "yolov8n",
+    "pretrained": "COCO (ultralytics assets v8.3.0)",
+    "data": "/root/autodl-tmp/data/yolo_det/data.yaml",
+    "dataset": {
+      "train_images": 7935,
+      "train_boxes": 22635,
+      "val_images": 2626,
+      "val_boxes": 6324,
+      "classes": 18
+    },
+    "epochs": 60,
+    "imgsz": 1280,
+    "batch": 8,
+    "seed": 0,
+    "device": 0,
+    "project": "/root/autodl-tmp/runs",
+    "name": "yolov8n_det"
+  },
+  "gpu": "RTX 4080 SUPER 32GB",
+  "env": "conda exp-01 (python3.10, torch 2.14.0+cu130, ultralytics 8.4.151 editable)",
+  "preflight": {
+    "active_task": "M2-proto-head-v0 (elapsed 12.85h / 72h budget)",
+    "dataset_integrity": "train 7935 img / 22635 boxes, val 2626 / 6324 — 与 Step-2 固化一致，无重切",
+    "split_hashes_registered": "outputs/M2/kshot_splits_manifest.md（12 文件 sha256 登记）",
+    "gate": "M1_PASSED 存在"
+  },
+  "monitoring": "每 10 epoch 检查 metrics.csv；NaN 或 loss 爆炸(单 epoch box_loss 增幅>50%)立即停止报告",
+  "expected_outputs": {
+    "run_dir": "/root/autodl-tmp/runs/yolov8n_det",
+    "best_pt": "/root/autodl-tmp/runs/yolov8n_det/weights/best.pt",
+    "backup_to": "/root/autodl-fs"
+  },
+  "acceptance": { "map50_min": 0.4, "check": "scripts/accept_check.py plan/tasks/M2-proto-head-v0.yaml" }
+}

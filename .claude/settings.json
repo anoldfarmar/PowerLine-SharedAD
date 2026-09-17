@@ -2,14 +2,14 @@
   "permissions": {
     "deny": [
       "Edit(plan/**)",
-      "Write(plan/**)",
-      "MultiEdit(plan/**)",
+      "Edit(plan/**)",
+      "Edit(plan/**)",
       "Edit(registry/gates/**)",
-      "Write(registry/gates/**)",
+      "Edit(registry/gates/**)",
       "Edit(data/splits/**)",
-      "Write(data/splits/**)",
+      "Edit(data/splits/**)",
       "Edit(CLAUDE.md)",
-      "Write(CLAUDE.md)",
+      "Edit(CLAUDE.md)",
       "Bash(rm -rf:*)",
       "Bash(git push:*)",
       "Bash(sudo:*)"
