@@ -5,6 +5,7 @@
 #   预计: 3–5 小时（RTX 4080 SUPER）
 set -euo pipefail
 cd /root/auto-exp
+export OMP_NUM_THREADS=8  # 交互环境继承的值非法(libgomp 告警), 固定为安全值
 
 # 1) GPU 断言：无卡模式下直接退出，防止误用 CPU 跑十几个小时
 python3 - <<'EOF'
@@ -25,20 +26,21 @@ if [ "$n" -ne 13394 ]; then
 fi
 echo "[launch] imagenette OK: 13394 张"
 
-# 3) 磁盘余量 >= 2G
-avail_G=$(df -PG / | awk 'NR==2{print $4}')
-if [ "$avail_G" -lt 2 ]; then
-  echo "[launch] 根分区可用空间不足 2G (剩 ${avail_G}G)"; exit 1
+# 3) 磁盘余量 >= 2G (df -k + 算术换算, 兼容 autodl 镜像无 -G 选项的 df)
+avail_KB=$(df -k / | tail -1 | awk '{print $4}')
+if [ -z "$avail_KB" ] || [ "$avail_KB" -lt 2097152 ]; then
+  echo "[launch] 根分区可用空间不足 2G (剩 ${avail_KB}KB)"; exit 1
 fi
 
-# 4) 残留进程检查
-if pgrep -f m3_run_anomalib_baselines.py > /dev/null; then
+# 4) 残留进程检查 (只匹配真正的 python 训练进程, 避免把包含脚本名的其他命令误判为残留)
+if pgrep -f "python scripts/m3_run_anomalib_baselines\.py" > /dev/null; then
   echo "[launch] 已有基线进程在跑，先 kill 或确认后再启动"; exit 1
 fi
 
 # 5) 启动（后台 + 日志落盘）
 export XDG_CACHE_HOME=/root/auto-exp/.cache
 export HF_ENDPOINT=https://hf-mirror.com
-nohup python scripts/m3_run_anomalib_baselines.py > outputs/M3/baselines_run.log 2>&1 &
+# setsid: 脱离当前会话/进程组, 防止父 shell 退出时连带回收训练进程
+setsid nohup python scripts/m3_run_anomalib_baselines.py > outputs/M3/baselines_run.log 2>&1 &
 echo "[launch] baselines 已启动 pid=$!"
 echo "[launch] 日志: outputs/M3/baselines_run.log  （tail -f 可观察进度）"
