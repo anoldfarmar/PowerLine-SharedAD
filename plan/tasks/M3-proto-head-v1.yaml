@@ -1,0 +1,159 @@
+task: M3-proto-head-v1
+
+plan_ref: >-
+  PLAN_v1.1.md §2 分级实现策略 v1；
+  §4 创新点二；
+  §5.1 范式内主表与消融；
+  §6 M3 行；
+  §7 R1'/R2'
+
+gate_required: M2_PASSED
+
+budget:
+  wall_clock_h: 96
+  gpu_hours: 40
+
+steps:
+  - >-
+    执行 pre-flight：核验 M2 best.pt 完整 SHA256、固化 k-shot
+    划分的全部哈希、数据路径、GPU 和 ultralytics 版本；验证 YOLOv8n
+    各候选特征层的输出形状与 stride，明确当前 M2 model[:10] 实际输出层，
+    并在不修改 M2 产物的前提下复现 M2 v0 指标。
+
+  - >-
+    实现 patch-pre：使用经形状验证的 stride-8 P3 特征替代 GAP，
+    保留局部 patch 向量；每个资产×故障组合的原型库不超过 256 个
+    128 维向量，使用固定种子的 coreset 截断；目标故障 k-shot
+    样本只用于构建原型，不参与参数训练。
+
+  - >-
+    使用冻结的 1/5/10-shot × 3 种子和固定查询集评测
+    actual-M2-v0、P3-GAP、P3-patch-pre，输出逐类 AUROC、召回、
+    mean±std、原型数量、内存占用和推理耗时。
+
+  - >-
+    实现 metric-v1：仅使用基类训练数据训练 128 维投影头，
+    通过度量学习拉近同类特征、推远异类特征，并进行类别均衡采样；
+    禁止使用目标故障 query 或目标故障 k-shot 样本反向传播。
+    在相同冻结协议下评测，并与 patch-pre 对比。
+
+  - >-
+    运行 anomalib 同查询集基线 PatchCore、PaDiM、EfficientAD。
+    AD 基线的支持样本只能来自非查询的 train/good 池；
+    按固定规则选择 1/5/10 个正常支持样本，生成只读消费清单和哈希，
+    禁止使用 normal_query 建模或调参。报告中明确 AD 基线与本方案
+    使用的监督信息不同。
+
+  - >-
+    完成腐蚀类专项分析：报告全部 rust/corrosion 组合的逐类结果，
+    对比 actual-M2-v0、P3-GAP、patch-pre、metric-v1，
+    输出局部相似度热图或最高响应 patch；对样本不足组合明确标记
+    统计限制，不得省略或合并不利结果。
+
+deliverables:
+  - outputs/M3/preflight.json
+  - outputs/M3/feature_layer_audit.json
+  - outputs/M3/proto_v1_eval.json
+  - outputs/M3/baselines_eval.json
+  - outputs/M3/rust_analysis.json
+  - outputs/M3/memory_latency.json
+  - outputs/M3/M3_report.md
+  - scripts/m3_verify_feature_layers.py
+  - scripts/m3_patch_extractor.py
+  - scripts/m3_build_patch_bank.py
+  - scripts/m3_patch_proto_eval.py
+  - scripts/m3_metric_train.py
+  - scripts/m3_run_anomalib_baselines.py
+
+acceptance:
+  - type: file_exists
+    path: outputs/M3/preflight.json
+
+  - type: metric_min
+    path: outputs/M3/preflight.json
+    key: split_hashes_verified
+    min: 1
+
+  - type: file_exists
+    path: outputs/M3/feature_layer_audit.json
+
+  - type: metric_min
+    path: outputs/M3/feature_layer_audit.json
+    key: p3_stride_verified
+    min: 1
+
+  - type: file_exists
+    path: outputs/M3/proto_v1_eval.json
+
+  - type: metric_min
+    path: outputs/M3/proto_v1_eval.json
+    key: protocol.seed_count
+    min: 3
+
+  - type: metric_min
+    path: outputs/M3/proto_v1_eval.json
+    key: protocol.shot_count
+    min: 3
+
+  - type: metric_min
+    path: outputs/M3/proto_v1_eval.json
+    key: coverage.fault_classes_nonempty
+    min: 7
+
+  - type: metric_min
+    path: outputs/M3/proto_v1_eval.json
+    key: variants_completed
+    min: 4
+
+  - type: metric_min
+    path: outputs/M3/proto_v1_eval.json
+    key: bounded_memory.compliant
+    min: 1
+
+  - type: file_exists
+    path: outputs/M3/baselines_eval.json
+
+  - type: metric_min
+    path: outputs/M3/baselines_eval.json
+    key: methods_completed
+    min: 3
+
+  - type: metric_min
+    path: outputs/M3/baselines_eval.json
+    key: query_leakage_check_passed
+    min: 1
+
+  - type: file_exists
+    path: outputs/M3/rust_analysis.json
+
+  - type: file_exists
+    path: outputs/M3/memory_latency.json
+
+  - type: file_exists
+    path: outputs/M3/M3_report.md
+
+forbidden:
+  - 修改 plan/PLAN_v1.1.md、评测协议、M2 产物或冻结划分
+  - 重新生成、重切或挑选 k-shot 划分
+  - 使用 query 数据训练、选择特征层、选择聚合函数、调阈值或早停
+  - 使用目标故障 k-shot 样本反向传播训练模型
+  - 每类保存超过 256 个 patch 原型
+  - 只报告有利种子、类别、k-shot 或方法
+  - 将文献数字当作同协议复现结果
+  - 因未达到预期提升而改变协议或重复试验超过合同允许范围
+
+notes:
+  - >-
+    M3 科学判据：mean AUROC 相对 actual-M2-v0 的提升是否达到
+    0.15，只作为人工门决策信号，不作为任务完成验收条件。
+  - >-
+    必须分别报告 actual-M2-v0、P3-GAP、P3-patch-pre、
+    P3-patch-metric-v1，避免把特征层修正带来的提升归因于 patch。
+  - >-
+    主聚合方法、top-k、投影维度、coreset 方法及训练超参数必须在
+    查看 query 结果前写入 outputs/M3/preflight.json。
+  - >-
+    若 metric-v1 未提升，仍如实登记；在 M3 人工门决定继续、
+    降级至裁剪级方案或调整 M4 范围。
+
+human_gate_after: M3

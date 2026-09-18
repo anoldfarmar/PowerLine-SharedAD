@@ -1,0 +1,95 @@
+{
+ "weights": "/root/autodl-tmp/runs/yolov8n_det/weights/best.pt",
+ "max_abs_auroc_diff_vs_m2": 0.0003058103975535076,
+ "mean_abs_auroc_diff_vs_m2": 5.17503300136587e-05,
+ "reproduced": true,
+ "results_per_k_per_seed_per_combo": {
+  "k1": [
+   {
+    "glass-insulator/missing-cap": 0.4685997210599721,
+    "lightning-rod-suspension/rust": 0.4238348623853211,
+    "polymer-insulator-upper-shackle/corrosion": 0.6099158751696065,
+    "polymer-insulator-upper-shackle/rust": 0.37926666666666664,
+    "vari-grip/bird-nest": 0.367427027027027,
+    "vari-grip/rust": 0.41983766233766234,
+    "yoke-suspension/rust": 0.702742671009772
+   },
+   {
+    "glass-insulator/missing-cap": 0.6992496513249651,
+    "lightning-rod-suspension/rust": 0.7555596330275229,
+    "polymer-insulator-upper-shackle/corrosion": 0.451202170963365,
+    "polymer-insulator-upper-shackle/rust": 0.7874,
+    "vari-grip/bird-nest": 0.646772972972973,
+    "vari-grip/rust": 0.2511883116883117,
+    "yoke-suspension/rust": 0.3930684039087948
+   },
+   {
+    "glass-insulator/missing-cap": 0.7320306834030683,
+    "lightning-rod-suspension/rust": 0.6352905198776758,
+    "polymer-insulator-upper-shackle/corrosion": 0.6473975576662144,
+    "polymer-insulator-upper-shackle/rust": 0.4046,
+    "vari-grip/bird-nest": 0.8715405405405405,
+    "vari-grip/rust": 0.41983766233766234,
+    "yoke-suspension/rust": 0.8060195439739414
+   }
+  ],
+  "k5": [
+   {
+    "glass-insulator/missing-cap": 0.7971858156028369,
+    "lightning-rod-suspension/rust": 0.6938603174603175,
+    "polymer-insulator-upper-shackle/corrosion": 0.7497875862068966,
+    "polymer-insulator-upper-shackle/rust": 0.752,
+    "vari-grip/bird-nest": 0.8504245810055866,
+    "vari-grip/rust": 0.2540203389830509,
+    "yoke-suspension/rust": 0.5965152542372881
+   },
+   {
+    "glass-insulator/missing-cap": 0.8438439716312057,
+    "lightning-rod-suspension/rust": 0.8070412698412699,
+    "polymer-insulator-upper-shackle/corrosion": 0.7556082758620689,
+    "polymer-insulator-upper-shackle/rust": 0.7490909090909091,
+    "vari-grip/bird-nest": 0.6622569832402234,
+    "vari-grip/rust": 0.2787796610169492,
+    "yoke-suspension/rust": 0.5879050847457628
+   },
+   {
+    "glass-insulator/missing-cap": 0.43488794326241137,
+    "lightning-rod-suspension/rust": 0.7610539682539682,
+    "polymer-insulator-upper-shackle/corrosion": 0.7430593103448276,
+    "polymer-insulator-upper-shackle/rust": 0.7756363636363637,
+    "vari-grip/bird-nest": 0.5609050279329609,
+    "vari-grip/rust": 0.7803186440677966,
+    "yoke-suspension/rust": 0.7046237288135593
+   }
+  ],
+  "k10": [
+   {
+    "glass-insulator/missing-cap": 0.822895652173913,
+    "lightning-rod-suspension/rust": 0.7692333333333333,
+    "polymer-insulator-upper-shackle/corrosion": 0.7608676056338028,
+    "polymer-insulator-upper-shackle/rust": 0.437,
+    "vari-grip/bird-nest": 0.8618488372093023,
+    "vari-grip/rust": 0.6653428571428571,
+    "yoke-suspension/rust": 0.7158357142857142
+   },
+   {
+    "glass-insulator/missing-cap": 0.8571333333333333,
+    "lightning-rod-suspension/rust": 0.62092,
+    "polymer-insulator-upper-shackle/corrosion": 0.5442450704225352,
+    "polymer-insulator-upper-shackle/rust": 0.8256,
+    "vari-grip/bird-nest": 0.4556220930232558,
+    "vari-grip/rust": 0.4715,
+    "yoke-suspension/rust": 0.7656
+   },
+   {
+    "glass-insulator/missing-cap": 0.7910347826086956,
+    "lightning-rod-suspension/rust": 0.6372,
+    "polymer-insulator-upper-shackle/corrosion": 0.7026901408450704,
+    "polymer-insulator-upper-shackle/rust": 0.8348,
+    "vari-grip/bird-nest": 0.35057558139534883,
+    "vari-grip/rust": 0.29445,
+    "yoke-suspension/rust": 0.5295642857142857
+   }
+  ]
+ }
+}

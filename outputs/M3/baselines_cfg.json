@@ -1,0 +1,32 @@
+{
+ "imgsz": 320,
+ "preprocess": "Resize((320,320), antialias) + ImageNet mean/std 归一化 (方图, 与本方案一致)",
+ "patchcore": {
+  "backbone": "timm:wide_resnet50_2.racm_in1k",
+  "layers": [
+   "layer2",
+   "layer3"
+  ],
+  "coreset_sampling_ratio": 0.1,
+  "num_neighbors": 9,
+  "epochs": 1
+ },
+ "padim": {
+  "backbone": "timm:resnet18.a1_in1k",
+  "layers": [
+   "layer1",
+   "layer2",
+   "layer3"
+  ],
+  "epochs": 1
+ },
+ "efficientad": {
+  "model_size": "small",
+  "total_train_steps": 4000,
+  "note": "论文默认 70000 步; 少样本协议下统一固定 4000 步 (a priori, 对全部 k/种子/资产一致, 不针对结果调参)"
+ },
+ "support_source": "选项A (2026-09-17 人工裁决): 该资产全部 good 裁剪 (defect_supervised/<asset>/{train,val}/good)。原冻结规则 (仅非查询 train/good) 因 normal_query 消耗 good 池而不可行 (非查询池=26/1/2/3/4654), 详见 outputs/M3/support_pool_amendment.md",
+ "support_selection": "rng = np.random.default_rng(int(sha256('insplad-fd-ad-support-<asset>-k<k>-s<seed>')[:8],16)); 从排序文件名池 (train∪val good) 抽 k 张",
+ "support_leakage_policy": "硬红线: 不得命中 defect/kshot 冻结条目 (已验证与 good 池零交集); 与 normal_query 的重叠允许并逐配置登记 (normal_query_overlap); 偏差方向: 有利 AD 基线, 对本方案保守",
+ "auroc_scoring": "anomalib 图像级 anomaly score (pred_score); 缺陷查询 vs 同资产正常查询"
+}

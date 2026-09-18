@@ -1,0 +1,136 @@
+{
+ "weights": "/root/autodl-tmp/runs/yolov8n_det/weights/best.pt",
+ "weights_sha256": "ea1526c29d4afcfb83cbc2a8d3eb48f498c380082d2a4dfbcc17d0b9e9c425fe",
+ "input_size": 320,
+ "model10_output_layer": 9,
+ "model10_output": {
+  "layer": 9,
+  "type": "SPPF",
+  "channels": 256,
+  "spatial": [
+   10,
+   10
+  ],
+  "stride": 32
+ },
+ "actual_m2_v0_feature": {
+  "layer": 9,
+  "name": "SPPF (P5)",
+  "stride": 32,
+  "channels": 256,
+  "note": "M2 v0 实际用 model.model[:10] 末层输出做 GAP。M2 报告的 'P3 (stride-8)' 标注与实现不符——实际为 stride-32 P5。M2 产物不修改, 以 actual-M2-v0 登记并在 M3 报告中披露。"
+ },
+ "p3_layer": {
+  "layer": 3,
+  "type": "Conv",
+  "channels": 64,
+  "spatial": [
+   40,
+   40
+  ],
+  "stride": 8
+ },
+ "p3_stride_verified": 1,
+ "all_layers": [
+  {
+   "layer": 0,
+   "type": "Conv",
+   "channels": 16,
+   "spatial": [
+    160,
+    160
+   ],
+   "stride": 2
+  },
+  {
+   "layer": 1,
+   "type": "Conv",
+   "channels": 32,
+   "spatial": [
+    80,
+    80
+   ],
+   "stride": 4
+  },
+  {
+   "layer": 2,
+   "type": "C2f",
+   "channels": 32,
+   "spatial": [
+    80,
+    80
+   ],
+   "stride": 4
+  },
+  {
+   "layer": 3,
+   "type": "Conv",
+   "channels": 64,
+   "spatial": [
+    40,
+    40
+   ],
+   "stride": 8
+  },
+  {
+   "layer": 4,
+   "type": "C2f",
+   "channels": 64,
+   "spatial": [
+    40,
+    40
+   ],
+   "stride": 8
+  },
+  {
+   "layer": 5,
+   "type": "Conv",
+   "channels": 128,
+   "spatial": [
+    20,
+    20
+   ],
+   "stride": 16
+  },
+  {
+   "layer": 6,
+   "type": "C2f",
+   "channels": 128,
+   "spatial": [
+    20,
+    20
+   ],
+   "stride": 16
+  },
+  {
+   "layer": 7,
+   "type": "Conv",
+   "channels": 256,
+   "spatial": [
+    10,
+    10
+   ],
+   "stride": 32
+  },
+  {
+   "layer": 8,
+   "type": "C2f",
+   "channels": 256,
+   "spatial": [
+    10,
+    10
+   ],
+   "stride": 32
+  },
+  {
+   "layer": 9,
+   "type": "SPPF",
+   "channels": 256,
+   "spatial": [
+    10,
+    10
+   ],
+   "stride": 32
+  }
+ ]
+}
