@@ -32,7 +32,11 @@
   "support_leakage_policy": "硬红线: 不得命中 defect/kshot 冻结条目 (已验证与 good 池零交集); 与 normal_query 的重叠允许并逐配置登记 (normal_query_overlap); 偏差方向: 有利 AD 基线, 对本方案保守",
   "auroc_scoring": "anomalib 图像级 anomaly score (pred_score); 缺陷查询 vs 同资产正常查询"
  },
- "methods_completed": [],
+ "methods_completed": [
+  "patchcore",
+  "padim",
+  "efficientad"
+ ],
  "methods_attempted": [
   "patchcore",
   "padim",
@@ -55,8 +59,14 @@
      "normal_query_overlap": [
       "Fotos 30-11-2020_DJI_0085_cadeia_isolador_vidro_2839.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.6330599721059972,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 56.2
     },
     "glass-insulator_k1_s1": {
      "support": [
@@ -69,8 +79,14 @@
      "normal_query_overlap": [
       "Fotos 03-12-2020_DJI_0278_cadeia_isolador_vidro_833.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.798510460251046,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.4
     },
     "glass-insulator_k1_s2": {
      "support": [
@@ -83,8 +99,14 @@
      "normal_query_overlap": [
       "Fotos 02-12-2020_DJI_0013_cadeia_isolador_vidro_663.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.7909986052998605,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 56.5
     },
     "glass-insulator_k5_s0": {
      "support": [
@@ -109,8 +131,14 @@
       "Fotos 26-11-2020_DJI_0501_cadeia_isolador_vidro_1998.jpg",
       "Fotos 27-11-2020_DJI_0144_cadeia_isolador_vidro_2538.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.8199659574468086,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 56.5
     },
     "glass-insulator_k5_s1": {
      "support": [
@@ -135,8 +163,14 @@
       "Fotos 03-12-2020_DJI_0260_cadeia_isolador_vidro_819.jpg",
       "Fotos 30-11-2020_DJI_0133_cadeia_isolador_vidro_2894.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.8062695035460993,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 55.4
     },
     "glass-insulator_k5_s2": {
      "support": [
@@ -161,8 +195,14 @@
       "Fotos 03-12-2020_DJI_0569_cadeia_isolador_vidro_706.jpg",
       "Fotos 30-11-2020_DJI_0307_cadeia_isolador_vidro_2748.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.8222297872340426,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 55.4
     },
     "glass-insulator_k10_s0": {
      "support": [
@@ -202,8 +242,14 @@
       "Fotos 30-11-2020_DJI_0236_cadeia_isolador_vidro_2777.jpg",
       "Fotos 30-11-2020_DJI_0314_cadeia_isolador_vidro_2754.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.8459275362318841,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 55.1
     },
     "glass-insulator_k10_s1": {
      "support": [
@@ -243,8 +289,14 @@
       "Fotos 30-11-2020_DJI_0531_cadeia_isolador_vidro_2675.jpg",
       "Fotos 07-12-2020_DJI_0246_cadeia_isolador_vidro_1313.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.8520347826086957,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.0
     },
     "glass-insulator_k10_s2": {
      "support": [
@@ -284,8 +336,14 @@
       "Fotos 30-11-2020_DJI_0111_cadeia_isolador_vidro_2869.jpg",
       "Fotos 30-11-2020_DJI_0207_cadeia_isolador_vidro_2823.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.8509797101449276,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 56.0
     },
     "lightning-rod-suspension_k1_s0": {
      "support": [
@@ -298,8 +356,14 @@
      "normal_query_overlap": [
       "Fotos 21-10-2020_DJI_0369_suspensao_para_raio_543.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.59634250764526,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 29.3
     },
     "lightning-rod-suspension_k1_s1": {
      "support": [
@@ -312,8 +376,14 @@
      "normal_query_overlap": [
       "Fotos 18-11-2020_DJI_0086_suspensao_para_raio_381.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.5839204892966361,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.3
     },
     "lightning-rod-suspension_k1_s2": {
      "support": [
@@ -326,8 +396,14 @@
      "normal_query_overlap": [
       "Fotos 27-11-2020_DJI_0446_suspensao_para_raio_672.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.6192721712538226,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.3
     },
     "lightning-rod-suspension_k5_s0": {
      "support": [
@@ -352,8 +428,14 @@
       "Fotos 01-12-2020_DJI_0528_suspensao_para_raio_15.jpg",
       "Fotos 20-11-2020_DJI_0244_suspensao_para_raio_492.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.775079365079365,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.3
     },
     "lightning-rod-suspension_k5_s1": {
      "support": [
@@ -378,8 +460,14 @@
       "Fotos 19-11-2020_DJI_0195_suspensao_para_raio_392.jpg",
       "Fotos 24-11-2020_DJI_0355_suspensao_para_raio_619.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.7825460317460318,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.2
     },
     "lightning-rod-suspension_k5_s2": {
      "support": [
@@ -404,8 +492,14 @@
       "Fotos 19-10-2020_DJI_0028_suspensao_para_raio_8.jpg",
       "Fotos 18-11-2020_DJI_0142_suspensao_para_raio_356.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8108190476190477,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.5
     },
     "lightning-rod-suspension_k10_s0": {
      "support": [
@@ -445,8 +539,14 @@
       "Fotos 20-11-2020_DJI_0126_suspensao_para_raio_522.jpg",
       "Fotos 24-11-2020_DJI_0537_suspensao_para_raio_616.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8268266666666667,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.1
     },
     "lightning-rod-suspension_k10_s1": {
      "support": [
@@ -486,8 +586,14 @@
       "Fotos 20-10-2020_DJI_0110_suspensao_para_raio_444.jpg",
       "Fotos 20-11-2020_DJI_0254_suspensao_para_raio_496.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8543,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.3
     },
     "lightning-rod-suspension_k10_s2": {
      "support": [
@@ -527,8 +633,14 @@
       "Fotos 20-11-2020_DJI_0302_suspensao_para_raio_491.jpg",
       "Fotos 23-11-2020_DJI_0218_suspensao_para_raio_599.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8676,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 34.6
     },
     "polymer-insulator-upper-shackle_k1_s0": {
      "support": [
@@ -541,8 +653,19 @@
      "normal_query_overlap": [
       "Fotos 30-11-2020_DJI_0119_manilha_isolador_superior_1679.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5464341926729986,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.4786666666666667,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 45.0
     },
     "polymer-insulator-upper-shackle_k1_s1": {
      "support": [
@@ -555,8 +678,19 @@
      "normal_query_overlap": [
       "Fotos 21-10-2020_DJI_0577_manilha_isolador_superior_1338.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.47210854816824965,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.4954,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 44.3
     },
     "polymer-insulator-upper-shackle_k1_s2": {
      "support": [
@@ -569,8 +703,19 @@
      "normal_query_overlap": [
       "Fotos 17-11-2020_DJI_0073_manilha_isolador_superior_1118.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5926838534599729,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5494666666666667,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 44.2
     },
     "polymer-insulator-upper-shackle_k5_s0": {
      "support": [
@@ -595,8 +740,19 @@
       "Fotos 20-10-2020_DJI_0229_manilha_isolador_superior_1296.jpg",
       "Fotos 30-11-2020_DJI_0422_manilha_isolador_superior_1647.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.773528275862069,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6821818181818182,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 43.9
     },
     "polymer-insulator-upper-shackle_k5_s1": {
      "support": [
@@ -620,8 +776,19 @@
       "Fotos 03-12-2020_DJI_0504_manilha_isolador_superior_270.jpg",
       "Fotos 20-10-2020_DJI_0226_manilha_isolador_superior_1293.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.7744055172413793,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6838181818181818,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 44.4
     },
     "polymer-insulator-upper-shackle_k5_s2": {
      "support": [
@@ -645,8 +812,19 @@
       "Fotos 14-12-2020_DJI_0571_manilha_isolador_superior_957.jpg",
       "Fotos 21-10-2020_DJI_0577_manilha_isolador_superior_1338.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.838088275862069,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.787,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 44.5
     },
     "polymer-insulator-upper-shackle_k10_s0": {
      "support": [
@@ -685,8 +863,19 @@
       "Fotos 19-11-2020_DJI_0024_manilha_isolador_superior_1253.jpg",
       "Fotos 23-11-2020_DJI_0012_manilha_isolador_superior_1456.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.7561774647887324,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.662,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 43.0
     },
     "polymer-insulator-upper-shackle_k10_s1": {
      "support": [
@@ -725,8 +914,19 @@
       "Fotos 27-11-2020_DJI_0545_manilha_isolador_superior_1563.jpg",
       "Fotos 30-11-2020_DJI_0422_manilha_isolador_superior_1647.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.8204281690140846,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.744,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 47.8
     },
     "polymer-insulator-upper-shackle_k10_s2": {
      "support": [
@@ -765,8 +965,19 @@
       "Fotos 20-10-2020_DJI_0226_manilha_isolador_superior_1293.jpg",
       "Fotos 30-11-2020_DJI_0119_manilha_isolador_superior_1679.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.8018929577464788,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6986,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 43.8
     },
     "vari-grip_k1_s0": {
      "support": [
@@ -779,8 +990,19 @@
      "normal_query_overlap": [
       "Fotos 04-12-2020_DJI_0997_vari_grip_138.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.8664540540540541,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.742974025974026,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 39.0
     },
     "vari-grip_k1_s1": {
      "support": [
@@ -793,8 +1015,19 @@
      "normal_query_overlap": [
       "Fotos 20-10-2020_DJI_0244_vari_grip_651.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6494702702702703,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.42187662337662335,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 38.6
     },
     "vari-grip_k1_s2": {
      "support": [
@@ -807,8 +1040,19 @@
      "normal_query_overlap": [
       "Fotos 08-12-2020_DJI_0451_vari_grip_224.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.822027027027027,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6781493506493507,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 39.7
     },
     "vari-grip_k5_s0": {
      "support": [
@@ -833,8 +1077,19 @@
       "Fotos 20-10-2020_DJI_0242_vari_grip_646.jpg",
       "Fotos 20-10-2020_DJI_0257_vari_grip_663.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.8786927374301676,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.7146576271186441,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 39.3
     },
     "vari-grip_k5_s1": {
      "support": [
@@ -859,8 +1114,19 @@
       "Fotos 03-12-2020_DJI_0459_vari_grip_114.jpg",
       "Fotos 10-12-2020_DJI_0184_vari_grip_299.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.8954748603351955,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6949627118644068,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 38.6
     },
     "vari-grip_k5_s2": {
      "support": [
@@ -885,8 +1151,19 @@
       "Fotos 09-12-2020_DJI_0147_vari_grip_256.jpg",
       "Fotos 22-10-2020_DJI_0866_vari_grip_728.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.8912458100558659,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.7468406779661017,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 40.2
     },
     "vari-grip_k10_s0": {
      "support": [
@@ -926,8 +1203,19 @@
       "Fotos 20-10-2020_DJI_0208_vari_grip_627.jpg",
       "Fotos 20-11-2020_DJI_0170_vari_grip_684.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.9431337209302325,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.83805,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 38.1
     },
     "vari-grip_k10_s1": {
      "support": [
@@ -967,8 +1255,19 @@
       "Fotos 20-10-2020_DJI_0210_vari_grip_630.jpg",
       "Fotos 20-10-2020_DJI_0339_vari_grip_606.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.949953488372093,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.8441071428571428,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 38.7
     },
     "vari-grip_k10_s2": {
      "support": [
@@ -1008,8 +1307,19 @@
       "Fotos 19-11-2020_DJI_0236_vari_grip_560.jpg",
       "Fotos 20-11-2020_DJI_0014_vari_grip_716.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.8860523255813954,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.77675,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 38.2
     },
     "yoke-suspension_k1_s0": {
      "support": [
@@ -1022,8 +1332,14 @@
      "normal_query_overlap": [
       "Fotos 10-12-2020_DJI_0015_amarra_balancim_2113.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7017785016286645,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 26.4
     },
     "yoke-suspension_k1_s1": {
      "support": [
@@ -1034,8 +1350,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7123648208469056,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 26.2
     },
     "yoke-suspension_k1_s2": {
      "support": [
@@ -1046,8 +1368,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7238762214983714,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 30.9
     },
     "yoke-suspension_k5_s0": {
      "support": [
@@ -1066,8 +1394,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8835728813559321,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.5
     },
     "yoke-suspension_k5_s1": {
      "support": [
@@ -1089,8 +1423,14 @@
       "Fotos 10-12-2020_DJI_0095_amarra_balancim_2058.jpg",
       "Fotos 26-11-2020_DJI_0486_amarra_balancim_5786.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8243796610169492,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.6
     },
     "yoke-suspension_k5_s2": {
      "support": [
@@ -1109,8 +1449,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8445288135593221,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.9
     },
     "yoke-suspension_k10_s0": {
      "support": [
@@ -1139,8 +1485,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8397,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.4
     },
     "yoke-suspension_k10_s1": {
      "support": [
@@ -1171,8 +1523,14 @@
      "normal_query_overlap": [
       "Fotos 09-12-2020_DJI_0082_amarra_balancim_1889.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8110714285714286,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.7
     },
     "yoke-suspension_k10_s2": {
      "support": [
@@ -1206,8 +1564,14 @@
       "Fotos 11-12-2020_DJI_0247_amarra_balancim_2198.jpg",
       "Fotos 17-12-2020_DJI_0338_amarra_balancim_3434.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8393214285714286,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 26.9
     }
    }
   },
@@ -1224,8 +1588,14 @@
      "normal_query_overlap": [
       "Fotos 30-11-2020_DJI_0085_cadeia_isolador_vidro_2839.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.899023709902371,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.1
     },
     "glass-insulator_k1_s1": {
      "support": [
@@ -1238,8 +1608,14 @@
      "normal_query_overlap": [
       "Fotos 03-12-2020_DJI_0278_cadeia_isolador_vidro_833.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.899023709902371,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.2
     },
     "glass-insulator_k1_s2": {
      "support": [
@@ -1252,8 +1628,14 @@
      "normal_query_overlap": [
       "Fotos 02-12-2020_DJI_0013_cadeia_isolador_vidro_663.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.899023709902371,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.2
     },
     "glass-insulator_k5_s0": {
      "support": [
@@ -1278,8 +1660,14 @@
       "Fotos 26-11-2020_DJI_0501_cadeia_isolador_vidro_1998.jpg",
       "Fotos 27-11-2020_DJI_0144_cadeia_isolador_vidro_2538.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.7825758865248227,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 53.7
     },
     "glass-insulator_k5_s1": {
      "support": [
@@ -1304,8 +1692,14 @@
       "Fotos 03-12-2020_DJI_0260_cadeia_isolador_vidro_819.jpg",
       "Fotos 30-11-2020_DJI_0133_cadeia_isolador_vidro_2894.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.7582751773049645,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 53.4
     },
     "glass-insulator_k5_s2": {
      "support": [
@@ -1330,8 +1724,14 @@
       "Fotos 03-12-2020_DJI_0569_cadeia_isolador_vidro_706.jpg",
       "Fotos 30-11-2020_DJI_0307_cadeia_isolador_vidro_2748.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.6801078014184397,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 53.9
     },
     "glass-insulator_k10_s0": {
      "support": [
@@ -1371,8 +1771,14 @@
       "Fotos 30-11-2020_DJI_0236_cadeia_isolador_vidro_2777.jpg",
       "Fotos 30-11-2020_DJI_0314_cadeia_isolador_vidro_2754.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.7157101449275363,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.5
     },
     "glass-insulator_k10_s1": {
      "support": [
@@ -1412,8 +1818,14 @@
       "Fotos 30-11-2020_DJI_0531_cadeia_isolador_vidro_2675.jpg",
       "Fotos 07-12-2020_DJI_0246_cadeia_isolador_vidro_1313.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.7819739130434783,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 55.1
     },
     "glass-insulator_k10_s2": {
      "support": [
@@ -1453,8 +1865,14 @@
       "Fotos 30-11-2020_DJI_0111_cadeia_isolador_vidro_2869.jpg",
       "Fotos 30-11-2020_DJI_0207_cadeia_isolador_vidro_2823.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.7447942028985507,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 54.1
     },
     "lightning-rod-suspension_k1_s0": {
      "support": [
@@ -1467,8 +1885,14 @@
      "normal_query_overlap": [
       "Fotos 21-10-2020_DJI_0369_suspensao_para_raio_543.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8851987767584097,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.6
     },
     "lightning-rod-suspension_k1_s1": {
      "support": [
@@ -1481,8 +1905,14 @@
      "normal_query_overlap": [
       "Fotos 18-11-2020_DJI_0086_suspensao_para_raio_381.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8851987767584097,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.5
     },
     "lightning-rod-suspension_k1_s2": {
      "support": [
@@ -1495,8 +1925,14 @@
      "normal_query_overlap": [
       "Fotos 27-11-2020_DJI_0446_suspensao_para_raio_672.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8851987767584097,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 32.8
     },
     "lightning-rod-suspension_k5_s0": {
      "support": [
@@ -1521,8 +1957,14 @@
       "Fotos 01-12-2020_DJI_0528_suspensao_para_raio_15.jpg",
       "Fotos 20-11-2020_DJI_0244_suspensao_para_raio_492.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.7092,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.5
     },
     "lightning-rod-suspension_k5_s1": {
      "support": [
@@ -1547,8 +1989,14 @@
       "Fotos 19-11-2020_DJI_0195_suspensao_para_raio_392.jpg",
       "Fotos 24-11-2020_DJI_0355_suspensao_para_raio_619.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.7281460317460318,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.5
     },
     "lightning-rod-suspension_k5_s2": {
      "support": [
@@ -1573,8 +2021,14 @@
       "Fotos 19-10-2020_DJI_0028_suspensao_para_raio_8.jpg",
       "Fotos 18-11-2020_DJI_0142_suspensao_para_raio_356.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.8033206349206349,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.3
     },
     "lightning-rod-suspension_k10_s0": {
      "support": [
@@ -1614,8 +2068,14 @@
       "Fotos 20-11-2020_DJI_0126_suspensao_para_raio_522.jpg",
       "Fotos 24-11-2020_DJI_0537_suspensao_para_raio_616.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.73662,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 28.0
     },
     "lightning-rod-suspension_k10_s1": {
      "support": [
@@ -1655,8 +2115,14 @@
       "Fotos 20-10-2020_DJI_0110_suspensao_para_raio_444.jpg",
       "Fotos 20-11-2020_DJI_0254_suspensao_para_raio_496.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.7338333333333333,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.5
     },
     "lightning-rod-suspension_k10_s2": {
      "support": [
@@ -1696,8 +2162,14 @@
       "Fotos 20-11-2020_DJI_0302_suspensao_para_raio_491.jpg",
       "Fotos 23-11-2020_DJI_0218_suspensao_para_raio_599.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.76912,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 27.8
     },
     "polymer-insulator-upper-shackle_k1_s0": {
      "support": [
@@ -1710,8 +2182,19 @@
      "normal_query_overlap": [
       "Fotos 30-11-2020_DJI_0119_manilha_isolador_superior_1679.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.8933134328358209,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6782,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 42.7
     },
     "polymer-insulator-upper-shackle_k1_s1": {
      "support": [
@@ -1724,8 +2207,19 @@
      "normal_query_overlap": [
       "Fotos 21-10-2020_DJI_0577_manilha_isolador_superior_1338.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.8933134328358209,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6782,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 44.3
     },
     "polymer-insulator-upper-shackle_k1_s2": {
      "support": [
@@ -1738,8 +2232,19 @@
      "normal_query_overlap": [
       "Fotos 17-11-2020_DJI_0073_manilha_isolador_superior_1118.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.8933134328358209,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6782,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 42.5
     },
     "polymer-insulator-upper-shackle_k5_s0": {
      "support": [
@@ -1764,8 +2269,19 @@
       "Fotos 20-10-2020_DJI_0229_manilha_isolador_superior_1296.jpg",
       "Fotos 30-11-2020_DJI_0422_manilha_isolador_superior_1647.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.6926151724137931,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6795454545454546,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 42.7
     },
     "polymer-insulator-upper-shackle_k5_s1": {
      "support": [
@@ -1789,8 +2305,19 @@
       "Fotos 03-12-2020_DJI_0504_manilha_isolador_superior_270.jpg",
       "Fotos 20-10-2020_DJI_0226_manilha_isolador_superior_1293.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.6781489655172414,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.7385454545454545,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 43.9
     },
     "polymer-insulator-upper-shackle_k5_s2": {
      "support": [
@@ -1814,8 +2341,19 @@
       "Fotos 14-12-2020_DJI_0571_manilha_isolador_superior_957.jpg",
       "Fotos 21-10-2020_DJI_0577_manilha_isolador_superior_1338.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.6781848275862069,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6715454545454546,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 43.8
     },
     "polymer-insulator-upper-shackle_k10_s0": {
      "support": [
@@ -1854,8 +2392,19 @@
       "Fotos 19-11-2020_DJI_0024_manilha_isolador_superior_1253.jpg",
       "Fotos 23-11-2020_DJI_0012_manilha_isolador_superior_1456.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.6754985915492958,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6272,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 42.3
     },
     "polymer-insulator-upper-shackle_k10_s1": {
      "support": [
@@ -1894,8 +2443,19 @@
       "Fotos 27-11-2020_DJI_0545_manilha_isolador_superior_1563.jpg",
       "Fotos 30-11-2020_DJI_0422_manilha_isolador_superior_1647.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.6636169014084508,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5988,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 41.8
     },
     "polymer-insulator-upper-shackle_k10_s2": {
      "support": [
@@ -1934,8 +2494,19 @@
       "Fotos 20-10-2020_DJI_0226_manilha_isolador_superior_1293.jpg",
       "Fotos 30-11-2020_DJI_0119_manilha_isolador_superior_1679.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.8017633802816901,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.8076,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 41.2
     },
     "vari-grip_k1_s0": {
      "support": [
@@ -1948,8 +2519,19 @@
      "normal_query_overlap": [
       "Fotos 04-12-2020_DJI_0997_vari_grip_138.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.9098432432432433,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.8722142857142857,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.2
     },
     "vari-grip_k1_s1": {
      "support": [
@@ -1962,8 +2544,19 @@
      "normal_query_overlap": [
       "Fotos 20-10-2020_DJI_0244_vari_grip_651.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.9098432432432433,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.8722142857142857,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.0
     },
     "vari-grip_k1_s2": {
      "support": [
@@ -1976,8 +2569,19 @@
      "normal_query_overlap": [
       "Fotos 08-12-2020_DJI_0451_vari_grip_224.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.9098432432432433,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.8722142857142857,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.4
     },
     "vari-grip_k5_s0": {
      "support": [
@@ -2002,8 +2606,19 @@
       "Fotos 20-10-2020_DJI_0242_vari_grip_646.jpg",
       "Fotos 20-10-2020_DJI_0257_vari_grip_663.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.5246201117318435,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.5347389830508474,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.7
     },
     "vari-grip_k5_s1": {
      "support": [
@@ -2028,8 +2643,19 @@
       "Fotos 03-12-2020_DJI_0459_vari_grip_114.jpg",
       "Fotos 10-12-2020_DJI_0184_vari_grip_299.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6129720670391061,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6364474576271186,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.1
     },
     "vari-grip_k5_s2": {
      "support": [
@@ -2054,8 +2680,19 @@
       "Fotos 09-12-2020_DJI_0147_vari_grip_256.jpg",
       "Fotos 22-10-2020_DJI_0866_vari_grip_728.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6249888268156425,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.5884677966101695,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.8
     },
     "vari-grip_k10_s0": {
      "support": [
@@ -2095,8 +2732,19 @@
       "Fotos 20-10-2020_DJI_0208_vari_grip_627.jpg",
       "Fotos 20-11-2020_DJI_0170_vari_grip_684.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6115406976744187,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6211,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 36.9
     },
     "vari-grip_k10_s1": {
      "support": [
@@ -2136,8 +2784,19 @@
       "Fotos 20-10-2020_DJI_0210_vari_grip_630.jpg",
       "Fotos 20-10-2020_DJI_0339_vari_grip_606.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.7611976744186046,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.7076,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.4
     },
     "vari-grip_k10_s2": {
      "support": [
@@ -2177,8 +2836,19 @@
       "Fotos 19-11-2020_DJI_0236_vari_grip_560.jpg",
       "Fotos 20-11-2020_DJI_0014_vari_grip_716.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.5867674418604651,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.5441214285714285,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 37.8
     },
     "yoke-suspension_k1_s0": {
      "support": [
@@ -2191,8 +2861,14 @@
      "normal_query_overlap": [
       "Fotos 10-12-2020_DJI_0015_amarra_balancim_2113.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8717980456026059,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.9
     },
     "yoke-suspension_k1_s1": {
      "support": [
@@ -2203,8 +2879,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8717980456026059,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.3
     },
     "yoke-suspension_k1_s2": {
      "support": [
@@ -2215,8 +2897,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8717980456026059,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.4
     },
     "yoke-suspension_k5_s0": {
      "support": [
@@ -2235,8 +2923,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7716881355932204,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 25.8
     },
     "yoke-suspension_k5_s1": {
      "support": [
@@ -2258,8 +2952,14 @@
       "Fotos 10-12-2020_DJI_0095_amarra_balancim_2058.jpg",
       "Fotos 26-11-2020_DJI_0486_amarra_balancim_5786.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8072203389830509,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 24.4
     },
     "yoke-suspension_k5_s2": {
      "support": [
@@ -2278,8 +2978,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.8050169491525424,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 29.6
     },
     "yoke-suspension_k10_s0": {
      "support": [
@@ -2308,8 +3014,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7648928571428572,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 24.1
     },
     "yoke-suspension_k10_s1": {
      "support": [
@@ -2340,8 +3052,14 @@
      "normal_query_overlap": [
       "Fotos 09-12-2020_DJI_0082_amarra_balancim_1889.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7868785714285714,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 23.8
     },
     "yoke-suspension_k10_s2": {
      "support": [
@@ -2375,8 +3093,14 @@
       "Fotos 11-12-2020_DJI_0247_amarra_balancim_2198.jpg",
       "Fotos 17-12-2020_DJI_0338_amarra_balancim_3434.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.7541,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 24.5
     }
    }
   },
@@ -2393,8 +3117,14 @@
      "normal_query_overlap": [
       "Fotos 30-11-2020_DJI_0085_cadeia_isolador_vidro_2839.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.4181478382147838,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 1040.3
     },
     "glass-insulator_k1_s1": {
      "support": [
@@ -2407,8 +3137,14 @@
      "normal_query_overlap": [
       "Fotos 03-12-2020_DJI_0278_cadeia_isolador_vidro_833.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.6610125523012552,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 374.5
     },
     "glass-insulator_k1_s2": {
      "support": [
@@ -2421,8 +3157,14 @@
      "normal_query_overlap": [
       "Fotos 02-12-2020_DJI_0013_cadeia_isolador_vidro_663.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.47748117154811714,
+       "n_defect": 717,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 893.2
     },
     "glass-insulator_k5_s0": {
      "support": [
@@ -2447,8 +3189,14 @@
       "Fotos 26-11-2020_DJI_0501_cadeia_isolador_vidro_1998.jpg",
       "Fotos 27-11-2020_DJI_0144_cadeia_isolador_vidro_2538.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.5155234042553192,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 861.2
     },
     "glass-insulator_k5_s1": {
      "support": [
@@ -2473,8 +3221,14 @@
       "Fotos 03-12-2020_DJI_0260_cadeia_isolador_vidro_819.jpg",
       "Fotos 30-11-2020_DJI_0133_cadeia_isolador_vidro_2894.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.5149191489361702,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 325.4
     },
     "glass-insulator_k5_s2": {
      "support": [
@@ -2499,8 +3253,14 @@
       "Fotos 03-12-2020_DJI_0569_cadeia_isolador_vidro_706.jpg",
       "Fotos 30-11-2020_DJI_0307_cadeia_isolador_vidro_2748.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.5202524822695035,
+       "n_defect": 705,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 864.7
     },
     "glass-insulator_k10_s0": {
      "support": [
@@ -2540,8 +3300,14 @@
       "Fotos 30-11-2020_DJI_0236_cadeia_isolador_vidro_2777.jpg",
       "Fotos 30-11-2020_DJI_0314_cadeia_isolador_vidro_2754.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.5517391304347826,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 585.7
     },
     "glass-insulator_k10_s1": {
      "support": [
@@ -2581,8 +3347,14 @@
       "Fotos 30-11-2020_DJI_0531_cadeia_isolador_vidro_2675.jpg",
       "Fotos 07-12-2020_DJI_0246_cadeia_isolador_vidro_1313.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.5166347826086957,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 867.7
     },
     "glass-insulator_k10_s2": {
      "support": [
@@ -2622,8 +3394,14 @@
       "Fotos 30-11-2020_DJI_0111_cadeia_isolador_vidro_2869.jpg",
       "Fotos 30-11-2020_DJI_0207_cadeia_isolador_vidro_2823.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "glass-insulator/missing-cap": {
+       "auroc": 0.6313072463768116,
+       "n_defect": 690,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 349.5
     },
     "lightning-rod-suspension_k1_s0": {
      "support": [
@@ -2636,8 +3414,14 @@
      "normal_query_overlap": [
       "Fotos 21-10-2020_DJI_0369_suspensao_para_raio_543.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.5334067278287462,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 274.3
     },
     "lightning-rod-suspension_k1_s1": {
      "support": [
@@ -2650,8 +3434,14 @@
      "normal_query_overlap": [
       "Fotos 18-11-2020_DJI_0086_suspensao_para_raio_381.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.5485993883792049,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 451.1
     },
     "lightning-rod-suspension_k1_s2": {
      "support": [
@@ -2664,8 +3454,14 @@
      "normal_query_overlap": [
       "Fotos 27-11-2020_DJI_0446_suspensao_para_raio_672.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.5577675840978593,
+       "n_defect": 327,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 370.2
     },
     "lightning-rod-suspension_k5_s0": {
      "support": [
@@ -2690,8 +3486,14 @@
       "Fotos 01-12-2020_DJI_0528_suspensao_para_raio_15.jpg",
       "Fotos 20-11-2020_DJI_0244_suspensao_para_raio_492.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.6450539682539682,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 616.3
     },
     "lightning-rod-suspension_k5_s1": {
      "support": [
@@ -2716,8 +3518,14 @@
       "Fotos 19-11-2020_DJI_0195_suspensao_para_raio_392.jpg",
       "Fotos 24-11-2020_DJI_0355_suspensao_para_raio_619.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.553415873015873,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 541.8
     },
     "lightning-rod-suspension_k5_s2": {
      "support": [
@@ -2742,8 +3550,15 @@
       "Fotos 19-10-2020_DJI_0028_suspensao_para_raio_8.jpg",
       "Fotos 18-11-2020_DJI_0142_suspensao_para_raio_356.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.606368253968254,
+       "n_defect": 315,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 611.2,
+     "repair": "2026-09-18 单配置补跑: 主运行中该配置因 /tmp/m3_anomalib 被清理 (ENOSPC 缓解操作) 触发 FileNotFoundError; 本补跑使用同一冻结种子 (sha256 派生 RNG) 与同一协议 (4000 步/batch=1/同一查询集), 支持样本经一致性校验与事故前记录逐条相同。"
     },
     "lightning-rod-suspension_k10_s0": {
      "support": [
@@ -2783,8 +3598,14 @@
       "Fotos 20-11-2020_DJI_0126_suspensao_para_raio_522.jpg",
       "Fotos 24-11-2020_DJI_0537_suspensao_para_raio_616.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.57716,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 679.3
     },
     "lightning-rod-suspension_k10_s1": {
      "support": [
@@ -2824,8 +3645,14 @@
       "Fotos 20-10-2020_DJI_0110_suspensao_para_raio_444.jpg",
       "Fotos 20-11-2020_DJI_0254_suspensao_para_raio_496.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.61298,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 580.2
     },
     "lightning-rod-suspension_k10_s2": {
      "support": [
@@ -2865,8 +3692,14 @@
       "Fotos 20-11-2020_DJI_0302_suspensao_para_raio_491.jpg",
       "Fotos 23-11-2020_DJI_0218_suspensao_para_raio_599.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "lightning-rod-suspension/rust": {
+       "auroc": 0.6448933333333333,
+       "n_defect": 300,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 661.9
     },
     "polymer-insulator-upper-shackle_k1_s0": {
      "support": [
@@ -2879,8 +3712,19 @@
      "normal_query_overlap": [
       "Fotos 30-11-2020_DJI_0119_manilha_isolador_superior_1679.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.4863663500678426,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5290666666666667,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 228.1
     },
     "polymer-insulator-upper-shackle_k1_s1": {
      "support": [
@@ -2893,8 +3737,19 @@
      "normal_query_overlap": [
       "Fotos 21-10-2020_DJI_0577_manilha_isolador_superior_1338.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.47357937584803256,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6535333333333333,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 332.7
     },
     "polymer-insulator-upper-shackle_k1_s2": {
      "support": [
@@ -2907,8 +3762,19 @@
      "normal_query_overlap": [
       "Fotos 17-11-2020_DJI_0073_manilha_isolador_superior_1118.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.43366892808683855,
+       "n_defect": 737,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.6578,
+       "n_defect": 30,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 196.4
     },
     "polymer-insulator-upper-shackle_k5_s0": {
      "support": [
@@ -2933,8 +3799,19 @@
       "Fotos 20-10-2020_DJI_0229_manilha_isolador_superior_1296.jpg",
       "Fotos 30-11-2020_DJI_0422_manilha_isolador_superior_1647.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5165710344827587,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5209090909090909,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 264.2
     },
     "polymer-insulator-upper-shackle_k5_s1": {
      "support": [
@@ -2958,8 +3835,19 @@
       "Fotos 03-12-2020_DJI_0504_manilha_isolador_superior_270.jpg",
       "Fotos 20-10-2020_DJI_0226_manilha_isolador_superior_1293.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5319889655172414,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5015454545454545,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 278.8
     },
     "polymer-insulator-upper-shackle_k5_s2": {
      "support": [
@@ -2983,8 +3871,19 @@
       "Fotos 14-12-2020_DJI_0571_manilha_isolador_superior_957.jpg",
       "Fotos 21-10-2020_DJI_0577_manilha_isolador_superior_1338.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5010234482758621,
+       "n_defect": 725,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5529090909090909,
+       "n_defect": 22,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 343.6
     },
     "polymer-insulator-upper-shackle_k10_s0": {
      "support": [
@@ -3023,8 +3922,19 @@
       "Fotos 19-11-2020_DJI_0024_manilha_isolador_superior_1253.jpg",
       "Fotos 23-11-2020_DJI_0012_manilha_isolador_superior_1456.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5913549295774648,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5554,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 286.2
     },
     "polymer-insulator-upper-shackle_k10_s1": {
      "support": [
@@ -3063,8 +3973,19 @@
       "Fotos 27-11-2020_DJI_0545_manilha_isolador_superior_1563.jpg",
       "Fotos 30-11-2020_DJI_0422_manilha_isolador_superior_1647.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.6043549295774648,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.627,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 278.3
     },
     "polymer-insulator-upper-shackle_k10_s2": {
      "support": [
@@ -3103,8 +4024,19 @@
       "Fotos 20-10-2020_DJI_0226_manilha_isolador_superior_1293.jpg",
       "Fotos 30-11-2020_DJI_0119_manilha_isolador_superior_1679.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "polymer-insulator-upper-shackle/corrosion": {
+       "auroc": 0.5793887323943662,
+       "n_defect": 710,
+       "n_normal": 500
+      },
+      "polymer-insulator-upper-shackle/rust": {
+       "auroc": 0.5524,
+       "n_defect": 10,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 549.0
     },
     "vari-grip_k1_s0": {
      "support": [
@@ -3117,8 +4049,19 @@
      "normal_query_overlap": [
       "Fotos 04-12-2020_DJI_0997_vari_grip_138.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6404594594594595,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6263181818181818,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 699.7
     },
     "vari-grip_k1_s1": {
      "support": [
@@ -3131,8 +4074,19 @@
      "normal_query_overlap": [
       "Fotos 20-10-2020_DJI_0244_vari_grip_651.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.5707567567567567,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6371688311688312,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 300.5
     },
     "vari-grip_k1_s2": {
      "support": [
@@ -3145,8 +4099,19 @@
      "normal_query_overlap": [
       "Fotos 08-12-2020_DJI_0451_vari_grip_224.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.7115027027027027,
+       "n_defect": 370,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6306493506493507,
+       "n_defect": 308,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 582.0
     },
     "vari-grip_k5_s0": {
      "support": [
@@ -3171,8 +4136,19 @@
       "Fotos 20-10-2020_DJI_0242_vari_grip_646.jpg",
       "Fotos 20-10-2020_DJI_0257_vari_grip_663.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6552849162011173,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6467254237288136,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 384.2
     },
     "vari-grip_k5_s1": {
      "support": [
@@ -3197,8 +4173,19 @@
       "Fotos 03-12-2020_DJI_0459_vari_grip_114.jpg",
       "Fotos 10-12-2020_DJI_0184_vari_grip_299.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6491731843575419,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6378915254237288,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 310.9
     },
     "vari-grip_k5_s2": {
      "support": [
@@ -3223,8 +4210,19 @@
       "Fotos 09-12-2020_DJI_0147_vari_grip_256.jpg",
       "Fotos 22-10-2020_DJI_0866_vari_grip_728.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6546201117318435,
+       "n_defect": 358,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6519593220338983,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 384.3
     },
     "vari-grip_k10_s0": {
      "support": [
@@ -3264,8 +4262,19 @@
       "Fotos 20-10-2020_DJI_0208_vari_grip_627.jpg",
       "Fotos 20-11-2020_DJI_0170_vari_grip_684.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6601918604651162,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.7112,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 392.0
     },
     "vari-grip_k10_s1": {
      "support": [
@@ -3305,8 +4314,19 @@
       "Fotos 20-10-2020_DJI_0210_vari_grip_630.jpg",
       "Fotos 20-10-2020_DJI_0339_vari_grip_606.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.5559127906976744,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6169642857142857,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 331.9
     },
     "vari-grip_k10_s2": {
      "support": [
@@ -3346,8 +4366,19 @@
       "Fotos 19-11-2020_DJI_0236_vari_grip_560.jpg",
       "Fotos 20-11-2020_DJI_0014_vari_grip_716.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "vari-grip/bird-nest": {
+       "auroc": 0.6137674418604652,
+       "n_defect": 344,
+       "n_normal": 500
+      },
+      "vari-grip/rust": {
+       "auroc": 0.6527714285714286,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 594.2
     },
     "yoke-suspension_k1_s0": {
      "support": [
@@ -3360,8 +4391,14 @@
      "normal_query_overlap": [
       "Fotos 10-12-2020_DJI_0015_amarra_balancim_2113.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.6535765472312703,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 299.9
     },
     "yoke-suspension_k1_s1": {
      "support": [
@@ -3372,8 +4409,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.5711530944625407,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 264.2
     },
     "yoke-suspension_k1_s2": {
      "support": [
@@ -3384,8 +4427,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.4716612377850163,
+       "n_defect": 307,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 192.0
     },
     "yoke-suspension_k5_s0": {
      "support": [
@@ -3404,8 +4453,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.5401016949152543,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 260.9
     },
     "yoke-suspension_k5_s1": {
      "support": [
@@ -3427,8 +4482,14 @@
       "Fotos 10-12-2020_DJI_0095_amarra_balancim_2058.jpg",
       "Fotos 26-11-2020_DJI_0486_amarra_balancim_5786.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.4878915254237288,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 257.1
     },
     "yoke-suspension_k5_s2": {
      "support": [
@@ -3447,8 +4508,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.4951593220338983,
+       "n_defect": 295,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 296.4
     },
     "yoke-suspension_k10_s0": {
      "support": [
@@ -3477,8 +4544,14 @@
      ],
      "defect_kshot_leakage": [],
      "normal_query_overlap": [],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.5584285714285714,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 232.7
     },
     "yoke-suspension_k10_s1": {
      "support": [
@@ -3509,8 +4582,14 @@
      "normal_query_overlap": [
       "Fotos 09-12-2020_DJI_0082_amarra_balancim_1889.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.5269857142857143,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 375.0
     },
     "yoke-suspension_k10_s2": {
      "support": [
@@ -3544,8 +4623,14 @@
       "Fotos 11-12-2020_DJI_0247_amarra_balancim_2198.jpg",
       "Fotos 17-12-2020_DJI_0338_amarra_balancim_3434.jpg"
      ],
-     "combos": {},
-     "error": "NameError: name 'Engine' is not defined"
+     "combos": {
+      "yoke-suspension/rust": {
+       "auroc": 0.5205571428571428,
+       "n_defect": 280,
+       "n_normal": 500
+      }
+     },
+     "train_seconds": 242.6
     }
    }
   }
