@@ -32,11 +32,7 @@
   "support_leakage_policy": "硬红线: 不得命中 defect/kshot 冻结条目 (已验证与 good 池零交集); 与 normal_query 的重叠允许并逐配置登记 (normal_query_overlap); 偏差方向: 有利 AD 基线, 对本方案保守",
   "auroc_scoring": "anomalib 图像级 anomaly score (pred_score); 缺陷查询 vs 同资产正常查询"
  },
- "methods_completed": [
-  "patchcore",
-  "padim",
-  "efficientad"
- ],
+ "methods_completed": 3,
  "methods_attempted": [
   "patchcore",
   "padim",
@@ -4634,5 +4630,10 @@
     }
    }
   }
- }
+ },
+ "methods_completed_list": [
+  "patchcore",
+  "padim",
+  "efficientad"
+ ]
 }

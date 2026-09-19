@@ -102,9 +102,11 @@ def main():
 
     # 3) 合并回 baselines_eval.json 并重算顶层状态字段
     ev["results"][METHOD]["configs"][KEY] = rec
-    ev["methods_completed"] = [m for m, r in ev["results"].items()
-                               if any(c.get("combos") and not c.get("error")
-                                      for c in r["configs"].values())]
+    completed = [m for m, r in ev["results"].items()
+                 if any(c.get("combos") and not c.get("error")
+                        for c in r["configs"].values())]
+    ev["methods_completed"] = len(completed)      # 合同验收项: 计数
+    ev["methods_completed_list"] = completed       # 名单保留
     ev["query_leakage_check_passed"] = 1 if all(
         not c.get("defect_kshot_leakage") and not str(c.get("error", "")).startswith("LEAKAGE")
         for r in ev["results"].values() for c in r["configs"].values()) else 0
