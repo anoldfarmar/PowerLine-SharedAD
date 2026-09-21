@@ -1,0 +1,37 @@
+# 草案 — 待人类批准后落位 plan/tasks/M3DIAG2-verify-v1.yaml
+task: M3DIAG2-verify-v1
+title: M3DIAG implementation verification and representation diagnostics
+gate_required: M3_PASSED
+human_gate_after: M3DIAG2
+parent: M3DIAG-local-corr-v1 (PASS, 829678f)
+budget: {wall_clock_h: 4, gpu_hours: 1}
+provenance: outputs/M3diag2/PROVENANCE.json
+code_prefix: scripts/m3diag2_*.py
+output_root: outputs/M3diag2/
+deliverables:
+  - outputs/M3diag2/REVIEW_APPENDIX.md
+  - outputs/M3diag2/bn_recal_config.json
+  - outputs/M3diag2/mapper_C_bnrecal.pt
+  - outputs/M3diag2/repr_diag.json
+  - outputs/M3diag2/diag_eval_bn.json
+  - outputs/M3diag2/raw_scores2/
+scope:
+  - 阶段二: A/B/C(/C2) 推理态表示诊断 (固定训练子集 0-1023 框, 不碰查询)
+  - 阶段三: mapper_C BN 运行统计重校准 (预注册单一方案) + C/C2 冻结管线各评测一次
+  - 审阅附录修正过强表述 (已完成, 见 REVIEW_APPENDIX.md)
+forbidden:
+  - 大规模训练 / 参数搜索 / 新增骨干 / 多层融合
+  - 按查询成绩挑选校准或检查方案
+  - 覆盖 mapper_C.pt 原权重 / 修改历史 M3/M3DIAG 任何产物
+acceptance:
+  - type: file_exists
+    path: outputs/M3diag2/REVIEW_APPENDIX.md
+  - type: file_exists
+    path: outputs/M3diag2/diag_eval_bn.json
+  - type: file_exists
+    path: outputs/M3diag2/repr_diag.json
+  - type: file_exists
+    path: outputs/M3diag2/bn_recal_config.json
+notes: |
+  BN 重校准是敏感性诊断, 非干净重训; 若提示值得追查, 另提案一次性修正代码的 C 重训
+  (scripts/m3diag2_train.py 已备好, 需新合同授权后执行), 不自动扩展为参数搜索.

@@ -1,0 +1,16 @@
+{
+ "task": "M3DIAG2-verify-v1",
+ "created": "2026-09-21",
+ "parent_commit": "829678f27c428e89314ba071bc54add0a47de26a",
+ "parent_task": "M3DIAG-local-corr-v1 (PASS, cc1ae81/829678f)",
+ "independent_dir": "outputs/M3diag2/",
+ "independent_scripts": "scripts/m3diag2_*.py",
+ "parent_artifact_hashes": {
+  "scripts/m3diag_train.py": "ed51bd5df3bb1605d689826b556f2d7033b1db11546b096c2cd72f468989d7b7",
+  "outputs/M3diag/mapper_C.pt": "dc0b9cdb28366edbc158dd75cb322f607fe718fd46ab9b18995b42c858f53f33",
+  "outputs/M3diag/mapper_B.pt": "7faf065aa2216ad763c41764df234cb9b8f24d66a6bc4409dfc4aa73f38f9438",
+  "outputs/M3diag/diag_eval.json": "f72a8938a7589c626769901fa026e50f260077befd227a90e152d21e3afa6e79",
+  "outputs/M3diag/frozen_protocol.json": "7fae14d1666186011167563aebdd28da8557eea13011bd404e098814ed89811a"
+ },
+ "notes": "历史 M3/M3DIAG 代码、权重、配置、结果保持原样; 修正与重校准产物仅写入 M3diag2 独立目录"
+}
