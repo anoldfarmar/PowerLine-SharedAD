@@ -1,0 +1,436 @@
+{
+ "new_seeds": [
+  3001,
+  3002,
+  3003,
+  3004,
+  3005
+ ],
+ "algorithm": "与 M3DIAG3 相同: 严格隔离池排序后 rng(seed) 无放回抽 10",
+ "assets": {
+  "glass-insulator": {
+   "isolated_pool": 21,
+   "groups": {
+    "3000": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 25-11-2020_DJI_0594_cadeia_isolador_vidro_1681.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0461_cadeia_isolador_vidro_2394.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 30-11-2020_DJI_0125_cadeia_isolador_vidro_2885.jpg"
+    ],
+    "3001": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0408_cadeia_isolador_vidro_2357.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg"
+    ],
+    "3002": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 25-11-2020_DJI_0598_cadeia_isolador_vidro_1685.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0198_cadeia_isolador_vidro_2478.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg"
+    ],
+    "3003": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0500_cadeia_isolador_vidro_1603.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 25-11-2020_DJI_0594_cadeia_isolador_vidro_1681.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 25-11-2020_DJI_0598_cadeia_isolador_vidro_1685.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg"
+    ],
+    "3004": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0198_cadeia_isolador_vidro_2478.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0408_cadeia_isolador_vidro_2357.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0554_cadeia_isolador_vidro_2274.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg"
+    ],
+    "3005": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0500_cadeia_isolador_vidro_1603.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0198_cadeia_isolador_vidro_2478.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0461_cadeia_isolador_vidro_2394.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0554_cadeia_isolador_vidro_2274.jpg"
+    ]
+   },
+   "group_meta": {
+    "3000": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg": "d24f4f00a785ea9119ef2a254cbc7ba6768eb48649baf49891b480d138e4af0e",
+      "Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg": "41b0e97e4a562fccc559dda5b994bdc4b271b8dcc5aa6b90f8204bfa0bc7a7b1",
+      "Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg": "4989b9e14d8398a8f3bea5bdc221e3883bc3dced31a1ecdb98dcd08af9533e5b",
+      "Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg": "366fccef9fcc9f4f137cc07170d29c102e89582bbd6b75ac224e5b9d4f3f3e98",
+      "Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg": "62432bdebfadd39b126c5b59fdbcf6117282d3bebc86a71d7344d794053887e2",
+      "Fotos 25-11-2020_DJI_0594_cadeia_isolador_vidro_1681.jpg": "375c4b645625ec5d2da95c90707e7f8b062776260dbf9998cf660e29387fa12c",
+      "Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg": "15ae91f25fffe73693f143a7811d57a14eb28ed836b0852ba50bb63fd3ce5d00",
+      "Fotos 27-11-2020_DJI_0461_cadeia_isolador_vidro_2394.jpg": "fc6146a8c2a82868ad7b1a840557d7078c49ca345db8615492af65d1dd1b729c",
+      "Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg": "9ee0f38ecf389c8b3e3a7a2e06cde6d6560a1dfc8c043f092a73cdd576dc5342",
+      "Fotos 30-11-2020_DJI_0125_cadeia_isolador_vidro_2885.jpg": "143daae29be810d65eaabc4afe1e52813c9bbca6886e805d7fee1f0567248b59"
+     }
+    },
+    "3001": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg": "9a9f8dbf17429a99f3294f17b7a2d0173f3743642b3909e14014381904cd7189",
+      "Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg": "41b0e97e4a562fccc559dda5b994bdc4b271b8dcc5aa6b90f8204bfa0bc7a7b1",
+      "Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg": "366fccef9fcc9f4f137cc07170d29c102e89582bbd6b75ac224e5b9d4f3f3e98",
+      "Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg": "62432bdebfadd39b126c5b59fdbcf6117282d3bebc86a71d7344d794053887e2",
+      "Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg": "b4abd512ace9b4b8283133aab3dc1cfb155dc37a4691a882f0a58c982132c519",
+      "Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg": "15ae91f25fffe73693f143a7811d57a14eb28ed836b0852ba50bb63fd3ce5d00",
+      "Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg": "39d6a00184a6028545abb32d44827eef051101fd68abda7fd5443c57d5e3af19",
+      "Fotos 27-11-2020_DJI_0408_cadeia_isolador_vidro_2357.jpg": "9bd485c3204e75c9deca9c0264844e5efe1d0dbee6089e1d129d9c334bbe9d00",
+      "Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg": "9ee0f38ecf389c8b3e3a7a2e06cde6d6560a1dfc8c043f092a73cdd576dc5342",
+      "Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg": "dc156cba1978b2b066a0c6297556b0633fcee6799b49737d2839f59d8c22c47b"
+     }
+    },
+    "3002": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg": "d24f4f00a785ea9119ef2a254cbc7ba6768eb48649baf49891b480d138e4af0e",
+      "Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg": "9a9f8dbf17429a99f3294f17b7a2d0173f3743642b3909e14014381904cd7189",
+      "Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg": "41b0e97e4a562fccc559dda5b994bdc4b271b8dcc5aa6b90f8204bfa0bc7a7b1",
+      "Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg": "366fccef9fcc9f4f137cc07170d29c102e89582bbd6b75ac224e5b9d4f3f3e98",
+      "Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg": "62432bdebfadd39b126c5b59fdbcf6117282d3bebc86a71d7344d794053887e2",
+      "Fotos 25-11-2020_DJI_0598_cadeia_isolador_vidro_1685.jpg": "1d807f3fb5d6062e60fa4851f0bdd51427cfd59b2c7cf4e5ff3820393b5ae141",
+      "Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg": "39d6a00184a6028545abb32d44827eef051101fd68abda7fd5443c57d5e3af19",
+      "Fotos 27-11-2020_DJI_0198_cadeia_isolador_vidro_2478.jpg": "f094aa16b0f02259026fd77122675aa78903f937028e7dcf6bb72556c2efb7d5",
+      "Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg": "9ee0f38ecf389c8b3e3a7a2e06cde6d6560a1dfc8c043f092a73cdd576dc5342",
+      "Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg": "dc156cba1978b2b066a0c6297556b0633fcee6799b49737d2839f59d8c22c47b"
+     }
+    },
+    "3003": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg": "d24f4f00a785ea9119ef2a254cbc7ba6768eb48649baf49891b480d138e4af0e",
+      "Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg": "9a9f8dbf17429a99f3294f17b7a2d0173f3743642b3909e14014381904cd7189",
+      "Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg": "41b0e97e4a562fccc559dda5b994bdc4b271b8dcc5aa6b90f8204bfa0bc7a7b1",
+      "Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg": "366fccef9fcc9f4f137cc07170d29c102e89582bbd6b75ac224e5b9d4f3f3e98",
+      "Fotos 21-10-2020_DJI_0500_cadeia_isolador_vidro_1603.jpg": "2479c24269a77991fbf1fb0e9116ceb9c3c522b535b46394948505450f756702",
+      "Fotos 25-11-2020_DJI_0594_cadeia_isolador_vidro_1681.jpg": "375c4b645625ec5d2da95c90707e7f8b062776260dbf9998cf660e29387fa12c",
+      "Fotos 25-11-2020_DJI_0598_cadeia_isolador_vidro_1685.jpg": "1d807f3fb5d6062e60fa4851f0bdd51427cfd59b2c7cf4e5ff3820393b5ae141",
+      "Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg": "b4abd512ace9b4b8283133aab3dc1cfb155dc37a4691a882f0a58c982132c519",
+      "Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg": "39d6a00184a6028545abb32d44827eef051101fd68abda7fd5443c57d5e3af19",
+      "Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg": "9ee0f38ecf389c8b3e3a7a2e06cde6d6560a1dfc8c043f092a73cdd576dc5342"
+     }
+    },
+    "3004": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg": "41b0e97e4a562fccc559dda5b994bdc4b271b8dcc5aa6b90f8204bfa0bc7a7b1",
+      "Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg": "4989b9e14d8398a8f3bea5bdc221e3883bc3dced31a1ecdb98dcd08af9533e5b",
+      "Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg": "366fccef9fcc9f4f137cc07170d29c102e89582bbd6b75ac224e5b9d4f3f3e98",
+      "Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg": "62432bdebfadd39b126c5b59fdbcf6117282d3bebc86a71d7344d794053887e2",
+      "Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg": "b4abd512ace9b4b8283133aab3dc1cfb155dc37a4691a882f0a58c982132c519",
+      "Fotos 27-11-2020_DJI_0198_cadeia_isolador_vidro_2478.jpg": "f094aa16b0f02259026fd77122675aa78903f937028e7dcf6bb72556c2efb7d5",
+      "Fotos 27-11-2020_DJI_0408_cadeia_isolador_vidro_2357.jpg": "9bd485c3204e75c9deca9c0264844e5efe1d0dbee6089e1d129d9c334bbe9d00",
+      "Fotos 27-11-2020_DJI_0554_cadeia_isolador_vidro_2274.jpg": "30d7c9cf22fc9c6cc0878bd433778fc6b7f334d0f472767285e8b38412d5872e",
+      "Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg": "9ee0f38ecf389c8b3e3a7a2e06cde6d6560a1dfc8c043f092a73cdd576dc5342",
+      "Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg": "dc156cba1978b2b066a0c6297556b0633fcee6799b49737d2839f59d8c22c47b"
+     }
+    },
+    "3005": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg": "d24f4f00a785ea9119ef2a254cbc7ba6768eb48649baf49891b480d138e4af0e",
+      "Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg": "9a9f8dbf17429a99f3294f17b7a2d0173f3743642b3909e14014381904cd7189",
+      "Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg": "41b0e97e4a562fccc559dda5b994bdc4b271b8dcc5aa6b90f8204bfa0bc7a7b1",
+      "Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg": "4989b9e14d8398a8f3bea5bdc221e3883bc3dced31a1ecdb98dcd08af9533e5b",
+      "Fotos 21-10-2020_DJI_0500_cadeia_isolador_vidro_1603.jpg": "2479c24269a77991fbf1fb0e9116ceb9c3c522b535b46394948505450f756702",
+      "Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg": "15ae91f25fffe73693f143a7811d57a14eb28ed836b0852ba50bb63fd3ce5d00",
+      "Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg": "39d6a00184a6028545abb32d44827eef051101fd68abda7fd5443c57d5e3af19",
+      "Fotos 27-11-2020_DJI_0198_cadeia_isolador_vidro_2478.jpg": "f094aa16b0f02259026fd77122675aa78903f937028e7dcf6bb72556c2efb7d5",
+      "Fotos 27-11-2020_DJI_0461_cadeia_isolador_vidro_2394.jpg": "fc6146a8c2a82868ad7b1a840557d7078c49ca345db8615492af65d1dd1b729c",
+      "Fotos 27-11-2020_DJI_0554_cadeia_isolador_vidro_2274.jpg": "30d7c9cf22fc9c6cc0878bd433778fc6b7f334d0f472767285e8b38412d5872e"
+     }
+    }
+   },
+   "overlap_matrix": {
+    "file": {
+     "3000-3001": 5,
+     "3000-3002": 5,
+     "3000-3003": 5,
+     "3000-3004": 5,
+     "3000-3005": 5,
+     "3001-3002": 7,
+     "3001-3003": 6,
+     "3001-3004": 7,
+     "3001-3005": 4,
+     "3002-3003": 7,
+     "3002-3004": 6,
+     "3002-3005": 5,
+     "3003-3004": 4,
+     "3003-3005": 5,
+     "3004-3005": 4
+    },
+    "frame": {
+     "3000-3001": 5,
+     "3000-3002": 5,
+     "3000-3003": 5,
+     "3000-3004": 5,
+     "3000-3005": 5,
+     "3001-3002": 7,
+     "3001-3003": 6,
+     "3001-3004": 7,
+     "3001-3005": 4,
+     "3002-3003": 7,
+     "3002-3004": 6,
+     "3002-3005": 5,
+     "3003-3004": 4,
+     "3003-3005": 5,
+     "3004-3005": 4
+    }
+   },
+   "disclosure": "glass 隔离池仅 21 张, 组间重叠不可避免, 多组不可视为独立数据集"
+  },
+  "yoke-suspension": {
+   "isolated_pool": 2964,
+   "groups": {
+    "3000": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 14-12-2020_DJI_0525_amarra_balancim_2503.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0802_amarra_balancim_1042.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0596_amarra_balancim_1556.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0015_amarra_balancim_1899.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0242_amarra_balancim_2005.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0027_amarra_balancim_2891.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0198_amarra_balancim_2773.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0735_amarra_balancim_4629.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0060_amarra_balancim_5212.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0229_amarra_balancim_5033.jpg"
+    ],
+    "3001": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0197_amarra_balancim_250.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0256_amarra_balancim_1971.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0023_amarra_balancim_2408.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0154_amarra_balancim_2654.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0293_amarra_balancim_2629.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0733_amarra_balancim_4627.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0188_amarra_balancim_5057.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0185_amarra_balancim_5403.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0451_amarra_balancim_5768.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0024_amarra_balancim_6494.jpg"
+    ],
+    "3002": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0113_amarra_balancim_326.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0102_amarra_balancim_892.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0340_amarra_balancim_804.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0170_amarra_balancim_2261.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0764_amarra_balancim_2464.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0352_amarra_balancim_3045.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0334_amarra_balancim_3423.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0096_amarra_balancim_3973.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0046_amarra_balancim_5194.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0561_amarra_balancim_5501.jpg"
+    ],
+    "3003": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0138_amarra_balancim_282.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0455_amarra_balancim_132.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0185_amarra_balancim_870.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0291_amarra_balancim_1720.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0092_amarra_balancim_2331.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-10-2020_DJI_0048_amarra_balancim_65.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0031_amarra_balancim_4460.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0354_amarra_balancim_4489.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0372_amarra_balancim_5542.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0311_amarra_balancim_6127.jpg"
+    ],
+    "3004": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0168_amarra_balancim_1311.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0555_amarra_balancim_1576.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0165_amarra_balancim_1822.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0226_amarra_balancim_1995.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0446_amarra_balancim_3019.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0153_amarra_balancim_3805.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0203_amarra_balancim_4892.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0473_amarra_balancim_5303.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0472_amarra_balancim_6367.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0520_amarra_balancim_6342.jpg"
+    ],
+    "3005": [
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 30-11-2020_DJI_0474_amarra_balancim_6371.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0016_amarra_balancim_641.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0863_amarra_balancim_1032.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0121_amarra_balancim_1340.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0260_amarra_balancim_2608.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-10-2020_DJI_0047_amarra_balancim_64.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0706_amarra_balancim_4601.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0106_amarra_balancim_5440.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0086_amarra_balancim_5898.jpg",
+     "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0444_amarra_balancim_6052.jpg"
+    ]
+   },
+   "group_meta": {
+    "3000": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 14-12-2020_DJI_0525_amarra_balancim_2503.jpg": "b84ef72abf4a925313a48c25e00d06963000620026c9b9f7b33c5938248d50ac",
+      "Fotos 04-12-2020_DJI_0802_amarra_balancim_1042.jpg": "fbe32561403c687bdcf0b7d5ce1906380eb7532d82b323f0ab32b37c48280e53",
+      "Fotos 08-12-2020_DJI_0596_amarra_balancim_1556.jpg": "3b46fdd19e95ac70183188ba7948230c706c3cae86938c9f30b46995abec260b",
+      "Fotos 09-12-2020_DJI_0015_amarra_balancim_1899.jpg": "b2ea3ea4f0133e21550db1fe7808160ea7be3b9c1bc39a46aaeeca32d18e2fb0",
+      "Fotos 10-12-2020_DJI_0242_amarra_balancim_2005.jpg": "3148631fd3f1ed07934bf2ecc283b48ea6d4c815b2a3d2ffc27eb71c0dc8f96c",
+      "Fotos 16-11-2020_DJI_0027_amarra_balancim_2891.jpg": "6c441c5b02a63994e34661b4085ed04aaab82cb2ec446b7537731e0376c1943f",
+      "Fotos 16-11-2020_DJI_0198_amarra_balancim_2773.jpg": "39759b2223953df72294dac748963061d7a69200b08fab2451888a2d56bb0315",
+      "Fotos 22-10-2020_DJI_0735_amarra_balancim_4629.jpg": "efa94d0366d5bd5aa3b12b94eec3ab9fd23eb2d0b6d01a7c34c175103c403d03",
+      "Fotos 23-11-2020_DJI_0060_amarra_balancim_5212.jpg": "de42fe7c0280bac92eb4efe69caec866080b69df645abc59659252472d316453",
+      "Fotos 23-11-2020_DJI_0229_amarra_balancim_5033.jpg": "7b98c602e7059d6e1b94ea6ed1851b6d3a413278a95bfbef0e507854c94ada87"
+     }
+    },
+    "3001": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 01-12-2020_DJI_0197_amarra_balancim_250.jpg": "8675f636bdd00153ea289b40a37d0a225833243878b7befd6d17a901ee381414",
+      "Fotos 10-12-2020_DJI_0256_amarra_balancim_1971.jpg": "c6a5f608793fe800da7d0df3f7c96e8b1eb7371dec52155ea6fed3a79fe706b5",
+      "Fotos 11-12-2020_DJI_0023_amarra_balancim_2408.jpg": "7ed5571a690d4c3a2c4390796de22a48bf125cd9f2b53e69595b7cdb34dda6af",
+      "Fotos 14-12-2020_DJI_0154_amarra_balancim_2654.jpg": "a1422a6af4f98bce18a6753323fcd89679bf337aacc90b1d75f5f34685460e6d",
+      "Fotos 14-12-2020_DJI_0293_amarra_balancim_2629.jpg": "bf5111e0961af88a1dc239f8f5558af1b58ced086fd9e3a1e8e8cbc9d6c7b114",
+      "Fotos 22-10-2020_DJI_0733_amarra_balancim_4627.jpg": "e72883ee68513d6233514de63d4b2069e1fc4ff09fd4d3bbd13d5719040025f3",
+      "Fotos 23-11-2020_DJI_0188_amarra_balancim_5057.jpg": "001b27fd28c4a87c1d32e74ef30692c8909b1b771b08b2ede9221d89482de5f7",
+      "Fotos 24-11-2020_DJI_0185_amarra_balancim_5403.jpg": "df2bb20e5659afe942d2092916a29aa896f55d3ed8d64822439f2c845fcad333",
+      "Fotos 26-11-2020_DJI_0451_amarra_balancim_5768.jpg": "58eeab2ba2abd32ef211bdd585cedd3c5deffa7dc65e7dfeed19c79e24113cde",
+      "Fotos 30-11-2020_DJI_0024_amarra_balancim_6494.jpg": "b528873843e201144ebb76f3afe937fc94ed68d0289a87e75bfd3f7d285add2d"
+     }
+    },
+    "3002": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 01-12-2020_DJI_0113_amarra_balancim_326.jpg": "e8bfda64ff2eceb2f124bb2960e659c24875a2b114c92ac83ada0330a6437af6",
+      "Fotos 03-12-2020_DJI_0102_amarra_balancim_892.jpg": "1bfa86bc1944741d9182f510880e03a1cc16530ab97263b80138043c476314cd",
+      "Fotos 03-12-2020_DJI_0340_amarra_balancim_804.jpg": "88367bad013c740a4fbc51ce917953c395559d63664eb2b24ae99436d626b872",
+      "Fotos 11-12-2020_DJI_0170_amarra_balancim_2261.jpg": "14d7f62a46f658ab5658ee413d1bcb13d6dddfa8956fe905fc15ab774fcbc0d7",
+      "Fotos 14-12-2020_DJI_0764_amarra_balancim_2464.jpg": "cbf2a609f31e3b1d0c4b98f89c37292a9012f81bb9f28f10d510eb7421a5de9e",
+      "Fotos 16-12-2020_DJI_0352_amarra_balancim_3045.jpg": "e49a48bb63c7aa32427b226b5049cd84160e2ff337f36ce4f4dff7dd1e391252",
+      "Fotos 17-12-2020_DJI_0334_amarra_balancim_3423.jpg": "d08d0bc2a17e2cce1e7818dd2ae68bf37b38ae8a8eab0b4b63e99de177fd9e3d",
+      "Fotos 20-10-2020_DJI_0096_amarra_balancim_3973.jpg": "d4b5df550f1c1f243d6da6863ad63808a767f8dba54c120fd0d29f9ab071f6ad",
+      "Fotos 23-11-2020_DJI_0046_amarra_balancim_5194.jpg": "c3457fdb5837f2fa38019b17175cd4e2c775ff2d6260c3dbad461dea99f6f750",
+      "Fotos 25-11-2020_DJI_0561_amarra_balancim_5501.jpg": "35f708aff07c16128a95f1bbc122bceed4f85a487062ad1a661355ebefbea9e4"
+     }
+    },
+    "3003": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 01-12-2020_DJI_0138_amarra_balancim_282.jpg": "bad9f37c674ffec2133b92274535bccebae449e349761286f2bafce05116f911",
+      "Fotos 01-12-2020_DJI_0455_amarra_balancim_132.jpg": "43319cb400ddd5bc484e14fe34a004a9215924da2658b6bbebbad047d7b259d6",
+      "Fotos 03-12-2020_DJI_0185_amarra_balancim_870.jpg": "14d0565102e5f81886155125b7f45111406a578ef8c6fb64ed5f890e0a876323",
+      "Fotos 09-12-2020_DJI_0291_amarra_balancim_1720.jpg": "7b4e73ee096f200ec9269b3b1423cc909a53802627d24d550581ceb7d0886b8a",
+      "Fotos 11-12-2020_DJI_0092_amarra_balancim_2331.jpg": "7116e0ce91321f435d1dce72cb831a15ac848ea525b12f2deb2034d93bbc0410",
+      "Fotos 19-10-2020_DJI_0048_amarra_balancim_65.jpg": "4adb72182b6fb6d4ce758309832b8244a0d1e42e7613e414057919488afc6589",
+      "Fotos 20-11-2020_DJI_0031_amarra_balancim_4460.jpg": "287bce6522c6262593875b50461ea08979c95107257e5826f1fecf6a82167123",
+      "Fotos 21-10-2020_DJI_0354_amarra_balancim_4489.jpg": "39dbea4713db85098902ff10be05eebac53362f4937b5736314a9dbc7539fee2",
+      "Fotos 25-11-2020_DJI_0372_amarra_balancim_5542.jpg": "0c813a21a2b59646ec25dd8deeb696d2d167ba13316720d2db2347567a67c3d9",
+      "Fotos 27-11-2020_DJI_0311_amarra_balancim_6127.jpg": "11933bcdefdae2b9a490e0cd5f4d77ae8acf55c0a9d2eb4842ffc87287520e1e"
+     }
+    },
+    "3004": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 07-12-2020_DJI_0168_amarra_balancim_1311.jpg": "8199d72e6633f87e568cd536d1a68fae7cdc5cb6b35fd67a23aa00cd3ceb580d",
+      "Fotos 08-12-2020_DJI_0555_amarra_balancim_1576.jpg": "5c030691209ff8ea55300d64016992163b4bbd056a6bbaf0c14c242ce0813bcc",
+      "Fotos 09-12-2020_DJI_0165_amarra_balancim_1822.jpg": "e459fe4b8845d46432057b3e4bf3b092bec2bf28cb9669849d4635d7f1232404",
+      "Fotos 10-12-2020_DJI_0226_amarra_balancim_1995.jpg": "91c98e35e81d3ab1d48c994f65190665a4138e2670b073d628be1aaf78440daa",
+      "Fotos 16-12-2020_DJI_0446_amarra_balancim_3019.jpg": "4620e6f1853373e4c83bf74511c400c7acf0cdd6efa3e51b6102420cbbf049b5",
+      "Fotos 19-11-2020_DJI_0153_amarra_balancim_3805.jpg": "bdb7046f6e91208c9bcd115cf574cf439db63c7d41ef67962c9c6e28eec27c0c",
+      "Fotos 23-10-2020_DJI_0203_amarra_balancim_4892.jpg": "6b68547c65db0c878bf2bcda4092869fef06cd1eeba4efcb94fde26111fb109c",
+      "Fotos 24-11-2020_DJI_0473_amarra_balancim_5303.jpg": "be8c707471d2e141016e7d2d707621dbd36dacfbae764459335c6e1c8a7bf6b8",
+      "Fotos 30-11-2020_DJI_0472_amarra_balancim_6367.jpg": "f60075c9cc7dbbcc4de862784428467444e3d29bc91523c0bc9b0671ad375acd",
+      "Fotos 30-11-2020_DJI_0520_amarra_balancim_6342.jpg": "53a331b646355800d176ac87ee4f66b8a44cf3a90e4e6156549e82fc022ac9fd"
+     }
+    },
+    "3005": {
+     "n": 10,
+     "independent_source_frames": 10,
+     "sha256": {
+      "Fotos 30-11-2020_DJI_0474_amarra_balancim_6371.jpg": "67fa2b342a87decd977f406b188e185419af85e9a5239911f5e6aff449238b02",
+      "Fotos 02-12-2020_DJI_0016_amarra_balancim_641.jpg": "bb40a95a7a13223db56b6a4ec9853de07bff801767d746e13c308ad2b8edb9d5",
+      "Fotos 04-12-2020_DJI_0863_amarra_balancim_1032.jpg": "476fee4aa5d4bf84ed3ce8f1d42b4816f70a16fd0e3fcb733e1bbad4d1e2241e",
+      "Fotos 07-12-2020_DJI_0121_amarra_balancim_1340.jpg": "bba33f719a90cd53746510eba8b98107e636532f94047199d35ec01a8313076f",
+      "Fotos 14-12-2020_DJI_0260_amarra_balancim_2608.jpg": "58bfa0d34c8ae1135b3701d75b918c3d0b8bb8cf48325c50d39300fe5083bb78",
+      "Fotos 19-10-2020_DJI_0047_amarra_balancim_64.jpg": "d11f148bc95440f0a30d64d5f407969a0a2c68b11a573af4dac3007dde35a264",
+      "Fotos 22-10-2020_DJI_0706_amarra_balancim_4601.jpg": "e8a7f2b1e9d6de1ec0d6b038d22fd14c9e6060d82aeeb3ff60f94994b3d938a0",
+      "Fotos 24-11-2020_DJI_0106_amarra_balancim_5440.jpg": "45fd99cd360bcaa13315caf79a37988453f38d447e3ed60985792e4a3dec65a5",
+      "Fotos 26-11-2020_DJI_0086_amarra_balancim_5898.jpg": "e2ee6d3405a38f59bc48ead6cad3989da8694c367a560e84e0e486f0a6c19fb9",
+      "Fotos 27-11-2020_DJI_0444_amarra_balancim_6052.jpg": "314e580ad17862567dec37e03fb05d5d35ff880b63e806fdb36f95bc786074b0"
+     }
+    }
+   },
+   "overlap_matrix": {
+    "file": {
+     "3000-3001": 0,
+     "3000-3002": 0,
+     "3000-3003": 0,
+     "3000-3004": 0,
+     "3000-3005": 0,
+     "3001-3002": 0,
+     "3001-3003": 0,
+     "3001-3004": 0,
+     "3001-3005": 0,
+     "3002-3003": 0,
+     "3002-3004": 0,
+     "3002-3005": 0,
+     "3003-3004": 0,
+     "3003-3005": 0,
+     "3004-3005": 0
+    },
+    "frame": {
+     "3000-3001": 0,
+     "3000-3002": 0,
+     "3000-3003": 0,
+     "3000-3004": 0,
+     "3000-3005": 0,
+     "3001-3002": 0,
+     "3001-3003": 0,
+     "3001-3004": 0,
+     "3001-3005": 0,
+     "3002-3003": 0,
+     "3002-3004": 0,
+     "3002-3005": 0,
+     "3003-3004": 0,
+     "3003-3005": 0,
+     "3004-3005": 0
+    }
+   },
+   "disclosure": "glass 隔离池仅 2964 张, 组间重叠不可避免, 多组不可视为独立数据集"
+  }
+ }
+}

@@ -1,0 +1,45 @@
+# 草案 v1 — 人类已授权执行 (简报明示"准备完整可审阅合同后按已有授权执行")
+task: M3DIAG4-refstab-v1
+title: normal-reference sampling stability of P1 (k10 primary, k5 pre-registered failure-scope control)
+status: active-draft
+gate_required: M3_PASSED
+human_gate_after: M3DIAG4
+parent: M3DIAG3-faultbank-p0p1-v1 (PASS, 9cffa83)
+budget: {wall_clock_h: 3, gpu_hours: 0.5}   # 预估: 特征提取~1min + 60配置评分~10min + 复现门~2min, 上限0.5h
+output_root: outputs/M3diag4/
+design:
+  unique_variable: 正常参照抽样种子 (3001-3005 新增; seed 3000 为历史组, 不混入主汇总)
+  fixed: mapper_B / 骨干 / 特征缓存 / 归一化 / 两组合 / 冻结支持种子 0-2 / k∈{5,10} /
+         参照库 256 向量 (coreset seed 0) / 正常距离降序保留前 50% (stable, 同分取低索引) /
+         故障库 256 向量同 coreset / 相同评分与查询集 / 既有同分与顺序实现细节不变
+  configs: 2 资产 × 2 k × 3 支持种子 × 5 参照组 = 60 项 P1
+  controls: P0 与 P-random 复用 M3DIAG3 逐图分数 (核验路径一致后复用, 不重复运行, 不计为新实验)
+repro_gate: 先以 seed 3000 复现原 P1, 与 M3DIAG3 P1 分数逐路径比对 max|diff|<=1e-4, 不过则停止查明
+sampling:
+  pool: 沿用已审计严格隔离候选池与原算法 (路径+源帧双排除, 排序后 rng 无放回抽 10)
+  seeds: [3001, 3002, 3003, 3004, 3005]
+  freeze: 名单+sha256+组间(文件/源帧)重叠矩阵在首次查询评测前落盘
+  disclosure: glass 候选仅 21 张, 多组抽样不可视为独立数据集; 组间允许重叠
+statistics:
+  - 固定支持种子时参照组间波动 (std over 5 组)
+  - 每参照组跨 3 支持种子的平均配对差 (P1-P0 与 P1-P-random 分列)
+  - 5 组均值/中位数/范围/正收益组数
+  - 每资产单列; k5 与 k10 完整并列, 保留负结果
+  - 不称 15 交叉配置为独立重复; 同源裁剪不作独立样本
+forbidden:
+  - 挑选最佳参照组作为成绩 / 按结果调比例或 top-k / 修改正常池 /
+    融合正常距离与故障距离评分 / 因局部负结果追加种子或参数
+deliverables:
+  - outputs/M3diag4/ref_groups.json
+  - outputs/M3diag4/stability_eval.json
+  - outputs/M3diag4/raw_scores4/
+  - outputs/M3diag4/REFOBSTAB_report.md
+acceptance:
+  - type: file_exists
+    path: outputs/M3diag4/REFOBSTAB_report.md
+  - type: file_exists
+    path: outputs/M3diag4/stability_eval.json
+  - type: metric_min
+    path: outputs/M3diag4/stability_eval.json
+    key: ref_groups_completed
+    min: 5
