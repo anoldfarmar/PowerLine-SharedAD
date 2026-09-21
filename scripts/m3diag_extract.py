@@ -44,7 +44,7 @@ def main():
         xb = torch.stack([tf(Image.open(p).convert("RGB")) for p in eval_paths[i:i + bs]])
         p3, _ = bb.p3_and_p5gap(xb)
         patches[i:i + bs] = p3.permute(0, 2, 3, 1).cpu().numpy().astype(np.float16)
-        if (i // bs) % 20 == 0:
+        if (i // bs) % 5 == 0:
             print("  eval %d/%d" % (i, N))
     patches.flush()
     D.save_json(eval_paths, args.out + "/eval_paths.json")
@@ -99,7 +99,7 @@ def main():
                 vs.append(v[0].permute(1, 2, 0).cpu().numpy().reshape(grid, CH)[idx])
             xc_arr[g, 0] = vs[0].astype(np.float16)
             xc_arr[g, 1] = vs[1].astype(np.float16)
-        if (i // bs) % 50 == 0:
+        if (i // bs) % 10 == 0:
             print("  train %d/%d" % (i, M))
     np.save(args.out + "/trainB_patches.npy", xb_arr)
     np.save(args.out + "/trainC_patches.npy", xc_arr)

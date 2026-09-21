@@ -7,7 +7,8 @@ download/
 .cache/
 
 # 实验产物：只忽略重型、可复现的中间物；交付物(JSON/MD/热图/头权重)全部入库
-# - outputs/M3/cache/  : 1.4G 特征缓存 (gap_p3.npy 等, 固定种子可由脚本重建)
+# - outputs/M3/cache/
+outputs/**/cache/  : 1.4G 特征缓存 (gap_p3.npy 等, 固定种子可由脚本重建)
 # - outputs/M3/banks/  : 15M patch 原型库 (m3_build_patch_bank.py 可重建)
 # - 运行日志 *.log     : 临时过程产物
 outputs/M3/cache/

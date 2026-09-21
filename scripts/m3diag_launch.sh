@@ -8,6 +8,7 @@ FREEKB=$(df -k / | tail -1 | awk '{print $4}')
 if [ "$FREEKB" -lt 2097152 ]; then echo "磁盘不足 2G (${FREEKB}KB)"; exit 1; fi
 if pgrep -f "python3 scripts/m3diag_" >/dev/null; then echo "已有 m3diag 进程在跑"; exit 1; fi
 export OMP_NUM_THREADS=8
+export PYTHONUNBUFFERED=1
 export XDG_CACHE_HOME=/root/auto-exp/.cache
 mkdir -p outputs/M3diag
 echo "=== [1/4] 特征提取 ==="

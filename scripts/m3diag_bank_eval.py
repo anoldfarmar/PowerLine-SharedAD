@@ -122,7 +122,7 @@ def main():
                 ma = [x["auroc"] for x in row.values() if x["auroc"] is not None]
                 print("[eval] %s k=%d s=%d mean AUROC %.4f" % (v, k, s, float(np.mean(ma))))
 
-    summary = {"variants_completed": variants,
+    summary = {"variants_completed": len(variants), "variants_completed_list": variants,
                "query_leakage_check_passed": int(all(
                    o["support_path_in_query"] == 0 for o in overlap_log.values())),
                "overlap_log": overlap_log,
