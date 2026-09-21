@@ -1,0 +1,128 @@
+{
+ "task_id": "M3DIAG-local-corr-v1",
+ "created": "2026-09-20",
+ "status": "frozen_before_any_query_eval (训练授权前冻结, 查询结果查看前不可再改)",
+ "research_question": "相同骨干/故障支持/局部原型预算/评分下, 局部对应训练(C)是否优于资产标签SupCon(B)? 不预设优劣, 负结果同样交付",
+ "weights": {
+  "path": "/root/autodl-tmp/runs/yolov8n_det/weights/best.pt",
+  "sha256_prefix": "ea1526c29d4afcfb",
+  "frozen_by": "M2 (M3 preflight 已核 weights_match_m2=true)"
+ },
+ "backbone": {
+  "frozen": true,
+  "grad_disabled": true,
+  "p3_layer": "layer4 (C2f, stride8)",
+  "feature_shape": "64x40x40",
+  "imgsz": 320,
+  "input": "部件框裁剪"
+ },
+ "mapper": {
+  "arch": "Linear(64,128)-BN1d-ReLU-Linear(128,128)",
+  "out_dim": 128,
+  "note": "B/C 同构"
+ },
+ "train_data": {
+  "boxes": "yolo_det train 22635 框 (18 基类资产), 框清单与 B 历史逐字节一致",
+  "positions": "每框 16 网格位, per-box seed 1000+i (与历史 m3_patch_extractor 一致)",
+  "forbidden": "目标故障 query/k-shot 不参与反向传播/早停/超参选择/原型筛选",
+  "asset_labels_in_C": "仅用于与 B 一致的类别均衡采样, 不进入损失"
+ },
+ "budget": {
+  "epochs": 30,
+  "steps_per_epoch": 176,
+  "steps_total": 5280,
+  "batch_boxes": 128,
+  "optimizer": "AdamW",
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "mapper_train_seed": 0,
+  "support_seeds": [
+   0,
+   1,
+   2
+  ],
+  "shots": [
+   1,
+   5,
+   10
+  ],
+  "early_stop": "无 (固定步数, 与 B 完全一致)",
+  "actual_steps_and_coverage": "训练时记录并核验, 不以配置字段声称"
+ },
+ "variants": {
+  "A_local_fixed": {
+   "proj": "固定随机正交 64->128 (seed 0)",
+   "training": "无",
+   "relation_note": "与历史 P3-patch-pre 同机制; 历史全局结果仅作参考, 不视为单变量消融"
+  },
+  "B_local_supcon": {
+   "loss": "SupCon temp=0.07, 框级资产标签广播至全部 16 patch (复现 metric-v1 机制), 作用于 L2 归一化后输出",
+   "implementation": "新代码重训 (m3diag, 与 C 同代码路径/同预算), 历史 metric_head.pt 仅作一致性参考"
+  },
+  "C_local_correspondence": {
+   "views": "同一裁剪两视图, 相同几何坐标, 相同 16 空间位",
+   "augmentation": {
+    "type": "ColorJitter(brightness=0.1, contrast=0.1)",
+    "sampling": "每框扰动值以 mapper 训练种子确定性地采一次, 全程固定 (简报: 预先固定)",
+    "forbidden": "随机裁剪/翻转/旋转/灰度/强色相/模糊/CutOut/MixUp/合成异常"
+   },
+   "loss_form": {
+    "invariance": "F.mse_loss(z1, z2) 逐对应位 (2048 对/步)",
+    "variance": "mean(relu(1 - sqrt(var_j + 1e-4)))/2 双视图各算, 批中心化后",
+    "covariance": "off_diagonal(cov).pow(2).sum()/D 双视图各算, cov 除以 (batch-1)",
+    "normalization_position": "三项均作用于 L2 归一化之前的投影输出; 建库/推理时才 L2"
+   },
+   "coefficients": {
+    "sim": 25,
+    "std": 25,
+    "cov": 1,
+    "verified_against": "facebookresearch/vicreg main_vicreg.py@main, sha256_prefix=88c4439e2c508156, cov 默认 1.0 非论文网页流传的 25"
+   },
+   "negative_rule": "不把其他 patch 自动当负样本 (VICReg 无显式负对)"
+  }
+ },
+ "eval_protocol": {
+  "bank": "k-shot 实例全 1600 patch -> 映射 -> greedy FPS coreset<=256 (seed 0)",
+  "score": "查询全 1600 patch 对库最大余弦, top-8 mean",
+  "auroc": "平均秩 (tie-corrected) 标准实现 —— 修正 M2/M3 auroc_recall 的序数秩同分隐患; NaN/Inf 前置检查; 常数分记 n/a 不计虚假 AUROC; 单标签组合显式标记",
+  "raw_scores": "逐图: query 路径+标签+组合+分数+支持种子, 存 outputs/M3diag/raw_scores/",
+  "support_query_overlap": "逐配置检查并报告 (含源帧级)",
+  "fix_vs_change_separation": "指标实现修正 (平均秩) 与模型变化分开报告; 历史 M3 指标不覆盖不回改"
+ },
+ "pre_training_checks": [
+  "P3 特征形状与空间索引核验 (layer4, stride8, 64ch)",
+  "两视图第 j 向量确来自同一空间位",
+  "骨干参数梯度恒为 None/0, 映射器参数更新",
+  "loss 与梯度有限值 (无 NaN/Inf)",
+  "var/cov 项与官方实现对拍 (小张量数值一致)",
+  "投影输出无塌缩 (跨批维度方差 >= 量级检查)",
+  "训练管线不含目标故障支持/查询路径 (代码断言)",
+  "B/C 实际优化步数与采样覆盖日志",
+  "保存双视图示例, 确认扰动未抹除纹理/颜色线索"
+ ],
+ "visualization": {
+  "samples": "每组合固定样本最高响应 patch",
+  "coverage": "纹理故障与结构故障都要, 不只展示成功案例",
+  "claim_limit": "无像素级 GT, 只报可视化观察, 禁止称'正确定位到缺陷'"
+ },
+ "data_boundary": {
+  "inherited_overlap": "度量训练帧与查询/支持源帧重叠 ~100% (M3 preflight leakage_registry: defect_query 100%, normal_query 2452/2500; M2 冻结协议既定边界, 非本轮引入)",
+  "naming_caveat": "det 包 (数字航次 1-1/170-2) 与 FD 裁剪包 (日期航次 Fotos 25-11-2020) 命名体系不同, 纯名称匹配无法建立跨包帧同一性; 预训练检查须复核 preflight 的源组链接方法并记录于 diag_audit.json",
+  "exploratory_status": "M3 查询集已用于研究决策 (瓶颈结论), 本轮沿用仅为探索性诊断; 确认性结论需独立留出数据",
+  "no_go": [
+   "不改历史 M3 产物/划分/权重/协议",
+   "查询结果出来前全部超参已冻结于此",
+   "不据查询成绩调增强/系数/步数/top-k/原型数",
+   "不做多层融合/注意力/正常库/DINO/合成缺陷"
+  ]
+ },
+ "deliverables": [
+  "diag_audit.json",
+  "metric_train_log_B/C.json",
+  "mapper_B/C.pt",
+  "raw_scores/",
+  "diag_eval.json (逐类/逐种子+C-B,B-A,C-A 配对差)",
+  "vis/",
+  "DIAG_report.md (简报九的五问)"
+ ]
+}
