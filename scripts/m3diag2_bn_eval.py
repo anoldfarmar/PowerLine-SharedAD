@@ -20,7 +20,7 @@ def main():
     patches = np.load(D.CACHE + "/patches.npy", mmap_mode="r")
     specs = {
         "C": ("head", D.load_head_state(D.OUT + "/mapper_C.pt", dev).to(dev)),
-        "C2": ("head", D.load_head_state(D.OUT + "/mapper_C_bnrecal.pt", dev).to(dev)),
+        "C2": ("head", D.load_head_state(OUT2 + "/mapper_C_bnrecal.pt", dev).to(dev)),
     }
     raw_dir = OUT2 + "/raw_scores2"
     os.makedirs(raw_dir, exist_ok=True)
