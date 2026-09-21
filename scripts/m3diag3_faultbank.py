@@ -169,6 +169,11 @@ def main():
                 OUT3 + "/data_audit.json")
 
     # --- 汇总 faultbank_eval.json ---
+    percombo = {}
+    for combo in COMBOS:
+        for arm in ARMS:
+            for k in D.SHOTS:
+                percombo[(combo, arm, "k%d" % k)] = [r[combo]["auroc"] for r in results[arm]["k%d" % k] if combo in r]
     summary = {"arms_completed": len(ARMS), "std_ddof": 0, "arms": ARMS,
                "note": "探索性; 3 支持种子非显著性检验; 正常参照仅一组抽取, 不估计抽样方差",
                "per_asset": {}, "paired_diffs": {}, "macro_over_2_assets_supplementary": {}}
@@ -177,28 +182,28 @@ def main():
         for arm in ARMS:
             summary["per_asset"][combo][arm] = {}
             for k in D.SHOTS:
-                rows = results[arm]["k%d" % k]
-                per_seed = [r[combo]["auroc"] for r in rows]
+                per_seed = percombo[(combo, arm, "k%d" % k)]
+                recs = [r[combo]["recall"] for r in results[arm]["k%d" % k] if combo in r and r[combo]["recall"] is not None]
                 summary["per_asset"][combo][arm]["k%d" % k] = {
                     "per_seed": per_seed, "mean": float(np.mean(per_seed)),
                     "std": float(np.std(per_seed)),
-                    "recall_mean": float(np.mean([r[combo]["recall"] for r in rows if r[combo]["recall"] is not None]))}
+                    "recall_mean": float(np.mean(recs)) if recs else None}
     for combo in COMBOS:
         summary["paired_diffs"][combo] = {}
         for k in D.SHOTS:
-            rows = {arm: results[arm]["k%d" % k] for arm in ARMS}
+            kk = "k%d" % k
             for x, y, name in (("P1", "P0", "P1_minus_P0"), ("P1", "P-random", "P1_minus_Prandom"),
                                ("P-random", "P0", "Prandom_minus_P0")):
-                ds = [rows[x][i][combo]["auroc"] - rows[y][i][combo]["auroc"] for i in range(3)]
-                summary["paired_diffs"][combo].setdefault("k%d" % k, {})[name] = {
+                ds = [a2 - b2 for a2, b2 in zip(percombo[(combo, x, kk)], percombo[(combo, y, kk)])]
+                summary["paired_diffs"][combo].setdefault(kk, {})[name] = {
                     "per_seed": ds, "mean": float(np.mean(ds)), "std": float(np.std(ds)),
                     "n_pos": int(sum(1 for v in ds if v > 0))}
     for arm in ARMS:
         summary["macro_over_2_assets_supplementary"][arm] = {}
         for k in D.SHOTS:
-            vals = [float(np.mean([results[arm]["k%d" % k][i][combo]["auroc"] for combo in COMBOS])) for i in range(3)]
-            summary["macro_over_2_assets_supplementary"][arm]["k%d" % k] = {
-                "per_seed_macro": vals, "mean": float(np.mean(vals))}
+            kk = "k%d" % k
+            vals = [float(np.mean([percombo[(combo, arm, kk)][i] for combo in COMBOS])) for i in range(3)]
+            summary["macro_over_2_assets_supplementary"][arm][kk] = {"per_seed_macro": vals, "mean": float(np.mean(vals))}
     D.save_json(summary, OUT3 + "/faultbank_eval.json")
     print("[m3diag3] faultbank_eval.json saved")
 
