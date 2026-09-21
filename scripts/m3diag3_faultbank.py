@@ -46,7 +46,7 @@ def spatial_stats(bank_np, src_crop, proto_local):
     edge = int(((r < 5) | (r > 34) | (c < 5) | (c > 34)).sum())
     from collections import Counter
     cnt = Counter(src_crop.tolist())
-    return {"row_mean": round(float(r.float().mean()), 2), "col_mean": round(float(c.float().mean()), 2),
+    return {"row_mean": round(float(r.mean()), 2), "col_mean": round(float(c.mean()), 2),
             "edge_frac": round(edge / len(loc), 4),
             "n_source_crops": len(cnt), "per_crop_counts": {str(k): v for k, v in sorted(cnt.items())}}
 
