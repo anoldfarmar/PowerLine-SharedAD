@@ -1,0 +1,170 @@
+{
+ "fixed_subset": {
+  "boxes": "0..1023 (index order)",
+  "patches_per_box": 16,
+  "note": "框内 patch 相关, 不能当独立图片计置信度"
+ },
+ "std_ddof": 0,
+ "variants": {
+  "A": {
+   "n_patches": 16384,
+   "pre_dim_std_mean": 0.31013,
+   "pre_dim_std_min": 0.2168,
+   "vec_norm_mean": 4.4842,
+   "vec_norm_std": 0.8293,
+   "post_dim_std_mean": 0.06648,
+   "post_dim_std_min": 0.04671,
+   "eig_top8": [
+    1.21346,
+    0.99241,
+    0.7009,
+    0.67004,
+    0.58074,
+    0.5403,
+    0.51053,
+    0.48381
+   ],
+   "participation_ratio": 25.967,
+   "effective_rank_expent": 37.305,
+   "cos_samebox_crosspos": {
+    "mean": 0.4754,
+    "std": 0.168
+   },
+   "cos_crossbox": {
+    "mean": 0.4246,
+    "std": 0.1536
+   },
+   "bn": []
+  },
+  "B": {
+   "n_patches": 16384,
+   "pre_dim_std_mean": 0.28126,
+   "pre_dim_std_min": 0.08358,
+   "vec_norm_mean": 6.7455,
+   "vec_norm_std": 2.5556,
+   "post_dim_std_mean": 0.02845,
+   "post_dim_std_min": 0.01223,
+   "eig_top8": [
+    6.07883,
+    1.76559,
+    1.59096,
+    0.53861,
+    0.44936,
+    0.26387,
+    0.16723,
+    0.14167
+   ],
+   "participation_ratio": 3.353,
+   "effective_rank_expent": 6.393,
+   "cos_samebox_crosspos": {
+    "mean": 0.9191,
+    "std": 0.0459
+   },
+   "cos_crossbox": {
+    "mean": 0.8768,
+    "std": 0.0705
+   },
+   "bn": [
+    {
+     "layer": "1",
+     "num_batches_tracked": 5280,
+     "rm_std": 0.257089,
+     "rm_absmax": 0.607512,
+     "rv_min": 0.060239,
+     "rv_max": 0.218021,
+     "finite": true
+    }
+   ]
+  },
+  "C": {
+   "n_patches": 16384,
+   "pre_dim_std_mean": 1.0057,
+   "pre_dim_std_min": 0.94375,
+   "vec_norm_mean": 12.0234,
+   "vec_norm_std": 3.2888,
+   "post_dim_std_mean": 0.07924,
+   "post_dim_std_min": 0.07334,
+   "eig_top8": [
+    1.92276,
+    1.84432,
+    1.76138,
+    1.74874,
+    1.6913,
+    1.62633,
+    1.57034,
+    1.54233
+   ],
+   "participation_ratio": 117.381,
+   "effective_rank_expent": 122.324,
+   "cos_samebox_crosspos": {
+    "mean": 0.2205,
+    "std": 0.1264
+   },
+   "cos_crossbox": {
+    "mean": 0.1954,
+    "std": 0.1017
+   },
+   "bn": [
+    {
+     "layer": "1",
+     "num_batches_tracked": 15840,
+     "rm_std": 0.634082,
+     "rm_absmax": 1.353652,
+     "rv_min": 0.074878,
+     "rv_max": 0.242418,
+     "finite": true
+    }
+   ],
+   "view_pair_samepos_cos": {
+    "mean": 0.9865,
+    "std": 0.0272,
+    "n": 16384
+   }
+  },
+  "C2": {
+   "n_patches": 16384,
+   "pre_dim_std_mean": 1.02454,
+   "pre_dim_std_min": 0.97466,
+   "vec_norm_mean": 12.1892,
+   "vec_norm_std": 3.3855,
+   "post_dim_std_mean": 0.07957,
+   "post_dim_std_min": 0.07449,
+   "eig_top8": [
+    1.84739,
+    1.75684,
+    1.66662,
+    1.65901,
+    1.60093,
+    1.58248,
+    1.52649,
+    1.50697
+   ],
+   "participation_ratio": 119.85,
+   "effective_rank_expent": 123.675,
+   "cos_samebox_crosspos": {
+    "mean": 0.2134,
+    "std": 0.1241
+   },
+   "cos_crossbox": {
+    "mean": 0.1885,
+    "std": 0.0995
+   },
+   "bn": [
+    {
+     "layer": "1",
+     "num_batches_tracked": 179,
+     "rm_std": 0.634941,
+     "rm_absmax": 1.380914,
+     "rv_min": 0.074513,
+     "rv_max": 0.248537,
+     "finite": true
+    }
+   ],
+   "view_pair_samepos_cos": {
+    "mean": 0.9861,
+    "std": 0.0282,
+    "n": 16384
+   }
+  }
+ }
+}
