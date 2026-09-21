@@ -13,6 +13,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
 import m3_common as C
 
+OUT2 = D.ROOT + "/outputs/M3diag2"
+os.makedirs(OUT2, exist_ok=True)
+
 NB = 1024
 
 def bn_report(head):
@@ -53,7 +56,7 @@ def diag_variant(tag, spec, heads, Xb, Xc):
     g = torch.Generator().manual_seed(0)
     a = torch.randint(0, zt.shape[0], (20000,), generator=g)
     b = torch.randint(0, zt.shape[0], (20000,), generator=g)
-    keep = a != b
+    keep = (a // PP) != (b // PP)
     cross = (zt[a[keep]] * zt[b[keep]]).sum(-1)
     res = {"n_patches": int(z.shape[0]),
            "pre_dim_std_mean": round(float(z.std(0, ddof=0).mean()), 5),
@@ -88,7 +91,7 @@ def main():
     heads = {}
     heads["B"] = D.load_head_state(D.OUT + "/mapper_B.pt", dev).to(dev).eval()
     heads["C"] = D.load_head_state(D.OUT + "/mapper_C.pt", dev).to(dev).eval()
-    p2 = D.OUT + "/mapper_C_bnrecal.pt"
+    p2 = OUT2 + "/mapper_C_bnrecal.pt"
     if os.path.exists(p2):
         heads["C2"] = D.load_head_state(p2, dev).to(dev).eval()
     proj = torch.from_numpy(np.asarray(C.patch_projection_matrix())).float()
@@ -105,7 +108,7 @@ def main():
         print("[repr]", tag, "pre_std_mean=%.4f post_std_mean=%.4f PR=%.2f effrank=%.2f" % (
             out["variants"][tag]["pre_dim_std_mean"], out["variants"][tag]["post_dim_std_mean"],
             out["variants"][tag]["participation_ratio"], out["variants"][tag]["effective_rank_expent"]))
-    D.save_json(out, D.OUT + "/repr_diag.json")
+    D.save_json(out, OUT2 + "/repr_diag.json")
 
 if __name__ == "__main__":
     main()

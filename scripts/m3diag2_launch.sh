@@ -1,6 +1,6 @@
 #!/bin/bash
 # M3DIAG2 pipeline: BN recal -> repr diag -> C/C2 eval (no training, ~15 min)
-set -e
+set -euo pipefail
 cd /root/auto-exp
 nvidia-smi -L || { echo "no GPU"; exit 1; }
 FREEKB=$(df -k / | tail -1 | awk '{print $4}')

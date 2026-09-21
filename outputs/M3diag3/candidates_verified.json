@@ -1,0 +1,69 @@
+{
+ "rule": "严格隔离(路径+源帧双排除), 选区规则=文件名排序取前10",
+ "assets": {
+  "glass-insulator": {
+   "isolated_total": 21,
+   "candidates_first10": [
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 03-12-2020_DJI_0281_cadeia_isolador_vidro_840.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0923_cadeia_isolador_vidro_1117.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0165_cadeia_isolador_vidro_1355.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0500_cadeia_isolador_vidro_1603.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 25-11-2020_DJI_0570_cadeia_isolador_vidro_1657.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 25-11-2020_DJI_0594_cadeia_isolador_vidro_1681.jpg"
+   ]
+  },
+  "lightning-rod-suspension": {
+   "isolated_total": 1,
+   "candidates_first10": [
+    "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/train/good/Fotos 21-10-2020_DJI_0368_suspensao_para_raio_542.jpg"
+   ]
+  },
+  "polymer-insulator-upper-shackle": {
+   "isolated_total": 2,
+   "candidates_first10": [
+    "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/val/good/Fotos 03-12-2020_DJI_0417_manilha_isolador_superior_303.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/val/good/Fotos 17-12-2020_DJI_0278_manilha_isolador_superior_1161.jpg"
+   ]
+  },
+  "vari-grip": {
+   "isolated_total": 0,
+   "candidates_first10": []
+  },
+  "yoke-suspension": {
+   "isolated_total": 2964,
+   "candidates_first10": [
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 01-12-2020_DJI_0019_amarra_balancim_336.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 01-12-2020_DJI_0155_amarra_balancim_289.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 01-12-2020_DJI_0195_amarra_balancim_245.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0017_amarra_balancim_644.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0032_amarra_balancim_653.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0202_amarra_balancim_564.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0300_amarra_balancim_478.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0403_amarra_balancim_472.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0404_amarra_balancim_474.jpg",
+    "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 03-12-2020_DJI_0039_amarra_balancim_933.jpg"
+   ]
+  }
+ },
+ "gaps": {
+  "lightning-rod-suspension": {
+   "isolated_total": 1,
+   "缺口": 9,
+   "处理": "记录缺口, 本轮P1不覆盖该资产"
+  },
+  "polymer-insulator-upper-shackle": {
+   "isolated_total": 2,
+   "缺口": 8,
+   "处理": "记录缺口, 本轮P1不覆盖该资产"
+  },
+  "vari-grip": {
+   "isolated_total": 0,
+   "缺口": 10,
+   "处理": "记录缺口, 本轮P1不覆盖该资产"
+  }
+ }
+}

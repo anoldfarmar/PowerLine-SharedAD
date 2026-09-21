@@ -1,6 +1,7 @@
-# 草案 — 待人类批准后落位 plan/tasks/M3DIAG3-faultbank-p0p1-v1.yaml (暂不自动开跑)
+# 草案 v2 — 待人类批准后落位 plan/tasks/M3DIAG3-faultbank-p0p1-v1.yaml (暂不自动开跑)
 task: M3DIAG3-faultbank-p0p1-v1
-title: fault prototype bank selection P0/P1 (normal-reference filtering)
+title: fault prototype bank selection P0/P1 (strict-isolation normal reference)
+status: draft   # 暂不启动, 等待人类落位
 gate_required: M3_PASSED
 human_gate_after: M3DIAG3
 parent: M3DIAG-local-corr-v1 (features/weights/protocol frozen)
@@ -10,23 +11,27 @@ hypothesis: |
   可能奖励共同正常结构的匹配而非故障区域匹配. 用同资产正常参照预筛
   故障支持候选 patch, 再按相同规则建库, 检验原型选择的价值.
 fixed_variables:
-  - mapper: mapper_B.pt (本轮最佳; 或人类指定 A/C2)
+  - mapper: mapper_B.pt (固定, 本轮最佳)
   - 特征缓存: outputs/M3diag/cache (与历史逐位一致已验证)
   - 故障支持集: 冻结 kshot 划分原样
   - 原型预算: coreset<=256, FPS seed 0
   - 评分: 全 1600 patch 最大余弦 top-8 平均; 平均秩 AUROC; mean+2std 召回
   - 查询集: 冻结 query_k{1,5,10}.json 原样 (探索性, 查询集已参与研究决策)
+  - 正常参照: 每资产固定 10 张, 选择规则=严格隔离池内文件名排序取前10
+primary_isolation: P1-strict   # 人类裁决: 严格隔离为主方案
 pre_registered_rules:
   P0: 原故障局部原型库 (现管线原样, 对照)
-  P1_filter_score: s(p) = 1 - max cos(p, r), r 为该资产正常参照库 patch
+  P1_filter_score: s(p) = 1 - max cos(p, r), r 为该资产正常参照库 (10 张全 patch) 的 patch
   P1_retention: 每组合候选按 s 降序保留前 50%, 再 coreset<=256
   P1_fallback: 保留 patch < 32 时该组合回退 P0 库并登记
-  正常参照库: 所用 good 裁剪全 patch, 同规则 coreset<=256/资产
-isolation_options:   # 人类落位时二选一, 选定后作为唯一预注册规则
-  P1-strict: 帧级隔离 (路径+源帧双排除); 仅 yoke-suspension 可行 (2964 张),
-             其余资产缺口 glass 21 / lightning 1 / pius 2 / vari-grip 0, P1 仅单组合
-  P1-disclosed: 路径级不重叠即可 (帧重叠继承照 preflight 披露, 不宣称独立),
-                五资产均可行 (4686 张非查询 good)
+coverage_and_gaps:   # 候选核验 outputs/M3diag3/candidates_verified.json
+  可行: glass-insulator (隔离池 21), yoke-suspension (隔离池 2964)
+  缺口: lightning-rod-suspension 1 / polymer-shackle 2 / vari-grip 0
+        记录缺口, 本轮 P1 不覆盖这三资产, 不静默放宽隔离规则
+boundary_disclosure: |
+  严格隔离只针对新增的正常参照; 实验整体仍是继承源帧重叠边界的
+  探索性诊断 (缺陷查询源帧约 100% 位于 det-train, preflight 权威口径).
+followup_not_mixed: P1-disclosed (路径级隔离, 五资产可行 4686 张) 留作后续补充实验, 不与本轮混跑.
 constraints:
   - 正常参照不得使用 normal_query/kshot/defect_query 任何文件
   - 不得把检测基类框自动当正常样本

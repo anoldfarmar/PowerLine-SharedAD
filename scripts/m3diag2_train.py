@@ -12,6 +12,9 @@ import torch
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
 
+OUT2 = D.ROOT + "/outputs/M3diag2"
+os.makedirs(OUT2, exist_ok=True)
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--variant", choices=["B", "C"], required=True)
@@ -99,10 +102,10 @@ def main():
                        "passes": cfg["epochs"], "class_sample_counts": dict(cls_counts),
                        "actual_batch_boxes": int(n_cls * per_cls),
                        "actual_batch_patches": int(n_cls * per_cls * PP)}
-    out = D.OUT + "/mapper_%s_fixed.pt" % args.variant
+    out = OUT2 + "/mapper_%s_fixed.pt" % args.variant
     torch.save({"state_dict": head.state_dict(), "variant": args.variant, "cfg": cfg,
                 "parent_code_sha256": "ed51bd5df3bb1605d689826b556f2d7033b1db11546b096c2cd72f468989d7b7"}, out)
-    D.save_json(log, D.OUT + "/metric_train_log_%s_fixed.json" % args.variant)
+    D.save_json(log, OUT2 + "/metric_train_log_%s_fixed.json" % args.variant)
     print("[done] %s saved" % out)
 
 if __name__ == "__main__":

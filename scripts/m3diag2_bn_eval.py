@@ -6,6 +6,9 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
+
+OUT2 = D.ROOT + "/outputs/M3diag2"
+os.makedirs(OUT2, exist_ok=True)
 from m3diag_bank_eval import embed, score_crops
 from m3_build_patch_bank import coreset_farthest
 
@@ -19,7 +22,7 @@ def main():
         "C": ("head", D.load_head_state(D.OUT + "/mapper_C.pt", dev).to(dev)),
         "C2": ("head", D.load_head_state(D.OUT + "/mapper_C_bnrecal.pt", dev).to(dev)),
     }
-    raw_dir = D.OUT + "/raw_scores2"
+    raw_dir = OUT2 + "/raw_scores2"
     os.makedirs(raw_dir, exist_ok=True)
     results = {}
     for v in ("C", "C2"):
@@ -88,7 +91,7 @@ def main():
         for c in diffs[kk]:
             v = diffs[kk][c]
             out["paired_diff_C2_minus_C"][kk][c] = {"mean": float(np.mean(v)), "std": float(np.std(v)), "per_seed": v}
-    D.save_json(out, D.OUT + "/diag_eval_bn.json")
+    D.save_json(out, OUT2 + "/diag_eval_bn.json")
     print("[done] diag_eval_bn.json")
 
 if __name__ == "__main__":

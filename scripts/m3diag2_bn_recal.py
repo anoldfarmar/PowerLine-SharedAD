@@ -12,10 +12,14 @@ import torch
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
 
+OUT2 = D.ROOT + "/outputs/M3diag2"
+os.makedirs(OUT2, exist_ok=True)
+
 BB = 126
 
 def bn_modules(head):
-    return [m for m in head.modules() if isinstance(m, torch.nn.modules.batchnorm._BatchNorm)]
+    return [(n, m) for n, m in head.named_modules()
+            if isinstance(m, torch.nn.modules.batchnorm._BatchNorm)]
 
 def main():
     dev = "cuda" if torch.cuda.is_available() else "cpu"
@@ -28,7 +32,7 @@ def main():
               for n, m in bn_modules(head)]
     for p in head.parameters():
         p.requires_grad_(False)
-    for m in bn_modules(head):
+    for _, m in bn_modules(head):
         m.reset_running_stats()
         m.momentum = None
     head.train()
@@ -51,10 +55,10 @@ def main():
                 "recal": {"data": "trainB non-augmented, index order", "batch_boxes": BB,
                           "batches": nb, "momentum": None, "mode": "cumulative moving average",
                           "frozen_params": True}},
-               D.OUT + "/mapper_C_bnrecal.pt")
+               OUT2 + "/mapper_C_bnrecal.pt")
     D.save_json({"before": before, "after": after, "batches": nb,
                  "note": "BN 敏感性诊断; 单一预注册方案; 不按查询成绩挑选"},
-                D.OUT + "/bn_recal_config.json")
+                OUT2 + "/bn_recal_config.json")
     print("[done] mapper_C_bnrecal.pt saved (%d batches)" % nb)
 
 if __name__ == "__main__":
