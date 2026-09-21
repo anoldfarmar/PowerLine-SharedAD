@@ -1,0 +1,108 @@
+{
+ "key_convention": "跨包源组键 = 文件名中的裸 DJI 号 (M2 冻结口径, m2_kshot_splits.py SRC_RE); 包内精化 = (会话日期前缀, DJI)",
+ "roles": {
+  "det_train": {
+   "images": 7935,
+   "unique_dji": 876,
+   "flight_prefixes": 212
+  },
+  "det_val": {
+   "images": 2626,
+   "unique_dji": 927,
+   "used_for": "保守假设: YOLO best.pt 选择可能使用 val, 计入已用"
+  },
+  "frozen_eval_pools": {
+   "crops": 6808,
+   "session_dji_keys": 3675,
+   "bare_dji": 840,
+   "status": "曾用于全部研究决策 (M2-M4 探索性)"
+  },
+  "normal_refs": {
+   "groups": 6,
+   "crops": 60,
+   "unique_dji": 76
+  }
+ },
+ "per_asset": {
+  "glass-insulator": {
+   "fault": {
+    "defect_supervised": {
+     "crops": 720,
+     "frames": 81,
+     "dji_in_det_train": 81,
+     "dji_in_det_val": 81,
+     "dji_in_frozen_eval": 81,
+     "dji_in_refs": 8,
+     "residual_clean_frames": 0
+    },
+    "unAD_test": {
+     "crops": 90,
+     "frames": 77,
+     "dji_in_det_train": 77,
+     "dji_in_det_val": 77,
+     "eval_pool_novel_crops": 0,
+     "residual_clean_frames": 0
+    }
+   },
+   "good": {
+    "defect_supervised": {
+     "crops": 720,
+     "frames": 481,
+     "dji_in_det_train": 470,
+     "dji_in_det_val": 468,
+     "dji_in_frozen_eval": 479,
+     "dji_in_refs": 52,
+     "residual_clean_frames": 0
+    },
+    "unAD_test": {
+     "crops": 581,
+     "frames": 407,
+     "dji_in_det_train": 392,
+     "dji_in_det_val": 401,
+     "eval_pool_novel_crops": 14,
+     "residual_clean_frames": 0
+    }
+   }
+  },
+  "yoke-suspension": {
+   "fault": {
+    "defect_supervised": {
+     "crops": 310,
+     "frames": 37,
+     "dji_in_det_train": 37,
+     "dji_in_det_val": 37,
+     "dji_in_frozen_eval": 37,
+     "dji_in_refs": 8,
+     "residual_clean_frames": 0
+    },
+    "unAD_test": {
+     "crops": 49,
+     "frames": 37,
+     "dji_in_det_train": 37,
+     "dji_in_det_val": 37,
+     "eval_pool_novel_crops": 0,
+     "residual_clean_frames": 0
+    }
+   },
+   "good": {
+    "defect_supervised": {
+     "crops": 6041,
+     "frames": 778,
+     "dji_in_det_train": 749,
+     "dji_in_det_val": 748,
+     "dji_in_frozen_eval": 710,
+     "dji_in_refs": 72,
+     "residual_clean_frames": 0
+    },
+    "unAD_test": {
+     "crops": 1207,
+     "frames": 522,
+     "dji_in_det_train": 512,
+     "dji_in_det_val": 506,
+     "eval_pool_novel_crops": 26,
+     "residual_clean_frames": 0
+    }
+   }
+  }
+ }
+}
