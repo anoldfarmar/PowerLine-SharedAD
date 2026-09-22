@@ -1,0 +1,5483 @@
+{
+ "config": {
+  "combo": "yoke-suspension/rust",
+  "asset": "yoke-suspension",
+  "k": 10,
+  "support_seed": 1,
+  "ref_seed": 3005,
+  "bank_N": 256,
+  "bank_F": 256,
+  "source_groups_support": 1
+ },
+ "defect": {
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55.jpg": [
+   0.98331487,
+   0.06855848,
+   0.03370463,
+   0.98566663,
+   0.99302733
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_0.jpg": [
+   0.98352927,
+   0.06808655,
+   0.03120527,
+   0.98515165,
+   0.98767388
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_1.jpg": [
+   0.98423749,
+   0.07565547,
+   0.0331464,
+   0.99088693,
+   0.99313092
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_2.jpg": [
+   0.9843595,
+   0.06654654,
+   0.03129407,
+   0.98802245,
+   0.98848301
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_3.jpg": [
+   0.98542476,
+   0.07157968,
+   0.03323192,
+   0.9888081,
+   0.98663116
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_4.jpg": [
+   0.9834736,
+   0.06425642,
+   0.03302033,
+   0.98710877,
+   0.98671305
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_5.jpg": [
+   0.98314106,
+   0.07186356,
+   0.03474224,
+   0.98813826,
+   0.98657501
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_6.jpg": [
+   0.98273402,
+   0.06543264,
+   0.03017377,
+   0.98831558,
+   0.99055833
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_7.jpg": [
+   0.98288047,
+   0.08556826,
+   0.0328747,
+   0.9874174,
+   0.98850411
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55_8.jpg": [
+   0.98453891,
+   0.0667948,
+   0.03082531,
+   0.99059248,
+   0.98439473
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80.jpg": [
+   0.98497844,
+   0.06607535,
+   0.02895594,
+   0.98607361,
+   0.98401392
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_0.jpg": [
+   0.98284137,
+   0.0628817,
+   0.03118186,
+   0.98526615,
+   0.98639148
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_1.jpg": [
+   0.98590565,
+   0.06446716,
+   0.03329729,
+   0.9889127,
+   0.98683554
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_2.jpg": [
+   0.98408872,
+   0.0697294,
+   0.02949031,
+   0.98565495,
+   0.98779494
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_3.jpg": [
+   0.98408645,
+   0.07073884,
+   0.02969733,
+   0.98526162,
+   0.98380643
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_4.jpg": [
+   0.98292673,
+   0.06324872,
+   0.02974006,
+   0.98522037,
+   0.98477811
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_5.jpg": [
+   0.9840067,
+   0.06589442,
+   0.03477005,
+   0.98844224,
+   0.98467767
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_6.jpg": [
+   0.98386478,
+   0.06502998,
+   0.03070647,
+   0.98666573,
+   0.98768485
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_7.jpg": [
+   0.98526436,
+   0.06237993,
+   0.02947138,
+   0.9884305,
+   0.98699105
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0264_80_8.jpg": [
+   0.98408914,
+   0.06615888,
+   0.03032155,
+   0.98667318,
+   0.98612839
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92.jpg": [
+   0.98313457,
+   0.08428945,
+   0.04104429,
+   0.98648423,
+   0.98883677
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_0.jpg": [
+   0.98359859,
+   0.0761307,
+   0.03326294,
+   0.9881413,
+   0.98626381
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_1.jpg": [
+   0.98232508,
+   0.07186068,
+   0.03020423,
+   0.98578763,
+   0.98994625
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_2.jpg": [
+   0.9829812,
+   0.08058642,
+   0.0383056,
+   0.98522615,
+   0.98835677
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_3.jpg": [
+   0.98272115,
+   0.06943826,
+   0.03160655,
+   0.98468608,
+   0.98560488
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_4.jpg": [
+   0.98476017,
+   0.07270537,
+   0.03264025,
+   0.98877937,
+   0.99003017
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_5.jpg": [
+   0.98206013,
+   0.08610543,
+   0.03042455,
+   0.98373061,
+   0.98744267
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_6.jpg": [
+   0.98223275,
+   0.06998669,
+   0.03027052,
+   0.98653316,
+   0.98512459
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_7.jpg": [
+   0.98324591,
+   0.07817113,
+   0.03609736,
+   0.98482996,
+   0.98603272
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0291_92_8.jpg": [
+   0.98266792,
+   0.06532458,
+   0.02993865,
+   0.98622388,
+   0.98519689
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109.jpg": [
+   0.98270702,
+   0.07366134,
+   0.02934827,
+   0.98797381,
+   0.98667496
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_0.jpg": [
+   0.98702019,
+   0.06717491,
+   0.03108481,
+   0.99067754,
+   0.99230576
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_1.jpg": [
+   0.98905224,
+   0.06834637,
+   0.03251741,
+   0.99285936,
+   0.98456001
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_2.jpg": [
+   0.98473728,
+   0.06400578,
+   0.0320413,
+   0.98916286,
+   0.98477733
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_3.jpg": [
+   0.98403382,
+   0.06628332,
+   0.03101385,
+   0.98626006,
+   0.98514837
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_4.jpg": [
+   0.98377281,
+   0.07238437,
+   0.03613589,
+   0.98550785,
+   0.99135512
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_5.jpg": [
+   0.98159474,
+   0.06952128,
+   0.02963931,
+   0.98382473,
+   0.98941171
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_6.jpg": [
+   0.98678792,
+   0.06018915,
+   0.03271155,
+   0.99007261,
+   0.98551399
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_7.jpg": [
+   0.98367751,
+   0.07529178,
+   0.02967745,
+   0.98569244,
+   0.98490691
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0354_109_8.jpg": [
+   0.98320782,
+   0.07506782,
+   0.03183413,
+   0.98648787,
+   0.98941046
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116.jpg": [
+   0.9844951,
+   0.0717658,
+   0.03403604,
+   0.98798746,
+   0.98760247
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_0.jpg": [
+   0.98278213,
+   0.07447355,
+   0.03900954,
+   0.9837113,
+   0.98335391
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_1.jpg": [
+   0.98405588,
+   0.08076844,
+   0.03843572,
+   0.98732924,
+   0.98646295
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_2.jpg": [
+   0.98136562,
+   0.07354204,
+   0.03551754,
+   0.98295969,
+   0.98457807
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_3.jpg": [
+   0.98253417,
+   0.0759992,
+   0.03302341,
+   0.9847033,
+   0.98689032
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_4.jpg": [
+   0.98144823,
+   0.07136335,
+   0.03173113,
+   0.98624098,
+   0.98382884
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_5.jpg": [
+   0.98424053,
+   0.07697126,
+   0.0371052,
+   0.98883891,
+   0.98427474
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_6.jpg": [
+   0.98209101,
+   0.07659744,
+   0.03520656,
+   0.98455459,
+   0.9874512
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_7.jpg": [
+   0.98514283,
+   0.0677776,
+   0.03588919,
+   0.98792112,
+   0.98627555
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_116_8.jpg": [
+   0.98459643,
+   0.0717789,
+   0.03671908,
+   0.98927307,
+   0.98505801
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117.jpg": [
+   0.98420179,
+   0.06869785,
+   0.03014179,
+   0.98559213,
+   0.98693258
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_0.jpg": [
+   0.98219407,
+   0.07104976,
+   0.02871796,
+   0.98565537,
+   0.99205601
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_1.jpg": [
+   0.98357272,
+   0.07183353,
+   0.02999533,
+   0.99016911,
+   0.98557943
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_2.jpg": [
+   0.98294157,
+   0.06774317,
+   0.03093366,
+   0.98960298,
+   0.98371977
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_3.jpg": [
+   0.983105,
+   0.07185631,
+   0.03074721,
+   0.98986828,
+   0.98498011
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_4.jpg": [
+   0.98531413,
+   0.07451205,
+   0.03797542,
+   0.98882288,
+   0.98794109
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_5.jpg": [
+   0.98319083,
+   0.0687459,
+   0.03244808,
+   0.985829,
+   0.98916769
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_6.jpg": [
+   0.98546118,
+   0.07025801,
+   0.03235506,
+   0.99354905,
+   0.98630756
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_7.jpg": [
+   0.98448133,
+   0.06810962,
+   0.03238565,
+   0.98880178,
+   0.98865038
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0386_117_8.jpg": [
+   0.98300904,
+   0.07015016,
+   0.02905887,
+   0.98961359,
+   0.98915339
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126.jpg": [
+   0.98703063,
+   0.07361249,
+   0.03305146,
+   0.98999929,
+   0.98666656
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_0.jpg": [
+   0.98680127,
+   0.07260218,
+   0.03309361,
+   0.98975718,
+   0.98589462
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_1.jpg": [
+   0.98607779,
+   0.08346743,
+   0.03000863,
+   0.99127316,
+   0.98671633
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_2.jpg": [
+   0.98683059,
+   0.06868619,
+   0.03388351,
+   0.98946881,
+   0.98710239
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_3.jpg": [
+   0.98588407,
+   0.06949566,
+   0.03499167,
+   0.99188715,
+   0.99081159
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_4.jpg": [
+   0.98396373,
+   0.07110321,
+   0.03545133,
+   0.98660779,
+   0.98408639
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_5.jpg": [
+   0.98673767,
+   0.07116621,
+   0.03281438,
+   0.99093932,
+   0.98691422
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_6.jpg": [
+   0.98371446,
+   0.06783901,
+   0.03333207,
+   0.98573244,
+   0.98969543
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_7.jpg": [
+   0.9826597,
+   0.06913211,
+   0.0321015,
+   0.98526603,
+   0.99148482
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0441_126_8.jpg": [
+   0.98196721,
+   0.0690552,
+   0.03071047,
+   0.98266917,
+   0.98318267
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128.jpg": [
+   0.98611367,
+   0.06739808,
+   0.03356428,
+   0.98810601,
+   0.99080968
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_0.jpg": [
+   0.98574102,
+   0.0659919,
+   0.03454272,
+   0.98830158,
+   0.99156708
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_1.jpg": [
+   0.98273093,
+   0.0686807,
+   0.03374787,
+   0.98655707,
+   0.99045777
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_2.jpg": [
+   0.98150581,
+   0.08391892,
+   0.03903694,
+   0.98375154,
+   0.98770857
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_3.jpg": [
+   0.98389959,
+   0.07364933,
+   0.03903655,
+   0.98599583,
+   0.9874984
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_4.jpg": [
+   0.98358339,
+   0.07801355,
+   0.03204316,
+   0.98988688,
+   0.98864663
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_5.jpg": [
+   0.98220533,
+   0.0743557,
+   0.03215958,
+   0.98635083,
+   0.98816043
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_6.jpg": [
+   0.9814626,
+   0.06432606,
+   0.03324424,
+   0.98431492,
+   0.98482966
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_7.jpg": [
+   0.98447609,
+   0.06646512,
+   0.02923509,
+   0.98644209,
+   0.98741448
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_128_8.jpg": [
+   0.9833743,
+   0.08971793,
+   0.03845519,
+   0.98896033,
+   0.98365092
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129.jpg": [
+   0.98697507,
+   0.06965817,
+   0.03487072,
+   0.98992252,
+   0.9898805
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_0.jpg": [
+   0.9862715,
+   0.06730112,
+   0.03498641,
+   0.98982209,
+   0.99006152
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_1.jpg": [
+   0.98409283,
+   0.06685328,
+   0.03263304,
+   0.98781347,
+   0.98669016
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_2.jpg": [
+   0.98791802,
+   0.07149482,
+   0.03267577,
+   0.99088675,
+   0.9903242
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_3.jpg": [
+   0.98042309,
+   0.06921779,
+   0.02901814,
+   0.98384541,
+   0.98713768
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_4.jpg": [
+   0.98375452,
+   0.07796507,
+   0.03163681,
+   0.98729718,
+   0.98747337
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_5.jpg": [
+   0.98616886,
+   0.07249781,
+   0.03413747,
+   0.99247307,
+   0.98914969
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_6.jpg": [
+   0.98662972,
+   0.0758779,
+   0.03048827,
+   0.99027288,
+   0.99109441
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_7.jpg": [
+   0.98254257,
+   0.06910659,
+   0.03133464,
+   0.98853672,
+   0.98563272
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0443_129_8.jpg": [
+   0.9851591,
+   0.06944516,
+   0.03402258,
+   0.98742145,
+   0.98841727
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135.jpg": [
+   0.98677135,
+   0.0659242,
+   0.03673501,
+   0.98810196,
+   0.9849667
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_0.jpg": [
+   0.9865737,
+   0.06690644,
+   0.03465528,
+   0.9911648,
+   0.98613596
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_1.jpg": [
+   0.9862085,
+   0.06855412,
+   0.03351218,
+   0.98871958,
+   0.9864229
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_2.jpg": [
+   0.98518753,
+   0.06495313,
+   0.03569463,
+   0.99384063,
+   0.98606479
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_3.jpg": [
+   0.98912358,
+   0.06781977,
+   0.0355713,
+   0.9925248,
+   0.98787355
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_4.jpg": [
+   0.98567867,
+   0.06896064,
+   0.03305124,
+   0.98995119,
+   0.98961079
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_5.jpg": [
+   0.99004447,
+   0.06649754,
+   0.03615602,
+   0.99224859,
+   0.98337704
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_6.jpg": [
+   0.98710012,
+   0.06602342,
+   0.03395593,
+   0.99089229,
+   0.98757929
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_7.jpg": [
+   0.98519248,
+   0.07170861,
+   0.03211655,
+   0.98689508,
+   0.98478991
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0446_135_8.jpg": [
+   0.98353702,
+   0.06656533,
+   0.03251391,
+   0.985273,
+   0.98295438
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154.jpg": [
+   0.98607415,
+   0.07041553,
+   0.03359167,
+   0.98899382,
+   0.98680389
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_0.jpg": [
+   0.98852175,
+   0.06607299,
+   0.03748488,
+   0.99118894,
+   0.98250204
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_1.jpg": [
+   0.98548573,
+   0.0752044,
+   0.03981372,
+   0.98951137,
+   0.9864127
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_2.jpg": [
+   0.98610198,
+   0.07034063,
+   0.03291506,
+   0.99422729,
+   0.9874596
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_3.jpg": [
+   0.98648584,
+   0.06995002,
+   0.03456685,
+   0.98833281,
+   0.98446953
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_4.jpg": [
+   0.98419356,
+   0.06881972,
+   0.03862889,
+   0.98901224,
+   0.98350787
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_5.jpg": [
+   0.98615295,
+   0.06413498,
+   0.03520413,
+   0.98973691,
+   0.98623508
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_6.jpg": [
+   0.98823088,
+   0.06388665,
+   0.03570706,
+   0.99087483,
+   0.98811972
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_7.jpg": [
+   0.98527074,
+   0.06341986,
+   0.03459249,
+   0.98989147,
+   0.98026633
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0536_154_8.jpg": [
+   0.98622447,
+   0.07628877,
+   0.03419792,
+   0.99302453,
+   0.98272848
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173.jpg": [
+   0.98828143,
+   0.06763891,
+   0.0344198,
+   0.9897486,
+   0.98587489
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_0.jpg": [
+   0.98786044,
+   0.07848096,
+   0.03451289,
+   0.99238342,
+   0.98598933
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_1.jpg": [
+   0.98996896,
+   0.07395115,
+   0.0382549,
+   0.99322593,
+   0.9827978
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_2.jpg": [
+   0.98482543,
+   0.08561332,
+   0.03803636,
+   0.98900539,
+   0.99039078
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_3.jpg": [
+   0.98835212,
+   0.06433361,
+   0.03425144,
+   0.9917351,
+   0.9859606
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_4.jpg": [
+   0.9859153,
+   0.06401791,
+   0.03417277,
+   0.988675,
+   0.98521996
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_5.jpg": [
+   0.98648953,
+   0.06476453,
+   0.03266414,
+   0.98923147,
+   0.98530513
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_6.jpg": [
+   0.9831534,
+   0.06351652,
+   0.0323494,
+   0.98470306,
+   0.98312306
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_7.jpg": [
+   0.98474818,
+   0.0638531,
+   0.0317285,
+   0.98754203,
+   0.98752666
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_173_8.jpg": [
+   0.98651075,
+   0.06919815,
+   0.03729366,
+   0.98835826,
+   0.98686862
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174.jpg": [
+   0.98355043,
+   0.07222595,
+   0.03514426,
+   0.98567152,
+   0.9880622
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_0.jpg": [
+   0.98543072,
+   0.07439721,
+   0.03847185,
+   0.98997045,
+   0.98431331
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_1.jpg": [
+   0.9830218,
+   0.06994604,
+   0.03725982,
+   0.98452318,
+   0.98949176
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_2.jpg": [
+   0.98283279,
+   0.07652062,
+   0.03486517,
+   0.98766273,
+   0.98503101
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_3.jpg": [
+   0.98368186,
+   0.07605576,
+   0.03996884,
+   0.98740035,
+   0.98593003
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_4.jpg": [
+   0.98347843,
+   0.07135171,
+   0.03432089,
+   0.98705262,
+   0.98253757
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_5.jpg": [
+   0.98234361,
+   0.0686855,
+   0.03002578,
+   0.9861086,
+   0.98799247
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_6.jpg": [
+   0.98487711,
+   0.07710729,
+   0.04349402,
+   0.98985904,
+   0.98950481
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_7.jpg": [
+   0.98382521,
+   0.07031871,
+   0.03055309,
+   0.98666674,
+   0.98750687
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0623_174_8.jpg": [
+   0.9836064,
+   0.06577345,
+   0.02995785,
+   0.98671514,
+   0.98167431
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201.jpg": [
+   0.98644102,
+   0.06919723,
+   0.03337911,
+   0.98987168,
+   0.98904335
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_0.jpg": [
+   0.98599744,
+   0.07657532,
+   0.03947262,
+   0.98938924,
+   0.98688239
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_1.jpg": [
+   0.98591799,
+   0.06389619,
+   0.03529161,
+   0.99099249,
+   0.98230642
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_2.jpg": [
+   0.98454392,
+   0.06973153,
+   0.02875718,
+   0.9884662,
+   0.98379517
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_3.jpg": [
+   0.98467785,
+   0.06433868,
+   0.03337856,
+   0.98980552,
+   0.98586768
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_4.jpg": [
+   0.98181814,
+   0.06964811,
+   0.02734439,
+   0.98428917,
+   0.98421329
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_5.jpg": [
+   0.9873389,
+   0.07563017,
+   0.03473197,
+   0.98949039,
+   0.98512751
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_6.jpg": [
+   0.98686594,
+   0.07306475,
+   0.04129133,
+   0.98871714,
+   0.98880446
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_7.jpg": [
+   0.98294109,
+   0.0702171,
+   0.03154336,
+   0.98683137,
+   0.98702204
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_201_8.jpg": [
+   0.98912388,
+   0.06823795,
+   0.03819045,
+   0.99400598,
+   0.98743176
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202.jpg": [
+   0.9878071,
+   0.06979161,
+   0.0351997,
+   0.99091977,
+   0.98424131
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_0.jpg": [
+   0.98508614,
+   0.06520314,
+   0.03189874,
+   0.98810279,
+   0.98544943
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_1.jpg": [
+   0.98452103,
+   0.074338,
+   0.03008278,
+   0.9893595,
+   0.98368686
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_2.jpg": [
+   0.98447204,
+   0.06629345,
+   0.02994164,
+   0.98878604,
+   0.98837727
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_3.jpg": [
+   0.9842751,
+   0.0648875,
+   0.03165135,
+   0.98882198,
+   0.98249829
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_4.jpg": [
+   0.98793226,
+   0.07756037,
+   0.03739674,
+   0.98903215,
+   0.9844237
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_5.jpg": [
+   0.98669869,
+   0.07422004,
+   0.03824688,
+   0.99327743,
+   0.98767108
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_6.jpg": [
+   0.98511451,
+   0.06486596,
+   0.03165253,
+   0.99062413,
+   0.98906136
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_7.jpg": [
+   0.98717451,
+   0.07534232,
+   0.03505658,
+   0.99154741,
+   0.98577297
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0091_202_8.jpg": [
+   0.98363096,
+   0.07227265,
+   0.03033724,
+   0.98803967,
+   0.98521507
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238.jpg": [
+   0.98293912,
+   0.07206517,
+   0.03197422,
+   0.98488837,
+   0.98825204
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_0.jpg": [
+   0.98372316,
+   0.06820985,
+   0.03043746,
+   0.98573017,
+   0.98942751
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_1.jpg": [
+   0.98349935,
+   0.07415286,
+   0.02542174,
+   0.98753709,
+   0.98442882
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_2.jpg": [
+   0.98131239,
+   0.07178567,
+   0.03195418,
+   0.98355573,
+   0.98621899
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_3.jpg": [
+   0.98429179,
+   0.06983551,
+   0.03128166,
+   0.98871011,
+   0.98635018
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_4.jpg": [
+   0.98336518,
+   0.06384285,
+   0.02757831,
+   0.98954791,
+   0.98685682
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_5.jpg": [
+   0.98474085,
+   0.06504297,
+   0.02897497,
+   0.990834,
+   0.984254
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_6.jpg": [
+   0.98292881,
+   0.06507581,
+   0.02905581,
+   0.98415673,
+   0.98561537
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_7.jpg": [
+   0.98333091,
+   0.07196849,
+   0.02949907,
+   0.98677421,
+   0.98516589
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/02-06-2021_DJI_0241_238_8.jpg": [
+   0.9816817,
+   0.0661883,
+   0.03101767,
+   0.98502988,
+   0.98584509
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584.jpg": [
+   0.98896492,
+   0.06947339,
+   0.03852124,
+   0.99135929,
+   0.99387246
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_0.jpg": [
+   0.98410463,
+   0.07283239,
+   0.03655308,
+   0.98601508,
+   0.98922735
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_1.jpg": [
+   0.98636782,
+   0.074371,
+   0.04099986,
+   0.98903435,
+   0.9886843
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_2.jpg": [
+   0.98922253,
+   0.0784843,
+   0.0361542,
+   0.99286622,
+   0.98588938
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_3.jpg": [
+   0.98163152,
+   0.07107943,
+   0.03059616,
+   0.98472983,
+   0.98597836
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_4.jpg": [
+   0.98355192,
+   0.09458675,
+   0.03700677,
+   0.98749661,
+   0.98502457
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_5.jpg": [
+   0.98591655,
+   0.07552571,
+   0.03234168,
+   0.99155396,
+   0.98349118
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_6.jpg": [
+   0.98447579,
+   0.0651775,
+   0.03201339,
+   0.98798203,
+   0.98652202
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_7.jpg": [
+   0.98818737,
+   0.07559749,
+   0.03410557,
+   0.99346745,
+   0.98358005
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/09-06-2021_DJI_0475_584_8.jpg": [
+   0.98389626,
+   0.0685961,
+   0.03201732,
+   0.98521513,
+   0.98228163
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615.jpg": [
+   0.98296893,
+   0.08485562,
+   0.03415576,
+   0.98392332,
+   0.98999041
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_0.jpg": [
+   0.98402965,
+   0.0692605,
+   0.03103521,
+   0.98599362,
+   0.98578638
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_1.jpg": [
+   0.98889893,
+   0.06792939,
+   0.03401277,
+   0.99183244,
+   0.98909318
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_2.jpg": [
+   0.98417872,
+   0.08199402,
+   0.03628137,
+   0.98544562,
+   0.98738617
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_3.jpg": [
+   0.98387849,
+   0.07249146,
+   0.03501739,
+   0.98539793,
+   0.987517
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_4.jpg": [
+   0.98468298,
+   0.08260336,
+   0.04188599,
+   0.98723334,
+   0.98671347
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_5.jpg": [
+   0.98479062,
+   0.08611949,
+   0.04067685,
+   0.98746997,
+   0.98705202
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_6.jpg": [
+   0.9875924,
+   0.07654905,
+   0.03374399,
+   0.99358028,
+   0.9825846
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_7.jpg": [
+   0.98612624,
+   0.07697856,
+   0.03677413,
+   0.98750389,
+   0.9866876
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0025_615_8.jpg": [
+   0.984249,
+   0.06874032,
+   0.03482263,
+   0.98561966,
+   0.9880082
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618.jpg": [
+   0.98263627,
+   0.06640341,
+   0.02986651,
+   0.98401785,
+   0.98798162
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_0.jpg": [
+   0.98542941,
+   0.07362545,
+   0.03125873,
+   0.99250722,
+   0.98813862
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_1.jpg": [
+   0.981148,
+   0.06539588,
+   0.02878776,
+   0.98494655,
+   0.98921442
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_2.jpg": [
+   0.98385787,
+   0.06802066,
+   0.03001527,
+   0.99000508,
+   0.9853754
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_3.jpg": [
+   0.98333675,
+   0.06677042,
+   0.02821094,
+   0.98603731,
+   0.9879849
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_4.jpg": [
+   0.98170751,
+   0.07370195,
+   0.02904966,
+   0.98421907,
+   0.98244828
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_5.jpg": [
+   0.98199189,
+   0.07562421,
+   0.03511228,
+   0.98701137,
+   0.98853749
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_6.jpg": [
+   0.98298997,
+   0.06267034,
+   0.03080913,
+   0.98811501,
+   0.99123055
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_7.jpg": [
+   0.98391438,
+   0.06549659,
+   0.0316918,
+   0.98806971,
+   0.98799574
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0026_618_8.jpg": [
+   0.98184627,
+   0.07533665,
+   0.0325787,
+   0.9834497,
+   0.98122859
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641.jpg": [
+   0.98342711,
+   0.06825384,
+   0.02959125,
+   0.9853009,
+   0.98645216
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_0.jpg": [
+   0.98388183,
+   0.08376969,
+   0.03624735,
+   0.98718405,
+   0.98665541
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_1.jpg": [
+   0.98246604,
+   0.06370017,
+   0.0312488,
+   0.98495191,
+   0.98286831
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_2.jpg": [
+   0.98529255,
+   0.0676956,
+   0.03550287,
+   0.99176449,
+   0.98759353
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_3.jpg": [
+   0.98470616,
+   0.0725495,
+   0.03512473,
+   0.98759788,
+   0.9831537
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_4.jpg": [
+   0.9832592,
+   0.07342256,
+   0.0303116,
+   0.98662281,
+   0.99046308
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_5.jpg": [
+   0.98441327,
+   0.06665191,
+   0.02723707,
+   0.98815364,
+   0.98478258
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_6.jpg": [
+   0.98562312,
+   0.06582806,
+   0.03258964,
+   0.98775136,
+   0.98999912
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_7.jpg": [
+   0.98452753,
+   0.07034954,
+   0.03742322,
+   0.98733789,
+   0.98477906
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0122_641_8.jpg": [
+   0.9842006,
+   0.07175036,
+   0.0339667,
+   0.9883756,
+   0.99249011
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664.jpg": [
+   0.98662943,
+   0.06865723,
+   0.03067501,
+   0.98797858,
+   0.98806047
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_0.jpg": [
+   0.98456073,
+   0.0722682,
+   0.03331355,
+   0.98817074,
+   0.9863143
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_1.jpg": [
+   0.98407054,
+   0.06845527,
+   0.03373741,
+   0.98688364,
+   0.98705482
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_2.jpg": [
+   0.98710251,
+   0.06580644,
+   0.03457194,
+   0.98888326,
+   0.98609263
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_3.jpg": [
+   0.98512566,
+   0.07120527,
+   0.02824416,
+   0.98699981,
+   0.98859984
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_4.jpg": [
+   0.98289835,
+   0.06894621,
+   0.03401752,
+   0.98639423,
+   0.98374259
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_5.jpg": [
+   0.9846909,
+   0.07224593,
+   0.03324521,
+   0.98983085,
+   0.98693508
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_6.jpg": [
+   0.9865129,
+   0.07623027,
+   0.03553883,
+   0.98888785,
+   0.98286587
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_7.jpg": [
+   0.98544896,
+   0.06791405,
+   0.03051968,
+   0.98620152,
+   0.98903793
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/10-06-2021_DJI_0303_664_8.jpg": [
+   0.98701698,
+   0.07402611,
+   0.03926545,
+   0.99156559,
+   0.98629117
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738.jpg": [
+   0.9858557,
+   0.08124194,
+   0.04052071,
+   0.98795158,
+   0.98678023
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_0.jpg": [
+   0.98257124,
+   0.08405301,
+   0.03030647,
+   0.98624218,
+   0.99157047
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_1.jpg": [
+   0.98479551,
+   0.06280709,
+   0.03435057,
+   0.9878605,
+   0.98852062
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_2.jpg": [
+   0.98607886,
+   0.08726393,
+   0.03588643,
+   0.98814106,
+   0.9853878
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_3.jpg": [
+   0.98618686,
+   0.07744253,
+   0.03494583,
+   0.98825836,
+   0.98703748
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_4.jpg": [
+   0.98487854,
+   0.06906143,
+   0.03021497,
+   0.9870252,
+   0.98589653
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_5.jpg": [
+   0.98441887,
+   0.07954778,
+   0.03287288,
+   0.98753983,
+   0.99145317
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_6.jpg": [
+   0.98069739,
+   0.08402902,
+   0.03344432,
+   0.98257816,
+   0.98652548
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_7.jpg": [
+   0.98402625,
+   0.08386053,
+   0.04111018,
+   0.98626846,
+   0.98514622
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0115_738_8.jpg": [
+   0.98530179,
+   0.06522474,
+   0.0326616,
+   0.98840725,
+   0.98722225
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764.jpg": [
+   0.98480117,
+   0.07428443,
+   0.03384288,
+   0.99070555,
+   0.98899144
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_0.jpg": [
+   0.98717463,
+   0.07908215,
+   0.03442199,
+   0.99177819,
+   0.98840499
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_1.jpg": [
+   0.98511648,
+   0.0685216,
+   0.03242074,
+   0.987683,
+   0.98512805
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_2.jpg": [
+   0.98534346,
+   0.07230954,
+   0.03146552,
+   0.9890154,
+   0.98477328
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_3.jpg": [
+   0.98424983,
+   0.06307179,
+   0.03080968,
+   0.9871065,
+   0.9849903
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_4.jpg": [
+   0.98568189,
+   0.07253357,
+   0.03280123,
+   0.98802871,
+   0.98708498
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_5.jpg": [
+   0.98285705,
+   0.07459141,
+   0.03196801,
+   0.98661089,
+   0.98771864
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_6.jpg": [
+   0.98569298,
+   0.07299445,
+   0.03098965,
+   0.99104232,
+   0.98918086
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_7.jpg": [
+   0.98097342,
+   0.07275003,
+   0.02748431,
+   0.98338151,
+   0.99160117
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0208_764_8.jpg": [
+   0.98765337,
+   0.07021859,
+   0.03170268,
+   0.99112594,
+   0.98629844
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775.jpg": [
+   0.98410606,
+   0.06213659,
+   0.03193702,
+   0.99135363,
+   0.98671347
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_0.jpg": [
+   0.98609304,
+   0.07081496,
+   0.03443898,
+   0.98980206,
+   0.98695719
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_1.jpg": [
+   0.98777688,
+   0.06973328,
+   0.0305723,
+   0.99098456,
+   0.98212755
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_2.jpg": [
+   0.98292613,
+   0.06795722,
+   0.03335821,
+   0.98688143,
+   0.98583192
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_3.jpg": [
+   0.98730326,
+   0.06142718,
+   0.03360795,
+   0.99020708,
+   0.98242581
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_4.jpg": [
+   0.98649693,
+   0.06913152,
+   0.03068667,
+   0.99016982,
+   0.98456949
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_5.jpg": [
+   0.98343253,
+   0.07846652,
+   0.02992126,
+   0.98754764,
+   0.985367
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_6.jpg": [
+   0.9831146,
+   0.06996709,
+   0.02984693,
+   0.99190164,
+   0.98929358
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_7.jpg": [
+   0.98667461,
+   0.07023086,
+   0.03299453,
+   0.98942345,
+   0.98547202
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0218_775_8.jpg": [
+   0.98364699,
+   0.06469484,
+   0.03126228,
+   0.98742354,
+   0.98642898
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783.jpg": [
+   0.98599106,
+   0.06970356,
+   0.03479096,
+   0.99070042,
+   0.98474568
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_0.jpg": [
+   0.98723012,
+   0.06963585,
+   0.03397856,
+   0.9910174,
+   0.98715597
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_1.jpg": [
+   0.98637509,
+   0.06730887,
+   0.03322791,
+   0.98978496,
+   0.98565191
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_2.jpg": [
+   0.98671323,
+   0.06556531,
+   0.03432258,
+   0.99011129,
+   0.98588175
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_3.jpg": [
+   0.98719764,
+   0.07129086,
+   0.03892095,
+   0.99020708,
+   0.98637766
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_4.jpg": [
+   0.98750597,
+   0.06963709,
+   0.03288692,
+   0.99047762,
+   0.98669362
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_5.jpg": [
+   0.98792005,
+   0.06515876,
+   0.03309692,
+   0.99023956,
+   0.98323071
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_6.jpg": [
+   0.98666471,
+   0.07796251,
+   0.03564436,
+   0.98972595,
+   0.98574054
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_7.jpg": [
+   0.98533314,
+   0.06976681,
+   0.03062289,
+   0.98835403,
+   0.98433024
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_783_8.jpg": [
+   0.98328769,
+   0.06671652,
+   0.02911001,
+   0.98692071,
+   0.98740697
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784.jpg": [
+   0.98576385,
+   0.07109538,
+   0.03227303,
+   0.98790455,
+   0.98910993
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_0.jpg": [
+   0.98576385,
+   0.07109538,
+   0.03227303,
+   0.98790455,
+   0.98910993
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_1.jpg": [
+   0.98401386,
+   0.06995032,
+   0.03395485,
+   0.9892537,
+   0.98709458
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_2.jpg": [
+   0.98815548,
+   0.06930678,
+   0.03987943,
+   0.9920426,
+   0.99207056
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_3.jpg": [
+   0.98831272,
+   0.06699917,
+   0.03458731,
+   0.99389124,
+   0.98503786
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_4.jpg": [
+   0.98731405,
+   0.07107896,
+   0.03384394,
+   0.99097311,
+   0.98730254
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_5.jpg": [
+   0.98413575,
+   0.06768735,
+   0.0311976,
+   0.98527473,
+   0.98701954
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_6.jpg": [
+   0.98588347,
+   0.0743461,
+   0.03488028,
+   0.98722833,
+   0.98141336
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_7.jpg": [
+   0.98416436,
+   0.0737562,
+   0.03155339,
+   0.98561436,
+   0.98661125
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/15-06-2021_DJI_0266_784_8.jpg": [
+   0.98519784,
+   0.06620192,
+   0.03502329,
+   0.98814934,
+   0.9849903
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0144_37.jpg": [
+   0.98170257,
+   0.06673195,
+   0.02844604,
+   0.98698103,
+   0.99837065
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0144_38.jpg": [
+   0.98311573,
+   0.06769947,
+   0.0296642,
+   0.98517066,
+   0.99258053
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0183_56.jpg": [
+   0.98480797,
+   0.06516555,
+   0.03307103,
+   0.98830676,
+   0.99437976
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0210_65.jpg": [
+   0.98284167,
+   0.0706201,
+   0.0330714,
+   0.98618782,
+   0.9970206
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0262_75.jpg": [
+   0.98240805,
+   0.07056155,
+   0.03213334,
+   0.9857887,
+   0.98493248
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0351_106.jpg": [
+   0.98444664,
+   0.10108226,
+   0.04542514,
+   0.98786557,
+   0.98799783
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0352_107.jpg": [
+   0.98438686,
+   0.06796756,
+   0.02773919,
+   0.98802459,
+   0.98886985
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0352_108.jpg": [
+   0.98238307,
+   0.06805454,
+   0.03143132,
+   0.98578519,
+   0.98789531
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0355_110.jpg": [
+   0.98736745,
+   0.06872361,
+   0.03275262,
+   0.98889756,
+   0.98841202
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0355_111.jpg": [
+   0.9867143,
+   0.07175716,
+   0.03565256,
+   0.98930383,
+   0.99381983
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0385_114.jpg": [
+   0.98226833,
+   0.06657592,
+   0.03265177,
+   0.98388278,
+   0.98473161
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0444_131.jpg": [
+   0.98577994,
+   0.06638262,
+   0.03474239,
+   0.99144256,
+   0.99844718
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0622_172.jpg": [
+   0.98429585,
+   0.06808997,
+   0.03545144,
+   0.98758131,
+   0.98892021
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/01-06-2021_DJI_0626_178.jpg": [
+   0.99155009,
+   0.07172116,
+   0.04230026,
+   0.99247926,
+   0.98232764
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/02-06-2021_DJI_0092_204.jpg": [
+   0.98430228,
+   0.07180512,
+   0.03223248,
+   0.98785108,
+   0.98459017
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/09-06-2021_DJI_0474_581.jpg": [
+   0.98816705,
+   0.07436542,
+   0.04272627,
+   0.9918468,
+   0.98596233
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/09-06-2021_DJI_0475_583.jpg": [
+   0.98625582,
+   0.07281549,
+   0.03298789,
+   0.98947561,
+   0.98915601
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/15-06-2021_DJI_0160_748.jpg": [
+   0.98229492,
+   0.06610585,
+   0.03196783,
+   0.9859314,
+   0.98513097
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/15-06-2021_DJI_0172_757.jpg": [
+   0.98750007,
+   0.06795111,
+   0.03615505,
+   0.98994583,
+   0.98864186
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/rust/15-06-2021_DJI_0217_771.jpg": [
+   0.98473626,
+   0.07012891,
+   0.03325089,
+   0.98992264,
+   0.98989242
+  ]
+ },
+ "normal": {
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 01-12-2020_DJI_0296_amarra_balancim_231.jpg": [
+   0.98253244,
+   0.06427398,
+   0.02813489,
+   0.9842298,
+   0.99154562
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 02-12-2020_DJI_0341_amarra_balancim_509.jpg": [
+   0.98513401,
+   0.06531723,
+   0.02691217,
+   0.98777556,
+   0.99093789
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 11-12-2020_DJI_0037_amarra_balancim_2423.jpg": [
+   0.98641068,
+   0.07593152,
+   0.03439213,
+   0.99213308,
+   0.98903733
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 14-12-2020_DJI_0729_amarra_balancim_2451.jpg": [
+   0.98394537,
+   0.06746191,
+   0.02892751,
+   0.98621893,
+   0.99046934
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 16-11-2020_DJI_0069_amarra_balancim_2863.jpg": [
+   0.98388541,
+   0.07185242,
+   0.02779438,
+   0.98666859,
+   0.98896694
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 16-11-2020_DJI_0211_amarra_balancim_2744.jpg": [
+   0.98510152,
+   0.06071654,
+   0.02593794,
+   0.98911917,
+   0.98688543
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 16-12-2020_DJI_0031_amarra_balancim_3167.jpg": [
+   0.98242247,
+   0.07654762,
+   0.03495055,
+   0.98409313,
+   0.98408216
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 19-10-2020_DJI_0015_amarra_balancim_34.jpg": [
+   0.98304379,
+   0.0710314,
+   0.02923698,
+   0.98719299,
+   0.99045676
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 19-11-2020_DJI_0163_amarra_balancim_3777.jpg": [
+   0.98394477,
+   0.06440078,
+   0.02882485,
+   0.9858678,
+   0.99345642
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 22-10-2020_DJI_0763_amarra_balancim_4651.jpg": [
+   0.98236746,
+   0.0641395,
+   0.02746246,
+   0.98643029,
+   0.9855901
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 22-10-2020_DJI_0849_amarra_balancim_4731.jpg": [
+   0.98926926,
+   0.07027134,
+   0.03680188,
+   0.99463511,
+   0.99487346
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 23-11-2020_DJI_0191_amarra_balancim_5066.jpg": [
+   0.98176497,
+   0.06651153,
+   0.02899319,
+   0.98385745,
+   0.99152458
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 23-11-2020_DJI_0214_amarra_balancim_5013.jpg": [
+   0.98238713,
+   0.06276044,
+   0.02681743,
+   0.98757577,
+   0.99124724
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 24-11-2020_DJI_0345_amarra_balancim_5352.jpg": [
+   0.9840886,
+   0.06625467,
+   0.02832945,
+   0.98564357,
+   0.98572814
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 25-11-2020_DJI_0178_amarra_balancim_5660.jpg": [
+   0.98666233,
+   0.06422568,
+   0.03365365,
+   0.99126089,
+   0.98934215
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 25-11-2020_DJI_0374_amarra_balancim_5547.jpg": [
+   0.98272806,
+   0.08666094,
+   0.03626958,
+   0.98654217,
+   0.99002206
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 26-11-2020_DJI_0064_amarra_balancim_5943.jpg": [
+   0.98846525,
+   0.06917876,
+   0.03272488,
+   0.99042267,
+   0.99042016
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 26-11-2020_DJI_0411_amarra_balancim_5746.jpg": [
+   0.98502272,
+   0.07737645,
+   0.02727259,
+   0.98686111,
+   0.99053895
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/good/Fotos 26-11-2020_DJI_0523_amarra_balancim_5806.jpg": [
+   0.98224628,
+   0.07715335,
+   0.03177565,
+   0.98802143,
+   0.99046582
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0017_amarra_balancim_332.jpg": [
+   0.98628193,
+   0.06699024,
+   0.03096846,
+   0.98928064,
+   0.98707914
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0018_amarra_balancim_333.jpg": [
+   0.98524708,
+   0.07657811,
+   0.02959775,
+   0.99036944,
+   0.98569053
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0074_amarra_balancim_306.jpg": [
+   0.9844631,
+   0.07692046,
+   0.0301133,
+   0.98940259,
+   0.98708272
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0074_amarra_balancim_307.jpg": [
+   0.98502982,
+   0.08552014,
+   0.03663319,
+   0.98861355,
+   0.9876467
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0075_amarra_balancim_309.jpg": [
+   0.98295748,
+   0.07821897,
+   0.03153528,
+   0.98701578,
+   0.9836095
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0095_amarra_balancim_317.jpg": [
+   0.98716956,
+   0.06867623,
+   0.03155382,
+   0.989474,
+   0.99121088
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0176_amarra_balancim_304.jpg": [
+   0.98750973,
+   0.0647538,
+   0.03122076,
+   0.99088758,
+   0.98966616
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0212_amarra_balancim_255.jpg": [
+   0.98385561,
+   0.06991901,
+   0.03128146,
+   0.98554718,
+   0.99057823
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0293_amarra_balancim_221.jpg": [
+   0.98641735,
+   0.07137355,
+   0.03386813,
+   0.98987705,
+   0.9900015
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0294_amarra_balancim_223.jpg": [
+   0.99077076,
+   0.06355435,
+   0.04312886,
+   0.99366212,
+   0.99637812
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0317_amarra_balancim_243.jpg": [
+   0.98742384,
+   0.06349806,
+   0.03234286,
+   0.99059981,
+   0.99037999
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0338_amarra_balancim_182.jpg": [
+   0.98837054,
+   0.06986659,
+   0.03387024,
+   0.99037337,
+   0.99138862
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0355_amarra_balancim_195.jpg": [
+   0.98721671,
+   0.06957848,
+   0.03401068,
+   0.99064857,
+   0.98496366
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0414_amarra_balancim_167.jpg": [
+   0.98803955,
+   0.07338452,
+   0.03805467,
+   0.989416,
+   0.98983097
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0508_amarra_balancim_104.jpg": [
+   0.98122501,
+   0.07510299,
+   0.02700551,
+   0.98350132,
+   0.98995948
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0509_amarra_balancim_106.jpg": [
+   0.98719716,
+   0.07239182,
+   0.03617423,
+   0.99313408,
+   0.98867303
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0019_amarra_balancim_647.jpg": [
+   0.98791945,
+   0.07379073,
+   0.03319371,
+   0.99156052,
+   0.99334264
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0051_amarra_balancim_665.jpg": [
+   0.98586339,
+   0.07392433,
+   0.03529883,
+   0.98947185,
+   0.98879731
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0073_amarra_balancim_619.jpg": [
+   0.98605049,
+   0.07624297,
+   0.04205553,
+   0.9892751,
+   0.9836542
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0106_amarra_balancim_634.jpg": [
+   0.98448676,
+   0.06616038,
+   0.02666362,
+   0.99030352,
+   0.98741758
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0109_amarra_balancim_640.jpg": [
+   0.98841298,
+   0.0611774,
+   0.03799704,
+   0.99269229,
+   0.98736918
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0189_amarra_balancim_553.jpg": [
+   0.98495942,
+   0.06591151,
+   0.03027228,
+   0.98798221,
+   0.99229276
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0189_amarra_balancim_555.jpg": [
+   0.9872936,
+   0.06512876,
+   0.03182529,
+   0.98892796,
+   0.98884857
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0236_amarra_balancim_510.jpg": [
+   0.98144305,
+   0.06940647,
+   0.02536247,
+   0.990776,
+   0.98751152
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0301_amarra_balancim_481.jpg": [
+   0.98361939,
+   0.06799741,
+   0.03845616,
+   0.98813313,
+   0.99030274
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0319_amarra_balancim_494.jpg": [
+   0.9849565,
+   0.07499181,
+   0.03014562,
+   0.98800367,
+   0.99053419
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0319_amarra_balancim_496.jpg": [
+   0.98753214,
+   0.06533648,
+   0.03280884,
+   0.99246174,
+   0.98954761
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0338_amarra_balancim_502.jpg": [
+   0.98405373,
+   0.07999457,
+   0.03201137,
+   0.98672652,
+   0.99112684
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0362_amarra_balancim_442.jpg": [
+   0.9832539,
+   0.09061262,
+   0.03483225,
+   0.98792803,
+   0.98991686
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0365_amarra_balancim_448.jpg": [
+   0.98480457,
+   0.07332611,
+   0.03266905,
+   0.99373609,
+   0.98565942
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0366_amarra_balancim_450.jpg": [
+   0.9869678,
+   0.07201656,
+   0.03274373,
+   0.98937511,
+   0.98818815
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0385_amarra_balancim_459.jpg": [
+   0.98367679,
+   0.06501094,
+   0.02831325,
+   0.98765206,
+   0.9942928
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0401_amarra_balancim_469.jpg": [
+   0.98214775,
+   0.06957495,
+   0.03048269,
+   0.98447222,
+   0.98841923
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0424_amarra_balancim_402.jpg": [
+   0.98394942,
+   0.0715651,
+   0.02798332,
+   0.98762667,
+   0.98739243
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0441_amarra_balancim_411.jpg": [
+   0.982458,
+   0.0759889,
+   0.03267128,
+   0.98651111,
+   0.9886896
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0464_amarra_balancim_431.jpg": [
+   0.98186249,
+   0.06973268,
+   0.03064514,
+   0.98612756,
+   0.98926455
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0489_amarra_balancim_365.jpg": [
+   0.98321754,
+   0.07671395,
+   0.03321105,
+   0.98673248,
+   0.98584688
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0490_amarra_balancim_367.jpg": [
+   0.98423344,
+   0.07516176,
+   0.03494876,
+   0.98955095,
+   0.98793221
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 02-12-2020_DJI_0530_amarra_balancim_395.jpg": [
+   0.98822302,
+   0.06465816,
+   0.0344307,
+   0.99155998,
+   0.9913063
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0019_amarra_balancim_911.jpg": [
+   0.98632812,
+   0.06749653,
+   0.02981766,
+   0.98946404,
+   0.98887867
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0022_amarra_balancim_917.jpg": [
+   0.98515803,
+   0.06798153,
+   0.02791934,
+   0.99069989,
+   0.99341112
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0035_amarra_balancim_921.jpg": [
+   0.98568451,
+   0.07127654,
+   0.0315159,
+   0.98782599,
+   0.98919439
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0082_amarra_balancim_876.jpg": [
+   0.98421979,
+   0.07111549,
+   0.03374095,
+   0.98842442,
+   0.98936838
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0084_amarra_balancim_881.jpg": [
+   0.98501557,
+   0.06823577,
+   0.02987171,
+   0.98848718,
+   0.99385941
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0122_amarra_balancim_901.jpg": [
+   0.98248833,
+   0.09394439,
+   0.03426012,
+   0.98660403,
+   0.98947287
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0124_amarra_balancim_906.jpg": [
+   0.99112153,
+   0.06293835,
+   0.03870983,
+   0.99436659,
+   0.98754287
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0148_amarra_balancim_851.jpg": [
+   0.98575771,
+   0.06425163,
+   0.03119195,
+   0.98935926,
+   0.98729461
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0163_amarra_balancim_852.jpg": [
+   0.98779941,
+   0.06827309,
+   0.03461324,
+   0.98989564,
+   0.98704165
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0164_amarra_balancim_855.jpg": [
+   0.98710287,
+   0.07369831,
+   0.03351539,
+   0.99206734,
+   0.9885481
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0204_amarra_balancim_813.jpg": [
+   0.98351812,
+   0.07309501,
+   0.02819062,
+   0.9885717,
+   0.990439
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0237_amarra_balancim_838.jpg": [
+   0.98336762,
+   0.07206818,
+   0.03400419,
+   0.98571962,
+   0.98994869
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0238_amarra_balancim_841.jpg": [
+   0.98615164,
+   0.06276376,
+   0.03507691,
+   0.98782527,
+   0.98697472
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0238_amarra_balancim_842.jpg": [
+   0.98858929,
+   0.06834205,
+   0.03378175,
+   0.99078953,
+   0.99099278
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0308_amarra_balancim_801.jpg": [
+   0.98857254,
+   0.06686424,
+   0.03334916,
+   0.99057633,
+   0.98590255
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0351_amarra_balancim_810.jpg": [
+   0.98136288,
+   0.06156389,
+   0.02714761,
+   0.98608816,
+   0.98761278
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0408_amarra_balancim_779.jpg": [
+   0.98788136,
+   0.06997024,
+   0.03642514,
+   0.99430102,
+   0.98566365
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0410_amarra_balancim_786.jpg": [
+   0.9867869,
+   0.06661731,
+   0.03296888,
+   0.99024719,
+   0.98439181
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0424_amarra_balancim_787.jpg": [
+   0.98396015,
+   0.06887316,
+   0.02797826,
+   0.98623139,
+   0.98930585
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0477_amarra_balancim_753.jpg": [
+   0.98190147,
+   0.06354265,
+   0.02686466,
+   0.98399502,
+   0.98795885
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0477_amarra_balancim_754.jpg": [
+   0.98200589,
+   0.06400584,
+   0.02857023,
+   0.98532182,
+   0.99123549
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0526_amarra_balancim_727.jpg": [
+   0.98299372,
+   0.07079893,
+   0.02415017,
+   0.98766482,
+   0.98394871
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0526_amarra_balancim_729.jpg": [
+   0.9812358,
+   0.06202042,
+   0.02650196,
+   0.98568124,
+   0.98726052
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0538_amarra_balancim_731.jpg": [
+   0.98388499,
+   0.0749564,
+   0.03233898,
+   0.99076587,
+   0.98589897
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0558_amarra_balancim_674.jpg": [
+   0.98205453,
+   0.08022589,
+   0.03531826,
+   0.98398817,
+   0.98577768
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0569_amarra_balancim_684.jpg": [
+   0.98645473,
+   0.06979547,
+   0.03315637,
+   0.98871237,
+   0.98482066
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 03-12-2020_DJI_0589_amarra_balancim_696.jpg": [
+   0.98611516,
+   0.06696492,
+   0.03662103,
+   0.99102843,
+   0.9887442
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0759_amarra_balancim_1065.jpg": [
+   0.98423213,
+   0.07473034,
+   0.03203249,
+   0.98654544,
+   0.9864105
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0771_amarra_balancim_1076.jpg": [
+   0.9807111,
+   0.06721173,
+   0.02548141,
+   0.98765939,
+   0.98627138
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0785_amarra_balancim_1080.jpg": [
+   0.98255306,
+   0.06871785,
+   0.02968089,
+   0.98959816,
+   0.98799849
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0850_amarra_balancim_1026.jpg": [
+   0.98779953,
+   0.07216319,
+   0.03552095,
+   0.98950875,
+   0.98869103
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0875_amarra_balancim_1034.jpg": [
+   0.98964524,
+   0.09471222,
+   0.04570397,
+   0.99278396,
+   0.98518008
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0899_amarra_balancim_998.jpg": [
+   0.98628974,
+   0.07585071,
+   0.03312749,
+   0.9890092,
+   0.98626417
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0958_amarra_balancim_980.jpg": [
+   0.98782456,
+   0.07010227,
+   0.03395633,
+   0.9926132,
+   0.98662817
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0960_amarra_balancim_983.jpg": [
+   0.98982662,
+   0.07666072,
+   0.03494768,
+   0.99217576,
+   0.99533731
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 04-12-2020_DJI_0994_amarra_balancim_950.jpg": [
+   0.98425615,
+   0.07343399,
+   0.03188235,
+   0.98609173,
+   0.98668575
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0040_amarra_balancim_1399.jpg": [
+   0.98293996,
+   0.07542159,
+   0.03434569,
+   0.98951888,
+   0.98772752
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0058_amarra_balancim_1353.jpg": [
+   0.98977065,
+   0.05825602,
+   0.03440137,
+   0.99308568,
+   0.98654336
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0069_amarra_balancim_1364.jpg": [
+   0.98176086,
+   0.06722978,
+   0.02806325,
+   0.98603624,
+   0.99066663
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0080_amarra_balancim_1365.jpg": [
+   0.99042714,
+   0.06785708,
+   0.04199509,
+   0.99415249,
+   0.9891358
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0081_amarra_balancim_1368.jpg": [
+   0.98400062,
+   0.07241087,
+   0.03460568,
+   0.98637426,
+   0.9883976
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0082_amarra_balancim_1370.jpg": [
+   0.98314703,
+   0.07118544,
+   0.02889758,
+   0.9869501,
+   0.98822588
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0110_amarra_balancim_1337.jpg": [
+   0.98998839,
+   0.06747232,
+   0.03729298,
+   0.99353832,
+   0.98421186
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0122_amarra_balancim_1342.jpg": [
+   0.98358124,
+   0.07878993,
+   0.03043807,
+   0.98575449,
+   0.98680574
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0139_amarra_balancim_1299.jpg": [
+   0.98955137,
+   0.06631459,
+   0.03739099,
+   0.99321777,
+   0.98787761
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0147_amarra_balancim_1300.jpg": [
+   0.98387587,
+   0.0840252,
+   0.0404512,
+   0.98595804,
+   0.98846382
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0148_amarra_balancim_1303.jpg": [
+   0.98491198,
+   0.0746213,
+   0.03699303,
+   0.98848695,
+   0.98759776
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0167_amarra_balancim_1310.jpg": [
+   0.98352456,
+   0.07129113,
+   0.03278641,
+   0.98633057,
+   0.99250811
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0183_amarra_balancim_1257.jpg": [
+   0.98519248,
+   0.07137465,
+   0.03242201,
+   0.99154878,
+   0.9875471
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0196_amarra_balancim_1271.jpg": [
+   0.98644572,
+   0.06791843,
+   0.03598404,
+   0.99145699,
+   0.99374193
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0211_amarra_balancim_1288.jpg": [
+   0.98395425,
+   0.06861776,
+   0.03025654,
+   0.99061579,
+   0.99111885
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0211_amarra_balancim_1289.jpg": [
+   0.98634684,
+   0.06391528,
+   0.02877768,
+   0.98996317,
+   0.98797524
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0223_amarra_balancim_1225.jpg": [
+   0.98479378,
+   0.05981413,
+   0.02973413,
+   0.98986042,
+   0.98622173
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0224_amarra_balancim_1229.jpg": [
+   0.98252279,
+   0.06659515,
+   0.03040238,
+   0.98453575,
+   0.98529518
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0225_amarra_balancim_1231.jpg": [
+   0.98275787,
+   0.07386389,
+   0.0346546,
+   0.98726714,
+   0.98770022
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0232_amarra_balancim_1238.jpg": [
+   0.98484808,
+   0.06562714,
+   0.03330988,
+   0.98747444,
+   0.98592794
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0248_amarra_balancim_1246.jpg": [
+   0.98089427,
+   0.0621499,
+   0.02432222,
+   0.98347706,
+   0.99078619
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0268_amarra_balancim_1200.jpg": [
+   0.99093622,
+   0.06368303,
+   0.04186343,
+   0.99267435,
+   0.98807049
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0274_amarra_balancim_1202.jpg": [
+   0.99016196,
+   0.0652943,
+   0.03635706,
+   0.99270838,
+   0.98808432
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0289_amarra_balancim_1214.jpg": [
+   0.98216224,
+   0.07229033,
+   0.0269343,
+   0.98594946,
+   0.9882552
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0316_amarra_balancim_1164.jpg": [
+   0.98688549,
+   0.08393202,
+   0.04041877,
+   0.98752117,
+   0.9886592
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0336_amarra_balancim_1178.jpg": [
+   0.98732853,
+   0.07096381,
+   0.03046672,
+   0.98937672,
+   0.9903177
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 07-12-2020_DJI_0337_amarra_balancim_1181.jpg": [
+   0.98208994,
+   0.06363045,
+   0.02937829,
+   0.98543,
+   0.98994368
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0450_amarra_balancim_1618.jpg": [
+   0.98498666,
+   0.06482238,
+   0.03420696,
+   0.99382877,
+   0.98346424
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0460_amarra_balancim_1628.jpg": [
+   0.98520821,
+   0.07399882,
+   0.03232248,
+   0.99000502,
+   0.98702097
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0474_amarra_balancim_1634.jpg": [
+   0.98432404,
+   0.07111552,
+   0.03101548,
+   0.99056822,
+   0.98649514
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0488_amarra_balancim_1583.jpg": [
+   0.98979819,
+   0.06053301,
+   0.03985301,
+   0.99318671,
+   0.98695052
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0488_amarra_balancim_1584.jpg": [
+   0.98639977,
+   0.07187846,
+   0.03603776,
+   0.98847795,
+   0.98481822
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0491_amarra_balancim_1591.jpg": [
+   0.98996413,
+   0.07153291,
+   0.03735879,
+   0.99357069,
+   0.98802054
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0501_amarra_balancim_1600.jpg": [
+   0.98627359,
+   0.06350075,
+   0.03240201,
+   0.98846346,
+   0.9891032
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0531_amarra_balancim_1563.jpg": [
+   0.9828732,
+   0.06852739,
+   0.03829519,
+   0.98423344,
+   0.98513013
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0557_amarra_balancim_1580.jpg": [
+   0.98722339,
+   0.07262401,
+   0.04544058,
+   0.98988533,
+   0.98693299
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0571_amarra_balancim_1537.jpg": [
+   0.98346496,
+   0.07935216,
+   0.03258034,
+   0.99119866,
+   0.9917593
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0633_amarra_balancim_1533.jpg": [
+   0.98352236,
+   0.07705706,
+   0.03736247,
+   0.9876014,
+   0.98485506
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0647_amarra_balancim_1481.jpg": [
+   0.98657405,
+   0.06143001,
+   0.03102548,
+   0.98952621,
+   0.98327696
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0685_amarra_balancim_1463.jpg": [
+   0.98715061,
+   0.0692826,
+   0.0302892,
+   0.99036121,
+   0.98781615
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 08-12-2020_DJI_0719_amarra_balancim_1436.jpg": [
+   0.98671395,
+   0.06738079,
+   0.03678255,
+   0.98833191,
+   0.98536968
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0039_amarra_balancim_1919.jpg": [
+   0.98654658,
+   0.06891367,
+   0.03555851,
+   0.99098521,
+   0.98909277
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0111_amarra_balancim_1845.jpg": [
+   0.98809761,
+   0.06620649,
+   0.0343603,
+   0.99147493,
+   0.98634142
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0112_amarra_balancim_1846.jpg": [
+   0.98473859,
+   0.07849308,
+   0.03232662,
+   0.98913264,
+   0.98654509
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0163_amarra_balancim_1819.jpg": [
+   0.98410875,
+   0.07051078,
+   0.03338975,
+   0.98548901,
+   0.98421669
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0164_amarra_balancim_1821.jpg": [
+   0.98551762,
+   0.08643326,
+   0.03862266,
+   0.98749959,
+   0.98881006
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0182_amarra_balancim_1777.jpg": [
+   0.98823428,
+   0.06396712,
+   0.03793895,
+   0.98978502,
+   0.98359495
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0219_amarra_balancim_1733.jpg": [
+   0.98368561,
+   0.09119202,
+   0.03023911,
+   0.98498821,
+   0.9849807
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0219_amarra_balancim_1734.jpg": [
+   0.98334044,
+   0.0740729,
+   0.03169281,
+   0.98503751,
+   0.98757172
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0220_amarra_balancim_1735.jpg": [
+   0.98370039,
+   0.07198282,
+   0.0299257,
+   0.98582089,
+   0.98667407
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 09-12-2020_DJI_0231_amarra_balancim_1747.jpg": [
+   0.98295605,
+   0.08039374,
+   0.02976792,
+   0.98920172,
+   0.98657179
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0014_amarra_balancim_2112.jpg": [
+   0.98625267,
+   0.06918304,
+   0.03410275,
+   0.98757446,
+   0.98617399
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0097_amarra_balancim_2062.jpg": [
+   0.98791206,
+   0.08436491,
+   0.04142905,
+   0.99031544,
+   0.98914951
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0109_amarra_balancim_2075.jpg": [
+   0.98600173,
+   0.06259899,
+   0.03248996,
+   0.98874766,
+   0.98845589
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0150_amarra_balancim_2042.jpg": [
+   0.98986983,
+   0.06517266,
+   0.04086248,
+   0.99212348,
+   0.98757827
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0179_amarra_balancim_2013.jpg": [
+   0.98171514,
+   0.08970073,
+   0.03190918,
+   0.98567134,
+   0.98509425
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0188_amarra_balancim_2018.jpg": [
+   0.98730391,
+   0.07273123,
+   0.03712428,
+   0.98974073,
+   0.98772812
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0189_amarra_balancim_2019.jpg": [
+   0.99068403,
+   0.06496582,
+   0.03967807,
+   0.99346858,
+   0.98582554
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0266_amarra_balancim_1977.jpg": [
+   0.98508477,
+   0.0653733,
+   0.0363928,
+   0.98762482,
+   0.9880802
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0321_amarra_balancim_1965.jpg": [
+   0.98096049,
+   0.09512105,
+   0.03047253,
+   0.98369539,
+   0.99037588
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0346_amarra_balancim_1937.jpg": [
+   0.98617905,
+   0.07687005,
+   0.03899151,
+   0.98871785,
+   0.99137956
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0035_amarra_balancim_2418.jpg": [
+   0.98067951,
+   0.06737456,
+   0.02716952,
+   0.9828493,
+   0.98194784
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0051_amarra_balancim_2360.jpg": [
+   0.98555475,
+   0.06647509,
+   0.03031486,
+   0.9885934,
+   0.98545766
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0052_amarra_balancim_2363.jpg": [
+   0.98339325,
+   0.07216093,
+   0.03098407,
+   0.9882552,
+   0.99080658
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0053_amarra_balancim_2365.jpg": [
+   0.98463458,
+   0.0683571,
+   0.03669481,
+   0.9878704,
+   0.98475295
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0054_amarra_balancim_2366.jpg": [
+   0.98918867,
+   0.07227533,
+   0.03814057,
+   0.99094123,
+   0.98923624
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0074_amarra_balancim_2384.jpg": [
+   0.98825687,
+   0.06887479,
+   0.03980561,
+   0.99262464,
+   0.98548877
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0114_amarra_balancim_2356.jpg": [
+   0.98636478,
+   0.07030965,
+   0.03989226,
+   0.98932987,
+   0.98805851
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0128_amarra_balancim_2291.jpg": [
+   0.9846046,
+   0.0652988,
+   0.02698305,
+   0.99058926,
+   0.98742318
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0131_amarra_balancim_2296.jpg": [
+   0.98941684,
+   0.06816713,
+   0.036974,
+   0.99310589,
+   0.99020505
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0168_amarra_balancim_2256.jpg": [
+   0.98474497,
+   0.07526842,
+   0.03248673,
+   0.99012339,
+   0.98662794
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0168_amarra_balancim_2257.jpg": [
+   0.98355371,
+   0.06758038,
+   0.03250568,
+   0.98574662,
+   0.98477149
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0169_amarra_balancim_2258.jpg": [
+   0.98535478,
+   0.06988685,
+   0.04166177,
+   0.98938102,
+   0.9861477
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0179_amarra_balancim_2269.jpg": [
+   0.99037313,
+   0.06903551,
+   0.0396873,
+   0.99569041,
+   0.99105304
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0209_amarra_balancim_2227.jpg": [
+   0.98343283,
+   0.07500137,
+   0.03321774,
+   0.98528224,
+   0.98617023
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0231_amarra_balancim_2247.jpg": [
+   0.98462725,
+   0.07950629,
+   0.03757429,
+   0.99011028,
+   0.98804659
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0233_amarra_balancim_2252.jpg": [
+   0.99119222,
+   0.06286097,
+   0.03795272,
+   0.99425334,
+   0.99027538
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0247_amarra_balancim_2198.jpg": [
+   0.9821431,
+   0.10390176,
+   0.03479763,
+   0.98636878,
+   0.98565251
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0255_amarra_balancim_2205.jpg": [
+   0.9875958,
+   0.07784896,
+   0.03651287,
+   0.9928512,
+   0.99134928
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0270_amarra_balancim_2216.jpg": [
+   0.98578215,
+   0.07372501,
+   0.04487625,
+   0.98979247,
+   0.98937112
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0286_amarra_balancim_2173.jpg": [
+   0.98885828,
+   0.06794238,
+   0.03581983,
+   0.990834,
+   0.98773205
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0305_amarra_balancim_2186.jpg": [
+   0.98248887,
+   0.06547554,
+   0.02846024,
+   0.98313534,
+   0.98798418
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0306_amarra_balancim_2188.jpg": [
+   0.98526287,
+   0.06367602,
+   0.03436158,
+   0.98883069,
+   0.98844332
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0308_amarra_balancim_2193.jpg": [
+   0.98334134,
+   0.06421699,
+   0.03004067,
+   0.98726594,
+   0.98970801
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0343_amarra_balancim_2158.jpg": [
+   0.9882285,
+   0.06591382,
+   0.03720135,
+   0.99082702,
+   0.98512042
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0022_amarra_balancim_2705.jpg": [
+   0.98247308,
+   0.07103521,
+   0.02914178,
+   0.98368806,
+   0.98365188
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0023_amarra_balancim_2708.jpg": [
+   0.9842189,
+   0.06666794,
+   0.03106213,
+   0.98925108,
+   0.98706955
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0081_amarra_balancim_2679.jpg": [
+   0.98218542,
+   0.07605387,
+   0.02751797,
+   0.98334402,
+   0.98284101
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0144_amarra_balancim_2636.jpg": [
+   0.98317301,
+   0.08005715,
+   0.0301869,
+   0.98527509,
+   0.99097216
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0150_amarra_balancim_2647.jpg": [
+   0.98253238,
+   0.06587557,
+   0.03339906,
+   0.98405695,
+   0.98950297
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0183_amarra_balancim_2655.jpg": [
+   0.98375034,
+   0.06854303,
+   0.03517994,
+   0.98780829,
+   0.99551874
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0291_amarra_balancim_2620.jpg": [
+   0.98451525,
+   0.09772547,
+   0.04319162,
+   0.98735988,
+   0.98821837
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0291_amarra_balancim_2621.jpg": [
+   0.98324889,
+   0.08053579,
+   0.04022251,
+   0.9840368,
+   0.98558813
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0320_amarra_balancim_2560.jpg": [
+   0.98975039,
+   0.08241095,
+   0.03431653,
+   0.99189413,
+   0.98585236
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0394_amarra_balancim_2571.jpg": [
+   0.98550177,
+   0.07054955,
+   0.03145605,
+   0.988222,
+   0.99751937
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0399_amarra_balancim_2583.jpg": [
+   0.98440284,
+   0.06725719,
+   0.03220143,
+   0.98583424,
+   0.99183393
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0450_amarra_balancim_2536.jpg": [
+   0.98454124,
+   0.07170016,
+   0.03304563,
+   0.98774892,
+   0.98480999
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0452_amarra_balancim_2540.jpg": [
+   0.98592454,
+   0.06303904,
+   0.03159764,
+   0.9889189,
+   0.98433393
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0453_amarra_balancim_2544.jpg": [
+   0.98192006,
+   0.06204032,
+   0.02661071,
+   0.98401856,
+   0.98721933
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0462_amarra_balancim_2555.jpg": [
+   0.98356503,
+   0.07187711,
+   0.03407033,
+   0.98709142,
+   0.98585778
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0532_amarra_balancim_2516.jpg": [
+   0.98086238,
+   0.07614205,
+   0.02615433,
+   0.98236501,
+   0.98897374
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0623_amarra_balancim_2473.jpg": [
+   0.98388308,
+   0.07919867,
+   0.03437502,
+   0.98754054,
+   0.99271297
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0649_amarra_balancim_2488.jpg": [
+   0.98392314,
+   0.06892262,
+   0.03216232,
+   0.98545742,
+   0.98924762
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0726_amarra_balancim_2442.jpg": [
+   0.98737818,
+   0.07505035,
+   0.03571956,
+   0.99120671,
+   0.99390572
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0036_amarra_balancim_2874.jpg": [
+   0.98440379,
+   0.06082276,
+   0.0298124,
+   0.98651356,
+   0.9882943
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0076_amarra_balancim_2868.jpg": [
+   0.9833371,
+   0.05794451,
+   0.02680732,
+   0.98454905,
+   0.98824006
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0127_amarra_balancim_2830.jpg": [
+   0.98706925,
+   0.07487664,
+   0.03459349,
+   0.99024177,
+   0.98515874
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0146_amarra_balancim_2812.jpg": [
+   0.98196816,
+   0.07849626,
+   0.0368201,
+   0.9892804,
+   0.98734379
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0179_amarra_balancim_2791.jpg": [
+   0.98209649,
+   0.05987424,
+   0.02320058,
+   0.98352647,
+   0.99087471
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0179_amarra_balancim_2792.jpg": [
+   0.98160851,
+   0.06675734,
+   0.02681638,
+   0.98485452,
+   0.99146152
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0179_amarra_balancim_2793.jpg": [
+   0.98498315,
+   0.06228585,
+   0.02637373,
+   0.98840696,
+   0.98822612
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0191_amarra_balancim_2765.jpg": [
+   0.98242652,
+   0.07443122,
+   0.03089444,
+   0.98860109,
+   0.98849136
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0196_amarra_balancim_2768.jpg": [
+   0.98250353,
+   0.07250655,
+   0.02942035,
+   0.98534429,
+   0.99082637
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-11-2020_DJI_0207_amarra_balancim_2776.jpg": [
+   0.98931509,
+   0.05783314,
+   0.03658132,
+   0.99151015,
+   0.9891445
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0029_amarra_balancim_3161.jpg": [
+   0.98759937,
+   0.07423104,
+   0.03405442,
+   0.99254358,
+   0.99009883
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0029_amarra_balancim_3162.jpg": [
+   0.97978747,
+   0.0651968,
+   0.02421536,
+   0.98386943,
+   0.98416752
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0030_amarra_balancim_3165.jpg": [
+   0.98516828,
+   0.07021614,
+   0.03183062,
+   0.99224859,
+   0.98677772
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0053_amarra_balancim_3178.jpg": [
+   0.98412132,
+   0.05926134,
+   0.02689645,
+   0.98609853,
+   0.98759174
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0054_amarra_balancim_3181.jpg": [
+   0.98136401,
+   0.07191806,
+   0.02921996,
+   0.98629206,
+   0.98552203
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0054_amarra_balancim_3182.jpg": [
+   0.98555768,
+   0.0673333,
+   0.02823023,
+   0.98851544,
+   0.98669797
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0083_amarra_balancim_3194.jpg": [
+   0.98379564,
+   0.07133994,
+   0.03119204,
+   0.98892051,
+   0.9884342
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0084_amarra_balancim_3195.jpg": [
+   0.98397434,
+   0.07704442,
+   0.03305645,
+   0.98888433,
+   0.9849205
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0107_amarra_balancim_3133.jpg": [
+   0.98427445,
+   0.08116704,
+   0.03787097,
+   0.98924464,
+   0.98345226
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0128_amarra_balancim_3137.jpg": [
+   0.98607928,
+   0.06538156,
+   0.02949993,
+   0.99081177,
+   0.98753834
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0158_amarra_balancim_3154.jpg": [
+   0.98996556,
+   0.07967117,
+   0.03596932,
+   0.99107492,
+   0.988482
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0158_amarra_balancim_3155.jpg": [
+   0.98457593,
+   0.06528939,
+   0.03030214,
+   0.98759878,
+   0.98930615
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0186_amarra_balancim_3102.jpg": [
+   0.98445046,
+   0.11795262,
+   0.0384736,
+   0.98766094,
+   0.98528671
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0227_amarra_balancim_3119.jpg": [
+   0.981866,
+   0.07455825,
+   0.03018263,
+   0.98589379,
+   0.99127895
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0275_amarra_balancim_3077.jpg": [
+   0.9818697,
+   0.06461713,
+   0.03511505,
+   0.98833096,
+   0.99048769
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0331_amarra_balancim_3027.jpg": [
+   0.98396158,
+   0.08102474,
+   0.02726456,
+   0.98655254,
+   0.99026084
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0332_amarra_balancim_3028.jpg": [
+   0.98123813,
+   0.06316384,
+   0.02651939,
+   0.9840011,
+   0.99606204
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0375_amarra_balancim_3057.jpg": [
+   0.98473543,
+   0.07411169,
+   0.0305248,
+   0.98835331,
+   0.9847917
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0403_amarra_balancim_2995.jpg": [
+   0.98472363,
+   0.08970422,
+   0.03321391,
+   0.98940539,
+   0.98210037
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0419_amarra_balancim_2996.jpg": [
+   0.98570389,
+   0.08333927,
+   0.03136862,
+   0.9884032,
+   0.99069816
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0425_amarra_balancim_3012.jpg": [
+   0.98172879,
+   0.07957096,
+   0.03037843,
+   0.9841941,
+   0.98765987
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0563_amarra_balancim_2945.jpg": [
+   0.98490655,
+   0.06746869,
+   0.03421555,
+   0.98836267,
+   0.99528211
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0612_amarra_balancim_2908.jpg": [
+   0.98106521,
+   0.07664061,
+   0.03041639,
+   0.98497921,
+   0.98802811
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0614_amarra_balancim_2914.jpg": [
+   0.97984755,
+   0.07216417,
+   0.03135379,
+   0.9810943,
+   0.99189305
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 16-12-2020_DJI_0669_amarra_balancim_2919.jpg": [
+   0.98613465,
+   0.06848522,
+   0.03166927,
+   0.99175787,
+   0.99725676
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0012_amarra_balancim_3365.jpg": [
+   0.98190969,
+   0.07150835,
+   0.03328411,
+   0.98445827,
+   0.98969221
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0037_amarra_balancim_3329.jpg": [
+   0.98478943,
+   0.06327219,
+   0.02813888,
+   0.98690063,
+   0.9888733
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0042_amarra_balancim_3337.jpg": [
+   0.98507321,
+   0.06068481,
+   0.02523973,
+   0.98672616,
+   0.98637968
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0093_amarra_balancim_3322.jpg": [
+   0.98561466,
+   0.06664807,
+   0.03096919,
+   0.98731416,
+   0.99161971
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0093_amarra_balancim_3323.jpg": [
+   0.9879545,
+   0.0630576,
+   0.03295688,
+   0.99217063,
+   0.98924088
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0116_amarra_balancim_3307.jpg": [
+   0.98681283,
+   0.06367919,
+   0.03044287,
+   0.98956263,
+   0.99100012
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0129_amarra_balancim_3280.jpg": [
+   0.98192799,
+   0.06612403,
+   0.02667861,
+   0.98459983,
+   0.98763996
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0136_amarra_balancim_3286.jpg": [
+   0.98200011,
+   0.06531514,
+   0.03065462,
+   0.98341501,
+   0.98770618
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0136_amarra_balancim_3287.jpg": [
+   0.98351789,
+   0.06376334,
+   0.03011107,
+   0.98496437,
+   0.98667097
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0137_amarra_balancim_3289.jpg": [
+   0.98363799,
+   0.07797327,
+   0.03022382,
+   0.98880893,
+   0.98741204
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0137_amarra_balancim_3292.jpg": [
+   0.98449314,
+   0.07107383,
+   0.03203296,
+   0.986866,
+   0.98403865
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0171_amarra_balancim_3295.jpg": [
+   0.98469508,
+   0.06649029,
+   0.03025036,
+   0.98592597,
+   0.98693937
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0181_amarra_balancim_3298.jpg": [
+   0.98633599,
+   0.07611442,
+   0.0318647,
+   0.99181759,
+   0.98962623
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0197_amarra_balancim_3275.jpg": [
+   0.98280382,
+   0.06936953,
+   0.02529544,
+   0.98725367,
+   0.98981309
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-11-2020_DJI_0290_amarra_balancim_3209.jpg": [
+   0.9822433,
+   0.06350374,
+   0.02595354,
+   0.98415869,
+   0.98810858
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0050_amarra_balancim_3562.jpg": [
+   0.9816125,
+   0.07133843,
+   0.02739891,
+   0.9852832,
+   0.98406178
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0050_amarra_balancim_3563.jpg": [
+   0.98578119,
+   0.07383981,
+   0.03191327,
+   0.98917717,
+   0.98621732
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0053_amarra_balancim_3573.jpg": [
+   0.98494935,
+   0.05958533,
+   0.02554651,
+   0.98911291,
+   0.99003249
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0079_amarra_balancim_3585.jpg": [
+   0.98308629,
+   0.06549539,
+   0.03093497,
+   0.98827988,
+   0.99403894
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0099_amarra_balancim_3521.jpg": [
+   0.98603779,
+   0.06202103,
+   0.03628679,
+   0.99015146,
+   0.9981029
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0120_amarra_balancim_3542.jpg": [
+   0.9810189,
+   0.06668738,
+   0.0287534,
+   0.9840681,
+   0.98881024
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0140_amarra_balancim_3550.jpg": [
+   0.98162222,
+   0.06699812,
+   0.03097023,
+   0.98453712,
+   0.99006736
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0186_amarra_balancim_3494.jpg": [
+   0.98917848,
+   0.06384605,
+   0.03684384,
+   0.99008954,
+   0.98945922
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0187_amarra_balancim_3498.jpg": [
+   0.98600292,
+   0.06380711,
+   0.03105531,
+   0.99012977,
+   0.99054581
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0188_amarra_balancim_3500.jpg": [
+   0.9829008,
+   0.07208516,
+   0.0354662,
+   0.98699743,
+   0.98709297
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0215_amarra_balancim_3513.jpg": [
+   0.98516643,
+   0.06978916,
+   0.03056473,
+   0.98815161,
+   0.99546212
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0291_amarra_balancim_3476.jpg": [
+   0.98538679,
+   0.06690143,
+   0.0345891,
+   0.98860884,
+   0.98693752
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0363_amarra_balancim_3444.jpg": [
+   0.98069096,
+   0.07530849,
+   0.03304822,
+   0.98495477,
+   0.99435109
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0382_amarra_balancim_3375.jpg": [
+   0.9847213,
+   0.06283126,
+   0.03037979,
+   0.9901517,
+   0.98905033
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0383_amarra_balancim_3379.jpg": [
+   0.98251432,
+   0.06984179,
+   0.03245827,
+   0.98470324,
+   0.98643881
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0399_amarra_balancim_3383.jpg": [
+   0.98457664,
+   0.06635709,
+   0.03312357,
+   0.99128157,
+   0.98719978
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 17-12-2020_DJI_0431_amarra_balancim_3409.jpg": [
+   0.98344409,
+   0.07225159,
+   0.03166774,
+   0.9858194,
+   0.99796695
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0061_amarra_balancim_3692.jpg": [
+   0.98362565,
+   0.06216066,
+   0.027473,
+   0.98779291,
+   0.99241757
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0091_amarra_balancim_3680.jpg": [
+   0.98474765,
+   0.07372956,
+   0.03240474,
+   0.98660827,
+   0.9876703
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0127_amarra_balancim_3659.jpg": [
+   0.98114693,
+   0.06757469,
+   0.02652963,
+   0.98298883,
+   0.988383
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0146_amarra_balancim_3673.jpg": [
+   0.98196721,
+   0.06355779,
+   0.02751177,
+   0.98559129,
+   0.98822916
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0149_amarra_balancim_3633.jpg": [
+   0.98280692,
+   0.06114317,
+   0.02714411,
+   0.98499966,
+   0.98904759
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0150_amarra_balancim_3636.jpg": [
+   0.98200804,
+   0.08196481,
+   0.0286727,
+   0.9851172,
+   0.99131292
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0159_amarra_balancim_3642.jpg": [
+   0.98366475,
+   0.07452914,
+   0.02930416,
+   0.9874208,
+   0.98955894
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0159_amarra_balancim_3643.jpg": [
+   0.98206389,
+   0.06345747,
+   0.02433709,
+   0.98573244,
+   0.98672426
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0178_amarra_balancim_3618.jpg": [
+   0.98332894,
+   0.06338549,
+   0.02896228,
+   0.98668319,
+   0.98719472
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 18-11-2020_DJI_0215_amarra_balancim_3608.jpg": [
+   0.98457307,
+   0.05984463,
+   0.02980613,
+   0.98814684,
+   0.98692793
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-10-2020_DJI_0010_amarra_balancim_17.jpg": [
+   0.98623359,
+   0.07749481,
+   0.03348766,
+   0.98914796,
+   0.98870313
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-10-2020_DJI_0012_amarra_balancim_75.jpg": [
+   0.98383969,
+   0.06474552,
+   0.02771058,
+   0.98772168,
+   0.99484515
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-10-2020_DJI_0013_amarra_balancim_27.jpg": [
+   0.98260593,
+   0.06867833,
+   0.02879903,
+   0.98546606,
+   0.98954594
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-10-2020_DJI_0020_amarra_balancim_49.jpg": [
+   0.9827829,
+   0.07001062,
+   0.03541989,
+   0.98701441,
+   0.98180169
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0003_amarra_balancim_3883.jpg": [
+   0.9821685,
+   0.0662605,
+   0.02608432,
+   0.98514998,
+   0.98907924
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0031_amarra_balancim_3871.jpg": [
+   0.98829299,
+   0.08739743,
+   0.03916661,
+   0.99144244,
+   0.99142057
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0031_amarra_balancim_3874.jpg": [
+   0.98305422,
+   0.06401132,
+   0.02973998,
+   0.98702842,
+   0.99505424
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0032_amarra_balancim_3875.jpg": [
+   0.98572284,
+   0.06961647,
+   0.03279455,
+   0.98868519,
+   0.98709744
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0052_amarra_balancim_3853.jpg": [
+   0.99019355,
+   0.06921893,
+   0.03272212,
+   0.9922992,
+   0.98702568
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0065_amarra_balancim_3862.jpg": [
+   0.98201609,
+   0.06167901,
+   0.02310058,
+   0.98609155,
+   0.98818809
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0065_amarra_balancim_3863.jpg": [
+   0.98242819,
+   0.07511386,
+   0.02644642,
+   0.98325318,
+   0.98628932
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0100_amarra_balancim_3846.jpg": [
+   0.9847095,
+   0.06858178,
+   0.02973282,
+   0.98630309,
+   0.98900056
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0101_amarra_balancim_3849.jpg": [
+   0.98466456,
+   0.07293223,
+   0.02985071,
+   0.98858202,
+   0.98468715
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0102_amarra_balancim_3851.jpg": [
+   0.98467404,
+   0.06484047,
+   0.03132067,
+   0.98942685,
+   0.98508006
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0110_amarra_balancim_3812.jpg": [
+   0.98346186,
+   0.07385115,
+   0.03492643,
+   0.98551333,
+   0.98955142
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0122_amarra_balancim_3820.jpg": [
+   0.98309803,
+   0.0740011,
+   0.03376676,
+   0.9861607,
+   0.99252981
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0175_amarra_balancim_3787.jpg": [
+   0.9837563,
+   0.06980971,
+   0.02881213,
+   0.9919731,
+   0.98540068
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0205_amarra_balancim_3769.jpg": [
+   0.98210853,
+   0.06365964,
+   0.02792701,
+   0.98503137,
+   0.98606366
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0220_amarra_balancim_3750.jpg": [
+   0.98470819,
+   0.06751199,
+   0.03118432,
+   0.98877192,
+   0.98700142
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0230_amarra_balancim_3752.jpg": [
+   0.98337311,
+   0.06940722,
+   0.03095781,
+   0.98592103,
+   0.98902953
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0232_amarra_balancim_3756.jpg": [
+   0.98940325,
+   0.06552331,
+   0.03835661,
+   0.99104762,
+   0.98998398
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 19-11-2020_DJI_0232_amarra_balancim_3759.jpg": [
+   0.98853767,
+   0.06198551,
+   0.03528848,
+   0.99276143,
+   0.98865175
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0010_amarra_balancim_3910.jpg": [
+   0.98616308,
+   0.07199885,
+   0.03180711,
+   0.9904691,
+   0.99239981
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0018_amarra_balancim_3918.jpg": [
+   0.98137587,
+   0.07516141,
+   0.03705717,
+   0.98330313,
+   0.9864772
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0062_amarra_balancim_3924.jpg": [
+   0.98258102,
+   0.07890301,
+   0.02837747,
+   0.98344219,
+   0.99030268
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0073_amarra_balancim_3941.jpg": [
+   0.98527968,
+   0.06507643,
+   0.02968059,
+   0.98797184,
+   0.98877841
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0085_amarra_balancim_3954.jpg": [
+   0.98048842,
+   0.05920657,
+   0.02618177,
+   0.98274338,
+   0.98661435
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0092_amarra_balancim_3969.jpg": [
+   0.9839772,
+   0.06844021,
+   0.02878485,
+   0.98846942,
+   0.98876643
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0093_amarra_balancim_3970.jpg": [
+   0.98230785,
+   0.06940216,
+   0.02883236,
+   0.98668468,
+   0.98900861
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0159_amarra_balancim_4050.jpg": [
+   0.98692864,
+   0.06851656,
+   0.03443485,
+   0.99043912,
+   0.98906487
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0163_amarra_balancim_4065.jpg": [
+   0.98879731,
+   0.07072849,
+   0.03653361,
+   0.99226809,
+   0.9928149
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0173_amarra_balancim_4068.jpg": [
+   0.98550248,
+   0.06888311,
+   0.03309181,
+   0.9885841,
+   0.98655337
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0178_amarra_balancim_4079.jpg": [
+   0.98361373,
+   0.06725149,
+   0.02711854,
+   0.98582911,
+   0.98563373
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0273_amarra_balancim_3989.jpg": [
+   0.98227358,
+   0.06743948,
+   0.02795552,
+   0.98475641,
+   0.9873935
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0294_amarra_balancim_4016.jpg": [
+   0.98210889,
+   0.06726383,
+   0.02670681,
+   0.98596179,
+   0.98519528
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0320_amarra_balancim_4030.jpg": [
+   0.98847723,
+   0.06904922,
+   0.03451347,
+   0.9929527,
+   0.98992449
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-10-2020_DJI_0321_amarra_balancim_4031.jpg": [
+   0.98646158,
+   0.06403747,
+   0.03100655,
+   0.99145675,
+   0.9888767
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0040_amarra_balancim_4397.jpg": [
+   0.98096901,
+   0.06433965,
+   0.02480891,
+   0.98324496,
+   0.99155188
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0055_amarra_balancim_4421.jpg": [
+   0.98745638,
+   0.06639095,
+   0.03136192,
+   0.99193937,
+   0.99181211
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0092_amarra_balancim_4386.jpg": [
+   0.99047548,
+   0.06821156,
+   0.03750177,
+   0.99262917,
+   0.9879666
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0103_amarra_balancim_4334.jpg": [
+   0.98996443,
+   0.06719694,
+   0.03097552,
+   0.99173391,
+   0.98971975
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0103_amarra_balancim_4336.jpg": [
+   0.98493737,
+   0.07929876,
+   0.028166,
+   0.98846519,
+   0.99314398
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0153_amarra_balancim_4324.jpg": [
+   0.98395747,
+   0.07797193,
+   0.03330813,
+   0.98684388,
+   0.98692453
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0167_amarra_balancim_4237.jpg": [
+   0.98789746,
+   0.0735523,
+   0.0325368,
+   0.99034995,
+   0.98509705
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0175_amarra_balancim_4243.jpg": [
+   0.98235881,
+   0.06894547,
+   0.02635399,
+   0.98532593,
+   0.99287063
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0181_amarra_balancim_4251.jpg": [
+   0.98358309,
+   0.05828302,
+   0.02616925,
+   0.99161685,
+   0.98820984
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0190_amarra_balancim_4257.jpg": [
+   0.9885084,
+   0.08016017,
+   0.03501984,
+   0.99371964,
+   0.98806196
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0193_amarra_balancim_4270.jpg": [
+   0.98518687,
+   0.06910276,
+   0.03198951,
+   0.98773104,
+   0.98952907
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0206_amarra_balancim_4190.jpg": [
+   0.98644376,
+   0.06861414,
+   0.03429243,
+   0.99184245,
+   0.99170548
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0218_amarra_balancim_4198.jpg": [
+   0.98379409,
+   0.06259845,
+   0.02726737,
+   0.98579192,
+   0.99219543
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0218_amarra_balancim_4200.jpg": [
+   0.98334599,
+   0.0622516,
+   0.02466639,
+   0.98513299,
+   0.99105561
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0219_amarra_balancim_4202.jpg": [
+   0.98644465,
+   0.07435077,
+   0.03298414,
+   0.99056029,
+   0.98855555
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0239_amarra_balancim_4153.jpg": [
+   0.98778617,
+   0.07284234,
+   0.03369848,
+   0.99104166,
+   0.98758417
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0241_amarra_balancim_4159.jpg": [
+   0.9855963,
+   0.07089498,
+   0.03860834,
+   0.988711,
+   0.98338717
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0241_amarra_balancim_4160.jpg": [
+   0.98518783,
+   0.07410609,
+   0.03164402,
+   0.98806602,
+   0.98900229
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0250_amarra_balancim_4161.jpg": [
+   0.98274261,
+   0.07126523,
+   0.02557787,
+   0.98578066,
+   0.99133313
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0258_amarra_balancim_4169.jpg": [
+   0.98734635,
+   0.06681161,
+   0.03318726,
+   0.99150914,
+   0.98917294
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0260_amarra_balancim_4176.jpg": [
+   0.98482049,
+   0.07098715,
+   0.03523329,
+   0.9878599,
+   0.98352432
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0269_amarra_balancim_4100.jpg": [
+   0.98252147,
+   0.05904738,
+   0.02530972,
+   0.98482281,
+   0.98721468
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0270_amarra_balancim_4102.jpg": [
+   0.98632109,
+   0.07497164,
+   0.03055814,
+   0.98737967,
+   0.98594719
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0271_amarra_balancim_4103.jpg": [
+   0.99091834,
+   0.07898029,
+   0.03588481,
+   0.99333155,
+   0.98748082
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0286_amarra_balancim_4117.jpg": [
+   0.98470861,
+   0.06171604,
+   0.02787162,
+   0.9880926,
+   0.98928624
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0292_amarra_balancim_4135.jpg": [
+   0.98720378,
+   0.07360526,
+   0.03565839,
+   0.98890299,
+   0.98692316
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 20-11-2020_DJI_0297_amarra_balancim_4145.jpg": [
+   0.98992634,
+   0.06260587,
+   0.03454483,
+   0.99492484,
+   0.98938739
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0345_amarra_balancim_4483.jpg": [
+   0.98475957,
+   0.06917896,
+   0.02958919,
+   0.98622167,
+   0.98594844
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0371_amarra_balancim_4498.jpg": [
+   0.98390818,
+   0.07509591,
+   0.03081204,
+   0.98882878,
+   0.98572683
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0374_amarra_balancim_4501.jpg": [
+   0.98453569,
+   0.06674935,
+   0.03243908,
+   0.98735154,
+   0.98765266
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0379_amarra_balancim_4504.jpg": [
+   0.98796171,
+   0.06913423,
+   0.03641085,
+   0.99383163,
+   0.98688078
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0405_amarra_balancim_4515.jpg": [
+   0.98226511,
+   0.07086094,
+   0.0240777,
+   0.98648834,
+   0.98574466
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0436_amarra_balancim_4520.jpg": [
+   0.98291254,
+   0.07093482,
+   0.02822236,
+   0.98498714,
+   0.98725325
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0437_amarra_balancim_4524.jpg": [
+   0.98101705,
+   0.06956293,
+   0.02902143,
+   0.98399419,
+   0.9882642
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0454_amarra_balancim_4532.jpg": [
+   0.98458076,
+   0.0667002,
+   0.03337336,
+   0.98659515,
+   0.98661172
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0454_amarra_balancim_4534.jpg": [
+   0.98499441,
+   0.06574813,
+   0.03059507,
+   0.98789114,
+   0.98640788
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0571_amarra_balancim_4462.jpg": [
+   0.9866935,
+   0.07059392,
+   0.03029305,
+   0.98852086,
+   0.98892152
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0571_amarra_balancim_4463.jpg": [
+   0.98636639,
+   0.06193,
+   0.036223,
+   0.98820508,
+   0.99027288
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 21-10-2020_DJI_0571_amarra_balancim_4464.jpg": [
+   0.98507726,
+   0.06079478,
+   0.03402085,
+   0.99139822,
+   0.99190038
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0649_amarra_balancim_4553.jpg": [
+   0.98202503,
+   0.06802599,
+   0.02981272,
+   0.98458248,
+   0.98821938
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0736_amarra_balancim_4630.jpg": [
+   0.98937756,
+   0.0841069,
+   0.03845564,
+   0.99458086,
+   0.98476207
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0791_amarra_balancim_4686.jpg": [
+   0.98252714,
+   0.06639587,
+   0.02941817,
+   0.98563534,
+   0.98719841
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0798_amarra_balancim_4690.jpg": [
+   0.98409659,
+   0.06340335,
+   0.02644683,
+   0.98979151,
+   0.98679847
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0798_amarra_balancim_4692.jpg": [
+   0.98073334,
+   0.06497664,
+   0.0276316,
+   0.98303825,
+   0.99176556
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0800_amarra_balancim_4694.jpg": [
+   0.98409075,
+   0.06538942,
+   0.03033592,
+   0.98893434,
+   0.98835862
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0833_amarra_balancim_4719.jpg": [
+   0.98208082,
+   0.06813502,
+   0.03347018,
+   0.98425329,
+   0.99220455
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0840_amarra_balancim_4728.jpg": [
+   0.9856106,
+   0.07181659,
+   0.03515299,
+   0.98761261,
+   0.9853633
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0857_amarra_balancim_4738.jpg": [
+   0.98632789,
+   0.07827141,
+   0.03449479,
+   0.98769039,
+   0.98562407
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0006_amarra_balancim_4808.jpg": [
+   0.98129588,
+   0.06730606,
+   0.02801728,
+   0.98303258,
+   0.98488379
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0109_amarra_balancim_4785.jpg": [
+   0.98130757,
+   0.06826,
+   0.02764538,
+   0.98483372,
+   0.9869442
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0117_amarra_balancim_4792.jpg": [
+   0.98166871,
+   0.07459911,
+   0.02891871,
+   0.98736405,
+   0.98922652
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0196_amarra_balancim_4884.jpg": [
+   0.9861213,
+   0.06997448,
+   0.03145116,
+   0.99127018,
+   0.99008799
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0199_amarra_balancim_4888.jpg": [
+   0.98415089,
+   0.06903788,
+   0.03303265,
+   0.98621547,
+   0.99379045
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-10-2020_DJI_0204_amarra_balancim_4895.jpg": [
+   0.98403561,
+   0.06494081,
+   0.02882005,
+   0.98598498,
+   0.98834682
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0014_amarra_balancim_5234.jpg": [
+   0.98139501,
+   0.06985411,
+   0.02599,
+   0.98285556,
+   0.98878449
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0016_amarra_balancim_5243.jpg": [
+   0.98299748,
+   0.0674359,
+   0.03207985,
+   0.98470473,
+   0.98764831
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0029_amarra_balancim_5245.jpg": [
+   0.98682368,
+   0.06614164,
+   0.03141229,
+   0.99100018,
+   0.99310774
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0031_amarra_balancim_5246.jpg": [
+   0.98685181,
+   0.07106885,
+   0.03275882,
+   0.9897514,
+   0.99059886
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0087_amarra_balancim_5171.jpg": [
+   0.98241919,
+   0.07912682,
+   0.03123762,
+   0.98604405,
+   0.99433506
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0107_amarra_balancim_5129.jpg": [
+   0.98489523,
+   0.06355964,
+   0.02955599,
+   0.9866581,
+   0.98963279
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0108_amarra_balancim_5131.jpg": [
+   0.98283118,
+   0.06786052,
+   0.03106251,
+   0.98523825,
+   0.98778152
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0119_amarra_balancim_5141.jpg": [
+   0.98499322,
+   0.08260716,
+   0.03049745,
+   0.9872092,
+   0.98438835
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0148_amarra_balancim_5086.jpg": [
+   0.98552632,
+   0.06326282,
+   0.02691371,
+   0.98728448,
+   0.98992592
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0148_amarra_balancim_5087.jpg": [
+   0.98531163,
+   0.06826905,
+   0.02793485,
+   0.98999387,
+   0.98795432
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0162_amarra_balancim_5108.jpg": [
+   0.9829334,
+   0.06319631,
+   0.02786826,
+   0.98526436,
+   0.99029744
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0163_amarra_balancim_5113.jpg": [
+   0.98373497,
+   0.06922644,
+   0.02852472,
+   0.98684084,
+   0.9906615
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0174_amarra_balancim_5043.jpg": [
+   0.98409921,
+   0.06825624,
+   0.0305919,
+   0.98903161,
+   0.98804224
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0180_amarra_balancim_5047.jpg": [
+   0.98445076,
+   0.06439488,
+   0.0331208,
+   0.98627472,
+   0.98624557
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0181_amarra_balancim_5052.jpg": [
+   0.98348618,
+   0.05720783,
+   0.02641212,
+   0.98694605,
+   0.99201655
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0189_amarra_balancim_5061.jpg": [
+   0.98070806,
+   0.0611744,
+   0.02499218,
+   0.98263299,
+   0.99233961
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0212_amarra_balancim_5009.jpg": [
+   0.98314917,
+   0.06307744,
+   0.02779761,
+   0.9858855,
+   0.99219877
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0225_amarra_balancim_5024.jpg": [
+   0.98200691,
+   0.08297154,
+   0.03221649,
+   0.98499215,
+   0.98620164
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0227_amarra_balancim_5029.jpg": [
+   0.98257321,
+   0.06892028,
+   0.03055069,
+   0.98466444,
+   0.98861647
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0227_amarra_balancim_5030.jpg": [
+   0.98388922,
+   0.06404714,
+   0.02851199,
+   0.9897545,
+   0.98600876
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0239_amarra_balancim_4951.jpg": [
+   0.98258358,
+   0.07353939,
+   0.02864843,
+   0.98482424,
+   0.9915306
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0239_amarra_balancim_4952.jpg": [
+   0.98308462,
+   0.07667452,
+   0.02847143,
+   0.98821402,
+   0.99015069
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0241_amarra_balancim_4956.jpg": [
+   0.98215157,
+   0.06576554,
+   0.02916174,
+   0.98686814,
+   0.99052525
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0248_amarra_balancim_4965.jpg": [
+   0.98616302,
+   0.06544828,
+   0.02911522,
+   0.98763824,
+   0.98662734
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0260_amarra_balancim_4978.jpg": [
+   0.98174143,
+   0.07608934,
+   0.02900228,
+   0.98460257,
+   0.98643899
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0265_amarra_balancim_4990.jpg": [
+   0.98527968,
+   0.06653994,
+   0.03206661,
+   0.98748171,
+   0.98471963
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0285_amarra_balancim_4924.jpg": [
+   0.98351765,
+   0.06893679,
+   0.03013699,
+   0.98635828,
+   0.98972243
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0286_amarra_balancim_4928.jpg": [
+   0.98479748,
+   0.06876181,
+   0.02684093,
+   0.99000937,
+   0.98640603
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0286_amarra_balancim_4929.jpg": [
+   0.98413301,
+   0.06566475,
+   0.02783782,
+   0.98696125,
+   0.98758823
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0018_amarra_balancim_5463.jpg": [
+   0.98609757,
+   0.06631339,
+   0.03557101,
+   0.9882797,
+   0.98442525
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0018_amarra_balancim_5464.jpg": [
+   0.98807693,
+   0.06061409,
+   0.03281006,
+   0.9895938,
+   0.98699594
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0026_amarra_balancim_5477.jpg": [
+   0.98233575,
+   0.07045101,
+   0.02717611,
+   0.98418689,
+   0.98626792
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0066_amarra_balancim_5492.jpg": [
+   0.98805565,
+   0.07174744,
+   0.03676469,
+   0.99224579,
+   0.99043018
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0068_amarra_balancim_5496.jpg": [
+   0.98609614,
+   0.07483353,
+   0.03659303,
+   0.98845774,
+   0.98538679
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0096_amarra_balancim_5423.jpg": [
+   0.98792052,
+   0.06628782,
+   0.03585976,
+   0.99413258,
+   0.98904139
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0097_amarra_balancim_5426.jpg": [
+   0.98376983,
+   0.07187934,
+   0.02844311,
+   0.98779058,
+   0.99048656
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0097_amarra_balancim_5427.jpg": [
+   0.98135048,
+   0.06538887,
+   0.02836142,
+   0.98726594,
+   0.98751575
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0128_amarra_balancim_5454.jpg": [
+   0.98445117,
+   0.07463957,
+   0.03041448,
+   0.98745638,
+   0.98487544
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0164_amarra_balancim_5392.jpg": [
+   0.98682451,
+   0.06951527,
+   0.03242545,
+   0.98964107,
+   0.98823464
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0165_amarra_balancim_5395.jpg": [
+   0.98668307,
+   0.07513891,
+   0.03457598,
+   0.98953354,
+   0.98998833
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0187_amarra_balancim_5407.jpg": [
+   0.98454839,
+   0.06911582,
+   0.03279181,
+   0.98852116,
+   0.98673362
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0204_amarra_balancim_5418.jpg": [
+   0.98760927,
+   0.07125911,
+   0.03628197,
+   0.99283838,
+   0.98257309
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0240_amarra_balancim_5369.jpg": [
+   0.98419976,
+   0.08765408,
+   0.03184232,
+   0.99295783,
+   0.98952824
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0422_amarra_balancim_5331.jpg": [
+   0.98654389,
+   0.06757674,
+   0.03315847,
+   0.99041635,
+   0.99118608
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0423_amarra_balancim_5332.jpg": [
+   0.98552293,
+   0.06606967,
+   0.03350954,
+   0.98935962,
+   0.98821598
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0516_amarra_balancim_5278.jpg": [
+   0.98314625,
+   0.08023825,
+   0.03076218,
+   0.98644036,
+   0.98958045
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0517_amarra_balancim_5280.jpg": [
+   0.98185378,
+   0.0895041,
+   0.03543074,
+   0.98535132,
+   0.98550922
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0533_amarra_balancim_5283.jpg": [
+   0.98224634,
+   0.06827986,
+   0.02886831,
+   0.98485512,
+   0.9869774
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0533_amarra_balancim_5285.jpg": [
+   0.98544383,
+   0.07599648,
+   0.03012856,
+   0.98873591,
+   0.98667246
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0557_amarra_balancim_5290.jpg": [
+   0.98344696,
+   0.07489342,
+   0.03133914,
+   0.99004847,
+   0.98550105
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0579_amarra_balancim_5258.jpg": [
+   0.98276216,
+   0.07461569,
+   0.03616508,
+   0.98455161,
+   0.98845315
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0585_amarra_balancim_5264.jpg": [
+   0.98171771,
+   0.07412212,
+   0.02476583,
+   0.98346043,
+   0.9904753
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0086_amarra_balancim_5673.jpg": [
+   0.98438412,
+   0.07184193,
+   0.03021021,
+   0.98683631,
+   0.99285537
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0136_amarra_balancim_5645.jpg": [
+   0.98728663,
+   0.08255264,
+   0.03326507,
+   0.99133366,
+   0.98958164
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0138_amarra_balancim_5651.jpg": [
+   0.98379791,
+   0.0805034,
+   0.0396148,
+   0.98814124,
+   0.98610252
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0235_amarra_balancim_5640.jpg": [
+   0.9836188,
+   0.0699796,
+   0.03094522,
+   0.98828673,
+   0.98932862
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0265_amarra_balancim_5592.jpg": [
+   0.98280996,
+   0.07629848,
+   0.03649946,
+   0.98809642,
+   0.99318933
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0268_amarra_balancim_5601.jpg": [
+   0.98494202,
+   0.06301728,
+   0.03461444,
+   0.98654389,
+   0.99408543
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0284_amarra_balancim_5611.jpg": [
+   0.98611403,
+   0.06786076,
+   0.03389081,
+   0.98988503,
+   0.9846949
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0303_amarra_balancim_5550.jpg": [
+   0.98753518,
+   0.06781974,
+   0.029861,
+   0.99003929,
+   0.98491114
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0316_amarra_balancim_5561.jpg": [
+   0.98657173,
+   0.06617144,
+   0.02919581,
+   0.98929137,
+   0.9919616
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0491_amarra_balancim_5516.jpg": [
+   0.98858213,
+   0.06158056,
+   0.03806224,
+   0.99028718,
+   0.99274069
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0492_amarra_balancim_5519.jpg": [
+   0.98402393,
+   0.06760962,
+   0.02765774,
+   0.98587906,
+   0.99354935
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0535_amarra_balancim_5531.jpg": [
+   0.98500186,
+   0.07879061,
+   0.03067335,
+   0.98835433,
+   0.98699307
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 25-11-2020_DJI_0566_amarra_balancim_5506.jpg": [
+   0.98244607,
+   0.068758,
+   0.02856358,
+   0.9875645,
+   0.994551
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0020_amarra_balancim_5923.jpg": [
+   0.98285377,
+   0.07305164,
+   0.02974606,
+   0.98525906,
+   0.99315339
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0043_amarra_balancim_5937.jpg": [
+   0.98061472,
+   0.06480064,
+   0.02626636,
+   0.9862045,
+   0.99123615
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0087_amarra_balancim_5901.jpg": [
+   0.98682928,
+   0.07689751,
+   0.03980093,
+   0.98814094,
+   0.98514003
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0087_amarra_balancim_5903.jpg": [
+   0.98156977,
+   0.07639259,
+   0.02541436,
+   0.98601979,
+   0.98880213
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0158_amarra_balancim_5880.jpg": [
+   0.9811573,
+   0.06824321,
+   0.02933642,
+   0.98317599,
+   0.9942311
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0159_amarra_balancim_5881.jpg": [
+   0.98227429,
+   0.069167,
+   0.03009667,
+   0.98408055,
+   0.98195362
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0173_amarra_balancim_5890.jpg": [
+   0.98301017,
+   0.08008339,
+   0.03402308,
+   0.98628038,
+   0.99163496
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0174_amarra_balancim_5892.jpg": [
+   0.98521149,
+   0.08035731,
+   0.0357181,
+   0.99124646,
+   0.99064982
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0190_amarra_balancim_5894.jpg": [
+   0.98346466,
+   0.07303987,
+   0.0335885,
+   0.98758197,
+   0.9847315
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0209_amarra_balancim_5855.jpg": [
+   0.98828,
+   0.08925176,
+   0.03263942,
+   0.99185067,
+   0.98709869
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0211_amarra_balancim_5859.jpg": [
+   0.98719293,
+   0.07113364,
+   0.03399627,
+   0.98946512,
+   0.98466039
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0330_amarra_balancim_5841.jpg": [
+   0.98105508,
+   0.07100479,
+   0.03125508,
+   0.98877448,
+   0.99745464
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0332_amarra_balancim_5845.jpg": [
+   0.98447537,
+   0.06922456,
+   0.03241836,
+   0.98898083,
+   0.98290157
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0429_amarra_balancim_5759.jpg": [
+   0.98530161,
+   0.06994905,
+   0.02873842,
+   0.98738772,
+   0.99486905
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0503_amarra_balancim_5798.jpg": [
+   0.98406881,
+   0.06690034,
+   0.03214509,
+   0.98610103,
+   0.98815662
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0564_amarra_balancim_5823.jpg": [
+   0.98523605,
+   0.06767106,
+   0.03189144,
+   0.98773932,
+   0.98740298
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0034_amarra_balancim_6283.jpg": [
+   0.98281151,
+   0.07379208,
+   0.02719607,
+   0.98593581,
+   0.99064285
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0037_amarra_balancim_6292.jpg": [
+   0.98715299,
+   0.06256793,
+   0.03016569,
+   0.99507958,
+   0.99353123
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0052_amarra_balancim_6300.jpg": [
+   0.9849813,
+   0.06278296,
+   0.02790102,
+   0.98790687,
+   0.98868746
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0135_amarra_balancim_6185.jpg": [
+   0.98316336,
+   0.07520471,
+   0.02988244,
+   0.98658323,
+   0.98784685
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0137_amarra_balancim_6192.jpg": [
+   0.98277742,
+   0.06886571,
+   0.03024623,
+   0.9864496,
+   0.99054497
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0154_amarra_balancim_6197.jpg": [
+   0.98746896,
+   0.0728333,
+   0.03440493,
+   0.99171501,
+   0.98876792
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0157_amarra_balancim_6205.jpg": [
+   0.98152173,
+   0.06731309,
+   0.02869899,
+   0.98543608,
+   0.99145448
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0159_amarra_balancim_6209.jpg": [
+   0.98612243,
+   0.08199514,
+   0.03583316,
+   0.99032062,
+   0.98590583
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0159_amarra_balancim_6210.jpg": [
+   0.98409009,
+   0.06518573,
+   0.02788772,
+   0.9874022,
+   0.99017394
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0159_amarra_balancim_6212.jpg": [
+   0.98330081,
+   0.06766421,
+   0.02938364,
+   0.98544294,
+   0.98827773
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0180_amarra_balancim_6218.jpg": [
+   0.99044204,
+   0.06818583,
+   0.03690939,
+   0.99275023,
+   0.98742139
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0231_amarra_balancim_6159.jpg": [
+   0.9828046,
+   0.06699862,
+   0.02583245,
+   0.98745483,
+   0.98879963
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0232_amarra_balancim_6164.jpg": [
+   0.9856112,
+   0.06086768,
+   0.03125353,
+   0.99033028,
+   0.98965895
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0258_amarra_balancim_6169.jpg": [
+   0.98668081,
+   0.0654581,
+   0.03006367,
+   0.98921669,
+   0.98721576
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0259_amarra_balancim_6172.jpg": [
+   0.98982996,
+   0.07101098,
+   0.03386994,
+   0.99197185,
+   0.98794794
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0259_amarra_balancim_6175.jpg": [
+   0.99100453,
+   0.07092103,
+   0.04151016,
+   0.99254394,
+   0.98903543
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0261_amarra_balancim_6179.jpg": [
+   0.98789769,
+   0.07840834,
+   0.03659923,
+   0.99578071,
+   0.98699313
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0308_amarra_balancim_6118.jpg": [
+   0.98363447,
+   0.06563799,
+   0.02616943,
+   0.98787749,
+   0.98772037
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0352_amarra_balancim_6066.jpg": [
+   0.98336315,
+   0.0659597,
+   0.03462525,
+   0.98416114,
+   0.98498458
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0369_amarra_balancim_6069.jpg": [
+   0.98702717,
+   0.06316657,
+   0.03461614,
+   0.98879689,
+   0.99383092
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0372_amarra_balancim_6076.jpg": [
+   0.99027818,
+   0.07561208,
+   0.03643864,
+   0.99166572,
+   0.98666322
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0393_amarra_balancim_6088.jpg": [
+   0.98979419,
+   0.06764156,
+   0.03467907,
+   0.99232996,
+   0.98958308
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0417_amarra_balancim_6029.jpg": [
+   0.98319101,
+   0.0689752,
+   0.02964988,
+   0.98597109,
+   0.99320263
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0439_amarra_balancim_6040.jpg": [
+   0.98391128,
+   0.08421613,
+   0.02955414,
+   0.98569071,
+   0.99166375
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0441_amarra_balancim_6046.jpg": [
+   0.98620987,
+   0.07555995,
+   0.03725496,
+   0.99222749,
+   0.99320173
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0487_amarra_balancim_5989.jpg": [
+   0.99021852,
+   0.07472705,
+   0.03409468,
+   0.99164182,
+   0.98964369
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0489_amarra_balancim_5995.jpg": [
+   0.98479432,
+   0.07445244,
+   0.03129208,
+   0.98705065,
+   0.98736191
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0511_amarra_balancim_6010.jpg": [
+   0.98425388,
+   0.06792978,
+   0.02925517,
+   0.9881382,
+   0.98897296
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0513_amarra_balancim_6016.jpg": [
+   0.98206025,
+   0.06417061,
+   0.02832007,
+   0.98606658,
+   0.9896338
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0588_amarra_balancim_5977.jpg": [
+   0.98297441,
+   0.07610494,
+   0.02963804,
+   0.98880178,
+   0.99084193
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0589_amarra_balancim_5978.jpg": [
+   0.98323309,
+   0.06302405,
+   0.02729668,
+   0.98588616,
+   0.99321753
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0607_amarra_balancim_5983.jpg": [
+   0.98282123,
+   0.07378042,
+   0.02967567,
+   0.98529327,
+   0.99090111
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 27-11-2020_DJI_0609_amarra_balancim_5986.jpg": [
+   0.98216915,
+   0.12176399,
+   0.04020873,
+   0.98450363,
+   0.98692995
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0021_amarra_balancim_6489.jpg": [
+   0.98629206,
+   0.08068924,
+   0.03150459,
+   0.99229664,
+   0.9947803
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0022_amarra_balancim_6492.jpg": [
+   0.98583376,
+   0.08248269,
+   0.03380432,
+   0.99169308,
+   0.99187541
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0045_amarra_balancim_6499.jpg": [
+   0.98377413,
+   0.06664336,
+   0.02972086,
+   0.98677129,
+   0.9922601
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0048_amarra_balancim_6505.jpg": [
+   0.98556483,
+   0.06282218,
+   0.03253549,
+   0.98743367,
+   0.9942497
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0048_amarra_balancim_6506.jpg": [
+   0.98537302,
+   0.06951248,
+   0.03055269,
+   0.98919761,
+   0.99428451
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0072_amarra_balancim_6517.jpg": [
+   0.98400176,
+   0.06244954,
+   0.02832191,
+   0.9879002,
+   0.98608947
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0124_amarra_balancim_6485.jpg": [
+   0.98387599,
+   0.06583618,
+   0.02963543,
+   0.98819512,
+   0.99026775
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0191_amarra_balancim_6458.jpg": [
+   0.98329449,
+   0.0702295,
+   0.03791022,
+   0.98687744,
+   0.9833985
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0226_amarra_balancim_6475.jpg": [
+   0.98596174,
+   0.07415251,
+   0.03473899,
+   0.99196166,
+   0.98503011
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0249_amarra_balancim_6430.jpg": [
+   0.98538727,
+   0.07342946,
+   0.03399722,
+   0.98725671,
+   0.98933625
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0252_amarra_balancim_6437.jpg": [
+   0.98791313,
+   0.06956381,
+   0.03457842,
+   0.99256504,
+   0.99394602
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0293_amarra_balancim_6453.jpg": [
+   0.98497963,
+   0.06323005,
+   0.02702405,
+   0.98907447,
+   0.99749738
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0373_amarra_balancim_6376.jpg": [
+   0.9838143,
+   0.07276019,
+   0.03002704,
+   0.98831135,
+   0.99911755
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0393_amarra_balancim_6387.jpg": [
+   0.98711741,
+   0.06267352,
+   0.03364094,
+   0.99056357,
+   0.98564142
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0452_amarra_balancim_6356.jpg": [
+   0.98373157,
+   0.06868466,
+   0.03416287,
+   0.99195993,
+   0.98845953
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0453_amarra_balancim_6357.jpg": [
+   0.98742163,
+   0.07107513,
+   0.03415934,
+   0.98951596,
+   0.99499691
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0453_amarra_balancim_6360.jpg": [
+   0.98209655,
+   0.06509177,
+   0.02878865,
+   0.9874891,
+   0.99568337
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0559_amarra_balancim_6311.jpg": [
+   0.9843545,
+   0.06965449,
+   0.03111002,
+   0.98620361,
+   0.98640728
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0576_amarra_balancim_6317.jpg": [
+   0.98301256,
+   0.07712467,
+   0.03301632,
+   0.98628271,
+   0.98962641
+  ],
+  "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0578_amarra_balancim_6319.jpg": [
+   0.98222136,
+   0.07246234,
+   0.03330861,
+   0.98504752,
+   0.98562235
+  ]
+ },
+ "score_field_order": [
+  "score_A",
+  "score_B",
+  "score_C",
+  "sF_max",
+  "sN_max"
+ ]
+}
