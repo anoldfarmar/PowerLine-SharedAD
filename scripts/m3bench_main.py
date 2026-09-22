@@ -164,7 +164,8 @@ def main():
         def __len__(self):
             return len(self.paths)
         def __getitem__(self, i):
-            return {"image": Image.open(self.paths[i]).convert("RGB"), "image_path": self.paths[i]}
+            from torchvision.transforms.functional import to_tensor
+            return {"image": to_tensor(Image.open(self.paths[i]).convert("RGB")), "image_path": self.paths[i]}
     class DM(pl.LightningDataModule):
         def __init__(self, paths):
             super().__init__(); self.paths = paths
