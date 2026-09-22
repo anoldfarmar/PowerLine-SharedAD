@@ -281,8 +281,8 @@ def main():
                     cd, fl3 = D.auroc_avg_rank(C_d, C_n)
                     fls = {}
                     for nm, fl in (("A", fl1), ("B", fl2), ("C", fl3)):
-                        if fl != {"ok"}:
-                            fls[nm] = sorted(fl)
+                        if fl != "ok":
+                            fls[nm] = fl
                     aurocs[cfg] = {"A": round(float(ad), 6), "B": round(float(bd), 6), "C": round(float(cd), 6),
                                    "flags": fls if fls else "ok"}
                     np.savez_compressed(OUT6 + "/raw_scores6/patches_%s.npz" % cfg,
