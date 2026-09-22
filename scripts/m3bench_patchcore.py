@@ -53,7 +53,6 @@ def main():
     torch.cuda.reset_peak_memory_stats()
     SL = json.load(open(OUT + "/SUPPORT_LISTS.json"))
     nl = SL["normal_lists"]
-    eng = Engine(default_root_dir="/tmp/m3bench_logs")
     pc_auroc, pc_meta = {}, {}
     for g, b in BUDGETS.items():
         k = b["k"]
@@ -66,6 +65,7 @@ def main():
             for j in REF_SEEDS:
                 paths_n = nl["%s_ref%d" % (a, j)][b["pc_n"]]
                 model = make_model()
+                eng = Engine(default_root_dir="/tmp/m3bench_logs")
                 tb = time.time()
                 eng.fit(model, train_dataloaders=dl(paths_n, 32))
                 build_s = round(time.time() - tb, 1)
