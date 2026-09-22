@@ -1,10 +1,11 @@
 {
-  "task": "M3DIAG7-bank-cross-v1",
-  "contract": "plan/tasks/M3DIAG7-bank-cross-v1.yaml",
+  "task": "M3BENCH-dualbank-patchcore-v1",
+  "contract": "plan/tasks/M3BENCH-dualbank-patchcore-v1.yaml",
   "gate_required": "M3_PASSED",
-  "started_at": 1790042906.3089101,
+  "started_at": 1790060817.3756378,
   "budget": {
-    "wall_clock_h": 3,
-    "gpu_hours": 0.5
+    "wall_clock_h": 6,
+    "gpu_hours": 2,
+    "estimate_basis": "Ours 60 配置约 2min; PatchCore 20 配置含 WRN50 提特征约 30-60min; 延迟计时约 5min"
   }
 }

@@ -1,0 +1,46 @@
+task: M3BENCH-dualbank-patchcore-v1
+title: 1N1A 与 5N5A 双库方法对 PatchCore 的探索性直接比较
+gate_required: M3_PASSED
+human_gate_after: M3BENCH
+budget: {wall_clock_h: 6, gpu_hours: 2, estimate_basis: "Ours 60 配置约 2min; PatchCore 20 配置含 WRN50 提特征约 30-60min; 延迟计时约 5min"}
+authorized_by: 人类简报 2026-09-22
+outputs_root: outputs/M3bench-dualbank-patchcore/
+code_prefix: scripts/m3bench_*.py
+frozen_inputs_manifest: outputs/M3bench-dualbank-patchcore/FROZEN_INPUTS.json
+scope:
+  combos: [glass-insulator/missing-cap, yoke-suspension/rust]
+  group1: {ours: 1N+1A, patchcore: 1N, fault_support: 历史 k1, query: query_k1}
+  group2: {ours: 5N+5A, patchcore: 10N, fault_support: 历史 k5, query: query_k5}
+  support_seeds: [0, 1, 2]
+  normal_ref_groups: [3001, 3002, 3003, 3004, 3005]
+  normal_subsets: "N1=排列第1张, N5=前5张, N10=全部10张; 排列=排序后 PCG64(seed=组号) 固定一次并保存全名单"
+  pairing: "组一两方法同 N1; 组二 Ours 用 N5, PatchCore 用含该 N5 的 N10; 同组两方法查询路径完全一致"
+  ours_configs: 2x2x3x5=60
+  patchcore_configs: 2x2x5=20 (不依赖故障种子, 同查询复用)
+  total_method_configs: 80
+ours_frozen: "M3DIAG6/7 全套 (YOLO P3 + mapper_B + L2 + 库上限256 + P1 前50% + FPS seed0 + 同patch差值top8均值); 故障库由当前预算正常库筛选, 不得复用 10 张参照的故障库冒充"
+patchcore_frozen: "anomalib 标准 PatchCore wide_resnet50_2/layer2+layer3/coreset_ratio 0.1/num_neighbors 9/输入 320x320/原始连续分数/仅支持集拟合/不使用查询标签; 保存实际生效配置与权重哈希; 接口不兼容先说明不默默替换"
+anchor: "每资产 k5 seed0 ref3001 以原历史预算 (10 张) 复现 M3DIAG6 原始分数, max|diff|<=1e-4, 单独标注不混入比较"
+statistics: "平均秩图像级 AUROC; Ours-PatchCore 逐配置配对差; 每参照组=3种子均值; 五组均值/范围/正收益组数; std ddof=0; 不做显著性推断; 宏平均仅补充"
+latency: "主计时=已解码裁剪图到图像分数 (含预处理/传输/特征/评分, 排除读盘/加载/建库); 每方法 4 预注册代表配置 (ref3001, Ours seed0); 预热20 正式至少100 次 CUDA 事件计时; 中位数+P95; 批量初始32记实际值; 批量与单图一致性抽查"
+deliverables:
+  - outputs/M3bench-dualbank-patchcore/FROZEN_INPUTS.json
+  - outputs/M3bench-dualbank-patchcore/SUPPORT_LISTS.json
+  - outputs/M3bench-dualbank-patchcore/repro_and_correctness.json
+  - outputs/M3bench-dualbank-patchcore/raw_scores_ours/
+  - outputs/M3bench-dualbank-patchcore/raw_scores_patchcore/
+  - outputs/M3bench-dualbank-patchcore/bench_eval.json
+  - outputs/M3bench-dualbank-patchcore/latency.json
+  - outputs/M3bench-dualbank-patchcore/BENCHMARK_REPORT.md
+acceptance:
+  - {type: file_exists, path: outputs/M3bench-dualbank-patchcore/BENCHMARK_REPORT.md}
+  - {type: metric_min, path: outputs/M3bench-dualbank-patchcore/bench_eval.json, key: method_configs_completed, min: 80}
+  - {type: metric_min, path: outputs/M3bench-dualbank-patchcore/bench_eval.json, key: anchor_repro_passed, min: 1}
+forbidden:
+  - "修改历史划分/历史评测实现/已有结果/人工门; 训练/重划分/参数搜索/新特征模型/自动追加实验"
+  - "把测试集阈值召回冒充校准召回; 用查询标签做任何选择"
+  - "人为压缩 PatchCore 库制造公平或速度优势 (原生配置成本比较)"
+notes: |
+  两组非相同 shot/监督条件: 组一=正常支持同、异常监督不同; 组二=支持总数同、监督组成不同; 查询集组间不同须披露;
+  源身份未知记未知不记零重叠; 裁剪数不解释为独立源帧数; 本轮非独立确认性测试, 不单独宣布 H1 达标;
+  校准召回/误报率/完整 H1 检验列为未完成项; 验收=执行完整+结果正确+报告诚实, 不以击败 PatchCore 为 PASS 条件。
