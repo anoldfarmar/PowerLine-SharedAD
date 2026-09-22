@@ -1,0 +1,51 @@
+task: M3DIAG6-dualbank-score-v1
+title: 冻结历史协议下的正常-故障双库评分探索性诊断
+gate_required: M3_PASSED
+human_gate_after: M3DIAG6
+budget: {wall_clock_h: 3, gpu_hours: 0.5}
+authorized_by: 人类简报 2026-09-21 (仅本任务新增合同的授权)
+outputs_root: outputs/M3diag6-dualbank/
+code_prefix: scripts/m3diag6_*.py
+frozen_inputs_manifest: outputs/M3diag6-dualbank/FROZEN_INPUTS.json
+scope:
+  combos: [glass-insulator/missing-cap, yoke-suspension/rust]
+  k_support_budget: {primary: 10, secondary: 5, semantics: 历史 k-crop 支持预算, 非独立源帧数}
+  support_seeds: [0, 1, 2]
+  normal_ref_groups: [3001, 3002, 3003, 3004, 3005]
+  seed3000: 仅作复现锚点单独报告, 不入主汇总
+banks:
+  normal: M3DIAG4 参照组建库方式严格复用 (组内 10 裁剪 embed -> FPS 256, seed 0)
+  fault: P1 严格复用 (正常距离排序 -> 保留前50% -> FPS 256), 排序/同分/取整规则不变
+  rebuild_rule: 无已存库向量, 按原始顺序与代码确定性重建, 记录来源与哈希
+scoring:
+  A: mean(top8(sF))  # 复现旧 P1 故障相似度
+  B: mean(top8(1 - sN))  # 仅正常距离
+  C: mean(top8(sF - sN))  # 正常-故障相对证据, 先逐patch差值再top8, 保留负数
+  invariants: 同一特征/同一套库; mapper_B 与骨干 eval 态无梯度无 BN 更新; 输入处理与 L2 与全 patch 使用不变; 无新增可调参数
+repro_gate:
+  archive: outputs/M3diag4/raw_scores4 (60 配置逐路径)
+  tolerance: 1e-4
+  rule: 全部通过后才写任何 B/C 分数; 失败按重试规则诊断, 不放宽容差
+metrics: 平均秩图像级 AUROC; 主比较 C-A, C-B, B-A; 逐参照组先对 3 支持种子取配对差均值, 再报五组均值/范围/正收益组数; std ddof=0; 全量保留不挑选
+deliverables:
+  - outputs/M3diag6-dualbank/FROZEN_INPUTS.json
+  - outputs/M3diag6-dualbank/repro_and_correctness.json
+  - outputs/M3diag6-dualbank/raw_scores6/
+  - outputs/M3diag6-dualbank/dualbank_eval.json
+  - outputs/M3diag6-dualbank/DUALBANK_REPORT.md
+  - outputs/M3diag6-dualbank/COUNTING_CORRECTION.md
+  - outputs/M3diag6-dualbank/run.log
+acceptance:
+  - {type: file_exists, path: outputs/M3diag6-dualbank/DUALBANK_REPORT.md}
+  - {type: metric_min, path: outputs/M3diag6-dualbank/dualbank_eval.json, key: scoring_variants_completed, min: 3}
+  - {type: metric_min, path: outputs/M3diag6-dualbank/dualbank_eval.json, key: repro_gate_passed, min: 1}
+forbidden:
+  - 改动历史合同/冻结划分/历史评测实现/人工门/既有结果
+  - 骨干或映射器训练, WRN/DINO, 参数搜索, 源帧级重划分, 后续任务自动启动
+  - 阈值校准或以查询标签选择任何参数; 因评分结果不好而重新筛选原型
+notes: |
+  B 不依赖故障支持种子: 同查询与同正常库复用结果, 不把重复引用当独立实验;
+  不同参照组与支持配置不是独立测试集, 不作显著性推断;
+  本轮不新增阈值校准; 历史召回如附仅复现原规则并单独标注探索性;
+  不声称双库与单库同内存或端侧加速, 只记录实际成本;
+  验收依据 = 执行完整性 + 复现正确性 + 报告诚实性, 不以指标提升为 PASS 条件。
