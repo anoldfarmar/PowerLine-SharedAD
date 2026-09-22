@@ -9,7 +9,7 @@ import m3diag_common as D
 import m3diag6_dualbank as M6
 from m3diag_bank_eval import embed
 from m3diag3_faultbank import extract_crops
-from m3_common import C as MC
+import m3_common as MC
 
 ROOT = D.ROOT
 OUT = ROOT + "/outputs/M3bench-dualbank-patchcore"

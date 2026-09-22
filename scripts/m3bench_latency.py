@@ -7,7 +7,7 @@ import torch
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
 import m3diag6_dualbank as M6
-from m3_common import C as MC
+import m3_common as MC
 from m3bench_main import lists, BUDGETS, COMBOS, REF_SEEDS, OUT, D as DD
 from m3diag_bank_eval import embed
 from PIL import Image
