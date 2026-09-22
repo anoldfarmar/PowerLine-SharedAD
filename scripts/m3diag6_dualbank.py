@@ -273,7 +273,8 @@ def main():
                     sN_n = crop_sims(patches, qn_idx, spec, nb, dev)
                     A_d, A_n = agg(sF_d), agg(sF_n)
                     B_d, B_n = agg(1 - sN_d), agg(1 - sN_n)
-                    C_d, C_n = agg(sF_d - sN_d), agg(sF_d_n if False else sF_d - sN_d), 
+                    C_d, C_n = agg(sF_d - sN_d), agg(sF_n - sN_n)
+                    assert len(C_d) == len(qd) and len(C_n) == len(qn), (cfg, len(C_d), len(C_n), len(qd), len(qn))
                     cfg = "%s__k%d_seed%d_ref%d" % (combo.replace("/", "__"), k, s2, sd)
                     ad, fl1 = D.auroc_avg_rank(A_d, A_n)
                     bd, fl2 = D.auroc_avg_rank(B_d, B_n)
