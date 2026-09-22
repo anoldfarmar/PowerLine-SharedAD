@@ -1,0 +1,131 @@
+{
+ "timings": [
+  {
+   "method": "ours",
+   "combo": "glass-insulator__missing-cap",
+   "budget": "g1",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/missing-cap/Fotos 01-12-2020_DJI_0014_cadeia_isolador_vidro_338.jpg",
+   "median_ms": 14.845,
+   "p95_ms": 15.045,
+   "weights_bytes": 6427394,
+   "banks_bytes": 262144,
+   "bank_protos": 512,
+   "bank_dim": 128,
+   "bank_dtype": "float32"
+  },
+  {
+   "method": "ours",
+   "combo": "yoke-suspension__rust",
+   "budget": "g1",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55.jpg",
+   "median_ms": 4.814,
+   "p95_ms": 5.044,
+   "weights_bytes": 6427394,
+   "banks_bytes": 262144,
+   "bank_protos": 512,
+   "bank_dim": 128,
+   "bank_dtype": "float32"
+  },
+  {
+   "method": "ours",
+   "combo": "glass-insulator__missing-cap",
+   "budget": "g2",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/missing-cap/Fotos 01-12-2020_DJI_0014_cadeia_isolador_vidro_338.jpg",
+   "median_ms": 8.85,
+   "p95_ms": 8.938,
+   "weights_bytes": 6427394,
+   "banks_bytes": 262144,
+   "bank_protos": 512,
+   "bank_dim": 128,
+   "bank_dtype": "float32"
+  },
+  {
+   "method": "ours",
+   "combo": "yoke-suspension__rust",
+   "budget": "g2",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55.jpg",
+   "median_ms": 4.778,
+   "p95_ms": 4.946,
+   "weights_bytes": 6427394,
+   "banks_bytes": 262144,
+   "bank_protos": 512,
+   "bank_dim": 128,
+   "bank_dtype": "float32"
+  },
+  {
+   "method": "patchcore",
+   "combo": "glass-insulator__missing-cap",
+   "budget": "g1",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/missing-cap/Fotos 01-12-2020_DJI_0014_cadeia_isolador_vidro_338.jpg",
+   "median_ms": 815.021,
+   "p95_ms": 882.55,
+   "build_s_excluded": 1.1,
+   "backbone_params_M": 24.86,
+   "memory_bank_shape": [
+    160,
+    1536
+   ],
+   "memory_bank_bytes": 983040,
+   "note": "经 Engine.predict 包装路径计时, 含 dataloader 开销"
+  },
+  {
+   "method": "patchcore",
+   "combo": "yoke-suspension__rust",
+   "budget": "g1",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55.jpg",
+   "median_ms": 762.522,
+   "p95_ms": 910.318,
+   "build_s_excluded": 0.9,
+   "backbone_params_M": 24.86,
+   "memory_bank_shape": [
+    160,
+    1536
+   ],
+   "memory_bank_bytes": 983040,
+   "note": "经 Engine.predict 包装路径计时, 含 dataloader 开销"
+  },
+  {
+   "method": "patchcore",
+   "combo": "glass-insulator__missing-cap",
+   "budget": "g2",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/missing-cap/Fotos 01-12-2020_DJI_0014_cadeia_isolador_vidro_338.jpg",
+   "median_ms": 878.166,
+   "p95_ms": 1064.654,
+   "build_s_excluded": 1.5,
+   "backbone_params_M": 24.86,
+   "memory_bank_shape": [
+    1600,
+    1536
+   ],
+   "memory_bank_bytes": 9830400,
+   "note": "经 Engine.predict 包装路径计时, 含 dataloader 开销"
+  },
+  {
+   "method": "patchcore",
+   "combo": "yoke-suspension__rust",
+   "budget": "g2",
+   "query": "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/train/rust/01-06-2021_DJI_0183_55.jpg",
+   "median_ms": 785.94,
+   "p95_ms": 1013.015,
+   "build_s_excluded": 1.6,
+   "backbone_params_M": 24.86,
+   "memory_bank_shape": [
+    1600,
+    1536
+   ],
+   "memory_bank_bytes": 9830400,
+   "note": "经 Engine.predict 包装路径计时, 含 dataloader 开销"
+  }
+ ],
+ "warmup": 20,
+ "n_timed": 100,
+ "timer": "cuda events",
+ "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+ "peak_vram_bytes": 363765760,
+ "batch_consistency": {
+  "max_abs_diff": 0.002331,
+  "n": 4,
+  "note": "PatchCore 批量4 vs 单图; Ours 流水为逐裁剪原生单图"
+ },
+ "rule": "主计时=已解码裁剪图到图像分数, 排除读盘/加载/建库; 代表配置 ref3001 + Ours seed0; 不外推 RK3588, 不称整图端到端"
+}
