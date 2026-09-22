@@ -1,0 +1,50 @@
+task: M3DIAG7-bank-cross-v1
+title: 冻结特征与历史划分的正常库-故障库交叉诊断
+gate_required: M3_PASSED
+human_gate_after: M3DIAG7
+budget: {wall_clock_h: 3, gpu_hours: 0.5}
+authorized_by: 人类简报 2026-09-22 (本任务合同/脚本/独立输出目录)
+outputs_root: outputs/M3diag7-bank-cross/
+code_prefix: scripts/m3diag7_*.py
+frozen_inputs_manifest: outputs/M3diag7-bank-cross/FROZEN_INPUTS.json
+scope:
+  combos: [glass-insulator/missing-cap, yoke-suspension/rust]
+  k_support_budget: {primary: 10, secondary: 5, semantics: 历史 k-crop 支持预算, 非独立源帧数}
+  support_seeds: [0, 1, 2]
+  normal_ref_groups: [3001, 3002, 3003, 3004, 3005]
+  cross_matrix: 每资产xkx支持种子一个 5x5 (F_i 行 x N_j 列), 共 300 配置; 对角线 60 = M3DIAG6 复现, 非对角线 240 = 新增
+  invariants: 骨干/mapper_B/特征缓存/归一化/查询集不变; N_j 与 F_i 建库规则不变 (上限 256, 原 FPS/排序/同分/取整); 交叉评分时绝不重建故障库
+scoring:
+  A_i: mean(top8(sFi))
+  B_j: mean(top8(1 - sNj))
+  C_ij: mean(top8(sFi - sNj))  # 先逐patch差值再top8, 保留负数, 无任何新参数
+repro_gate:
+  target: 对角线 C_ii/A_i/B_j 与 M3DIAG6 raw_scores6 逐路径比对, 查询路径集合完全一致
+  fp16_rule: 优先试用 M3DIAG6 存档 fp16 逐 patch 缓存, 不能通过 1e-4 时按原冻结流程 FP32 重建, 不以精度不足缓存替代有效计算
+  tolerance: 1e-4 不得事后放宽
+statistics_pre_fixed:
+  primary: 平均秩图像级 AUROC; 每支持种子保留 U_ij, dF_ij = U_ij - AUROC(A_i), dN_ij = U_ij - AUROC(B_j), 三矩阵全报告
+  aggregation: 每资产xk 先保留 3 支持种子独立矩阵再给逐格均值, std ddof=0
+  descriptive: 行敏感性(固定i跨j std/range 均值+最大), 列敏感性(固定j跨i), 交互残差 E_ij = U_ij - 行均 - 列均 + 全矩阵均 (RMS/最大绝对值/矩阵), 同组匹配效应 = 对角均值 - 非对角均值 (逐种子+汇总); dF 矩阵同样报告行列敏感性
+  forbidden_in_stats: 不挑选最高格子, 不追加最佳组合评测, 不新增阈值校准, 不作显著性检验
+deliverables:
+  - outputs/M3diag7-bank-cross/FROZEN_INPUTS.json
+  - outputs/M3diag7-bank-cross/BANK_MANIFEST.json
+  - outputs/M3diag7-bank-cross/repro_and_correctness.json
+  - outputs/M3diag7-bank-cross/raw_scores7/
+  - outputs/M3diag7-bank-cross/cross_eval.json
+  - outputs/M3diag7-bank-cross/BANK_CROSS_REPORT.md
+  - outputs/M3diag7-bank-cross/run.log
+acceptance:
+  - {type: file_exists, path: outputs/M3diag7-bank-cross/BANK_CROSS_REPORT.md}
+  - {type: metric_min, path: outputs/M3diag7-bank-cross/cross_eval.json, key: cross_configs_completed, min: 300}
+  - {type: metric_min, path: outputs/M3diag7-bank-cross/cross_eval.json, key: diag_repro_passed, min: 1}
+forbidden:
+  - 修改历史合同/冻结划分/历史评测实现/人工门/历史结果 (含 M3DIAG6 有效结果)
+  - 训练/重新抽样/扩大参照池/改变 k/参数搜索/特征替换/自动启动后续实验
+  - 交叉评分时重建故障库; 用查询标签选择参照组合
+notes: |
+  探索性诊断; k 为历史裁剪样本数不等于独立源帧数; 跨包源帧身份未知不等价确认未见;
+  五参照组与支持种子非独立测试集; A/B 重复引用不计新增独立实验;
+  大体积可重建缓存按仓库惯例处理, 保留重建命令与精度说明;
+  验收依据 = 执行完整性 + 复现正确性 + 报告诚实性, 不以指标提升为 PASS 条件。
