@@ -55,8 +55,8 @@ def main():
                 qp = sorted(json.load(f)["defect_query"][combo])[0]
             img = Image.open(qp).convert("RGB")
             bb = MC.Backbone(D.WEIGHTS, dev)
-            fbt = torch.from_numpy(np.asarray(fb)).float().to(dev)
-            nbt = torch.from_numpy(np.asarray(nb)).float().to(dev)
+            fbt = (fb if torch.is_tensor(fb) else torch.from_numpy(np.asarray(fb))).float().to(dev)
+            nbt = (nb if torch.is_tensor(nb) else torch.from_numpy(np.asarray(nb))).float().to(dev)
             def ours_score():
                 xb = tf(img).unsqueeze(0).to(dev, non_blocking=True)
                 with torch.no_grad():
