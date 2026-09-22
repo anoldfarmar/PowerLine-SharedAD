@@ -1,0 +1,39 @@
+{
+ "code_commit": "f7bb798f0ba9f6414b22faac16c5a8a2fc1ecd48",
+ "weights": {
+  "path": "/root/autodl-tmp/runs/yolov8n_det/weights/best.pt",
+  "sha256": "ea1526c29d4afcfb83cbc2a8d3eb48f498c380082d2a4dfbcc17d0b9e9c425fe"
+ },
+ "mapper_B": {
+  "path": "/root/auto-exp/outputs/M3diag/mapper_B.pt",
+  "sha256": "7faf065aa2216ad763c41764df234cb9b8f24d66a6bc4409dfc4aa73f38f9438"
+ },
+ "cache": {
+  "patches": "e40132c248b87c9bbceaa1d497509787ddf3b42af3a0c04d8d3a4bd8a72948a9",
+  "eval_paths": "5439c7e7386012e2516d680a630aaf775594fd7c9c8a85b8ff36a61f6f317910"
+ },
+ "ref_groups": "7c89b6d4fca0e76972e4387b942c46b20ea6e30e32c02040b6bb06346d55e517",
+ "env": {
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "anomalib": "2.6.2"
+ },
+ "budgets": {
+  "g1": {
+   "k": 1,
+   "n_sub": "N1",
+   "pc_n": "N1"
+  },
+  "g2": {
+   "k": 5,
+   "n_sub": "N5",
+   "pc_n": "N10"
+  }
+ },
+ "disclosure": {
+  "k_semantics": "历史 k-crop 支持预算, 非独立源帧数",
+  "identity": "源身份未知记未知不记零重叠",
+  "queries_g1_g2_differ": true
+ }
+}
