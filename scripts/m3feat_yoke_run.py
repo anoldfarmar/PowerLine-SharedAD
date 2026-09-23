@@ -76,10 +76,10 @@ def main():
     # ---------- G2: 特征验证 + E2 缓存 ----------
     te = time.time()
     e2map, e2meta, bb_hash_after = X.build_e2_cache(uniq)
-    e2arr = np.load(OUT + "/cache/e2_feats.npy", mmap_mode="r")
-    e1arr = np.load(OUT + "/cache/e1_feats.npy", mmap_mode="r")
+    e2arr = np.load(X.CACHE + "/e2_feats.npy", mmap_mode="r")
+    e1arr = np.load(X.CACHE + "/e1_feats.npy", mmap_mode="r")
     tf = None
-    e2m = json.load(open(OUT + "/cache/e2_paths.json"))
+    e2m = json.load(open(X.CACHE + "/e2_paths.json"))
     bb_hash_after = e2m["backbone_hash"]
     probe_e2_s = round(time.time() - te, 1)
     print("[G2] E2 cache %s dim=%d shapes=%s (%.1fs)" % (list(e2arr.shape), e2arr.shape[-1], e2meta["shapes"], probe_e2_s), flush=True)
@@ -303,7 +303,7 @@ def main():
     X.atomic_save_json(audit, OUT + "/PARAMETER_AUDIT.json")
     cost = {"wall_time_s": round(time.time() - t00, 1), "peak_vram_allocated_bytes": int(torch.cuda.max_memory_allocated()),
             "vram_note": "allocated 口径; reserved 未记录", "e2_extract_s": probe_e2_s, "probe_s": {"e1_block": round(e1_block_s, 1), "e2_block": round(e2_block_s, 1), "e1_pc": round(e1_pc_s, 1), "e2_pc": round(e2_pc_s, 1)},
-            "score_note": "缓存评分耗时, 非完整推理延迟", "cache_bytes": {"e2": os.path.getsize(OUT + "/cache/e2_feats.npy")}}
+            "score_note": "缓存评分耗时, 非完整推理延迟", "cache_bytes": {"e2": os.path.getsize(X.CACHE + "/e2_feats.npy")}}
     X.atomic_save_json(cost, OUT + "/RESOURCE_COST.json")
     print("[b] feat_eval.json saved; wall=%.1fs" % (time.time() - t00), flush=True)
     print("=== M3FEAT 完成 ===", flush=True)

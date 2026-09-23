@@ -11,7 +11,7 @@ import m3diag_common as D
 import m3_common as MC
 
 OUT = D.ROOT + "/outputs/M3feat-yoke"
-CACHE = OUT + "/cache"
+CACHE = "/root/autodl-tmp/m3feat-yoke-cache"  # 系统盘 96% 满, 大缓存放数据盘
 
 
 def l2_pos(x):
