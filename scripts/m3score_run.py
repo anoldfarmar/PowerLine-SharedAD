@@ -127,7 +127,7 @@ def main():
     # ---------- 探针 ----------
     t = time.time()
     pm0, meta0 = PV.make_pm(ffn, n5of[3001], pc_seed[3001])
-    _s = PV.official_score(pm0, qd_rows[:8] + qn_rows[:8], ffn)
+    _s = PV.official_score(pm0, qd[:8] + qn[:8], ffn)
     cN_probe = PV.chunked_max_cos(ffn(qall_paths[:32]), pm0.memory_bank, Q_CHUNK, P_CHUNK)
     probe_s = time.time() - t
     proj = 4 * probe_s + 15 * probe_s * 0.6 + 40
@@ -149,10 +149,10 @@ def main():
         nb2 = pm2.memory_bank.detach().clone()
         same = bool(torch.equal(nb, nb2))
         if j == REFS[0]:
-            sb1 = PV.official_score(pm, qd_rows[:4] + qn_rows[:4], ffn)
+            sb1 = PV.official_score(pm, qd[:4] + qn[:4], ffn)
             sb2 = PV.official_score(pm2, qd_rows[:4] + qn_rows[:4], ffn)
             rescore_diff = float(np.max(np.abs(np.array(sb1) - np.array(sb2))))
-            sbc = PV.verify_score_batch(ffn, qd_rows[:6], pm)
+            sbc = PV.verify_score_batch(ffn, qd[:6], pm)
         else:
             sbc = None
         bank_manifest["N_star"]["ref%d" % j] = {k: v for k, v in meta.items() if k != "coreset_indices"} | {
@@ -169,8 +169,8 @@ def main():
     hist = json.load(open(FEAT + "/feat_eval.json"))["aurocs"]
     recheck = {"per_ref": {}, "recheck_configs": 0}
     for j in REFS:
-        sd = PV.official_score(banks[j]["pm"], qd_rows, ffn)
-        sn = PV.official_score(banks[j]["pm"], qn_rows, ffn)
+        sd = PV.official_score(banks[j]["pm"], qd, ffn)
+        sn = PV.official_score(banks[j]["pm"], qn, ffn)
         u = save_cfg("%s_S4_k5_ref%d" % (CKC, j),
                      {"combo": "yoke-suspension/rust", "arm": "S4", "ref": j, "feature": "E1",
                       "bank": "N* pc_seed=%d" % pc_seed[j]}, sd, sn, qd, qn)
