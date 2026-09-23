@@ -1,0 +1,56 @@
+task: M3FEAT-yoke-v1
+title: 保留 YOLOv8n 条件下的 mapper/多层特征/检测头消融 (yoke 5N5A)
+gate_required: M3_PASSED
+human_gate_after: M3FEAT
+budget: {wall_clock_h: 3, gpu_hours: 1, estimate_basis: "E0/E1 走 fp16 缓存零骨干; E2 需 ~1300 张唯一图一次前向 (~2min); PC 变体 15 个小库 fit+评分 ~5min; 探针先行超 1 GPU 时即停"}
+authorized_by: 人类简报 M3FEAT-yoke-v1
+outputs_root: outputs/M3feat-yoke/
+code_prefix: scripts/m3feat_*.py
+scope:
+  asset_fault: yoke-suspension/rust
+  budget: g2 5N5A; PC-YOLO 变体用同 5N; 标准 WRN PC 10N 仅复用历史 5 配置作外部标杆
+  refs: [3001, 3002, 3003, 3004, 3005]
+  seeds: [0, 1, 2]
+  query: query_k5 逐路径核对
+features:
+  E0: "历史 P3 -> mapper_B -> L2, 128 维 (以实际张量为准), 保留历史 fp16 缓存数值路径, 用于复现 M3CAP RF"
+  E1: "原始 P3 逐位置 L2, 不经 mapper, 维度按实际前向验证 (预计 64)"
+  E2: "P3/P4/P5 依实际模块结构确认节点 (shape 断言 64/128/256 ch, 40/20/10); P4/P5 bilinear align_corners=False 上采样至 P3 网格; 对齐后逐层逐位置 L2; 等权拼接再整体 L2 (预计 448 维); 不平滑/不训练投影/不压维/不调权重; 不混入颈部输出"
+  common: "输入 320x320 沿用当前 YOLO 预处理; eval/no_grad 禁 BN 更新; 新缓存 FP32; 一次前向取三层; 支持/查询路径去重各提取一次; 查询标签不参与特征/建库/候选/参数"
+heads:
+  H_DUAL: "5N5A; N=FPS256(历史种子与并列规则); F=全部 P1 前50%候选(通常4000, 不FPS不复制); 每特征空间独立建库与P1, 不沿用E0候选索引; sF=max_f cos, sN=max_n cos, patch先两独立max再减, 沿patch维top8均值; 禁止矩阵按原型索引直接相减"
+  H_PC_YOLO: "薄适配层直接调用 anomalib 2.6.2 官方组件 (KCenterGreedy.sample_coreset / nearest_neighbors / compute_anomaly_score / AnomalyMapGenerator), 先读源码后实现; coreset_ratio 0.1, num_neighbors 9, 8000 patch 预计 800 原型以实现为准; 只用 5N, 不读故障支持; 不替换成余弦top8; 公共特征已 L2 归一化须披露; 受控变体非标准 WRN 复现; 同特征仅指输入一致, 监督组成/原型数/资源不同须披露"
+execution_order:
+  gate1: "E0+H-DUAL 全部15配置 vs M3CAP RF 逐路径 max|diff|<=1e-4, 集合数量标签映射一致, 未通过不得开始新臂评分"
+  gate2: "特征验证: 层形状/有限值/归一化/batch一致性, 主干与mapper哈希前后相同"
+  gate3: "双库分块 vs 直接计算一致, 覆盖大F库(4000)"
+  gate4: "PC适配验证: 固定合成特征+固定memory_bank, 适配层与官方组件直接调用对照 (距离/邻居索引/图像分数), 并列允许等价邻居但分数一致; fit 只访问正常支持"
+  then: "预注册全量: 3特征 x (双库15 + PC变体5) = 60 配置, E0双库复用"
+config_freeze: "首评前冻结合同+METHOD_SPEC: 权重/名单/SHA256/提取节点/实测形状/预处理/缓存dtype/插值/归一化/两检测头配置/种子/并列规则/门限/预算"
+errata: "M3CAP 勘误已完成 (0fa183c): 交互 -0.0443 描述性表述, 库 128 维 FP32 与 MiB 数字, 显存 allocated/reserved 口径; 原始分数未改; M3CAP_ERRATA.md 同时列入本任务交付"
+statistics: "平均秩 AUROC; 配对: 双库 E1-E0, E2-E1, 每特征 双库-PC变体, 各方法 vs WRN PC 10N; 每参照组3种子均值再汇总5组; 报告每配置差/正负数/范围/ddof=0; 不做未预注册显著性宣称"
+parameter_audit: "只读: YOLO 全模型参数, 各特征输出实际依赖子图参数, mapper 参数, WRN PC 特征路径参数(可取得时); 区分加载/实际贡献/本轮训练(为0); 不以文件大小代参数量; 记录缓存体积/库内存/峰值显存(allocation口径)/提取建库评分耗时; 不宣称端到端速度或 RK3588"
+deliverables:
+  - outputs/M3feat-yoke/METHOD_SPEC.md
+  - outputs/M3feat-yoke/FROZEN_INPUTS.json
+  - outputs/M3feat-yoke/FEATURE_MANIFEST.json
+  - outputs/M3feat-yoke/BANK_MANIFEST.json
+  - outputs/M3feat-yoke/repro_and_correctness.json
+  - outputs/M3feat-yoke/raw_scores/
+  - outputs/M3feat-yoke/feat_eval.json
+  - outputs/M3feat-yoke/paired_comparisons.csv
+  - outputs/M3feat-yoke/PARAMETER_AUDIT.json
+  - outputs/M3feat-yoke/RESOURCE_COST.json
+  - outputs/M3feat-yoke/FEATURE_HEAD_REPORT.md
+  - outputs/M3feat-yoke/M3CAP_ERRATA.md
+acceptance:
+  - {type: file_exists, path: outputs/M3feat-yoke/FEATURE_HEAD_REPORT.md}
+  - {type: metric_min, path: outputs/M3feat-yoke/feat_eval.json, key: arm_configs_completed, min: 60}
+  - {type: metric_min, path: outputs/M3feat-yoke/feat_eval.json, key: repro_E0_gate, min: 1}
+  - {type: metric_min, path: outputs/M3feat-yoke/feat_eval.json, key: gates_all_passed, min: 1}
+forbidden:
+  - "不新增类别/不训练微调主干mapper/不NVE/不搜融合权重层组合库容量评分超参"
+  - "不改历史冻结合同划分或历史结果; 不触碰无关 paper/ 目录; 不自动启动下一轮"
+notes: |
+  特征比较经整条管线 (分别建库); 双库比PC变体多用5A, 非纯评分公式隔离; 无网络参数规模对齐, 无独立确认集;
+  不预判更深特征更好; 不因赢家追加搜索; shot=裁剪数; 查询复用/源身份未知披露保留; 验收=正确性+完整性+复现+流程, 不要求正收益。
