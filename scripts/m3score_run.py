@@ -209,6 +209,7 @@ def main():
         s1 = dE.max(1)
         s2 = top8(dE)
         s3 = top8(dC)
+        cN256_t = None
         stats = {"dE": dE.cpu().numpy().astype(np.float32), "dC": dC.cpu().numpy().astype(np.float32),
                  "top8_S2": torch.topk(dE, TOPK, 1).indices.cpu().numpy().astype(np.int32),
                  "top8_S3": torch.topk(dC, TOPK, 1).indices.cpu().numpy().astype(np.int32)}
@@ -221,11 +222,12 @@ def main():
             keep = torch.argsort(-snorm, stable=True)[:supf.shape[0] // 2]
             Fb = supf[keep]
             cF = PV.chunked_max_cos(q, Fb, Q_CHUNK, P_CHUNK)
-            if "cN256" not in stats:
-                stats["cN256"] = PV.chunked_max_cos(q, N256, Q_CHUNK, P_CHUNK).numpy().astype(np.float32)
+            if cN256_t is None:
+                cN256_t = PV.chunked_max_cos(q, N256, Q_CHUNK, P_CHUNK).cuda()
+                stats["cN256"] = cN256_t.cpu().numpy().astype(np.float32)
             stats["cF_seed%d" % s] = cF.cpu().numpy().astype(np.float32)
             v5 = cF - cN
-            v256 = cF - torch.from_numpy(stats["cN256"]).float().cuda()
+            v256 = cF - cN256_t
             s5 = top8(v5)
             r256 = top8(v256)
             stats["top8_S5_seed%d" % s] = torch.topk(v5, TOPK, 1).indices.cpu().numpy().astype(np.int32)
