@@ -1,0 +1,46 @@
+task: M3CAP-yoke-v1
+title: 保留 YOLO 的 yoke/rust 双库容量对照
+gate_required: M3_PASSED
+human_gate_after: M3CAP
+budget: {wall_clock_h: 2, gpu_hours: 1, estimate_basis: "查询/支持特征全部来自 patches.npy 缓存, 无骨干重跑; 评分 GEMM 约 16 TFLOP; 每 (参照组,种子) 块先探针再外推, 超 1 GPU 时即停并报告"}
+authorized_by: 人类简报 (M3CAP-yoke-v1)
+outputs_root: outputs/M3cap-yoke/
+code_prefix: scripts/m3cap_*.py
+frozen_inputs_manifest: outputs/M3cap-yoke/FROZEN_INPUTS.json
+scope:
+  asset_fault: yoke-suspension/rust
+  budget: Ours 5N5A (M3BENCH g2), PatchCore 复用历史 10N 5 配置不重跑
+  seeds: [0, 1, 2]
+  refs: [3001, 3002, 3003, 3004, 3005]
+  arms:
+    R0: {N: 256, F: 256, note: 历史基线复现}
+    RN: {N: 4096, F: 256}
+    RF: {N: 256, F: 4096}
+    RNF: {N: 4096, F: 4096}
+  arm_configs: 15x4=60 (15 R0 复现 + 45 新增)
+candidate_freeze: "先固定候选: 每参照组 N256 (M6 原流程) 同时作为 P1 筛选参照; 每种子故障 patch 用 N256 按历史 P1 排序稳定保留前50% -> 固定候选集, 存索引与 SHA256; 四臂共享候选; 大 N 只用同 N5 特征, 不用 N10/其他参照组/查询图, 不因大库重筛候选"
+capacity_rule: "实际原型数=min(上限,候选数), 不复制向量凑容量; F 候选约4000 < 4096 则全保留不跑 FPS; 需压缩时用原 greedy FPS 距离/种子/同分规则, 一次生成选择顺序复用前缀, 并验证 256 前缀与历史库一致, 不为复用改变历史 256 集合"
+scoring_frozen: "sF=max_f cos, sN=max_n cos, s=sF-sN 同 patch 相减后沿查询 patch 维 top8 均值; 不得两矩阵逐元素减/沿原型维 top8/加残差PCA权重阈值; eval/no_grad 参数与 BN 不变"
+repro_gate: "R0 全部 15 配置与 M3BENCH Ours g2 逐图分数路径集合相同且 max|diff|<=1e-4, 不事后放宽"
+checks: "P1 候选四臂一致; 容量不超过候选数与上限; 无重复向量; 分块最大相似度与小样本直接计算一致; 分数有限方向正确; 数值不变量: 扩 N 分数不增, 扩 F 分数不减, 大库 max 相似度不小于小库"
+patchcore_reuse: "复用 M3BENCH raw_scores_patchcore yoke g2 5 个 10N 配置原始分数重算 AUROC, 先核对查询路径一致, 预期均值约 0.834854, 不一致先查口径不手工写死"
+statistics: "AUROC 平均秩; RN-R0, RF-R0, RNF-R0 逐配置配对差; 每参照组=3种子均值; 五组均值/范围/正收益组数; 原始15配置负收益数; std ddof=0; 不做显著性推断; 不挑最佳配置"
+resources: "记录每库向量数/维度/dtype/字节, 两类库合计, P1 筛选参照构建资源, 建库时间/缓存评分时间/峰值显存; 构建期参照与推理期常驻库分开; 缓存评分耗时不称完整推理延迟, 不引用历史 55-164 倍速比"
+deliverables:
+  - outputs/M3cap-yoke/FROZEN_INPUTS.json
+  - outputs/M3cap-yoke/P1_CANDIDATES.json
+  - outputs/M3cap-yoke/BANK_MANIFEST.json
+  - outputs/M3cap-yoke/repro_and_correctness.json
+  - outputs/M3cap-yoke/raw_scores/
+  - outputs/M3cap-yoke/cap_eval.json
+  - outputs/M3cap-yoke/RESOURCE_COST.json
+  - outputs/M3cap-yoke/vis/capacity_auroc.png
+  - outputs/M3cap-yoke/CAPACITY_REPORT.md
+forbidden:
+  - "不训练/不换主干/不加 NVE/不重跑 PatchCore/不做 glass 或其他预算/不做参数搜索或部署实验"
+  - "不修改历史结果/冻结划分/人工门/未结束活动任务"
+  - "不重新抽样或按历史成绩选参照组; 不根据查询成绩挑最佳配置作正式结果"
+notes: |
+  大库提高最大匹配分不保证排序更好; 扩库有效支持容量限制假说, 无效不宣布 YOLO 无效但降低扩库优先级;
+  不自动追加更大容量/换主干/其他类别; Ours 5N5A vs PatchCore 10N 非同监督组成对照, 特征维度差异未排除;
+  k 不是独立源帧数; 未知源身份不等于确认未见; 查询集已用于研究决策; 验收=执行完整+结果正确+报告诚实, 不以提升 AUROC 为 PASS 条件。

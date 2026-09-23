@@ -1,11 +1,11 @@
 {
-  "task": "M3BENCH-dualbank-patchcore-v1",
-  "contract": "plan/tasks/M3BENCH-dualbank-patchcore-v1.yaml",
+  "task": "M3CAP-yoke-v1",
+  "contract": "plan/tasks/M3CAP-yoke-v1.yaml",
   "gate_required": "M3_PASSED",
-  "started_at": 1790060817.3756378,
+  "started_at": 1790165742.648706,
   "budget": {
-    "wall_clock_h": 6,
-    "gpu_hours": 2,
-    "estimate_basis": "Ours 60 配置约 2min; PatchCore 20 配置含 WRN50 提特征约 30-60min; 延迟计时约 5min"
+    "wall_clock_h": 2,
+    "gpu_hours": 1,
+    "estimate_basis": "查询/支持特征全部来自 patches.npy 缓存, 无骨干重跑; 评分 GEMM 约 16 TFLOP; 每 (参照组,种子) 块先探针再外推, 超 1 GPU 时即停并报告"
   }
 }
