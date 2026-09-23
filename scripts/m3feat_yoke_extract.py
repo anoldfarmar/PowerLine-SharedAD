@@ -2,6 +2,7 @@
 """M3FEAT 特征提取: E1 (P3 原始 L2, 缓存), E2 (P3/P4/P5 融合, 新鲜 FP32 缓存). E0 走历史路径见 heads/run."""
 import hashlib, json, os, sys, tempfile
 import numpy as np
+from PIL import Image
 import torch
 import torch.nn.functional as F
 
@@ -66,7 +67,7 @@ def extract_e2(paths, bb, tf, bs=32):
     outs = []
     exp = None
     for i in range(0, len(paths), bs):
-        xb = torch.stack([tf(p) for p in paths[i:i + bs]]).to(bb.device)
+        xb = torch.stack([tf(Image.open(p).convert("RGB")) for p in paths[i:i + bs]]).to(bb.device)
         p3, p4, p5 = bb.forward(xb)
         if exp is None:
             exp = {"P3": list(p3.shape), "P4": list(p4.shape), "P5": list(p5.shape)}
