@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "synthetic": {
+      "alpha0_identity": true,
+      "in_subspace_scales_point2": true,
+      "orthogonal_unchanged": true,
+      "norm_nonincrease": true,
+      "zero_cosine": true,
+      "chunk_vs_direct": true,
+      "degenerate_zero_rank": true,
+      "zero_finite": true,
+      "stable_tie_first_index": true,
+      "B_equals_C_alpha0": true,
+      "top8_patch_dimension": true,
+      "independent_projection": true
+    },
+    "mapper": {
+      "before": "89b2c0bcf2dd9d2b95516e65e882047cb85232e872c0c05cfeaa4f621c572fb1",
+      "after": "89b2c0bcf2dd9d2b95516e65e882047cb85232e872c0c05cfeaa4f621c572fb1",
+      "eval": true,
+      "gradients": false
+    },
+    "backbone": {
+      "invoked": true,
+      "missing_images": 39,
+      "before": "b926e1f2867a8ca025a09b94f683abdc1cca241243af931d6a45ffd24aa5862e",
+      "after": "b926e1f2867a8ca025a09b94f683abdc1cca241243af931d6a45ffd24aa5862e",
+      "batch": 1,
+      "reason": "match historical reference extraction; only missing normal images"
+    },
+    "mapping_single_batch_diff": 0.0
+  },
+  "repro": [
+    {
+      "config": "glass-insulator__missing-cap_g1_k1_seed0_ref3001",
+      "max_abs_diff": 0.018775358163757326,
+      "n_paths": 1217
+    }
+  ],
+  "passed": false
+}

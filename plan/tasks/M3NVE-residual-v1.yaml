@@ -1,0 +1,49 @@
+task: M3NVE-residual-v1
+title: 有界双库上的原始残差与 NVE 去噪残差对照
+authorized_by: 用户完整简报 2026-09-22（授权新增合同、专用脚本、独立输出、验收登记同步）
+gate_required: M3_PASSED
+human_gate_after: M3NVE
+budget: {wall_clock_h: 4, gpu_hours: 1, estimate_basis: '先 prepare 完成60配置A复现和固定32图探针；写 cost_estimate.json；保守预计超过3600秒则禁止 full，先报告'}
+outputs_root: outputs/M3nve-residual/
+scope:
+  source: outputs/M3bench-dualbank-patchcore/SUPPORT_LISTS.json
+  assets: [glass-insulator/missing-cap, yoke-suspension/rust]
+  budgets: [1N1A, 5N5A]
+  seeds: [0, 1, 2]
+  refs: [3001, 3002, 3003, 3004, 3005]
+  configurations: 60
+  arms: [A, B, C]
+  method: NVE-inspired 有界残差匹配；非完整IDEAL复现
+  params: {k: 12, r: 4, alpha_B: 0, alpha_C: 0.8, eps: 1.0e-8, relative_rank_tol: 1.0e-6, cap: 256, top_patch: 8, batch: 32, svd_chunk: 2048, precision: FP32, svd_precision: FP32, svd_driver: gesvdj}
+  frozen: 'YOLO P3 + mapper_B eval/no_grad；历史P1前50%与FPS seed0；直接复用实际名单；正常缓存缺失图仅提取一次，沿历史FP16存储再转FP32映射'
+  scoring: 'A=maxcos(q,F)-maxcos(q,N); B/C=.5*(1-maxcos(q,N)+maxcos_eps(res_alpha(q),res_alpha(F))); 每patch完整评分后top8均值；局部中心化薄SVD；残差锚点是最近正常向量'
+steps:
+  - 核对论文v2 §4.1-4.4、表3与附录D；写METHOD_SPEC
+  - 核对前任务已PASS并激活；冻结实现、参数、全部输入SHA256
+  - 构造人工检查；一次建共享N/F库；60配置A逐路径复现且max_abs_diff<=1e-4
+  - 固定少量图批量/单图检查和耗时估计；超过1GPU小时停止并报告
+  - 通过所有门后单次全量；查询残差/PCA跨三个种子复用
+  - 保存逐图三臂与逐配置配对、参照组均值范围正收益数和原始负收益数、ddof=0
+  - 固定路径顺序可视化和按图像标签分层机制统计；不得推断故障像素
+  - 机械验收、登记、提交和同步当前main分支；不启动后续任务
+deliverables:
+  - outputs/M3nve-residual/FROZEN_INPUTS.json
+  - outputs/M3nve-residual/METHOD_SPEC.md
+  - outputs/M3nve-residual/repro_and_correctness.json
+  - outputs/M3nve-residual/nve_eval.json
+  - outputs/M3nve-residual/NVE_REPORT.md
+acceptance:
+  - {type: file_exists, path: outputs/M3nve-residual/FROZEN_INPUTS.json}
+  - {type: file_exists, path: outputs/M3nve-residual/METHOD_SPEC.md}
+  - {type: metric_min, path: outputs/M3nve-residual/nve_eval.json, key: configs_completed, min: 60}
+  - {type: metric_min, path: outputs/M3nve-residual/nve_eval.json, key: arms_completed, min: 180}
+  - {type: metric_min, path: outputs/M3nve-residual/nve_eval.json, key: all_checks_passed, min: 1}
+  - {type: file_exists, path: outputs/M3nve-residual/NVE_REPORT.md}
+  - {type: file_exists, path: outputs/M3nve-residual/RESOURCE_COST.json}
+  - {type: file_exists, path: outputs/M3nve-residual/paired_configs.csv}
+forbidden:
+  - 修改历史结果、冻结划分、人工门、历史评测代码；覆盖未完成任务
+  - 训练骨干/mapper/IDE、增加mask/正常参照、参数搜索、重跑PatchCore
+  - 删除小残差、截断负分、逐图min-max、按查询标签选参数/阈值/展示样本
+  - 超过两次失败后继续重跑、把错误产物纳入正式报告
+notes: '验收不依赖性能提升；跨预算查询不同须披露；共享查询与重叠参照不独立；不得宣称完整IDEAL、原创NVE、独立显著性或完整推理速度。'

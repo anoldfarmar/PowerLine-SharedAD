@@ -1,0 +1,7 @@
+[
+  {
+    "stage": "prepare",
+    "timestamp": 1790085930.4181905,
+    "traceback": "Traceback (most recent call last):\n  File \"/root/auto-exp/scripts/m3nve_run.py\", line 513, in main\n    (prepare if args.stage=='prepare' else full)()\n  File \"/root/auto-exp/scripts/m3nve_run.py\", line 327, in prepare\n    raise AssertionError(f'A reproduction failed {name}: {diff} > 1e-4')\nAssertionError: A reproduction failed glass-insulator__missing-cap_g1_k1_seed0_ref3001: 0.018775358163757326 > 1e-4\n"
+  }
+]

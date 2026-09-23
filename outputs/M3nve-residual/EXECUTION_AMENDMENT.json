@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-23",
+  "reason": "User requests prepared scripts/data and manual launch, not assistant execution. Add explicit manual budget authorization and read-only preflight after reporting 6.49h estimate.",
+  "old_run_sha256": "dfd342a3de52b3f5ba55a19b0dcbc9d8deacd7c60e8e5773c83b26525119a854",
+  "new_run_sha256": "2a96af5da93fc71d636c8ed1d6863e514de4a9aa4a38250dbbe0c202bd0e29c4",
+  "old_manifest_sha256": "c1370198cfaafd0b0cc5d02644b7851583595760c3dbad0322a5e739b6705f0e",
+  "original_manifest": "quarantine/pre_handoff_FROZEN_INPUTS.json",
+  "original_code": "quarantine/pre_handoff_m3nve_run.py",
+  "changed_functions": ["full: budget preamble only", "main: CLI budget argument dispatch only"],
+  "scientific_parameters_changed": false,
+  "scientific_full_body_changed": false,
+  "input_data_or_bank_changed": false,
+  "budget_extended_now": false,
+  "full_started": false,
+  "manual_budget_opt_in": "bash scripts/m3nve_launch.sh --gpu-budget-hours 8",
+  "manifest_update": "Only run code SHA and added launcher/preflight SHA entries; original archived, no B/C results used to select or change method."
+}
