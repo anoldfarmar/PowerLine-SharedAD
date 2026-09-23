@@ -144,22 +144,22 @@ def main():
     assert gate1, "G1 未通过, 禁止新增臂评分"
     # ---------- 探针 ----------
     tp = time.time()
-    fd1 = lambda rows: X.e1_features([e2map[eval_paths[i]] for i in rows], e1arr)
-    fd2 = lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])
-    Nb, Fb, keep, meta_b = H.dual_bank(fd1, urows(n5of[3001]), urows(sup[0]), M6.FPS_SEED)
-    H.dual_score(qd_rows, qn_rows, fd1, Nb, Fb)
+    fd1 = lambda rows: X.e1_features([e2map[p] for p in rows], e1arr)
+    fd2 = lambda rows: X.e2_features([e2map[p] for p in rows], e2arr).reshape(len(rows), -1, e2arr.shape[-1])
+    Nb, Fb, keep, meta_b = H.dual_bank(fd1, n5of[3001], sup[0], M6.FPS_SEED)
+    H.dual_score(qd, qn, fd1, Nb, Fb)
     e1_block_s = time.time() - tp
     tp2 = time.time()
-    Nb2, Fb2, _, _ = H.dual_bank(fd2, urows(n5of[3001]), urows(sup[0]), M6.FPS_SEED)
-    H.dual_score(qd_rows, qn_rows, fd2, Nb2, Fb2)
+    Nb2, Fb2, _, _ = H.dual_bank(fd2, n5of[3001], sup[0], M6.FPS_SEED)
+    H.dual_score(qd, qn, fd2, Nb2, Fb2)
     e2_block_s = time.time() - tp2
     tp3 = time.time()
-    pm1, _ = H.pc_fit(fd1, urows(n5of[3001]))
-    H.pc_score(pm1, qd_rows, qn_rows, fd1)
+    pm1, _ = H.pc_fit(fd1, n5of[3001])
+    H.pc_score(pm1, qd, qn, fd1)
     e1_pc_s = time.time() - tp3
     tp4 = time.time()
-    pm2, _ = H.pc_fit(fd2, urows(n5of[3001]))
-    H.pc_score(pm2, qd_rows, qn_rows, fd2)
+    pm2, _ = H.pc_fit(fd2, n5of[3001])
+    H.pc_score(pm2, qd, qn, fd2)
     e2_pc_s = time.time() - tp4
     proj = 15 * (e1_block_s + e2_block_s) + 5 * (2 * e1_pc_s + e2_pc_s)
     print("[probe] e1=%.1f e2=%.1f e1pc=%.1f e2pc=%.1f proj=%.0fs budget=%d" % (e1_block_s, e2_block_s, e1_pc_s, e2_pc_s, proj, BUDGET_S), flush=True)
@@ -169,20 +169,20 @@ def main():
         return
     # ---------- 全量: E1/E2 双库 + 三特征 PC 变体 ----------
     feat_fns = {
-        "E1": lambda rows: X.e1_features([e2map[eval_paths[i]] for i in rows], e1arr),
-        "E2": lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1]),
+        "E1": lambda rows: X.e1_features([e2map[p] for p in rows], e1arr),
+        "E2": lambda rows: X.e2_features([e2map[p] for p in rows], e2arr).reshape(len(rows), -1, e2arr.shape[-1]),
     }
     feat_manifest = {"E1": {"dim": feat_dim["E1"], "source": "新鲜 fp32 P3 前向逐位置 L2 (e1_feats.npy; 非 fp16 历史缓存)"},
         "E2": dict(e2meta), "E0": {"dim": feat_dim["E0"], "source": "查询侧 patches fp16 缓存 + 支持侧新鲜提取 (历史数值路径, mapper_B -> L2)"}}
     aurocs = {a: {} for a in ARMS}
     for feat in ("E1", "E2"):
         for j in REFS:
-            Nb, Fb, keep, meta_b = H.dual_bank(feat_fns[feat], urows(n5of[j]), urows(sup[0]), M6.FPS_SEED)
+            Nb, Fb, keep, meta_b = H.dual_bank(feat_fns[feat], n5of[j], sup[0], M6.FPS_SEED)
             bank_manifest["%s_ref%d_N" % (feat, j)] = {"n": int(Nb.shape[0]), "dim": int(Nb.shape[1]), "dtype": "float32", "hash": h16(Nb), "src_paths": n5of[j]}
             for s2 in SEEDS:
-                Nb2, Fb2, keep2, mb2 = H.dual_bank(feat_fns[feat], urows(n5of[j]), urows(sup[s2]), M6.FPS_SEED)
+                Nb2, Fb2, keep2, mb2 = H.dual_bank(feat_fns[feat], n5of[j], sup[s2], M6.FPS_SEED)
                 bank_manifest["%s_ref%d_seed%d_F" % (feat, j, s2)] = {"n": int(Fb2.shape[0]), "dim": int(Fb2.shape[1]), "dtype": "float32", "hash": h16(Fb2), "n_cand": mb2["n_cand"], "keep_indices_ref": "%s_ref%d_seed%d" % (feat, j, s2), "src_paths": sup[s2]}
-                sd, sn = H.dual_score(qd_rows, qn_rows, feat_fns[feat], Nb2, Fb2)
+                sd, sn = H.dual_score(qd, qn, feat_fns[feat], Nb2, Fb2)
                 u, fl = D.auroc_avg_rank(sd, sn)
                 assert fl == "ok"
                 cfg = "%s_%s_DUAL_k5_seed%d_ref%d" % (CKC, feat, s2, j)
@@ -193,7 +193,7 @@ def main():
                     OUT + "/raw_scores/%s.json" % cfg)
             print("[%s] ref%d done (%.1fs)" % (feat, j, time.time() - tp), flush=True)
     for feat in ("E0", "E1", "E2"):
-        ffn = (lambda rows: X.e1_features([e2map[eval_paths[i]] for i in rows], e1arr)) if feat == "E1" else ((lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
+        ffn = (lambda rows: X.e1_features([e2map[p] for p in rows], e1arr)) if feat == "E1" else ((lambda rows: X.e2_features([e2map[p] for p in rows], e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
         for j in REFS:
             if feat == "E0":
                 nb0 = M6.build_normal_bank(spec, n5of[j], dev)
@@ -202,11 +202,11 @@ def main():
                         self.nb = nb
                     def __call__(self, rows):
                         return embed(spec, torch.from_numpy(np.asarray(patches[rows]).reshape(-1, M6.CH)).float(), dev).reshape(len(rows), -1, -1) if False else None
-                ffn0 = lambda rows: embed(spec, torch.from_numpy(np.asarray(patches[rows]).reshape(-1, M6.CH)).float(), dev).reshape(len(rows), -1, -1)
+                ffn0 = lambda ps: embed(spec, torch.from_numpy(np.asarray(patches[[path2idx[p] for p in ps]]).reshape(-1, M6.CH)).float(), dev).reshape(len(ps), -1, -1)
                 pm, pc_meta = H.pc_fit(ffn0, urows(n5of[j]))
             else:
-                pm, pc_meta = H.pc_fit(ffn, urows(n5of[j]))
-            sd, sn = H.pc_score(pm, qd_rows, qn_rows, ffn if feat != "E0" else ffn0)
+                pm, pc_meta = H.pc_fit(ffn, n5of[j])
+            sd, sn = H.pc_score(pm, qd, qn, ffn if feat != "E0" else ffn0)
             u, fl = D.auroc_avg_rank(np.array(sd), np.array(sn))
             assert fl == "ok"
             cfg = "%s_%s_PC_k5_ref%d" % (CKC, feat, j)
