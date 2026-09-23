@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """M3SCORE PC 适配验证 (A3) + 二维分块验证 (A5). 全部对照独立参考实现."""
-import hashlib, json, sys
+import hashlib, json, os, sys
 import numpy as np
 import torch
 import torch.nn.functional as Fn
