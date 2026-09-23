@@ -94,7 +94,7 @@ def pc_fit(feat_fn, n_paths, ratio=0.1, nn=9, bs=32):
         for i in range(0, len(n_paths), bs):
             q4 = _to4d(feat_fn(n_paths[i:i + bs]))
             store.append(_flat(pm.reshape_embedding(q4)))
-    allp = torch.cat(store, 0).float()
+    allp = torch.cat(store, 0).float().cuda()
     pm.memory_bank = allp
     kg = KCenterGreedy(embedding=pm.memory_bank, sampling_ratio=ratio)
     pm.memory_bank = kg.sample_coreset()
