@@ -43,6 +43,7 @@ def main():
     SL = json.load(open(BENCH + "/SUPPORT_LISTS.json"))
     eval_paths = json.load(open(D.CACHE + "/eval_paths.json"))
     path2idx = {p: i for i, p in enumerate(eval_paths)}
+    ridx = lambda ps: [path2idx[p] for p in ps]
     patches = np.load(D.CACHE + "/patches.npy", mmap_mode="r")
     spec = ("head", D.load_head_state(D.OUT + "/mapper_B.pt", dev).to(dev))
     spec[1].eval()
@@ -142,19 +143,19 @@ def main():
     tp = time.time()
     fd1 = lambda rows: X.e1_features(rows, patches)
     fd2 = lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])
-    Nb, Fb, keep, meta_b = H.dual_bank(fd1, n5of[3001], sup[0], M6.FPS_SEED)
+    Nb, Fb, keep, meta_b = H.dual_bank(fd1, ridx(n5of[3001]), ridx(sup[0]), M6.FPS_SEED)
     H.dual_score(qd_rows, qn_rows, fd1, Nb, Fb)
     e1_block_s = time.time() - tp
     tp2 = time.time()
-    Nb2, Fb2, _, _ = H.dual_bank(fd2, n5of[3001], sup[0], M6.FPS_SEED)
+    Nb2, Fb2, _, _ = H.dual_bank(fd2, ridx(n5of[3001]), ridx(sup[0]), M6.FPS_SEED)
     H.dual_score(qd_rows, qn_rows, fd2, Nb2, Fb2)
     e2_block_s = time.time() - tp2
     tp3 = time.time()
-    pm1, _ = H.pc_fit(fd1, n5of[3001])
+    pm1, _ = H.pc_fit(fd1, ridx(n5of[3001]))
     H.pc_score(pm1, qd_rows, qn_rows, fd1)
     e1_pc_s = time.time() - tp3
     tp4 = time.time()
-    pm2, _ = H.pc_fit(fd2, n5of[3001])
+    pm2, _ = H.pc_fit(fd2, ridx(n5of[3001]))
     H.pc_score(pm2, qd_rows, qn_rows, fd2)
     e2_pc_s = time.time() - tp4
     proj = 15 * (e1_block_s + e2_block_s) + 5 * (2 * e1_pc_s + e2_pc_s)
@@ -173,11 +174,11 @@ def main():
     aurocs = {a: {} for a in ARMS}
     for feat in ("E1", "E2"):
         for j in REFS:
-            Nb, Fb, keep, meta_b = H.dual_bank(feat_fns[feat], n5of[j], sup[0], M6.FPS_SEED)
-            bank_manifest["%s_ref%d_N" % (feat, j)] = {"n": int(Nb.shape[0]), "dim": int(Nb.shape[1]), "dtype": "float32", "hash": h16(Nb)}
+            Nb, Fb, keep, meta_b = H.dual_bank(feat_fns[feat], ridx(n5of[j]), ridx(sup[0]), M6.FPS_SEED)
+            bank_manifest["%s_ref%d_N" % (feat, j)] = {"n": int(Nb.shape[0]), "dim": int(Nb.shape[1]), "dtype": "float32", "hash": h16(Nb), "src_paths": n5of[j]}
             for s2 in SEEDS:
-                Nb2, Fb2, keep2, mb2 = H.dual_bank(feat_fns[feat], n5of[j], sup[s2], M6.FPS_SEED)
-                bank_manifest["%s_ref%d_seed%d_F" % (feat, j, s2)] = {"n": int(Fb2.shape[0]), "dim": int(Fb2.shape[1]), "dtype": "float32", "hash": h16(Fb2), "n_cand": mb2["n_cand"]}
+                Nb2, Fb2, keep2, mb2 = H.dual_bank(feat_fns[feat], ridx(n5of[j]), ridx(sup[s2]), M6.FPS_SEED)
+                bank_manifest["%s_ref%d_seed%d_F" % (feat, j, s2)] = {"n": int(Fb2.shape[0]), "dim": int(Fb2.shape[1]), "dtype": "float32", "hash": h16(Fb2), "n_cand": mb2["n_cand"], "keep_indices_ref": "%s_ref%d_seed%d" % (feat, j, s2), "src_paths": sup[s2]}
                 sd, sn = H.dual_score(qd_rows, qn_rows, feat_fns[feat], Nb2, Fb2)
                 u, fl = D.auroc_avg_rank(sd, sn)
                 assert fl == "ok"
@@ -199,9 +200,9 @@ def main():
                     def __call__(self, rows):
                         return embed(spec, torch.from_numpy(np.asarray(patches[rows]).reshape(-1, M6.CH)).float(), dev).reshape(len(rows), -1, -1) if False else None
                 ffn0 = lambda rows: embed(spec, torch.from_numpy(np.asarray(patches[rows]).reshape(-1, M6.CH)).float(), dev).reshape(len(rows), -1, -1)
-                pm, pc_meta = H.pc_fit(ffn0, n5of[j])
+                pm, pc_meta = H.pc_fit(ffn0, ridx(n5of[j]))
             else:
-                pm, pc_meta = H.pc_fit(ffn, n5of[j])
+                pm, pc_meta = H.pc_fit(ffn, ridx(n5of[j]))
             sd, sn = H.pc_score(pm, qd_rows, qn_rows, ffn if feat != "E0" else ffn0)
             u, fl = D.auroc_avg_rank(np.array(sd), np.array(sn))
             assert fl == "ok"
