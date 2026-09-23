@@ -194,6 +194,7 @@ def main():
     wrn_mean = round(float(np.mean(list(WRN_EXT.values()))), 6)
     patch_dir = CACHE + "/patchstats"
     os.makedirs(patch_dir, exist_ok=True)
+    aurocs = {}
     de_err = rel = None
     for j in REFS:
         q = ffn(qall_paths).cuda()
