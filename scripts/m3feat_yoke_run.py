@@ -3,6 +3,7 @@
 import csv, hashlib, json, os, sys, time
 import numpy as np
 import torch
+import torch.nn.functional as F
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
