@@ -1,0 +1,54 @@
+task: M3SCORE-yoke-v1
+created: 2025-09-24
+status: active
+goal: >
+  核验 M3FEAT E1_PC 结果可靠性; 在同一 E1 特征、同一正常库上分解
+  图像聚合方式、PatchCore 重加权、故障匹配项对 AUROC 的影响。
+scope:
+  combo: yoke-suspension/rust
+  queries: M3BENCH g2 query_k5 (同一冻结划分, 只读)
+  normal_lists: 3001-3005 的 N5 (M3BENCH SUPPORT_LISTS)
+  fault_supports: k5 seed 0/1/2 (M3BENCH SUPPORT_LISTS)
+  feature: E1 (原始 P3 逐位置 L2, 64 维, 以实际张量形状为准)
+  frozen: 主干/预处理/mapper 不训练; 不新增融合/NVE/主干升级/超参搜索
+budget:
+  gpu_hours: 1
+  wall_clock_h: 3
+  probe_first: true
+phase_A:
+  - A1 缓存重建与身份绑定 (路径序/权重/节点/预处理/dtype/归一化/代码版本, 内容 SHA256)
+  - A2 数值门: 有限值/形状/L2 范数/状态哈希; batch1 vs batch32 最大差 <= 2e-4 (新协议容差);
+         固定库评分批量一致性 atol=rtol=1e-4; 历史 G2 直接写 True 作为偏离披露
+  - A3 适配验证: reshape 顺序/官方距离 vs float64/近共线行为/nn 索引/独立图像分数参考/64 维/fit 仅访问正常支持
+  - A4 固定随机性: pc_seed = 7000 + (ref_id - 3000); 建库前重置 RNG; 双建库张量哈希一致
+  - A5 分块验证: 查询块与原型块二维分块, 非整除/尾块/4000 原型, max-cos atol 1e-5
+  - A6 参数审计勘误: WRN 特征路径 = stem + layer1 + layer2 + layer3; 更正历史表述
+  - A7 E1_PC 复验: 5 组官方库 ratio=0.1 nn=9, 独立重算 AUROC, 逐组对照历史, 不以 0.816 为验收条件
+phase_B:
+  arms:
+    S1: image = max_patch dE
+    S2: image = mean(top8 dE)
+    S3: image = mean(top8 dC)
+    S4: 官方 PatchCore 图像分数 (同一 N*, nn=9, 复用阶段 A 评分)
+    S5: image = mean(top8 (cF - cN)), cN 对共享 N*, cF 对固定 F4000
+    R256: 参考臂, 正常库 = FPS256 (N256), 其余同 S5 (仅当 F 无法逐元素复现历史时)
+  configs: 35 + R256 15 = 50
+  shared: 同组 S1-S5 严格共享同一 N* 张量及哈希
+  fault_bank: 沿用 M3FEAT E1_DUAL 规则 (FPS256 筛选参照仅用于来源, 5A patch 按 1-max_cos stable 降序取前 50%)
+comparisons:
+  - S2-S1 (max vs top8, 欧氏)
+  - S3-S2 (top8 下余弦 vs 欧氏)
+  - S4-S1 (官方重加权)
+  - S5-S3 (加入故障匹配项, 同 top8 同 N*)
+  - S5 vs R256 (固定 F, 正常库 N* vs N256)
+  - S4 vs WRN PC 10N 外部标杆 (仅描述)
+acceptance:
+  - file_exists: outputs/M3score-yoke/SCORE_REPORT.md
+  - metric_eq: score_eval.json arm_configs_completed == 50
+  - metric_eq: score_eval.json pre_registered_set_match == 1
+  - metric_eq: score_eval.json gates_all_passed == 1
+  - metric_eq: E1_PC_RECHECK.json recheck_configs == 5
+  - file_exists: outputs/M3score-yoke/M3FEAT_ERRATA.md
+notes:
+  - 所有结果探索性; shot 为裁剪数; 查询已用于研究决策; 不宣称统计显著
+  - 大数组不提交 Git, 提供路径/哈希/重建命令
