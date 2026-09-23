@@ -194,6 +194,7 @@ def main():
                        "std_config_ddof0": round(float(np.std(fv)), 6)}
     r0_mean = round(float(np.mean(list(per_arm["R0"].values()))), 6)
     summary = {"arm_configs_completed": sum(len(v) for v in per_arm.values()),
+               "repro_R0_gate": 1 if gate else 0,
                "aurocs": per_arm, "R0_mean": r0_mean, "R0_vs_PC_gap": round(r0_mean - pc_mean, 6),
                "paired": paired, "patchcore": pc, "patchcore_mean": pc_mean,
                "patchcore_mean_expected": 0.834854,

@@ -36,6 +36,10 @@ deliverables:
   - outputs/M3cap-yoke/RESOURCE_COST.json
   - outputs/M3cap-yoke/vis/capacity_auroc.png
   - outputs/M3cap-yoke/CAPACITY_REPORT.md
+acceptance:
+  - {type: file_exists, path: outputs/M3cap-yoke/CAPACITY_REPORT.md}
+  - {type: metric_min, path: outputs/M3cap-yoke/cap_eval.json, key: arm_configs_completed, min: 60}
+  - {type: metric_min, path: outputs/M3cap-yoke/cap_eval.json, key: repro_R0_gate, min: 1}
 forbidden:
   - "不训练/不换主干/不加 NVE/不重跑 PatchCore/不做 glass 或其他预算/不做参数搜索或部署实验"
   - "不修改历史结果/冻结划分/人工门/未结束活动任务"
