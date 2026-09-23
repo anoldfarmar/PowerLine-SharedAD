@@ -223,8 +223,8 @@ def main():
             Fb = supf[keep]
             cF = PV.chunked_max_cos(q, Fb, Q_CHUNK, P_CHUNK)
             if cN256_t is None:
-                cN256_t = PV.chunked_max_cos(q, N256, Q_CHUNK, P_CHUNK).cuda()
-                stats["cN256"] = cN256_t.cpu().numpy().astype(np.float32)
+                cN256_t = PV.chunked_max_cos(q, N256, Q_CHUNK, P_CHUNK)
+                stats["cN256"] = cN256_t.numpy().astype(np.float32)
             stats["cF_seed%d" % s] = cF.cpu().numpy().astype(np.float32)
             v5 = cF - cN
             v256 = cF - cN256_t
