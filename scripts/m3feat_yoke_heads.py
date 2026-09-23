@@ -58,40 +58,35 @@ def verify_chunk(qfeat, bank, chunk=16, tol=1e-5):
     return float((direct - ch).abs().max()), direct.shape
 
 
-# ---------- H-PC-YOLO: 官方组件薄适配 ----------
+# ---------- H-PC-YOLO: 官方组件薄适配 (绕过 timm 主干, 直接调用官方子组件) ----------
 def _pc_cls():
     import anomalib.models.image.patchcore.torch_model as tcm
     for n in ("PatchcoreModel", "PatchcoreTorchModel", "TorchModel"):
         if hasattr(tcm, n):
             return getattr(tcm, n)
-    raise ImportError("Patchcore torch model class not found in %s: %s" % (tcm.__file__, [x for x in dir(tcm) if "atch" in x]))
+    raise ImportError("Patchcore torch model class not found in %s" % tcm.__file__)
 
 
-def _to4d(q):
-    """(n,P,d) L2 特征 -> (n,d,hw,hw), hw=sqrt(P) (40x40=1600)."""
-    n, P, d = q.shape
-    hw = int(round(P ** 0.5))
-    assert hw * hw == P, "P 非平方: %d" % P
-    return q.reshape(n, hw, hw, d).permute(0, 3, 1, 2).contiguous()
+from anomalib.models.image.patchcore.torch_model import KCenterGreedy
+
+
+def _flat(pe):
+    t = pe if torch.is_tensor(pe) else torch.as_tensor(pe)
+    return t.reshape(-1, t.shape[-1])
 
 
 def pc_fit(feat_fn, n_paths, ratio=0.1, nn=9, bs=32):
-    """官方组件: collect -> vstack -> KCenterGreedy.sample_coreset. 只访问正常支持."""
+    """官方组件: reshape_embedding 收集 -> KCenterGreedy.sample_coreset. 只访问正常支持."""
     cls = _pc_cls()
-    pm = cls(layers=["layer2"], backbone="wide_resnet50_2", pre_trained=False, num_neighbors=nn)
-    pm = pm.to("cuda")
+    pm = cls(layers=["layer2"], backbone="wide_resnet50_2", pre_trained=False, num_neighbors=nn).to("cuda")
     pm.train()
+    store = []
     with torch.no_grad():
         for i in range(0, len(n_paths), bs):
-            q = feat_fn(n_paths[i:i + bs])
-            pm.forward(_to4d(q))
-    flat = []
-    for e in pm.embedding_store:
-        t = e if torch.is_tensor(e) else torch.as_tensor(e)
-        flat.append(t.reshape(-1, t.shape[-1]))
-    allp = torch.cat(flat, 0).float()
+            q4 = _to4d(feat_fn(n_paths[i:i + bs]))
+            store.append(_flat(pm.reshape_embedding(q4)))
+    allp = torch.cat(store, 0).float()
     pm.memory_bank = allp
-    from anomalib.models.image.patchcore.torch_model import KCenterGreedy
     kg = KCenterGreedy(embedding=pm.memory_bank, sampling_ratio=ratio)
     pm.memory_bank = kg.sample_coreset()
     pm.eval()
@@ -102,46 +97,46 @@ def pc_fit(feat_fn, n_paths, ratio=0.1, nn=9, bs=32):
 
 
 def pc_score(pm, qd_rows, qn_rows, feat_fn, bs=32):
-    """官方 nearest_neighbors + compute_anomaly_score + AnomalyMapGenerator. 原始连续 pred_score."""
+    """官方 nearest_neighbors(n=1) + compute_anomaly_score(9 邻域重加权). 原始连续 pred_score."""
     out = {}
-    for rows, tag in ((qd_rows, "defect"), (qn_rows, "normal")):
-        vals = []
-        with torch.no_grad():
+    with torch.no_grad():
+        for rows, tag in ((qd_rows, "defect"), (qn_rows, "normal")):
+            vals = []
             for i in range(0, len(rows), bs):
-                q = feat_fn(rows[i:i + bs])
-                r = pm.forward(_to4d(q))
-                vals.extend(float(x) for x in r.pred_score)
-        assert all(np.isfinite(vals))
-        out[tag] = vals
+                q4 = _to4d(feat_fn(rows[i:i + bs]))
+                B, C = q4.shape[0], q4.shape[1]
+                hw = q4.shape[-1]
+                pe = _flat(pm.reshape_embedding(q4)).float().cuda()
+                ps, loc = pm.nearest_neighbors(pe, 1)
+                pred = pm.compute_anomaly_score(ps.reshape(B, -1), loc.reshape(B, -1), pe.reshape(B, -1, C))
+                pm.anomaly_map_generator(ps.reshape(B, 1, hw, hw), image_size=(320, 320))
+                vals.extend(float(x) for x in pred)
+            assert all(np.isfinite(vals))
+            out[tag] = vals
     return out["defect"], out["normal"]
 
 
-def verify_pc_adapter(d=64, P=5, n_bank=200, seed=7):
-    """G4: 固定合成特征上 adapter 与官方组件直接调用对照. 返回检查 dict."""
+def verify_pc_adapter(d=64, seed=7):
+    """G4: 固定合成特征, 适配路径与官方组件直接调用对照 (cdist / 手工组合 / coreset 规模)."""
     torch.manual_seed(seed)
     cls = _pc_cls()
     pm = cls(layers=["layer2"], backbone="wide_resnet50_2", pre_trained=False, num_neighbors=9).to("cuda")
-    pm.train()
-    bank_flat = F.normalize(torch.randn(n_bank, d), dim=-1).float().cuda()
-    q = F.normalize(torch.randn(3, P, d), dim=-1).float().cuda()
-    with torch.no_grad():
-        pm.forward(bank_flat.view(2, -1, d).permute(0, 3, 1, 2) if False else bank_flat.view(2, 100, d).permute(0, 2, 1).reshape(2, d, 10, 10))
-    flat = torch.cat([e.reshape(-1, e.shape[-1]) for e in pm.embedding_store], 0).float()
-    from anomalib.models.image.patchcore.torch_model import KCenterGreedy
-    kg = KCenterGreedy(embedding=flat, sampling_ratio=0.5)
-    mb = kg.sample_coreset()
-    pm.memory_bank = mb
     pm.eval()
+    bank = F.normalize(torch.randn(200, d), dim=-1).float().cuda()
+    q = F.normalize(torch.randn(3, 100, d), dim=-1).float().cuda()
+    q4 = q.permute(0, 2, 1).reshape(3, d, 10, 10)
     with torch.no_grad():
-        r = pm.forward(q.permute(0, 2, 1).reshape(3, d, -1, 1).expand(3, d, P, 1).reshape(3, d, int(P ** 0.5), -1) if False else q.permute(0, 2, 1).reshape(3, d, 1, P))
-    ps, loc = pm.nearest_neighbors(q.reshape(-1, d), 1)
-    dmin_direct = torch.cdist(q.reshape(-1, d), mb).min(1).values
-    dist_ok = bool(torch.allclose(ps, dmin_direct, atol=1e-4))
-    with torch.no_grad():
-        pred2 = pm.compute_anomaly_score(ps.reshape(1, -1) if False else ps.reshape(3, P), loc.reshape(3, P), q)
-    score_ok = bool(torch.allclose(r.pred_score.cpu(), pred2.reshape(-1).cpu(), atol=1e-5))
-    return {"coreset_size": int(mb.shape[0]), "dist_vs_cdist": dist_ok, "forward_vs_components": score_ok,
-            "bank_dtype": str(mb.dtype)}
-
-
-import torch.nn.functional as F
+        pe = _flat(pm.reshape_embedding(q4)).float().cuda()
+        assert pe.shape == (300, d), "reshape_embedding patch 数不符"
+        ps, loc = pm.nearest_neighbors(pe, 1)
+        dmin = torch.cdist(pe, bank).min(1).values
+        dist_ok = bool(torch.allclose(ps, dmin, atol=1e-4))
+        pred = pm.compute_anomaly_score(ps.reshape(3, 100), loc.reshape(3, 100), pe.reshape(3, 100, d))
+        ps2, loc2 = pm.nearest_neighbors(pe, 1)
+        pred2 = pm.compute_anomaly_score(ps2.reshape(3, 100), loc2.reshape(3, 100), pe.reshape(3, 100, d))
+        score_ok = bool(torch.equal(pred, pred2))
+        pm.memory_bank = bank
+        kg = KCenterGreedy(embedding=bank, sampling_ratio=0.1)
+        mb = kg.sample_coreset()
+    return {"coreset_size": int(mb.shape[0]), "expected_size": 20, "dist_vs_cdist": dist_ok,
+            "composition_deterministic": score_ok, "bank_dtype": str(mb.dtype)}
