@@ -76,6 +76,14 @@ def _flat(pe):
     return t.reshape(-1, t.shape[-1])
 
 
+def _to4d(q):
+    """(n,P,d) L2 特征 -> (n,d,hw,hw), hw=sqrt(P) (40x40=1600)."""
+    n, P, d = q.shape
+    hw = int(round(P ** 0.5))
+    assert hw * hw == P, "P 非平方: %d" % P
+    return q.reshape(n, hw, hw, d).permute(0, 3, 1, 2).contiguous()
+
+
 def pc_fit(feat_fn, n_paths, ratio=0.1, nn=9, bs=32):
     """官方组件: reshape_embedding 收集 -> KCenterGreedy.sample_coreset. 只访问正常支持."""
     cls = _pc_cls()
