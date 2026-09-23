@@ -106,8 +106,7 @@ def reference_image_score(pm, patch_scores, locations, embedding, nn=9):
     Dm = torch.cdist(m_star.double(), bank.double())
     sup = torch.topk(Dm, k=k, dim=1, largest=False).indices
     feats = embedding.reshape(B, P, -1)[torch.arange(B), max_i].double()
-    supf = bank.double()[sup.reshape(-1)].reshape(B, k, -1).reshape(B * k, -1)
-    dq = torch.cdist(feats, supf).reshape(B, k)
+    dq = torch.cdist(feats.unsqueeze(1), bank.double()[sup]).squeeze(1)
     w = (1 - torch.softmax(dq, dim=1))[:, 0]
     return (w * s_star.double()).float()
 
