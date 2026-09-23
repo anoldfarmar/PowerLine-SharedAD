@@ -146,7 +146,7 @@ def main():
         for s2 in SEEDS:
             cfg = "%s_seed%d_ref%d" % (CKC, s2, j)
             old = json.load(open(BENCH + "/raw_scores_ours/%s_g2_%s.json" % (CKC, cfg.split("_", 2)[2] if False else "k5_seed%d_ref%d" % (s2, j))))
-            new = json.load(open(OUT + "/raw_scores/%s_R0_%s.json" % (CKC, cfg.split("_", 2)[2] if False else "seed%d_ref%d" % (s2, j))))
+            new = json.load(open(OUT + "/raw_scores/%s_R0_k5_%s.json" % (CKC, "seed%d_ref%d" % (s2, j))))
             assert set(old["defect"]) == set(new["defect"]) and set(old["normal"]) == set(new["normal"]), "R0 路径集合不一致"
             md = max(max(abs(old["defect"][p] - new["defect"][p]) for p in old["defect"]),
                      max(abs(old["normal"][p] - new["normal"][p]) for p in old["normal"]))
