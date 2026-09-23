@@ -142,7 +142,7 @@ def main():
     assert gate1, "G1 未通过, 禁止新增臂评分"
     # ---------- 探针 ----------
     tp = time.time()
-    fd1 = lambda rows: X.e1_features(rows, e1arr)
+    fd1 = lambda rows: X.e1_features([e2map[eval_paths[i]] for i in rows], e1arr)
     fd2 = lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])
     Nb, Fb, keep, meta_b = H.dual_bank(fd1, ridx(n5of[3001]), ridx(sup[0]), M6.FPS_SEED)
     H.dual_score(qd_rows, qn_rows, fd1, Nb, Fb)
@@ -167,7 +167,7 @@ def main():
         return
     # ---------- 全量: E1/E2 双库 + 三特征 PC 变体 ----------
     feat_fns = {
-        "E1": lambda rows: X.e1_features(rows, patches),
+        "E1": lambda rows: X.e1_features([e2map[eval_paths[i]] for i in rows], e1arr),
         "E2": lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1]),
     }
     feat_manifest = {"E1": {"dim": feat_dim["E1"], "source": "新鲜 fp32 P3 前向逐位置 L2 (e1_feats.npy; 非 fp16 历史缓存)"},
@@ -191,7 +191,7 @@ def main():
                     OUT + "/raw_scores/%s.json" % cfg)
             print("[%s] ref%d done (%.1fs)" % (feat, j, time.time() - tp), flush=True)
     for feat in ("E0", "E1", "E2"):
-        ffn = (lambda rows: X.e1_features(rows, e1arr)) if feat == "E1" else ((lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
+        ffn = (lambda rows: X.e1_features([e2map[eval_paths[i]] for i in rows], e1arr)) if feat == "E1" else ((lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
         for j in REFS:
             if feat == "E0":
                 nb0 = M6.build_normal_bank(spec, n5of[j], dev)
