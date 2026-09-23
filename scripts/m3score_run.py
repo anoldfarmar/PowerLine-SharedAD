@@ -207,7 +207,7 @@ def main():
         dE_dir = torch.cdist(q.double().reshape(-1, q.shape[-1])[idx], Nstar.double()).min(1).values.cpu()
         de_err = float((de64 - dE_dir).abs().max())
         rel = float(((de64 - dE_dir).abs() / dE_dir.clamp_min(1e-9)).max())
-        s1 = dE.max(1)
+        s1 = dE.max(1).values
         s2 = top8(dE)
         s3 = top8(dC)
         cN256_t = None
