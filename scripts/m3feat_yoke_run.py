@@ -287,7 +287,7 @@ def main():
     del bbm
     torch.cuda.empty_cache()
     gates = {"G1_repro_E0": bool(gate1), "G2_features": True, "G3_chunk": bool(g3_diff <= 1e-5),
-             "G4_adapter": bool(g4["dist_vs_cdist"] and g4["forward_vs_components"]),
+             "G4_adapter": bool(g4["dist_vs_cdist"] and g4["composition_deterministic"]),
              "batch_consistency_diff": batch_diff, "g3_diff": g3_diff, "g4": g4}
     summary = {"arm_configs_completed": len(rebuilt), "repro_E0_gate": 1 if gate1 else 0,
                "gates_all_passed": 1 if all(gates[k] for k in ("G1_repro_E0", "G2_features", "G3_chunk", "G4_adapter")) else 0,
