@@ -1,0 +1,379 @@
+{
+ "arm_configs_completed": 60,
+ "repro_R0_gate": 1,
+ "aurocs": {
+  "R0": {
+   "yoke-suspension__rust_seed0_ref3001": 0.45642,
+   "yoke-suspension__rust_seed1_ref3001": 0.508698,
+   "yoke-suspension__rust_seed2_ref3001": 0.484942,
+   "yoke-suspension__rust_seed0_ref3002": 0.795241,
+   "yoke-suspension__rust_seed1_ref3002": 0.707431,
+   "yoke-suspension__rust_seed2_ref3002": 0.734258,
+   "yoke-suspension__rust_seed0_ref3003": 0.765559,
+   "yoke-suspension__rust_seed1_ref3003": 0.802678,
+   "yoke-suspension__rust_seed2_ref3003": 0.789573,
+   "yoke-suspension__rust_seed0_ref3004": 0.666515,
+   "yoke-suspension__rust_seed1_ref3004": 0.551769,
+   "yoke-suspension__rust_seed2_ref3004": 0.466773,
+   "yoke-suspension__rust_seed0_ref3005": 0.657681,
+   "yoke-suspension__rust_seed1_ref3005": 0.7624,
+   "yoke-suspension__rust_seed2_ref3005": 0.612325
+  },
+  "RN": {
+   "yoke-suspension__rust_seed0_ref3001": 0.404664,
+   "yoke-suspension__rust_seed1_ref3001": 0.412441,
+   "yoke-suspension__rust_seed2_ref3001": 0.364922,
+   "yoke-suspension__rust_seed0_ref3002": 0.769817,
+   "yoke-suspension__rust_seed1_ref3002": 0.743627,
+   "yoke-suspension__rust_seed2_ref3002": 0.724088,
+   "yoke-suspension__rust_seed0_ref3003": 0.76459,
+   "yoke-suspension__rust_seed1_ref3003": 0.7804,
+   "yoke-suspension__rust_seed2_ref3003": 0.754129,
+   "yoke-suspension__rust_seed0_ref3004": 0.503953,
+   "yoke-suspension__rust_seed1_ref3004": 0.466434,
+   "yoke-suspension__rust_seed2_ref3004": 0.451681,
+   "yoke-suspension__rust_seed0_ref3005": 0.707153,
+   "yoke-suspension__rust_seed1_ref3005": 0.769546,
+   "yoke-suspension__rust_seed2_ref3005": 0.699024
+  },
+  "RF": {
+   "yoke-suspension__rust_seed0_ref3001": 0.573186,
+   "yoke-suspension__rust_seed1_ref3001": 0.51899,
+   "yoke-suspension__rust_seed2_ref3001": 0.504112,
+   "yoke-suspension__rust_seed0_ref3002": 0.823376,
+   "yoke-suspension__rust_seed1_ref3002": 0.808847,
+   "yoke-suspension__rust_seed2_ref3002": 0.740353,
+   "yoke-suspension__rust_seed0_ref3003": 0.833573,
+   "yoke-suspension__rust_seed1_ref3003": 0.829593,
+   "yoke-suspension__rust_seed2_ref3003": 0.816183,
+   "yoke-suspension__rust_seed0_ref3004": 0.791471,
+   "yoke-suspension__rust_seed1_ref3004": 0.711125,
+   "yoke-suspension__rust_seed2_ref3004": 0.699858,
+   "yoke-suspension__rust_seed0_ref3005": 0.787519,
+   "yoke-suspension__rust_seed1_ref3005": 0.748434,
+   "yoke-suspension__rust_seed2_ref3005": 0.634461
+  },
+  "RNF": {
+   "yoke-suspension__rust_seed0_ref3001": 0.473336,
+   "yoke-suspension__rust_seed1_ref3001": 0.396936,
+   "yoke-suspension__rust_seed2_ref3001": 0.385295,
+   "yoke-suspension__rust_seed0_ref3002": 0.814095,
+   "yoke-suspension__rust_seed1_ref3002": 0.795875,
+   "yoke-suspension__rust_seed2_ref3002": 0.733776,
+   "yoke-suspension__rust_seed0_ref3003": 0.790888,
+   "yoke-suspension__rust_seed1_ref3003": 0.790393,
+   "yoke-suspension__rust_seed2_ref3003": 0.775471,
+   "yoke-suspension__rust_seed0_ref3004": 0.553844,
+   "yoke-suspension__rust_seed1_ref3004": 0.444644,
+   "yoke-suspension__rust_seed2_ref3004": 0.462322,
+   "yoke-suspension__rust_seed0_ref3005": 0.774793,
+   "yoke-suspension__rust_seed1_ref3005": 0.794583,
+   "yoke-suspension__rust_seed2_ref3005": 0.724678
+  }
+ },
+ "R0_mean": 0.650818,
+ "R0_vs_PC_gap": -0.184036,
+ "paired": {
+  "RN": {
+   "per_config": {
+    "yoke-suspension__rust_seed0_ref3001": -0.051756,
+    "yoke-suspension__rust_seed1_ref3001": -0.096257,
+    "yoke-suspension__rust_seed2_ref3001": -0.12002,
+    "yoke-suspension__rust_seed0_ref3002": -0.025424,
+    "yoke-suspension__rust_seed1_ref3002": 0.036196,
+    "yoke-suspension__rust_seed2_ref3002": -0.01017,
+    "yoke-suspension__rust_seed0_ref3003": -0.000969,
+    "yoke-suspension__rust_seed1_ref3003": -0.022278,
+    "yoke-suspension__rust_seed2_ref3003": -0.035444,
+    "yoke-suspension__rust_seed0_ref3004": -0.162562,
+    "yoke-suspension__rust_seed1_ref3004": -0.085335,
+    "yoke-suspension__rust_seed2_ref3004": -0.015092,
+    "yoke-suspension__rust_seed0_ref3005": 0.049472,
+    "yoke-suspension__rust_seed1_ref3005": 0.007146,
+    "yoke-suspension__rust_seed2_ref3005": 0.086699
+   },
+   "per_ref": {
+    "ref3001": {
+     "per_seed": [
+      -0.051756,
+      -0.096257,
+      -0.12002
+     ],
+     "mean": -0.089344
+    },
+    "ref3002": {
+     "per_seed": [
+      -0.025424,
+      0.036196,
+      -0.01017
+     ],
+     "mean": 0.000201
+    },
+    "ref3003": {
+     "per_seed": [
+      -0.000969,
+      -0.022278,
+      -0.035444
+     ],
+     "mean": -0.019564
+    },
+    "ref3004": {
+     "per_seed": [
+      -0.162562,
+      -0.085335,
+      -0.015092
+     ],
+     "mean": -0.087663
+    },
+    "ref3005": {
+     "per_seed": [
+      0.049472,
+      0.007146,
+      0.086699
+     ],
+     "mean": 0.047772
+    }
+   },
+   "five_ref_mean": -0.02972,
+   "five_ref_range": [
+    -0.089344,
+    0.047772
+   ],
+   "n_pos_groups": 2,
+   "n_neg_configs": 11,
+   "n_configs": 15,
+   "std_config_ddof0": 0.0637
+  },
+  "RF": {
+   "per_config": {
+    "yoke-suspension__rust_seed0_ref3001": 0.116766,
+    "yoke-suspension__rust_seed1_ref3001": 0.010292,
+    "yoke-suspension__rust_seed2_ref3001": 0.01917,
+    "yoke-suspension__rust_seed0_ref3002": 0.028135,
+    "yoke-suspension__rust_seed1_ref3002": 0.101416,
+    "yoke-suspension__rust_seed2_ref3002": 0.006095,
+    "yoke-suspension__rust_seed0_ref3003": 0.068014,
+    "yoke-suspension__rust_seed1_ref3003": 0.026915,
+    "yoke-suspension__rust_seed2_ref3003": 0.02661,
+    "yoke-suspension__rust_seed0_ref3004": 0.124956,
+    "yoke-suspension__rust_seed1_ref3004": 0.159356,
+    "yoke-suspension__rust_seed2_ref3004": 0.233085,
+    "yoke-suspension__rust_seed0_ref3005": 0.129838,
+    "yoke-suspension__rust_seed1_ref3005": -0.013966,
+    "yoke-suspension__rust_seed2_ref3005": 0.022136
+   },
+   "per_ref": {
+    "ref3001": {
+     "per_seed": [
+      0.116766,
+      0.010292,
+      0.01917
+     ],
+     "mean": 0.048743
+    },
+    "ref3002": {
+     "per_seed": [
+      0.028135,
+      0.101416,
+      0.006095
+     ],
+     "mean": 0.045215
+    },
+    "ref3003": {
+     "per_seed": [
+      0.068014,
+      0.026915,
+      0.02661
+     ],
+     "mean": 0.040513
+    },
+    "ref3004": {
+     "per_seed": [
+      0.124956,
+      0.159356,
+      0.233085
+     ],
+     "mean": 0.172466
+    },
+    "ref3005": {
+     "per_seed": [
+      0.129838,
+      -0.013966,
+      0.022136
+     ],
+     "mean": 0.046003
+    }
+   },
+   "five_ref_mean": 0.070588,
+   "five_ref_range": [
+    0.040513,
+    0.172466
+   ],
+   "n_pos_groups": 5,
+   "n_neg_configs": 1,
+   "n_configs": 15,
+   "std_config_ddof0": 0.06803
+  },
+  "RNF": {
+   "per_config": {
+    "yoke-suspension__rust_seed0_ref3001": 0.016916,
+    "yoke-suspension__rust_seed1_ref3001": -0.111762,
+    "yoke-suspension__rust_seed2_ref3001": -0.099647,
+    "yoke-suspension__rust_seed0_ref3002": 0.018854,
+    "yoke-suspension__rust_seed1_ref3002": 0.088444,
+    "yoke-suspension__rust_seed2_ref3002": -0.000482,
+    "yoke-suspension__rust_seed0_ref3003": 0.025329,
+    "yoke-suspension__rust_seed1_ref3003": -0.012285,
+    "yoke-suspension__rust_seed2_ref3003": -0.014102,
+    "yoke-suspension__rust_seed0_ref3004": -0.112671,
+    "yoke-suspension__rust_seed1_ref3004": -0.107125,
+    "yoke-suspension__rust_seed2_ref3004": -0.004451,
+    "yoke-suspension__rust_seed0_ref3005": 0.117112,
+    "yoke-suspension__rust_seed1_ref3005": 0.032183,
+    "yoke-suspension__rust_seed2_ref3005": 0.112353
+   },
+   "per_ref": {
+    "ref3001": {
+     "per_seed": [
+      0.016916,
+      -0.111762,
+      -0.099647
+     ],
+     "mean": -0.064831
+    },
+    "ref3002": {
+     "per_seed": [
+      0.018854,
+      0.088444,
+      -0.000482
+     ],
+     "mean": 0.035605
+    },
+    "ref3003": {
+     "per_seed": [
+      0.025329,
+      -0.012285,
+      -0.014102
+     ],
+     "mean": -0.000353
+    },
+    "ref3004": {
+     "per_seed": [
+      -0.112671,
+      -0.107125,
+      -0.004451
+     ],
+     "mean": -0.074749
+    },
+    "ref3005": {
+     "per_seed": [
+      0.117112,
+      0.032183,
+      0.112353
+     ],
+     "mean": 0.087216
+    }
+   },
+   "five_ref_mean": -0.003422,
+   "five_ref_range": [
+    -0.074749,
+    0.087216
+   ],
+   "n_pos_groups": 2,
+   "n_neg_configs": 8,
+   "n_configs": 15,
+   "std_config_ddof0": 0.074505
+  }
+ },
+ "patchcore": {
+  "ref3001": 0.797112,
+  "ref3002": 0.805566,
+  "ref3003": 0.888169,
+  "ref3004": 0.826386,
+  "ref3005": 0.857037
+ },
+ "patchcore_mean": 0.834854,
+ "patchcore_mean_expected": 0.834854,
+ "repro_R0": {
+  "worst": 0.0,
+  "gate": true,
+  "per_config": [
+   {
+    "config": "yoke-suspension__rust_seed0_ref3001",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed1_ref3001",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed2_ref3001",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed0_ref3002",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed1_ref3002",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed2_ref3002",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed0_ref3003",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed1_ref3003",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed2_ref3003",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed0_ref3004",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed1_ref3004",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed2_ref3004",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed0_ref3005",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed1_ref3005",
+    "max_abs_diff": 0.0
+   },
+   {
+    "config": "yoke-suspension__rust_seed2_ref3005",
+    "max_abs_diff": 0.0
+   }
+  ]
+ },
+ "correctness": {
+  "p1_candidates_shared": true,
+  "fps4096_prefix256_all": false,
+  "F256_matches_history_all": true,
+  "invariants_sN_sF_monotone": true,
+  "chunk_vs_direct_max_diff": 0.0,
+  "mapper_hash_before": "89b2c0bcf2dd9d2b",
+  "mapper_hash_after": "89b2c0bcf2dd9d2b",
+  "no_dup_vectors": true,
+  "exploratory": true,
+  "k_not_independent_frames": true
+ },
+ "cost": {
+  "wall_time_s": 15.6,
+  "peak_vram_bytes": 480089600
+ }
+}
