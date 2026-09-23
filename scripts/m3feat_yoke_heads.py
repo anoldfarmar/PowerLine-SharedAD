@@ -126,6 +126,7 @@ def verify_pc_adapter(d=64, seed=7):
     bank = F.normalize(torch.randn(200, d), dim=-1).float().cuda()
     q = F.normalize(torch.randn(3, 100, d), dim=-1).float().cuda()
     q4 = q.permute(0, 2, 1).reshape(3, d, 10, 10)
+    pm.memory_bank = bank
     with torch.no_grad():
         pe = _flat(pm.reshape_embedding(q4)).float().cuda()
         assert pe.shape == (300, d), "reshape_embedding patch 数不符"
