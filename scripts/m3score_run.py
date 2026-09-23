@@ -150,7 +150,7 @@ def main():
         same = bool(torch.equal(nb, nb2))
         if j == REFS[0]:
             sb1 = PV.official_score(pm, qd[:4] + qn[:4], ffn)
-            sb2 = PV.official_score(pm2, qd_rows[:4] + qn_rows[:4], ffn)
+            sb2 = PV.official_score(pm2, qd[:4] + qn[:4], ffn)
             rescore_diff = float(np.max(np.abs(np.array(sb1) - np.array(sb2))))
             sbc = PV.verify_score_batch(ffn, qd[:6], pm)
         else:
