@@ -125,7 +125,7 @@ def main():
                     "N_cap": {"R0": 256, "RN": 4096, "RF": 256, "RNF": 4096}[arm],
                     "F_cap": {"R0": 256, "RN": 256, "RF": 4096, "RNF": 4096}[arm]},
                     "defect": {p: round(float(sc[t]), 8) for t, p in enumerate(qd)},
-                    "normal": {p: round(float(sc[t]), 8) for t, p in enumerate(qn)}},
+                    "normal": {p: round(float(sc[len(qd) + t]), 8) for t, p in enumerate(qn)}},
                     OUT + "/raw_scores/%s.json" % cfg)
             print("[ref%d s%d] 候选4000/库构建+四臂评分 %.1fs F256==hist:%s" % (j, s2, time.time() - tc, f256_eq), flush=True)
         cost["build_s"]["ref%d_total" % j] = round(time.time() - tb, 1)
