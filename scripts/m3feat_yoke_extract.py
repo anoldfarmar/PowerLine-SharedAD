@@ -33,13 +33,10 @@ def atomic_save_json(obj, path):
     os.replace(tmp, path)
 
 
-def e1_features(rows, patches):
-    """E1: 缓存 P3 (fp16 历史) -> fp32 -> 逐位置 L2. 返回 (n, P, d) torch fp32."""
-    raw = torch.from_numpy(np.asarray(patches[rows])).float()
-    n = raw.shape[0]
-    f = l2_pos(raw.reshape(n, -1, raw.shape[-1]))
-    assert torch.isfinite(f).all()
-    return f
+def e1_features(rows, e1arr):
+    """E1: 新鲜 FP32 P3 缓存逐位置 L2 后的行. 返回 (n, P, d) torch fp32."""
+    raw = torch.from_numpy(np.ascontiguousarray(e1arr[list(rows)]))
+    return raw.reshape(raw.shape[0], -1, raw.shape[-1])
 
 
 class Backbone3:
@@ -64,7 +61,7 @@ class Backbone3:
 def extract_e2(paths, bb, tf, bs=32):
     """E2: P3/P4/P5 融合特征, FP32. 返回 (n, 40, 40, 448) 与层结构记录."""
     mods = {i: type(bb.bb.model.model[i]).__name__ for i in (4, 6, 9)}
-    outs = []
+    outs2, outs1 = [], []
     exp = None
     for i in range(0, len(paths), bs):
         xb = torch.stack([tf(Image.open(p).convert("RGB")) for p in paths[i:i + bs]]).to(bb.device)
@@ -80,10 +77,15 @@ def extract_e2(paths, bb, tf, bs=32):
         z = torch.cat([F.normalize(p3, dim=1), F.normalize(p4u, dim=1), F.normalize(p5u, dim=1)], dim=1)
         z = F.normalize(z, dim=1)
         assert torch.isfinite(z).all()
-        outs.append(z.permute(0, 2, 3, 1).cpu())
-    A = torch.cat(outs, 0).numpy().astype(np.float32)
-    return A, {"layers": mods, "shapes": exp, "dim": int(A.shape[-1]), "grid": [int(A.shape[1]), int(A.shape[2])],
-               "norm": "逐层逐位置 L2 后等权拼接再整体 L2", "interp": "bilinear align_corners=False", "dtype": "float32"}
+        e1 = F.normalize(p3, dim=1)
+        assert torch.isfinite(e1).all()
+        outs2.append(z.permute(0, 2, 3, 1).cpu())
+        outs1.append(e1.permute(0, 2, 3, 1).cpu())
+    A2 = torch.cat(outs2, 0).numpy().astype(np.float32)
+    A1 = torch.cat(outs1, 0).numpy().astype(np.float32)
+    return A2, A1, {"layers": mods, "shapes": exp, "dim": int(A2.shape[-1]), "grid": [int(A2.shape[1]), int(A2.shape[2])],
+                    "norm": "E1: P3 逐位置 L2; E2: 逐层逐位置 L2 后等权拼接再整体 L2",
+                    "interp": "bilinear align_corners=False", "dtype": "float32", "e1_source_note": "新鲜 fp32 前向, 非 fp16 历史缓存"}
 
 
 def build_e2_cache(unique_paths, force=False):
@@ -97,9 +99,10 @@ def build_e2_cache(unique_paths, force=False):
             return {p: i for i, p in enumerate(paths)}, json.load(open(lp))["meta"], None
     bb = Backbone3("cuda")
     tf = MC.make_transform(D.IMGSZ)
-    A, meta = extract_e2(list(unique_paths), bb, tf)
+    A2, A1, meta = extract_e2(list(unique_paths), bb, tf)
     hash_after = bb.param_hash()
-    atomic_save_npy(A, fp)
+    atomic_save_npy(A2, fp)
+    atomic_save_npy(A1, CACHE + "/e1_feats.npy")
     atomic_save_json({"paths": list(unique_paths), "meta": meta, "backbone_hash": hash_after}, lp)
     return {p: i for i, p in enumerate(unique_paths)}, meta, hash_after
 

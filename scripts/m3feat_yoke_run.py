@@ -77,12 +77,13 @@ def main():
     te = time.time()
     e2map, e2meta, bb_hash_after = X.build_e2_cache(uniq)
     e2arr = np.load(OUT + "/cache/e2_feats.npy", mmap_mode="r")
+    e1arr = np.load(OUT + "/cache/e1_feats.npy", mmap_mode="r")
     tf = None
     e2m = json.load(open(OUT + "/cache/e2_paths.json"))
     bb_hash_after = e2m["backbone_hash"]
     probe_e2_s = round(time.time() - te, 1)
     print("[G2] E2 cache %s dim=%d shapes=%s (%.1fs)" % (list(e2arr.shape), e2arr.shape[-1], e2meta["shapes"], probe_e2_s), flush=True)
-    f1 = X.e1_features([path2idx[p] for p in qd[:2]], patches)
+    f1 = X.e1_features([path2idx[p] for p in qd[:2]], e1arr)
     assert f1.shape[-1] == int(f1.shape[-1]) and f1.shape[-2] == 1600
     n1 = f1.norm(dim=-1)
     assert bool(((n1 - 1).abs() < 1e-4).all()), "E1 L2 范数异常"
@@ -141,7 +142,7 @@ def main():
     assert gate1, "G1 未通过, 禁止新增臂评分"
     # ---------- 探针 ----------
     tp = time.time()
-    fd1 = lambda rows: X.e1_features(rows, patches)
+    fd1 = lambda rows: X.e1_features(rows, e1arr)
     fd2 = lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])
     Nb, Fb, keep, meta_b = H.dual_bank(fd1, ridx(n5of[3001]), ridx(sup[0]), M6.FPS_SEED)
     H.dual_score(qd_rows, qn_rows, fd1, Nb, Fb)
@@ -169,8 +170,8 @@ def main():
         "E1": lambda rows: X.e1_features(rows, patches),
         "E2": lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1]),
     }
-    feat_manifest = {"E1": {"dim": feat_dim["E1"], "source": "patches fp16 cache -> fp32 L2"},
-        "E2": dict(e2meta), "E0": {"dim": feat_dim["E0"], "source": "patches fp16 cache -> mapper_B -> L2 (历史数值路径)"}}
+    feat_manifest = {"E1": {"dim": feat_dim["E1"], "source": "新鲜 fp32 P3 前向逐位置 L2 (e1_feats.npy; 非 fp16 历史缓存)"},
+        "E2": dict(e2meta), "E0": {"dim": feat_dim["E0"], "source": "查询侧 patches fp16 缓存 + 支持侧新鲜提取 (历史数值路径, mapper_B -> L2)"}}
     aurocs = {a: {} for a in ARMS}
     for feat in ("E1", "E2"):
         for j in REFS:
@@ -190,7 +191,7 @@ def main():
                     OUT + "/raw_scores/%s.json" % cfg)
             print("[%s] ref%d done (%.1fs)" % (feat, j, time.time() - tp), flush=True)
     for feat in ("E0", "E1", "E2"):
-        ffn = (lambda rows: X.e1_features(rows, patches)) if feat == "E1" else ((lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
+        ffn = (lambda rows: X.e1_features(rows, e1arr)) if feat == "E1" else ((lambda rows: X.e2_features([eval_paths[i] for i in rows], e2map, e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
         for j in REFS:
             if feat == "E0":
                 nb0 = M6.build_normal_bank(spec, n5of[j], dev)
