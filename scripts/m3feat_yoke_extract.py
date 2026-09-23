@@ -93,7 +93,7 @@ def build_e2_cache(unique_paths, force=False):
     os.makedirs(CACHE, exist_ok=True)
     fp = CACHE + "/e2_feats.npy"
     lp = CACHE + "/e2_paths.json"
-    if not force and os.path.exists(fp) and os.path.exists(lp):
+    if not force and os.path.exists(fp) and os.path.exists(lp) and os.path.exists(CACHE + "/e1_feats.npy"):
         paths = json.load(open(lp))["paths"]
         if paths == list(unique_paths):
             return {p: i for i, p in enumerate(paths)}, json.load(open(lp))["meta"], None
