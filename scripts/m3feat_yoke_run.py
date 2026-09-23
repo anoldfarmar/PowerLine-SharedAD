@@ -196,14 +196,9 @@ def main():
         ffn = (lambda rows: X.e1_features([e2map[p] for p in rows], e1arr)) if feat == "E1" else ((lambda rows: X.e2_features([e2map[p] for p in rows], e2arr).reshape(len(rows), -1, e2arr.shape[-1])) if feat == "E2" else None)
         for j in REFS:
             if feat == "E0":
-                nb0 = M6.build_normal_bank(spec, n5of[j], dev)
-                class E0F:
-                    def __init__(self, nb):
-                        self.nb = nb
-                    def __call__(self, rows):
-                        return embed(spec, torch.from_numpy(np.asarray(patches[rows]).reshape(-1, M6.CH)).float(), dev).reshape(len(rows), -1, -1) if False else None
                 ffn0 = lambda ps: embed(spec, torch.from_numpy(np.asarray(patches[[path2idx[p] for p in ps]]).reshape(-1, M6.CH)).float(), dev).reshape(len(ps), -1, -1)
-                pm, pc_meta = H.pc_fit(ffn0, urows(n5of[j]))
+                ffn0_fit = lambda ps: embed(spec, torch.from_numpy(F3.extract_crops(ps, dev).reshape(-1, M6.CH)).float(), dev).reshape(len(ps), -1, -1)
+                pm, pc_meta = H.pc_fit(ffn0_fit, n5of[j])
             else:
                 pm, pc_meta = H.pc_fit(ffn, n5of[j])
             sd, sn = H.pc_score(pm, qd, qn, ffn if feat != "E0" else ffn0)
