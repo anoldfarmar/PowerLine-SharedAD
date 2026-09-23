@@ -203,7 +203,7 @@ def main():
         dC = 1.0 - cN
         idx = torch.linspace(0, dE.numel() - 1, 200).long()
         de64 = torch.sqrt(torch.clamp(2.0 - 2.0 * cN.double().flatten()[idx], min=0.0))
-        dE_dir = torch.cdist(q.double().reshape(-1, q.shape[-1])[idx], Nstar.double()).min(1).values
+        dE_dir = torch.cdist(q.double().reshape(-1, q.shape[-1])[idx], Nstar.double()).min(1).values.cpu()
         de_err = float((de64 - dE_dir).abs().max())
         rel = float(((de64 - dE_dir).abs() / dE_dir.clamp_min(1e-9)).max())
         s1 = dE.max(1)
