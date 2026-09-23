@@ -83,7 +83,7 @@ def main():
     bb_hash_after = e2m["backbone_hash"]
     probe_e2_s = round(time.time() - te, 1)
     print("[G2] E2 cache %s dim=%d shapes=%s (%.1fs)" % (list(e2arr.shape), e2arr.shape[-1], e2meta["shapes"], probe_e2_s), flush=True)
-    f1 = X.e1_features([path2idx[p] for p in qd[:2]], e1arr)
+    f1 = X.e1_features([e2map[p] for p in qd[:2]], e1arr)
     assert f1.shape[-1] == int(f1.shape[-1]) and f1.shape[-2] == 1600
     n1 = f1.norm(dim=-1)
     assert bool(((n1 - 1).abs() < 1e-4).all()), "E1 L2 范数异常"
