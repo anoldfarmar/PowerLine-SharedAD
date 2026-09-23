@@ -89,7 +89,7 @@ def main():
     assert f1.shape[-1] == int(f1.shape[-1]) and f1.shape[-2] == 1600
     n1 = f1.norm(dim=-1)
     assert bool(((n1 - 1).abs() < 1e-4).all()), "E1 L2 范数异常"
-    f2 = X.e2_features([qd[0]], e2map, e2arr).reshape(1, -1, e2arr.shape[-1])
+    f2 = X.e2_features([e2map[qd[0]]], e2arr).reshape(1, -1, e2arr.shape[-1])
     n2 = f2.norm(dim=-1)
     assert bool(((n2 - 1).abs() < 1e-4).all()), "E2 L2 范数异常"
     feat_dim = {"E0": None, "E1": int(f1.shape[-1]), "E2": int(f2.shape[-1])}

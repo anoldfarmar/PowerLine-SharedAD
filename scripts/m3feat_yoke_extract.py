@@ -107,8 +107,9 @@ def build_e2_cache(unique_paths, force=False):
     return {p: i for i, p in enumerate(unique_paths)}, meta, hash_after
 
 
-def e2_features(rows, e2map, e2arr):
-    raw = torch.from_numpy(np.ascontiguousarray(e2arr[[e2map[p] for p in rows]]))
+def e2_features(uniq_rows, e2arr):
+    """uniq_rows: e2_paths.json 顺序下的行索引."""
+    raw = torch.from_numpy(np.ascontiguousarray(e2arr[list(uniq_rows)]))
     return raw.reshape(raw.shape[0], -1, raw.shape[-1])
 
 
