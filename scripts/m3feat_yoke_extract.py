@@ -76,8 +76,9 @@ def extract_e2(paths, bb, tf, bs=32):
         grid = p3.shape[-2:]
         p4u = F.interpolate(p4, size=grid, mode="bilinear", align_corners=False)
         p5u = F.interpolate(p5, size=grid, mode="bilinear", align_corners=False)
-        z = torch.cat([l2_pos(p3), l2_pos(p4u), l2_pos(p5u)], dim=1)
-        z = l2_pos(z)
+        # NCHW: 逐位置通道 L2 必须用 dim=1 (dim=-1 会归一化到空间维)
+        z = torch.cat([F.normalize(p3, dim=1), F.normalize(p4u, dim=1), F.normalize(p5u, dim=1)], dim=1)
+        z = F.normalize(z, dim=1)
         assert torch.isfinite(z).all()
         outs.append(z.permute(0, 2, 3, 1).cpu())
     A = torch.cat(outs, 0).numpy().astype(np.float32)
