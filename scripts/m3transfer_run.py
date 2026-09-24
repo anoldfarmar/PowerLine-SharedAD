@@ -275,7 +275,7 @@ def main():
                 assert abs(u2 - r["auroc"]) < 1e-12, "AUROC 重算不一致 %s_%s_ref%d" % (a, arm, j)
                 aurocs["%s_%s_ref%d" % (c, arm, j)] = float(u2)
     names = sorted(aurocs)
-    expected = sorted(["%s__%s_%s_k5_ref%d" % (data[a]["cat"], data[a]["deft"], arm, j)
+    expected = sorted(["%s__%s_%s_ref%d" % (data[a]["cat"], data[a]["deft"], arm, j)
                        for a in ("yoke", "glass") for arm in ARMS for j in REFS])
     set_match = int(names == expected)
     assert set_match == 1 and len(names) == 40, "配置集合与预注册不一致"
