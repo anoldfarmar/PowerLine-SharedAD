@@ -87,7 +87,7 @@ def main():
             [A + "/models/image/patchcore/torch_model.py",
              A + "/models/components/sampling/k_center_greedy.py",
              A + "/models/components/feature_extractors/timm.py"]}
-    m = timm.create_model("wide_resnet50_2", pre_trained=False)
+    m = timm.create_model("wide_resnet50_2", pretrained=False)
     pcfg = dict(m.pretrained_cfg) if hasattr(m, "pretrained_cfg") else {}
     PM_W, sdh = T.wrn_model()  # 进程内清代理 + HF offline; timm 默认 pretrained=True
     sdh2 = state_hash(PM_W.feature_extractor)
