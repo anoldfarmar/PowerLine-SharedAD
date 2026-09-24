@@ -43,6 +43,10 @@ def verify_top8_axis():
 
 def wrn_model():
     """官方 PatchcoreModel (pre_trained WRN50, layer2+3). 返回 (pm, state_hash)."""
+    for k in ("ALL_PROXY", "all_proxy", "NO_PROXY", "no_proxy", "http_proxy", "https_proxy", "HTTP_PROXY", "HTTPS_PROXY"):
+        os.environ.pop(k, None)  # no_proxy 含 [::1] 使 httpx URLPattern 崩溃
+    os.environ["HF_HUB_OFFLINE"] = "1"  # 权重已缓存 (timm wide_resnet50_2.racm_in1k), 禁网
+    os.environ["TRANSFORMERS_OFFLINE"] = "1"
     pm = PV._cls()(layers=["layer2", "layer3"], backbone="wide_resnet50_2", pre_trained=True, num_neighbors=9).to(DEV)
     pm.eval()
     sd = pm.feature_extractor.state_dict()
