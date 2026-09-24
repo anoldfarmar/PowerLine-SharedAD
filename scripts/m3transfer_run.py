@@ -226,7 +226,6 @@ def main():
             bmeta["%s_ref%d" % (a, j)] = {"n_bank": meta["n_bank"], "bank_hash": th(pm.memory_bank),
                                           "indices_first10": meta["coreset_indices"][:10], "pc_seed": 7000 + (j - 3000)}
             print("[wrn-bank] %s ref%d protos=%d" % (a, j, meta["n_bank"]), flush=True)
-    from PIL import Image
     dist_files = {}
     for a in ("yoke", "glass"):
         d_ = data[a]
