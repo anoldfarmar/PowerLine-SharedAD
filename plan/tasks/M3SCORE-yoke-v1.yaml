@@ -43,12 +43,13 @@ comparisons:
   - S5 vs R256 (固定 F, 正常库 N* vs N256)
   - S4 vs WRN PC 10N 外部标杆 (仅描述)
 acceptance:
-  - file_exists: outputs/M3score-yoke/SCORE_REPORT.md
-  - metric_eq: score_eval.json arm_configs_completed == 50
-  - metric_eq: score_eval.json pre_registered_set_match == 1
-  - metric_eq: score_eval.json gates_all_passed == 1
-  - metric_eq: E1_PC_RECHECK.json recheck_configs == 5
-  - file_exists: outputs/M3score-yoke/M3FEAT_ERRATA.md
+  - {type: file_exists, path: outputs/M3score-yoke/SCORE_REPORT.md}
+  - {type: metric_eq, path: outputs/M3score-yoke/score_eval.json, key: arm_configs_completed, value: 50}
+  - {type: metric_eq, path: outputs/M3score-yoke/score_eval.json, key: pre_registered_set_match, value: 1}
+  - {type: metric_eq, path: outputs/M3score-yoke/score_eval.json, key: gates_all_passed, value: 1}
+  - {type: metric_eq, path: outputs/M3score-yoke/E1_PC_RECHECK.json, key: recheck_configs, value: 5}
+  - {type: file_exists, path: outputs/M3score-yoke/M3FEAT_ERRATA.md}
+
 notes:
   - 所有结果探索性; shot 为裁剪数; 查询已用于研究决策; 不宣称统计显著
   - 大数组不提交 Git, 提供路径/哈希/重建命令
