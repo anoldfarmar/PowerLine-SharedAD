@@ -1,0 +1,49 @@
+task: M3TRANSFER-wrnfix-v1
+created: 2025-09-24
+status: active
+goal: >
+  纠正 M3TRANSFER-top8-v1 WRN 特征提取遗漏官方局部池化、glass 历史组误选 (g1) 与
+  随机性归因过强问题; 完成可核验的标准 WRN 两评分重评 (W-PC-FIX / W-T8-FIX)。
+scope:
+  assets: [yoke-suspension/rust, glass-insulator/missing-cap]
+  refs: [3001, 3002, 3003, 3004, 3005]
+  support: M3BENCH SUPPORT_LISTS.json N10 (仅正常)
+  queries: 各资产 query_k5 (与历史 g2 一致, 断言)
+  arms: [W-PC-FIX, W-T8-FIX]
+  max_configs: 20
+  keep: M3TRANSFER 全部 YOLO 结果复用, 不重跑
+  forbidden: 训练/换主干/调参/种子搜索/双库/NVE/超支
+wrn_config:
+  backbone: wide_resnet50_2 (anomalib TimmFeatureExtractor, 官方 feature_pooler AvgPool2d(3,1,1) 保留)
+  layers: [layer2, layer3]
+  input: 320x320 + to_tensor + resize + normalize (无 L2)
+  coreset_ratio: 0.1
+  num_neighbors: 9
+  pc_seed: 7000 + (ref_id - 3000), 每次正式建库前重置 py/np/torch/cuda
+gates:
+  e2e_path: 官方完整 forward 内部 embedding (train 分支返回) vs 本轮共享提取函数, atol=rtol=1e-4
+  pred_score: 固定库下官方完整推理 pred_score vs 本轮适配评分, atol=rtol=1e-4
+  assert_timing: 全部门在正式评分前立即 assert
+  bank_rebuild: 双建库 torch.equal (每资产至少一组)
+  hist_set: g2 历史文件路径集合/标签侧断言 (glass 用 g2, 禁 g1)
+correctness:
+  state_hash: 特征提取器/模型状态哈希前后不变
+  embedding_store: 验证后清理并核查
+  top8_axis: 沿每图 patch 轴 (合成验证)
+budget:
+  gpu_hours: 1
+  probe_first: true
+acceptance:
+  - {type: file_exists, path: outputs/M3transfer-wrnfix/WRNFIX_REPORT.md}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: arm_configs_completed, min: 20}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: pre_registered_set_match, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: gates_all_passed, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: official_path_ok, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: official_pred_score_ok, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: same_bank_identity, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-wrnfix/wrnfix_eval.json, key: hist_set_assert_ok, min: 1}
+  - {type: file_exists, path: outputs/M3transfer-wrnfix/M3TRANSFER_ERRATA.md}
+  - {type: file_exists, path: outputs/M3transfer-wrnfix/WEIGHT_IDENTITY_AUDIT.md}
+  - {type: file_exists, path: outputs/M3transfer-wrnfix/OFFICIAL_PATH_AUDIT.md}
+notes:
+  - 探索性; 参照组间 std 非库内方差; 固定种子只保证复现; 结果仅限两历史资产; AUROC 非召回率
