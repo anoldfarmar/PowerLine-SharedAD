@@ -77,7 +77,8 @@ def verify_distance(d=64, seed=11):
     dist_err = float((ps.double() - ref_min).abs().max())
     rel_err = float(((ps.double() - ref_min).abs() / ref_min.clamp_min(1e-12)).max())
     idx_ok = bool(torch.allclose(bank[loc].double().sub(q.double()).norm(dim=-1), ref_min, atol=1e-4))
-    bank2 = torch.cat([bank, q[:1]], 0)
+    ref_idx0 = int(ref_idx[0])
+    bank2 = torch.cat([bank, bank[ref_idx0:ref_idx0 + 1]], 0)  # 复制最近行 -> 并列
     pm.memory_bank = bank2
     with torch.no_grad():
         ps2, loc2 = pm.nearest_neighbors(q[:1], 1)

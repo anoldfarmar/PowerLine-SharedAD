@@ -82,6 +82,11 @@ def build_cache(uniq_paths, force=False):
         if man["paths"] == list(uniq_paths) and man["cache_sha256"] == sha256_file(fp) and man.get("identity_complete"):
             return man, np.load(fp, mmap_mode="r")
     t0 = time.time()
+    # A2: 确定性非 TF32 提取 (跨运行一致); 门限不放宽, 环境修正
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.allow_tf32 = False
+    torch.backends.cuda.matmul.allow_tf32 = False
     bb = MC.Backbone(D.WEIGHTS, "cuda")
     tf = MC.make_transform(D.IMGSZ)
     h0 = state_hash(bb)
@@ -97,6 +102,8 @@ def build_cache(uniq_paths, force=False):
            "code_sha256": code_hashes(),
            "torch": torch.__version__, "cuda": torch.version.cuda,
            "tf32_matmul": bool(torch.backends.cuda.matmul.allow_tf32), "tf32_cudnn": bool(torch.backends.cudnn.allow_tf32),
+           "deterministic_conv": bool(torch.backends.cudnn.deterministic), "cudnn_benchmark": bool(torch.backends.cudnn.benchmark),
+           "tf32_note": "门限超限后修正: 提取改确定性非TF32; M3FEAT 历史缓存为默认TF32构建, 差异在勘误披露",
            "state_hash_before": h0, "state_hash_after": h1,
            "cache_sha256": sha256_npy(A), "extract_s": round(time.time() - t0, 1)}
     atomic_npy(A, fp)
