@@ -72,11 +72,12 @@ def extract(paths, bb, tf, bs=32):
     return np.concatenate(outs, 0), {"p3_shape": exp, "bs": bs}
 
 
-def build_cache(uniq_paths, force=False):
-    """A1: 带身份重建/复用. 返回 (manifest, arr)."""
-    os.makedirs(CACHE, exist_ok=True)
-    fp = CACHE + "/e1_feats.npy"
-    mp = CACHE + "/CACHE_MANIFEST.json"
+def build_cache(uniq_paths, force=False, cache_dir=None):
+    """A1: 带身份重建/复用. 返回 (manifest, arr). cache_dir 默认沿用 M3SCORE 目录 (向后兼容)."""
+    cdir = cache_dir or CACHE
+    os.makedirs(cdir, exist_ok=True)
+    fp = cdir + "/e1_feats.npy"
+    mp = cdir + "/CACHE_MANIFEST.json"
     if not force and os.path.exists(fp) and os.path.exists(mp):
         man = json.load(open(mp))
         if man["paths"] == list(uniq_paths) and man["cache_sha256"] == sha256_file(fp) and man.get("identity_complete"):

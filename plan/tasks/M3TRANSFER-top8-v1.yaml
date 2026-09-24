@@ -1,0 +1,39 @@
+task: M3TRANSFER-top8-v1
+created: 2025-09-24
+status: active
+goal: >
+  将 yoke 验证的 YOLO-P3+正常库+top8 原样迁移到 glass; 给标准 WRN PatchCore
+  增加 top8 评分对照, 区分特征与聚合方式的贡献。
+scope:
+  assets: [glass-insulator/missing-cap, yoke-suspension/rust]
+  yolo: P3 64d 逐位置L2, 5N, 确定性非TF32, coreset ratio=0.1, pc_seed=7000+(ref-3000), nn=9
+  wrn: wide_resnet50_2 layer2+layer3 1536d 10N, 320 输入+Normalize(官方), 不加 L2,
+       ratio=0.1 (~1600原型), nn=9, 历史库未留存 -> 按回退规则确定性重建
+  queries: 各资产 query_k5 冻结划分; 支持名单严格复用 M3BENCH SUPPORT_LISTS.json
+  forbidden: 故障支持建库/双库/mapper/训练/融合/超参搜索/余弦top8搜索
+matrix: 2资产 x 2特征 x 2评分 x 5参照组 = 40 配置 (yoke YOLO 10 由锚点复用)
+scores:
+  PC: anomalib 2.6.2 官方 nearest_neighbors + compute_anomaly_score (nn=9)
+  T8: 同一图像/特征/库的每 patch 最近邻欧氏距离 top8 均值; 无重加权/无归一化/无方向调整
+  shared: 同组 PC 与 T8 共享特征张量/库/最近邻距离/查询路径, 仅聚合不同
+gates:
+  yoke_anchor: Y-PC 复现 M3SCORE S4, Y-T8 复现 S2, 全5组逐路径 max|diff| <= 1e-4
+  wrn_numeric: 图像分数比较 atol=1e-4, rtol=1e-4 (正式查询评分前写入)
+  assert_timing: 正确性门在正式评测前立即 assert, 不事后汇总
+  top8_axis: top8 沿每图 patch 轴 (合成验证)
+budget:
+  gpu_hours: 2
+  wall_clock_h: 4
+  probe_first: true
+acceptance:
+  - {type: file_exists, path: outputs/M3transfer-top8/TRANSFER_REPORT.md}
+  - {type: metric_min, path: outputs/M3transfer-top8/transfer_eval.json, key: arm_configs_completed, min: 40}
+  - {type: metric_min, path: outputs/M3transfer-top8/transfer_eval.json, key: pre_registered_set_match, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-top8/transfer_eval.json, key: gates_all_passed, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-top8/transfer_eval.json, key: yoke_anchor_ok, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-top8/transfer_eval.json, key: same_bank_identity, min: 1}
+  - {type: metric_min, path: outputs/M3transfer-top8/transfer_eval.json, key: scores_recount_match, min: 1}
+  - {type: file_exists, path: outputs/M3transfer-top8/WRN_REUSE_OR_REBUILD.md}
+notes:
+  - 探索性; shot 为裁剪预算; 查询复用; glass 为跨资产迁移非确认性实验; 无显著性声明
+  - WRN 历史库未留存, 走确定性重建回退; 新旧 W-PC 差异单独报告, 不混入聚合收益
