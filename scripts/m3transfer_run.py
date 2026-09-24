@@ -218,7 +218,7 @@ def main():
         for j in REFS:
             pm, meta = PV.make_pm(wrn_ffn, d_["n10"][j], 7000 + (j - 3000))
             if a == "yoke" and j == 3001:
-                pm2, meta2 = PV.make_pm(wrn_ffn, d_["n10"][j], 7000)
+                pm2, meta2 = PV.make_pm(wrn_ffn, d_["n10"][j], 7000 + (j - 3000))  # 同种子重建核验
                 assert torch.equal(pm.memory_bank, pm2.memory_bank), "WRN 双建库不一致"
                 g["wrn_bank_rebuild"] = {"ref3001": True, "n_bank": meta["n_bank"]}
                 del pm2
