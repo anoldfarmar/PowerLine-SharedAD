@@ -155,8 +155,8 @@ def main():
             sbc = PV.verify_score_batch(ffn, qd[:6], pm)
         else:
             sbc = None
-        bank_manifest["N_star"]["ref%d" % j] = {k: v for k, v in meta.items() if k != "coreset_indices"} | {
-            "coreset_indices_n": len(meta["coreset_indices"]), "tensor_hash": th(nb), "rebuild_equal": same,
+        bank_manifest["N_star"]["ref%d" % j] = {k: v for k, v in meta.items()} | {
+            "tensor_hash": th(nb), "rebuild_equal": same,
             "rescore_diff": rescore_diff, "src_paths": n5of[j], "score_batch_check": sbc}
         banks[j] = {"pm": pm, "N": nb}
         print("[A4] ref%d bank=%d rebuild_equal=%s" % (j, meta["n_bank"], same), flush=True)
