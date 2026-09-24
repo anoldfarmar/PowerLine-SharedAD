@@ -34,7 +34,7 @@ def top8_mean(dist2d):
 
 
 def verify_top8_axis():
-    d = torch.arange(400, dtype=torch.float64).reshape(4, 100)
+    d = torch.arange(2000, dtype=torch.float64).reshape(50, 40)  # 两轴均 >= TOPK
     got = top8_mean(d)
     ref = torch.stack([row.topk(TOPK).values.mean() for row in d])
     wrong = torch.stack([col.topk(TOPK).values.mean() for col in d.T])  # 错误轴 (原型/列)
