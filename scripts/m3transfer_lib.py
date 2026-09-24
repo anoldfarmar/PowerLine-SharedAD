@@ -58,8 +58,9 @@ def wrn_model():
 
 
 def wrn_tf():
+    """复刻 M3BENCH: to_tensor -> Resize((320,320),antialias) -> Normalize (仅归一化, 无 L2)."""
     import torchvision.transforms as T2
-    return T2.Compose([T2.Resize((320, 320), antialias=True),
+    return T2.Compose([T2.ToTensor(), T2.Resize((320, 320), antialias=True),
                        T2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 
 
