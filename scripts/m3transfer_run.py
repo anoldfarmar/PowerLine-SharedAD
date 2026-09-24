@@ -3,6 +3,7 @@
 import csv, hashlib, json, os, sys, time
 import numpy as np
 import torch
+from PIL import Image
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m3diag_common as D
@@ -121,7 +122,7 @@ def main():
     g["wrn_distance"] = T.verify_wrn_distance(PM_W); assert g["wrn_distance"]["pass"], g["wrn_distance"]
     g["wrn_composition"] = T.verify_reference_composition(PM_W); assert g["wrn_composition"]["pass"], g["wrn_composition"]
     feat_fn = lambda rows: PM_W.generate_embedding(PM_W.feature_extractor(
-        torch.stack([T.wrn_tf()(p) for p in rows]).to("cuda")))
+        torch.stack([T.wrn_tf()(Image.open(p).convert("RGB")) for p in rows]).to("cuda")))
     g["wrn_batch"] = T.verify_batch_score(feat_fn, data["yoke"]["qd"][:6], PM_W)
     assert g["wrn_batch"]["pass"], g["wrn_batch"]
     LEDGER["gates_s"] = round(time.time() - t, 1)
