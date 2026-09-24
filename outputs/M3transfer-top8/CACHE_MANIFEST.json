@@ -1,0 +1,30 @@
+{
+ "yoke": {
+  "source": "reuse M3SCORE-yoke-v1 E1 cache (path-set+sha256 asserted)",
+  "n_images": 835,
+  "weights_sha256": "ea1526c29d4afcfb83cbc2a8d3eb48f498c380082d2a4dfbcc17d0b9e9c425fe",
+  "norm": "NCHW dim=1 逐位置 L2 (E2 修复后语义)",
+  "dtype": "float32",
+  "deterministic_conv": true,
+  "cudnn_benchmark": false,
+  "tf32_matmul": false,
+  "tf32_cudnn": false,
+  "cache_sha256": "051e3494ccb5ce95f105d9d83f8af89a437810037014fcbee3b1413e9e79fdc8",
+  "state_hash_before": "b926e1f2867a8ca025a09b94f683abdc1cca241243af931d6a45ffd24aa5862e",
+  "state_hash_after": "b926e1f2867a8ca025a09b94f683abdc1cca241243af931d6a45ffd24aa5862e"
+ },
+ "glass": {
+  "n_images": 1219,
+  "weights_sha256": "ea1526c29d4afcfb83cbc2a8d3eb48f498c380082d2a4dfbcc17d0b9e9c425fe",
+  "norm": "NCHW dim=1 逐位置 L2 (E2 修复后语义)",
+  "dtype": "float32",
+  "deterministic_conv": true,
+  "cudnn_benchmark": false,
+  "tf32_matmul": false,
+  "tf32_cudnn": false,
+  "cache_sha256": "0c4622640875465fe0b6d8df489dcce73adfbb6306dc1b1a2d14c1413fcf64bf",
+  "state_hash_before": "b926e1f2867a8ca025a09b94f683abdc1cca241243af931d6a45ffd24aa5862e",
+  "state_hash_after": "b926e1f2867a8ca025a09b94f683abdc1cca241243af931d6a45ffd24aa5862e"
+ },
+ "note": "full per-image path lists + content sha on data-disk cache dirs; rebuild recipe in METHOD_SPEC 2"
+}
