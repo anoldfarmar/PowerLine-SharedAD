@@ -96,9 +96,11 @@ def main():
     tv_note = "未对比"
     if os.path.exists(tv):
         sd_tv = torch.load(tv, map_location="cpu", weights_only=True)
+        sd_ex = PM_W.feature_extractor.state_dict()
         k = "conv1.weight"
+        kex = [kk for kk in sd_ex if kk.endswith("conv1.weight")][0]
         tv_note = "conv1.weight max|diff|=%.3e (不同训练产物, timm 路径不加载 torchvision 文件)" % float(
-            (sd_tv[k].float() - PM_W.feature_extractor.state_dict()[k].cpu()).abs().max())
+            (sd_tv[k].float() - sd_ex[kex].cpu()).abs().max())
     aud = {"anomalib": anomalib.__version__, "torch": torch.__version__, "timm": timm.__version__,
            "sources_sha256": srcs, "timm_pretrained_cfg": pcfg,
            "hf_checkpoint": hf, "hf_sha256": T.file_sha(hf) if os.path.exists(hf) else "missing",
