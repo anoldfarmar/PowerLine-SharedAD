@@ -115,7 +115,7 @@ def main():
     t = time.time()
     g = {}
     g["top8_axis"] = T.verify_top8_axis(); assert g["top8_axis"]["axis_ok"] and g["top8_axis"]["wrong_axis_differs"]
-    g["reshape"] = PV.verify_reshape(); assert g["reshape"]["pass"], g["reshape"]
+    g["reshape"] = PV.verify_reshape(); assert g["reshape"]["shape_ok"] and g["reshape"]["position_ok"], g["reshape"]
     PM_W, sdh = T.wrn_model()
     g["wrn_state_hash"] = sdh[:16]
     g["wrn_distance"] = T.verify_wrn_distance(PM_W); assert g["wrn_distance"]["pass"], g["wrn_distance"]
