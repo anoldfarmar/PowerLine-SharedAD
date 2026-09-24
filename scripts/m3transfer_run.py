@@ -67,7 +67,7 @@ def yolo_scores_t8(pm, ffn, qd, qn, bs=64):
 
 def wrn_ffn(paths):
     emb, _ = T.wrn_extract(PM_W, paths, bs=10)
-    return emb.permute(0, 2, 3, 1).reshape(len(paths), -1, 1536).numpy().astype(np.float32)
+    return emb.permute(0, 2, 3, 1).reshape(len(paths), -1, 1536).float()  # torch, 供 make_pm/_to4d
 
 
 def main():
