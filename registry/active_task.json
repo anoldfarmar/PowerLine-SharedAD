@@ -1,11 +1,11 @@
 {
-  "task": "M3FEAT-yoke-v1",
-  "contract": "plan/tasks/M3FEAT-yoke-v1.yaml",
-  "gate_required": "M3_PASSED",
-  "started_at": 1790168432.9136739,
+  "task": "M3SCORE-yoke-v1",
+  "contract": "plan/tasks/M3SCORE-yoke-v1.yaml",
+  "gate_required": null,
+  "started_at": 1790175693.7855287,
   "budget": {
-    "wall_clock_h": 3,
     "gpu_hours": 1,
-    "estimate_basis": "E0/E1 走 fp16 缓存零骨干; E2 需 ~1300 张唯一图一次前向 (~2min); PC 变体 15 个小库 fit+评分 ~5min; 探针先行超 1 GPU 时即停"
+    "wall_clock_h": 3,
+    "probe_first": true
   }
 }
