@@ -76,6 +76,23 @@ def wrn_ffn(paths):
     return std_extract(PM_W, paths, WRN_BS).reshape(n, -1, 1536).float()
 
 
+def stream_scores_wrn(bank, paths, bs):
+    """流式: 逐 batch 提取(共享) -> 对固定库 PC+T8. 不物化全量查询特征."""
+    PM_W.memory_bank = bank
+    pc, t8 = [], []
+    with torch.inference_mode():
+        for i in range(0, len(paths), bs):
+            xb = torch.stack([T.wrn_tf()(Image.open(p).convert("RGB")) for p in paths[i:i + bs]]).to("cuda")
+            pe = std_extract_flat(PM_W, xb)
+            B = xb.shape[0]
+            ps, loc = PM_W.nearest_neighbors(pe, 1)
+            pred = PM_W.compute_anomaly_score(ps.reshape(B, -1), loc.reshape(B, -1), pe.reshape(B, -1, 1536))
+            pc.extend(float(x) for x in pred)
+            t8.extend(float(x) for x in torch.topk(ps.reshape(B, -1), TOPK, dim=1).values.mean(1))
+    assert all(np.isfinite(pc)) and all(np.isfinite(t8))
+    return pc, t8
+
+
 def score_bank_rows(bank, rows_flat, C, bs):
     """固定库: 官方 NN(1)+compute_anomaly_score -> PC; 同距离 patch 轴 top8 -> T8. rows_flat: (N, C) cpu fp32."""
     pm = _SHELL
@@ -232,7 +249,7 @@ def main():
     for a in ("yoke", "glass"):
         d_ = data[a]
         arr, r2 = ffns[a]
-        ext, cd = X.batch_consistency(bb, tfm, d_["qd"][:3] + d_["qn"][:3], arr, r2)
+        ext, cd = X.batch_consistency(bb, tfm, d_["n5"][3001][:2] + d_["qd"][:3] + d_["qn"][:3], arr, r2)
         assert ext <= TOL_A and cd <= TOL_A, "%s YOLO 批量特征门超限: ext=%.2e cache=%.2e" % (a, ext, cd)
         yolo_gate[a] = {"ext_bs32_vs_bs1": ext, "cache_vs_live": cd}
     del bb
@@ -313,8 +330,8 @@ def main():
     w_pc_b = float(np.abs(np.array([float(x) for x in predN]) - np.array(preds1)).max())
     w_t8_b = float(np.abs(np.array([float(x) for x in t8N]) - np.array(t8s1)).max())
     assert w_pc_b <= TOL_A and w_t8_b <= TOL_A, "WRN 固定库两 batch 分数门超限: %.2e/%.2e" % (w_pc_b, w_t8_b)
-    # WRN 距离门 (5N 库 800 原型, 1536d)
-    rows_w = std_extract(PM_W, data["yoke"]["qd"][:2500], WRN_BS).reshape(-1, 1536)
+    # WRN 距离门 (5N 库 800 原型, 1536d; 16 图=25600 行, q=256 分块含尾块)
+    rows_w = std_extract(PM_W, data["yoke"]["qd"][:8] + data["yoke"]["qn"][:8], WRN_BS).reshape(-1, 1536)
     with torch.no_grad():
         PM_W.memory_bank = bank_w5
         psw, _ = PM_W.nearest_neighbors(rows_w.cuda(), 1)
@@ -384,15 +401,10 @@ def main():
         assert dpc <= TOL_A and dt8 <= TOL_A, "%s YOLO 5N 锚点超门限 ref%d: %.2e/%.2e" % (a, j, dpc, dt8)
         anchor["yolo_5n_%s_ref3001" % a] = {"pc_max_diff": dpc, "t8_max_diff": dt8}
         print("[anchor] YOLO 5N %s ref3001 pc=%.2e t8=%.2e" % (a, dpc, dt8), flush=True)
-    # WRN 10N: yoke ref3001 逐图重评分 (库已重建且哈希核对)
+    # WRN 10N: yoke ref3001 逐图重评分 (D 阶段已重建库并哈希核对; 流式评分)
     d_ = data["yoke"]
-    qrows_w = std_extract(PM_W, d_["qd"] + d_["qn"], WRN_BS).reshape(-1, 1536)
-    pcw, t8w = score_bank_rows(banks[("yoke", "W", 3001, "10N")] if ("yoke", "W", 3001, "10N") in banks else None, None, None, None) \
-        if False else (None, None)
-    # (用重建核对过的 10N 库: 从 wrnfix 重建 bank 已在 D 阶段但未保存张量; 此处重建一次并保存)
-    pmw10, _ = PV.make_pm(wrn_ffn, d_["n10"][3001], 7001)
-    banks[("yoke", "W", 3001, "10N")] = pmw10.memory_bank
-    pcw, t8w = score_bank_rows(pmw10.memory_bank, qrows_w, 1536, WRN_BS)
+    pcw, t8w = stream_scores_wrn(banks[("yoke_w10n_ref3001",)], d_["qd"] + d_["qn"], WRN_BS) if False else (None, None)
+    pcw, t8w = stream_scores_wrn(PV.make_pm(wrn_ffn, d_["n10"][3001], 7001)[0].memory_bank, d_["qd"] + d_["qn"], WRN_BS)
     src_pcw = json.load(open(WRNFIX + "/raw_scores/yoke-suspension__rust_W-PC-FIX_ref3001.json"))
     src_t8w = json.load(open(WRNFIX + "/raw_scores/yoke-suspension__rust_W-T8-FIX_ref3001.json"))
     k = len(d_["qd"])
@@ -431,7 +443,6 @@ def main():
         c = "%s__%s" % (d_["cat"], d_["deft"])
         qpaths = d_["qd"] + d_["qn"]
         k = len(d_["qd"])
-        qf = std_extract(PM_W, qpaths, WRN_BS).reshape(-1, 1536)
         for j in REFS:
             if (a, "W", j, "5N") not in banks:
                 pmw5, metaw5 = PV.make_pm(wrn_ffn, d_["n5"][j], 7000 + (j - 3000))
@@ -441,7 +452,7 @@ def main():
                                                    "pc_seed": 7000 + (j - 3000), "n_support": 5, "branch": "new"}
             bank = banks[(a, "W", j, "5N")]
             bh = th(bank)
-            pc, t8 = score_bank_rows(bank, qf, 1536, WRN_BS)
+            pc, t8 = stream_scores_wrn(bank, qpaths, WRN_BS)
             save_cfg("%s_W-PC_5N_ref%d" % (c, j), {"asset": a, "arm": "W-PC", "budget": "5N", "ref": j, "bank_hash": bh}, pc[:k], pc[k:], d_["qd"], d_["qn"])
             save_cfg("%s_W-T8_5N_ref%d" % (c, j), {"asset": a, "arm": "W-T8", "budget": "5N", "ref": j, "bank_hash": bh}, t8[:k], t8[k:], d_["qd"], d_["qn"])
         print("[score] %s WRN 5N 完成" % a, flush=True)
