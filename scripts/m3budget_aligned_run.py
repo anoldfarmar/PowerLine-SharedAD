@@ -94,15 +94,20 @@ def stream_scores_wrn(bank, paths, bs):
 
 
 def score_bank_rows(bank, rows_flat, C, bs):
-    """固定库: 官方 NN(1)+compute_anomaly_score -> PC; 同距离 patch 轴 top8 -> T8. rows_flat: (N, C) cpu fp32."""
+    """固定库: 官方 NN(1)+compute_anomaly_score -> PC; 同距离 patch 轴 top8 -> T8.
+    rows_flat: (N_img*1600, C) cpu fp32; 按"图"分块 (bs=每块图像数)."""
     pm = _SHELL
     pm.memory_bank = bank
+    P = 1600
+    N = rows_flat.shape[0] // P
+    assert N * P == rows_flat.shape[0], "行数不是 1600 的整数倍"
+    R = rows_flat.reshape(N, P, C)
     pc, t8 = [], []
-    N = rows_flat.shape[0]
     with torch.no_grad():
         for i in range(0, N, bs):
-            pe = rows_flat[i:i + bs].cuda()
+            pe = R[i:i + bs]
             B = pe.shape[0]
+            pe = pe.reshape(B * P, C).cuda()
             ps, loc = pm.nearest_neighbors(pe, 1)
             pred = pm.compute_anomaly_score(ps.reshape(B, -1), loc.reshape(B, -1), pe.reshape(B, -1, C))
             pc.extend(float(x) for x in pred)
@@ -283,7 +288,7 @@ def main():
     assert torch.equal(rows[:64], rows[:64].clone())
     bank_y10 = banks[("yoke", "Y", 3001, "10N")]
     pc64, t864 = score_bank_rows(bank_y10, rows, 64, 64)
-    pc1, t81 = score_bank_rows(bank_y10, rows[:8], 64, 1)
+    pc1, t81 = score_bank_rows(bank_y10, rows[:8 * 1600], 64, 1)
     y_pc_b = float(np.abs(np.array(pc1) - np.array(pc64[:8])).max())
     y_t8_b = float(np.abs(np.array(t81) - np.array(t864[:8])).max())
     assert y_pc_b <= TOL_A and y_t8_b <= TOL_A, "YOLO 固定库两 batch 分数门超限: %.2e/%.2e" % (y_pc_b, y_t8_b)
