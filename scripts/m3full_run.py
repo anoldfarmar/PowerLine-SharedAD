@@ -238,9 +238,10 @@ def main():
     d_ = data["yoke-suspension"]
     pm10, m10 = PV.make_pm(lambda ps: ffn_pick("yoke-suspension", ps), d_["n10"][3001], 7001)
     assert torch.equal(pm10.memory_bank, PV.make_pm(lambda ps: ffn_pick("yoke-suspension", ps), d_["n10"][3001], 7001)[0].memory_bank)
-    assert hash_eq(th(pm10.memory_bank), json.load(open(WRNFIX + "/BANK_MANIFEST.json"))["yoke_ref3001"]["tensor_hash"]), "yoke W10N 重建哈希与 wrnfix 不符"
     pmw5, mw5 = PV.make_pm(wrn_ffn, d_["n5"][3001], 7001)
     assert torch.equal(pmw5.memory_bank, PV.make_pm(wrn_ffn, d_["n5"][3001], 7001)[0].memory_bank)
+    pmw10, mw10 = PV.make_pm(wrn_ffn, d_["n10"][3001], 7001)
+    assert hash_eq(th(pmw10.memory_bank), json.load(open(WRNFIX + "/BANK_MANIFEST.json"))["yoke_ref3001"]["tensor_hash"]), "yoke W10N 重建哈希与 wrnfix 不符"
     rows = torch.from_numpy(np.ascontiguousarray(ffns["yoke-suspension"][0][
         [ffns["yoke-suspension"][1][p] for p in d_["qn"] + d_["faults"]["rust"]]])).reshape(-1, 64).float()
     pc64, t864 = score_bank_rows(pm10.memory_bank, rows, 64, 64)
