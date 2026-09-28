@@ -157,6 +157,28 @@ def main():
     assert wrn_hash == wfa["loaded_state_dict_sha256"], "WRN 加载态哈希与 wrnfix 冻结不符"
     yolo_sha = T.file_sha(D.WEIGHTS)
     print("[identity] WRN 加载态哈希=wrnfix冻结值; YOLO best.pt sha=%s" % yolo_sha[:12], flush=True)
+    # WRN batch 探针 (建库前选 batch; 吞吐+显存, 不按 AUROC)
+    total_vram = torch.cuda.get_device_properties(0).total_memory
+    probe_paths = data["glass"]["qd"][:32]
+    t = time.time()
+    std_extract(PM_W, probe_paths, 16)
+    t16 = time.time() - t
+    torch.cuda.reset_peak_memory_stats()
+    t = time.time()
+    v32_ok = True
+    try:
+        std_extract(PM_W, probe_paths, 32)
+        t32 = time.time() - t
+    except RuntimeError:
+        v32_ok = False
+        t32 = None
+        torch.cuda.empty_cache()
+    vram32 = torch.cuda.max_memory_allocated()
+    WRN_BS = 32 if (v32_ok and vram32 <= 0.8 * total_vram) else 16
+    BATCHLOG["wrn_probe"] = {"t_bs16_s": round(t16, 2), "t_bs32_s": round(t32, 2) if t32 else None,
+                             "vram_bs32_pct": round(100 * vram32 / total_vram, 1), "chosen_bs": WRN_BS,
+                             "rule": "16起步2倍递增; 预留20%显存; 不按AUROC"}
+    print("[probe] WRN bs16=%.2fs bs32=%s -> chosen=%d" % (t16, ("%.2fs" % t32) if t32 else "OOM", WRN_BS), flush=True)
     expected = sorted(["%s__%s_%s_%s_ref%d" % (data[a]["cat"], data[a]["deft"], arm, b, j)
                        for a in data for arm in ARMS for b in BUDGETS for j in REFS])
     X.atomic_json({"yolo_best_pt_sha256": yolo_sha, "wrn_loaded_state_hash": wrn_hash,
