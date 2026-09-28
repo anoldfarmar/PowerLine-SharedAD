@@ -31,6 +31,11 @@ def th(t):
     return hashlib.sha256(np.ascontiguousarray(t.detach().cpu().numpy()).tobytes()).hexdigest()[:32]
 
 
+def hash_eq(mine, src):
+    """源清单哈希长度不一 (M3SCORE/M3TRANSFER 存 16 字符前缀, wrnfix 存 32); 按源长度前缀比较."""
+    return str(src) == str(mine)[:len(str(src))]
+
+
 def state_hash(m):
     h = hashlib.sha256()
     for k in sorted(m.state_dict()):
@@ -261,7 +266,7 @@ def main():
             # WRN 10N 重建核对 (复用锚点)
             pmw10, metaw10 = PV.make_pm(wrn_ffn, d_["n10"][j], seed)
             ref_hash = json.load(open(WRNFIX + "/BANK_MANIFEST.json"))["%s_ref%d" % (a, j)]["tensor_hash"]
-            assert th(pmw10.memory_bank) == ref_hash, "%s W10N ref%d 重建库哈希与 wrnfix 不符" % (a, j)
+            assert hash_eq(th(pmw10.memory_bank), ref_hash), "%s W10N ref%d 重建库哈希与 wrnfix 不符" % (a, j)
             bmeta["%s_W_10N_ref%d" % (a, j)] = {"n_bank": metaw10["n_bank"], "tensor_hash": ref_hash,
                                                 "pc_seed": seed, "n_support": 10, "branch": "reused(wrnfix), 重建哈希核对"}
         print("[banks] %s ref3001 门库+双建库完成" % a, flush=True)
@@ -409,7 +414,7 @@ def main():
                 src_hash = m3man["N_star"]["ref%d" % j]["tensor_hash"]
             else:
                 src_hash = json.load(open(M3T + "/raw_scores/glass-insulator__missing-cap_Y-PC_k5_ref%d.json" % j))["bank_hash"]
-            assert th(pm5.memory_bank) == src_hash, "%s Y5N ref%d 库哈希与源不符" % (a, j)
+            assert hash_eq(th(pm5.memory_bank), src_hash), "%s Y5N ref%d 库哈希与源不符" % (a, j)
             banks[(a, "Y", j, "5N")] = pm5.memory_bank
             bmeta["%s_Y_5N_ref%d" % (a, j)] = {"n_bank": meta5["n_bank"], "dtype": str(meta5["bank_dtype"]),
                                                "bytes": meta5["bank_bytes"], "tensor_hash": src_hash,
