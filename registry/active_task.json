@@ -1,10 +1,10 @@
 {
-  "task": "M3TRANSFER-wrnfix-v1",
-  "contract": "plan/tasks/M3TRANSFER-wrnfix-v1.yaml",
+  "task": "M3BUDGET-aligned-v1",
+  "contract": "plan/tasks/M3BUDGET-aligned-v1.yaml",
   "gate_required": null,
-  "started_at": 1790232159.373336,
+  "started_at": 1790579482.077244,
   "budget": {
     "gpu_hours": 1,
-    "probe_first": true
+    "batch_rule": "YOLO32/WRN16 起步, 2 倍递增, 预留 20% 显存; OOM 减半; 不按 AUROC 选 batch"
   }
 }

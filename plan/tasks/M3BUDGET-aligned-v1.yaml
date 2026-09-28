@@ -1,0 +1,38 @@
+task: M3BUDGET-aligned-v1
+created: 2025-09-24
+status: active
+goal: >
+  完全相同的正常支持名单/查询集/支持数量下, 比较 YOLO-P3 与标准 WRN PatchCore
+  (含官方局部池化) 的原始 PC 评分与 top8 评分; 2x2x2x2x5 = 80 配置。
+scope:
+  assets: [yoke-suspension/rust, glass-insulator/missing-cap]
+  budgets: [5N, 10N]
+  supports: M3BENCH SUPPORT_LISTS.json N5/N10 (N5⊂N10 断言; 仅正常)
+  queries: 各资产 query_k5, 跨预算/方法统一
+  arms: [Y-PC, Y-T8, W-PC, W-T8]
+  forbidden: 故障支持/训练/换权重/mapper/双库/NVE/超参搜索/按查询调参
+reuse:
+  yolo_5n: M3TRANSFER-top8-v1 的 20 配置 (锚点已对 M3SCORE 逐图复现)
+  wrn_10n: M3TRANSFER-wrnfix-v1 的 20 配置 (W-PC-FIX/W-T8-FIX, 官方池化路径)
+  new: YOLO 10N 20 + WRN 5N 20
+gates:
+  batch_numeric: 特征/图像分数 batch=1 vs 正式批, atol=rtol=1e-4; 直接 vs 分块距离(跨块+尾块); 状态哈希前后一致
+  anchors: 每方法至少一组从当前代码重评分, max|diff|<=1e-4; 库哈希与源清单核对
+  wrn_smoke: 官方 forward(train 分支 embedding) vs 共享提取 小样本烟测 atol/rtol=1e-4
+  assert_timing: 门在依赖的正式评分之前立即 assert
+  same_bank: 同库 PC/T8 共享 bank 与距离
+budget:
+  gpu_hours: 1
+  batch_rule: YOLO32/WRN16 起步, 2 倍递增, 预留 20% 显存; OOM 减半; 不按 AUROC 选 batch
+acceptance:
+  - {type: file_exists, path: outputs/M3budget-aligned/BUDGET_REPORT.md}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: arm_configs_completed, min: 80}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: pre_registered_set_match, min: 1}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: gates_all_passed, min: 1}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: batch_numeric_ok, min: 1}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: anchor_ok, min: 1}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: same_bank_identity, min: 1}
+  - {type: metric_min, path: outputs/M3budget-aligned/budget_eval.json, key: reuse_manifest_ok, min: 1}
+  - {type: file_exists, path: outputs/M3budget-aligned/REUSE_MANIFEST.json}
+notes:
+  - 探索性系统比较; 非主干因果; 5 参照组非独立数据集; 5N->10N 同时增图与原型; 无显著性声明
