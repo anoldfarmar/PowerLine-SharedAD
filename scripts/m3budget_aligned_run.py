@@ -350,7 +350,7 @@ def main():
         t8N = torch.topk(psN.reshape(16, -1), TOPK, dim=1).values.mean(1)
         preds1, t8s1 = [], []
         for i in range(16):
-            pe1r = qrows[i:i + 1].cuda()
+            pe1r = qrows[i * 1600:(i + 1) * 1600].cuda()
             ps1, loc1 = PM_W.nearest_neighbors(pe1r, 1)
             preds1.append(float(PM_W.compute_anomaly_score(ps1.reshape(1, -1), loc1.reshape(1, -1), pe1r.reshape(1, -1, 1536))[0]))
             t8s1.append(float(torch.topk(ps1.reshape(1, -1), TOPK, dim=1).values.mean(1)))
