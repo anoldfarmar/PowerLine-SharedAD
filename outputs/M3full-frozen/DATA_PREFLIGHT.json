@@ -1,0 +1,129 @@
+{
+ "combos": {
+  "glass-insulator/missing-cap": {
+   "n_defect_query": 705,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  },
+  "lightning-rod-suspension/rust": {
+   "n_defect_query": 315,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  },
+  "polymer-insulator-upper-shackle/corrosion": {
+   "n_defect_query": 725,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  },
+  "polymer-insulator-upper-shackle/rust": {
+   "n_defect_query": 22,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  },
+  "vari-grip/bird-nest": {
+   "n_defect_query": 358,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  },
+  "vari-grip/rust": {
+   "n_defect_query": 295,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  },
+  "yoke-suspension/rust": {
+   "n_defect_query": 295,
+   "n_normal_query": 500,
+   "in_query_k5": true
+  }
+ },
+ "assets": {
+  "glass-insulator": {
+   "normal_candidates_raw": 720,
+   "excluded_query_overlap": 500,
+   "normal_candidate_pool": 220,
+   "n_normal_query": 500,
+   "n_defect_query_total": 705,
+   "pool_dji_total": 218,
+   "pool_dji_also_in_normal_query_src": 3,
+   "pool_dji_also_in_defect_query_src": 1,
+   "satisfy_10N_5refs_with_overlap": true,
+   "source_identity": "未知/可能同源 (裸DJI重号严重, 不作独立性声明; 仅路径级排除)",
+   "reuse_m3budget_lists": true
+  },
+  "lightning-rod-suspension": {
+   "normal_candidates_raw": 579,
+   "excluded_query_overlap": 500,
+   "normal_candidate_pool": 79,
+   "n_normal_query": 500,
+   "n_defect_query_total": 315,
+   "pool_dji_total": 79,
+   "pool_dji_also_in_normal_query_src": 0,
+   "pool_dji_also_in_defect_query_src": 0,
+   "satisfy_10N_5refs_with_overlap": true,
+   "source_identity": "未知/可能同源 (裸DJI重号严重, 不作独立性声明; 仅路径级排除)",
+   "reuse_m3budget_lists": false
+  },
+  "polymer-insulator-upper-shackle": {
+   "normal_candidates_raw": 773,
+   "excluded_query_overlap": 500,
+   "normal_candidate_pool": 273,
+   "n_normal_query": 500,
+   "n_defect_query_total": 747,
+   "pool_dji_total": 273,
+   "pool_dji_also_in_normal_query_src": 1,
+   "pool_dji_also_in_defect_query_src": 0,
+   "satisfy_10N_5refs_with_overlap": true,
+   "source_identity": "未知/可能同源 (裸DJI重号严重, 不作独立性声明; 仅路径级排除)",
+   "reuse_m3budget_lists": false
+  },
+  "vari-grip": {
+   "normal_candidates_raw": 596,
+   "excluded_query_overlap": 500,
+   "normal_candidate_pool": 96,
+   "n_normal_query": 500,
+   "n_defect_query_total": 653,
+   "pool_dji_total": 87,
+   "pool_dji_also_in_normal_query_src": 63,
+   "pool_dji_also_in_defect_query_src": 0,
+   "satisfy_10N_5refs_with_overlap": true,
+   "source_identity": "未知/可能同源 (裸DJI重号严重, 不作独立性声明; 仅路径级排除)",
+   "reuse_m3budget_lists": false
+  },
+  "yoke-suspension": {
+   "normal_candidates_raw": 6041,
+   "excluded_query_overlap": 500,
+   "normal_candidate_pool": 5541,
+   "n_normal_query": 500,
+   "n_defect_query_total": 295,
+   "pool_dji_total": 2531,
+   "pool_dji_also_in_normal_query_src": 430,
+   "pool_dji_also_in_defect_query_src": 0,
+   "satisfy_10N_5refs_with_overlap": true,
+   "source_identity": "未知/可能同源 (裸DJI重号严重, 不作独立性声明; 仅路径级排除)",
+   "reuse_m3budget_lists": true
+  }
+ },
+ "notes": [
+  "隔离口径: 仅路径级 支持∩查询=空; 源组身份按 M3DIAG5 审计为未知/可能同源 (裸DJI号跨航次重号), 不宣称独立未见或骨干未见",
+  "既有 60 张正常参照 (M3DIAG3/4) 与 det-train 全部 DJI 碰撞; 本轮支持池沿用 defect_supervised good/normal 池, 属评测池隔离",
+  "正常支持以裁剪计数, 非独立拍摄源帧数"
+ ],
+ "feasible_combos": [
+  "glass-insulator/missing-cap",
+  "lightning-rod-suspension/rust",
+  "polymer-insulator-upper-shackle/corrosion",
+  "polymer-insulator-upper-shackle/rust",
+  "vari-grip/bird-nest",
+  "vari-grip/rust",
+  "yoke-suspension/rust"
+ ],
+ "blocked_combos": [],
+ "expected_configs": 280,
+ "reuse_from_m3budget": {
+  "configs": 80,
+  "combos": [
+   "yoke-suspension/rust",
+   "glass-insulator/missing-cap"
+  ]
+ }
+}

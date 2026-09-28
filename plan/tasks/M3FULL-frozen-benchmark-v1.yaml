@@ -1,0 +1,53 @@
+task: M3FULL-frozen-benchmark-v1
+created: 2025-09-24
+status: active
+goal: >
+  冻结 YOLO-P3 正常库方案, 在原计划全部 7 个资产-故障组合上与标准 WRN PatchCore 及
+  WRN-top8 进行正常支持预算对齐 (5N/10N) 的 AUROC 评测; 复用 M3BUDGET 80 配置,
+  新增 200 配置; 主分析 10N, 补充 5N。
+scope:
+  combos: [glass-insulator/missing-cap, lightning-rod-suspension/rust, polymer-insulator-upper-shackle/corrosion,
+           polymer-insulator-upper-shackle/rust, vari-grip/bird-nest, vari-grip/rust, yoke-suspension/rust]
+  budgets: [5N, 10N]
+  refs: [3001, 3002, 3003, 3004, 3005]
+  arms: [Y-PC, Y-T8, W-PC, W-T8]
+  expected_configs: 280
+  bank_sharing: 同资产多故障共用正常库与正常查询评分 (polymer/vari-grip 各一份)
+  new_support_sampling: 合格池(路径级排除查询) 排序后 numpy Generator(PCG64(ref_id)) 置乱, N10=前10, N5=前5, 组间重叠记录
+forbidden: [故障支持建库, 训练/微调/换权重, mapper/双库/NVE, 超参或种子搜索, 按结果删资产或参照组]
+reuse:
+  source: M3BUDGET-aligned-v1 的 80 配置 (yoke/glass × 4臂 × 2预算 × 5refs)
+  condition: 名单/权重加载态/特征路径/建库种子与库身份/评分规则一致; 逐文件溯源+独立重算
+  anchors: 每主干至少一组当前代码重评分 max|diff|<=1e-4
+gates:
+  data: 支持∩查询=空(路径级), N5⊂N10, 标签侧与集合一致
+  weights: WRN 加载态哈希=wrnfix 审计值; YOLO best.pt sha 冻结
+  wrn_path: extractor->pooler->generate_embedding->reshape_embedding; 官方 forward 小样本对照
+  official_score: 固定库适配评分 vs 官方完整推理 pred_score
+  batch: 支持/正常查询/故障查询上 bs1 vs 正式批, atol=rtol=1e-4
+  distance: 查询/原型分块(跨块+尾块) vs 直接 fp64
+  top8: patch 轴 (合成验证)
+  state: 主干状态哈希前后不变; 双建库一致 (每新增资产×主干≥1组)
+  assert_timing: 全部在依赖的正式评分前立即 assert
+budget:
+  gpu_hours: 2
+  note: 上限非目标; 先估算; 复用优先; 超支即停
+analysis:
+  macro: 每参照组先跨组合宏平均, 再汇总 5 组; 另报资产等权 (资产内平均故障再跨资产)
+  comparisons: [10N Y-T8−W-PC 主, 10N Y-T8−W-T8 对照, 5N 同比, 各主干×预算 T8−PC, 各方法 10N−5N]
+  discipline: 无显著性声明; 共享正常查询的故障组合非独立; 10N−5N 非纯样本量
+acceptance:
+  - {type: file_exists, path: outputs/M3full-frozen/FULL_REPORT.md}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: arm_configs_completed, min: 280}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: pre_registered_set_match, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: gates_all_passed, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: batch_numeric_ok, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: anchor_ok, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: same_bank_identity, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: reuse_manifest_ok, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: macro_ok, min: 1}
+  - {type: metric_min, path: outputs/M3full-frozen/full_eval.json, key: data_preflight_ok, min: 1}
+  - {type: file_exists, path: outputs/M3full-frozen/DATA_PREFLIGHT.md}
+notes:
+  - 部分覆盖时只报可行子集宏平均并列出阻塞项; 不宣称完整 7 组合达成
+  - 结论边界见 METHOD_SPEC; 不自动追加搜索/部署/新数据
