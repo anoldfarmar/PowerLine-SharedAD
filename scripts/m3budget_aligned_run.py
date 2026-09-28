@@ -119,7 +119,7 @@ def score_bank_rows(bank, rows_flat, C, bs):
 def chunked_direct(rows, bank, cq, cp):
     """查询/原型分块 fp64 距离 -> 每行最小值."""
     outs = []
-    b = bank.double()
+    b = bank.detach().cpu().double()
     for i in range(0, rows.shape[0], cq):
         blk = rows[i:i + cq].double()
         sub = []
@@ -298,7 +298,7 @@ def main():
         PM_W.memory_bank = bank_y10
         ps_off, _ = PM_W.nearest_neighbors(rows2500.cuda(), 1)
     ps_off = ps_off.reshape(-1).cpu()
-    direct = torch.cdist(rows2500.double(), bank_y10.double()).min(1).values
+    direct = torch.cdist(rows2500.double(), bank_y10.detach().cpu().double()).min(1).values
     chunked = chunked_direct(rows2500, bank_y10, 256, 512)
     y_d1 = float((ps_off.double() - direct).abs().max())
     y_d2 = float((chunked - direct).abs().max())
@@ -363,7 +363,7 @@ def main():
         PM_W.memory_bank = bank_w5
         psw, _ = PM_W.nearest_neighbors(rows_w.cuda(), 1)
     psw = psw.reshape(-1).cpu()
-    directw = torch.cdist(rows_w.double(), bank_w5.double()).min(1).values
+    directw = torch.cdist(rows_w.double(), bank_w5.detach().cpu().double()).min(1).values
     chunkedw = chunked_direct(rows_w, bank_w5, 256, 256)
     w_d1 = float((psw.double() - directw).abs().max())
     w_d2 = float((chunkedw - directw).abs().max())
