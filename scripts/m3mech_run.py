@@ -254,8 +254,9 @@ def main():
               "A2_Y-POOL": {"module": "同 A1 P3", "pool": "AvgPool2d(3,1,1) 在 L2 之前", "norm": "池化后逐位置 L2",
                              "out": "64ch 40x40 -> 1600 pos", "cache": "本任务新提取 (同确定性口径)"},
               "A3_W-STD": {"module": "timm wide_resnet50_2 layer2+layer3 -> feature_pooler(AvgPool2d(3,1,1)/层) -> 融合展平",
-                            "out": "1536d x 2000 pos (1600+400)", "norm": "无额外 L2", "preprocess": "T.wrn_tf() 320"},
-              "A4_W-NOPOOL": {"module": "同 A3 但去掉 feature_pooler", "out": "1536d x 2000 pos", "norm": "无额外 L2"}},
+                            "out": "1536d x 1600 pos (官方融合: layer3 上采样到 layer2 网格后通道拼接, 实证)",
+                            "norm": "无额外 L2", "preprocess": "T.wrn_tf() 320"},
+              "A4_W-NOPOOL": {"module": "同 A3 但去掉 feature_pooler", "out": "1536d x 1600 pos (同一上采样融合, 无池化)", "norm": "无额外 L2"}},
           "coreset": {"algo": "anomalib KCenterGreedy", "ratio": 0.1, "seeds": {str(j): 7000 + (j - 3000) for j in REFS},
                        "phaseB_M": 1000, "phaseB_note": "M=min(历史P3 10N容量1600, 层候选最小 10x100=1000); P5 候选恰=1000 全保留"},
           "scorings_phaseA": ["official_pc", "pure_max", "top4", "top8", "top16", "top32", "mean_all"],
@@ -387,7 +388,7 @@ def main():
             assert hash_eq(th(pm.memory_bank), mb_banks["yoke_W_10N_ref3001"]["tensor_hash"]), "A3 重建库哈希不符"
             assert hash_eq(th(pm.memory_bank), wfa and json.load(open(D.ROOT + "/outputs/M3transfer-wrnfix/BANK_MANIFEST.json"))["yoke_ref3001"]["tensor_hash"]), "A3 vs wrnfix 哈希不符"
             gates["repro"]["A3_bank_hash_yoke"] = True
-        Dm, pc = score_arm(wrn_ffn_pool, pm.memory_bank, d_["allq"], 2000)
+        Dm, pc = score_arm(wrn_ffn_pool, pm.memory_bank, d_["allq"], 1600)
         sc = scores_from_D(Dm, pc)
         src = json.load(open("%s/raw_scores/%s_W-PC_10N_ref3001.json" % (D.ROOT + "/outputs/M3full-frozen", COMBO[a])))
         idx = {p: i for i, p in enumerate(d_["allq"])}
@@ -419,13 +420,13 @@ def main():
     w32n = wrn_feats(wsub, False).reshape(len(wsub), -1, 1536)
     w1p = torch.cat([wrn_feats([p], True).reshape(1, -1, 1536) for p in wsub], 0)
     w1n = torch.cat([wrn_feats([p], False).reshape(1, -1, 1536) for p in wsub], 0)
-    assert w32p.shape[1] == 2000 and w32n.shape[1] == 2000, "WRN 位置数与预期 2000 不符"
+    assert w32p.shape[1] == 1600 and w32n.shape[1] == 1600, "WRN 位置数与预期 1600 不符"
     bg = {"A2_feat_bs1_vs_32": float(np.abs(a2.numpy() - a2_1.numpy()).max()),
            "A3_feat_bs1_vs_32": float(np.abs(w32p.numpy() - w1p.numpy()).max()),
            "A4_feat_bs1_vs_32": float(np.abs(w32n.numpy() - w1n.numpy()).max()),
            "A2_vs_A1_feat_shift": float(np.abs(a2.numpy() - yraw_fn(a)(sub).numpy()).max()),
            "A4_vs_A3_feat_shift": float(np.abs(w32n.numpy() - w32p.numpy()).max()),
-           "wrn_positions": 2000, "yolo_p3_positions": 1600}
+           "wrn_positions": 1600, "yolo_p3_positions": 1600}
     assert bg["A2_feat_bs1_vs_32"] <= 1e-4 + 1e-4 and bg["A4_feat_bs1_vs_32"] <= 1e-4 + 1e-4 and bg["A3_feat_bs1_vs_32"] <= 1e-4 + 1e-4
     # 固定库两 batch 分数门 (A2)
     pm2, _ = make_bank(ypool_fn(a), d_["n10"][3001], 7001)
@@ -463,8 +464,8 @@ def main():
     t = time.time()
     ARMS = [("Y-RAW", lambda a_: yraw_fn(a_), 1600, "phaseA"),
             ("Y-POOL", lambda a_: ypool_fn(a_), 1600, "phaseA"),
-            ("W-STD", lambda a_: wrn_ffn_pool, 2000, "phaseA"),
-            ("W-NOPOOL", lambda a_: wrn_ffn_nopool, 2000, "phaseA")]
+            ("W-STD", lambda a_: wrn_ffn_pool, 1600, "phaseA"),
+            ("W-NOPOOL", lambda a_: wrn_ffn_nopool, 1600, "phaseA")]
     bank_manifest = {}
     Dsave = {}
     for arm_name, ffn, P, ph in ARMS:
@@ -488,7 +489,6 @@ def main():
                         B = q.shape[0]
                         pe = q.reshape(B * P, q.shape[2]).to(PV.DEVICE)
                         for j in REFS:
-                            PM_SHELL = None
                             pmj, _ = banks[j]
                             PM_W.memory_bank = pmj.memory_bank
                             ps, loc = PM_W.nearest_neighbors(pe, 1)
@@ -519,6 +519,7 @@ def main():
 
     # ========== 阶段B ==========
     t = time.time()
+    PM_SHELL = PM_W  # W 臂循环曾置全局壳, 阶段B恢复
     M = 1000
     B_results = {}
     Db_save = {}
@@ -564,8 +565,8 @@ def main():
     atomic_json(gates, os.path.join(OUT, "repro_gates.json"))
     feat_man = {"A1_Y-RAW": {"positions": 1600, "dim": 64, "norm": "逐位置L2", "source": "M3FULL 历史缓存"},
                 "A2_Y-POOL": {"positions": 1600, "dim": 64, "norm": "AvgPool2d(3,1,1)后逐位置L2", "source": "cache/ypool_*"},
-                "A3_W-STD": {"positions": 2000, "dim": 1536, "norm": "无额外L2 (官方池化)", "source": "流式"},
-                "A4_W-NOPOOL": {"positions": 2000, "dim": 1536, "norm": "无额外L2 (无池化)", "source": "流式"},
+                "A3_W-STD": {"positions": 1600, "dim": 1536, "norm": "无额外L2 (官方池化+上采样融合, 实证)", "source": "流式"},
+                "A4_W-NOPOOL": {"positions": 1600, "dim": 1536, "norm": "无额外L2 (无池化, 同一上采样融合)", "source": "流式"},
                 "phaseB": {"p3": {"pos": 1600, "ch": 64}, "p4": {"pos": 400, "ch": 128},
                             "p5": {"pos": 100, "ch": 256, "module": "backbone layer9 SPPF (含SPPF, 实证 shape [1,256,10,10])"}}}
     atomic_json(feat_man, os.path.join(OUT, "FEATURE_MANIFEST.json"))
