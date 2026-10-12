@@ -1,0 +1,43 @@
+task: M3MECH-top8-v1
+created: 2025-09-29
+status: active
+goal: >
+  机制诊断: 解释 YOLO+top8 收益来源 (孤立尖峰抑制? 高分位置分布? 池化聚合差异? P3/P4/P5 层间差异来源?),
+  为后续算法设计提供证据。探索性机制诊断, 历史查询集, 不作泛化声明。
+results_dir: /root/autodl-tmp/version10-12
+scope:
+  combos: [yoke-suspension/rust, vari-grip/bird-nest]
+  budget: 10N
+  refs: [3001, 3002, 3003, 3004, 3005]
+  phaseA_arms:
+    A1_Y-RAW: 当前 YOLO P3 + 逐位置 L2 (历史口径, 复用身份绑定缓存)
+    A2_Y-POOL: 同一 P3 输出, AvgPool2d(3,1,1) 后逐位置 L2 (新提取)
+    A3_W-STD: 官方 WRN layer2+3 + feature_pooler (无额外 L2)
+    A4_W-NOPOOL: 同权重同路径, 去掉 feature_pooler
+  phaseA_scorings: [official_pc, pure_max, top4, top8, top16, top32, mean_all]
+  phaseA_main: G = AUROC(top8) - AUROC(pure_max); G(Y-RAW) vs G(Y-POOL); G(W-STD) vs G(W-NOPOOL)
+  phaseB_layers: [P3=layer4(64ch,40x40), P4=layer6(128ch,20x20), P5=layer9 SPPF(256ch,10x10)]
+  phaseB_capacity: M = min(历史P3 10N库容量, 各层候选最小值), P3/P4/P5 统一; P5 全保留需披露
+  phaseB_scorings: [pure_max, top8, top0.5pct, top1pct]
+  vis: 固定随机组 (每资产正常/故障各12, PCG64 冻结, 源组分散) + 失败案例组 (规则预注册, 结果驱动, 标注非随机)
+  repro_gates: A1/A3 官方评分与 top8 对 M3FULL 逐图分数 (atol=rtol=1e-4), 含路径集合/标签侧/支持名单核对
+forbidden: [训练新主干或映射器, 注意力模块, 扩展数据集, 板端部署, 按结果挑最佳层或k后宣称提升]
+data_identity:
+  - 裸DJI号碰撞不作为同源确认; 号级100%碰撞是保守上界统计
+  - 已抽验3例同号全帧均不含对应裁剪内容 (SIFT/NCC+目视), 帧级包含未证实; 其余身份未知
+  - 若文字与机读数字矛盾, 记录矛盾, 不沿用100%重叠表述
+budget:
+  gpu_hours: 2
+acceptance:
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/REPORT.md}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: arms_completed, min: 4}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: repro_gate_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: batch_gates_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: bank_double_build_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: state_hash_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: phase_b_completed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: vis_completed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/metrics.json, key: set_match, min: 1}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/FROZEN_INPUTS.json}
+notes:
+  - 大缓存/原始图像不提交 Git; 新代码入 scripts/ 并参数化结果目录
