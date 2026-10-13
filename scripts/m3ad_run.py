@@ -237,11 +237,12 @@ class Experiment:
             bs_times.append((sec/b,b))
             del x,v
         # Batch-consistency rule (frozen before formal run): a probed batch may serve the
-        # formal run only if it reproduces batch1 features within atol=rtol=1e-4 on the
-        # probe geometry; otherwise batch=1 (compute graph identical to official per-image
-        # pipeline). Measured: batched cuBLAS kernels differ from batch1 by ~0.8-1.2e-4
-        # (deterministic per shape; same-batch rerun self-diff 0.0) -> batch=1 for formal.
-        passing=[r['batch'] for r in c['batch_features'] if r['allclose']]
+        # formal run only if its features match batch1 with max_abs_diff <= 1e-4 (atol-only,
+        # no rtol slack) on the probe geometry; otherwise batch=1, whose compute graph is
+        # identical to the official per-image pipeline. Measured: batched cuBLAS kernels
+        # differ from batch1 by ~0.8-1.2e-4 (deterministic per shape; same-batch rerun
+        # self-diff 0.0) -> batch=1 for the formal run.
+        passing=[r['batch'] for r in c['batch_features'] if r['max_abs_diff']<=1e-4]
         batch=passing[0] if passing else 1
         t0=now()
         with torch.inference_mode():one=self.wrapper.extract_features(t)
