@@ -1,0 +1,41 @@
+task: M3MECH-followup-v2
+created: 2025-09-30
+status: active
+goal: >
+  收束轮: M3FULL 生成脚本根因修复; 已有分数的排序转换分析 (top8 收益机制);
+  已有阶段B层级评分整理; 空间聚集几何统计修正 (经验随机参照);
+  AnomalyDINO 仅准备适配入口 (不下载/不建库/不推理)。
+  取消人工区域标注准备 (范围修订), 标注延期列入未验证机制, 不作为验收项。
+results_dir: /root/autodl-tmp/version10-12/M3MECH-followup-v2
+scope:
+  objects:
+    combos: [yoke-suspension/rust, vari-grip/bird-nest]
+    budget: 10N
+    refs: [3001, 3002, 3003, 3004, 3005]
+    inputs: M3FULL 修正后 raw_scores + M3MECH phaseA/phaseB 分数与距离缓存 (复用, 不重跑 GPU)
+  forbidden:
+    - 训练新主干/增加模块/重跑 GPU 特征提取
+    - 下载 DINOv2 或 AnomalyDINO 模型权重, 启动建库/推理/评测/CUDA预热
+    - 官方自动抽样支持或整查询集批量零样本模式
+    - 新盲标图/标注模板/标注汇总脚本 (范围修订取消)
+    - 认定高分位置属于背景或真实故障; 报告定位准确率或背景误报占比
+    - 拼接各资产最优层宣称新系统; 宣称新算法提升或独立泛化
+  disciplines:
+    - 五组参照非独立数据集; 正常支持预算按裁剪文件数
+    - max/top8 比率接近1不能单独证明否定尖峰解释; 分散投票仍是待验证假设
+    - 空间统计只作几何描述, 不证明语义独立或故障定位
+    - 层间比较披露通道/感受野/候选保留方式混杂
+budget:
+  gpu_hours: 0
+acceptance:
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/REPORT.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/ROOTCAUSE_FIX.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/BASELINE_SPEC_DRAFT.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/rank_transition_metrics.json}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/metrics.json, key: rootcause_fix_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/metrics.json, key: rank_identity_pass, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/metrics.json, key: layer_analysis_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/metrics.json, key: spatial_analysis_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3MECH-followup-v2/metrics.json, key: baseline_entry_ok, min: 1}
+notes:
+  - 大缓存/权重/原始图片不入 Git; 代码入 scripts/ 并参数化结果路径
