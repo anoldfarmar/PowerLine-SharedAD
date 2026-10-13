@@ -1,6 +1,10 @@
 """Strict inverse of HF's official dinov2 conversion; no weights downloaded.
 Mapping reference: transformers v4.32.0 models/dinov2/convert_dinov2_to_hf.py.
 Independent split-QKV functional forward provides final-patch equivalence gate.
+qkv is concatenated and reshaped exactly like the official Attention module: separate
+strided tensors dispatch SDPA to a different kernel (up to 1.2e-4 drift at 1025 tokens);
+with the official construction the gate is bitwise 0.0, so it measures the weight mapping
+and composition (QKV order additionally proven by roundtrip equality asserts).
 """
 import hashlib
 import json
@@ -95,8 +99,9 @@ def independent_hf_forward(x,hf):
     y=y+pos
     for i in range(12):
         p=f'encoder.layer.{i}'; z=norm(y,p+'.norm1')
-        q,k,v=[linear(z,p+'.attention.attention.'+a).reshape(b,-1,6,64).transpose(1,2) for a in ['query','key','value']]
-        z=((q@k.transpose(-1,-2)/8).softmax(-1)@v).transpose(1,2).reshape(b,-1,384)
+        qkv=F.linear(z,torch.cat([s[p+'.attention.attention.'+a+'.weight'] for a in ['query','key','value']],0),torch.cat([s[p+'.attention.attention.'+a+'.bias'] for a in ['query','key','value']],0)).reshape(b,-1,3,6,64).permute(2,0,3,1,4)
+        q,k,v=qkv.unbind(0)
+        z=((F.scaled_dot_product_attention(q,k,v,scale=0.125)).transpose(1,2).reshape(b,-1,384))
         y=y+linear(z,p+'.attention.output.dense')*s[p+'.layer_scale1.lambda1']
         y=y+linear(F.gelu(linear(norm(y,p+'.norm2'),p+'.mlp.fc1')),p+'.mlp.fc2')*s[p+'.layer_scale2.lambda1']
     return norm(y,'layernorm')[:,1:]
