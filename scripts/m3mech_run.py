@@ -525,6 +525,7 @@ def main():
     Db_save = {}
     for a in ASSETS:
         d_ = data[a]
+        qn_n = len(d_["qn"])
         for lname, P, C_ in (("p3", 1600, 64), ("p4", 400, 128), ("p5", 100, 256)):
             fn = p_fn(a, lname)
             for j in REFS:
@@ -538,7 +539,7 @@ def main():
                 s["top0.5pct"] = np.sort(Dm, 1)[:, -k05:].mean(1).astype(np.float64)
                 s["top1pct"] = np.sort(Dm, 1)[:, -k1:].mean(1).astype(np.float64)
                 rec = {"asset": a, "layer": lname, "ref": j, "M": M, "k": {"top8": 8, "top0.5pct": k05, "top1pct": k1},
-                        "defect": {p: {kk: float(vv[i]) for kk, vv in s.items()} for i, p in enumerate(d_["qd"])},
+                        "defect": {p: {kk: float(vv[qn_n + i]) for kk, vv in s.items()} for i, p in enumerate(d_["qd"])},
                         "normal": {p: {kk: float(vv[i]) for kk, vv in s.items()} for i, p in enumerate(d_["qn"])},
                         "bank": meta, "duplicate_k": k05 == k1}
                 atomic_json(rec, os.path.join(OUT, "raw_scores", "phaseB", "%s_%s_%s_ref%d.json" % (COMBO[a], lname.upper(), a, j)).replace(a + "_", "", 1) if False else os.path.join(OUT, "raw_scores", "phaseB", "%s_%s_ref%d.json" % (COMBO[a], lname, j)))
@@ -584,8 +585,9 @@ def main():
 
 
 def save_arm_scores(arm_name, a, j, sc, d_, meta):
+    qn_n = len(d_["qn"])
     rec = {"arm": arm_name, "asset": a, "ref": j, "budget": "10N", "bank": meta,
-            "defect": {p: {k: float(v[i]) for k, v in sc.items()} for i, p in enumerate(d_["qd"])},
+            "defect": {p: {k: float(v[qn_n + i]) for k, v in sc.items()} for i, p in enumerate(d_["qd"])},
             "normal": {p: {k: float(v[i]) for k, v in sc.items()} for i, p in enumerate(d_["qn"])}}
     atomic_json(rec, os.path.join(OUT, "raw_scores", "phaseA", "%s_%s_%s_ref%d.json" % (COMBO[a], arm_name, a, j)).replace(a + "_", "", 1) if False else os.path.join(OUT, "raw_scores", "phaseA", "%s_%s_ref%d.json" % (COMBO[a], arm_name, j)))
 

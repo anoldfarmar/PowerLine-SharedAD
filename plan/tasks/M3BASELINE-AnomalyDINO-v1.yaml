@@ -1,0 +1,36 @@
+task: M3BASELINE-AnomalyDINO-v1
+title: Official AnomalyDINO with local DINOv2-small versus frozen M3MECH baselines
+authorized_by: user task brief 2026-10-13
+gate_required: null
+budget: {gpu_hours: 2, wall_clock_h: 4}
+results_dir: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1
+scope:
+  assets: [yoke-suspension/rust, vari-grip/bird-nest]
+  supports: frozen M3MECH and M3FULL 10N ref3001-3005; no resampling
+  queries: frozen M3MECH paths and labels, checked against query_k5
+  configs: 10
+  method: official dinov2_vits14, short edge448, FP32, nonTF32, exact normalizedL2 FAISS1NN, mean_top1p
+  preprocessing: official unknown-dataset agnostic fallback; masking=false, rotation=true, mask_ref_images=false
+  weights: local HF dinov2-small; strict inverse official conversion plus independent patch forward check
+  dependencies: reuse /root/autodl-tmp/envs/anomalydino; no environment reinstall
+  baseline_reuse: verified M3MECH Y-RAW top8 and W-STD official_pc; bind paths,labels,hashes
+steps:
+  - inspect official source, environment, weights and freeze inputs
+  - execute strict load and patch equivalence, batch1/batch, exact retrieval, mapping, repeat bank and state checks
+  - measure feature batches8/16/32 and exactFAISS cost, memory, cache disk; gate full at2GPUhours
+  - run10 configurations using resumable verified path caches, same queries across5banks
+  - independent average-rank AUROC, paired5group summaries, honest report; accept, register, sync small artifacts
+forbidden:
+  - new model training, SubspaceAD, Giant weights, new splits, threshold selection, approximate retrieval
+  - querying labels to select masking, rotation, settings or references
+  - modifying historical scripts/results, deleting data, overwriting unfinished tasks
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/metrics.json, key: configs_completed, min: 10}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/metrics.json, key: correctness_passed, min: 1}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/BASELINE_REPORT.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/FROZEN_INPUTS.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/MODEL_IDENTITY.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/BANK_MANIFEST.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/CACHE_MANIFEST.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-v1/RESOURCE_COST.json}
+notes: 'Success means correct complete execution, not YOLO winning. No follow-on tasks. New contract authorized by requested repository activation workflow.'
