@@ -366,9 +366,15 @@ def main():
     for a in ("lightning-rod-suspension", "polymer-insulator-upper-shackle", "vari-grip"):
         d_ = data[a]
         arr, r2 = ffns[a]
-        allq = list(d_["qn"]) + [p for f in FAULTS[a] for p in d_["faults"][f]]
+        qn = list(d_["qn"])  # E2-FIX: 每资产显式取本资产正常查询, 禁止沿用锚点阶段残留的 qn (曾为 yoke)
+        allq = qn + [p for f in FAULTS[a] for p in d_["faults"][f]]
+        assert len(set(allq)) == len(allq), "E2-FIX: 路径不唯一"
+        assert set(qn).isdisjoint(set(p for f in FAULTS[a] for p in d_["faults"][f])), "E2-FIX: 正常/故障相交"
+        assert all(("/%s/" % a) in p for p in allq), "E2-FIX: 出现他资产路径"
+        assert set(qn) == set(qq["normal_query"]["%s/good" % a]), "E2-FIX: 正常集合与冻结清单不符"
         rows = torch.from_numpy(np.ascontiguousarray(arr[[r2[p] for p in allq]])).reshape(-1, 64).float()
-        qn_n = len(d_["qn"])
+        qn_n = len(qn)
+        assert rows.shape[0] == len(allq) == qn_n + sum(len(d_["faults"][f]) for f in FAULTS[a]), "E2-FIX: 路径数与分数数不一致"
         segs = {}
         ofs = qn_n
         for f in FAULTS[a]:
@@ -381,11 +387,14 @@ def main():
                 bank = pm.memory_bank
                 bh = th(bank)
                 pc, t8 = score_bank_rows(bank, rows, 64, 64)
+                assert len(pc) == len(allq) and len(t8) == len(allq), "E2-FIX: 分数数与路径数不一致"
                 npc = pc[:qn_n]
                 nt8 = t8[:qn_n]
+                assert len(npc) == qn_n and len(nt8) == qn_n, "E2-FIX: 正常分数数不符"
                 for f in FAULTS[a]:
                     s0, s1 = segs[f]
                     c = "%s__%s" % (a, f)
+                    assert s1 - s0 == len(d_["faults"][f]), "E2-FIX: 故障切片长度不符"
                     save_cfg("%s_Y-PC_%s_ref%d" % (c, b, j), {"asset": a, "fault": f, "arm": "Y-PC", "budget": b,
                                                               "ref": j, "bank_hash": bh}, pc[s0:s1], npc, d_["faults"][f], qn)
                     save_cfg("%s_Y-T8_%s_ref%d" % (c, b, j), {"asset": a, "fault": f, "arm": "Y-T8", "budget": b,
