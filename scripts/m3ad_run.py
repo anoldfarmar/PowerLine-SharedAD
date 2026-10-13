@@ -234,10 +234,18 @@ class Experiment:
             ok=np.allclose(v,np.broadcast_to(base,v.shape),atol=1e-4,rtol=1e-4)
             c['batch_features'].append(dict(batch=b,seconds=sec,seconds_per_image=sec/b,max_abs_diff=float(np.max(np.abs(v-base))),allclose=ok,
                   peak_allocated_bytes=torch.cuda.max_memory_allocated()))
-            assert ok
             bs_times.append((sec/b,b))
             del x,v
-        batch=min(bs_times)[1]
+        # Batch-consistency rule (frozen before formal run): a probed batch may serve the
+        # formal run only if it reproduces batch1 features within atol=rtol=1e-4 on the
+        # probe geometry; otherwise batch=1 (compute graph identical to official per-image
+        # pipeline). Measured: batched cuBLAS kernels differ from batch1 by ~0.8-1.2e-4
+        # (deterministic per shape; same-batch rerun self-diff 0.0) -> batch=1 for formal.
+        passing=[r['batch'] for r in c['batch_features'] if r['allclose']]
+        batch=passing[0] if passing else 1
+        t0=now()
+        with torch.inference_mode():one=self.wrapper.extract_features(t)
+        c['batch1_seconds_per_image']=now()-t0
         c['batch_rectangle']=[]
         t,grid=self.tensor(self.item(rect));one=self.wrapper.extract_features(t)
         with torch.inference_mode():v=self.wrapper.model.get_intermediate_layers(t.unsqueeze(0).repeat(batch,1,1,1).cuda())[0].cpu().numpy()
@@ -310,7 +318,8 @@ class Experiment:
         items=self.all_items();totalpatch=0
         for i in items:
             w,h=Image.open(i['path']).size;totalpatch+=(448//14)*(int(448*max(w,h)/min(w,h))//14)
-        estimate=(now()-self.start)+len(items)*max(x['seconds_per_image'] for x in c['batch_features'])*3
+        rate=c['batch1_seconds_per_image'] if batch==1 else max(x['seconds_per_image'] for x in c['batch_features'])
+        estimate=(now()-self.start)+len(items)*rate*3
         estimate+=sum(len(self.queries[p['asset']]['normal']+self.queries[p['asset']]['defect'])*5*p['gpu_search_per_image_seconds']*3 for p in probes)
         disk=totalpatch*384*4+sum(p['bank_bytes']*5 for p in probes)+200*1024**2
         cost=dict(probes=probes,batch_probes=c['batch_features'],selected_batch=batch,estimated_total_seconds=estimate,
