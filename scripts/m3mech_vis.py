@@ -116,6 +116,7 @@ def main():
                     i = order_index(layer_order[ln], [p])[0]
                     ax.imshow(overlay(orig, heat(Dl[ln][i], Hl[ln], Hl[ln], vmaxl[ln])))
                     ax.set_title("%s M=1000 (vmax=%.3g)" % (ln.upper(), vmaxl[ln]), fontsize=8); ax.axis("off")
+                axes[1, 4].axis("off")  # 第2行仅4格, 关掉残留坐标轴
                 role = "normal" if "/good/" in p else "fault"
                 fig.suptitle("%s | %s | %s#%d | %s" % (a, gname, role, k + 1, os.path.basename(p)[:60]), fontsize=9)
                 fig.tight_layout()
