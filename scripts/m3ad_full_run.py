@@ -574,10 +574,10 @@ class Experiment:
                     combo_scores[(asset, f, j)] = (defect_scores, normal_scores[j])
                     del idx, bank
                 print(f"[scored] {asset}/{f}", flush=True)
+        expected = read(self.out / "EXPECTED_CONFIGS.json")["configs"]
         assert all(e["source"] == "v1" or combo_scores.get((e["asset"], e["fault"], e["ref"]), (None,))[0] is not None
                     for e in expected), "missing defect scores for new configs"
         # write 35 config files
-        expected = read(self.out / "EXPECTED_CONFIGS.json")["configs"]
         for e in expected:
             name = e["config"]
             dest = self.out / "raw_scores" / f"{name}.json"
