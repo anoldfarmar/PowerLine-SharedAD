@@ -316,6 +316,8 @@ class Experiment:
 
     def bank(self, items, save_to=None):
         t = now()
+        if save_to:
+            Path(save_to).parent.mkdir(parents=True, exist_ok=True)
         a = np.concatenate([self.features(i) for i in items]).astype("float32")
         faiss.normalize_L2(a)
         cfg = faiss.GpuIndexFlatConfig(); cfg.device = 0; cfg.useFloat16 = False
