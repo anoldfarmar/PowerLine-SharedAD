@@ -430,11 +430,12 @@ class Experiment:
         items = self.support_items(asset, 3002)
         qps = b[asset]["normal_query"][:15] + b[asset]["faults"]["missing-cap"][:15]
         items += [self.item(p) for p in qps]
+        pending = [i for i in items if not self._was_hit(i)]
         t = now()
         self.extract(items)
         probe_s = now() - t
         n_new_total = self._count_new_items()
-        rate = probe_s / max(len([i for i in items if not self._was_hit(i)]), 1)
+        rate = probe_s / max(len(pending), 1)
         est = n_new_total * rate + 15 * 2.5 + self._estimate_search()
         cost = dict(probe_items=len(items), probe_seconds=probe_s, new_items_total=n_new_total,
                      rate_s_per_item=rate, estimated_total_seconds=est, gpu_budget_seconds=7200,
