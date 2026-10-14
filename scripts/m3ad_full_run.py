@@ -490,11 +490,17 @@ class Experiment:
         items = self.all_support_items()
         for asset in ASSET_FAULTS:
             if (asset, ASSET_FAULTS[asset][0]) in V1_ASSET_FAULTS:
+                # v1 asset: normal/first-fault queries cached from v1; extract only
+                # defect queries of faults NOT covered by v1 (vari/rust)
+                for f2 in ASSET_FAULTS[asset]:
+                    if (asset, f2) not in V1_ASSET_FAULTS:
+                        for p in b[asset]["faults"][f2]:
+                            items.append(self.item(p))
                 continue
             for p in b[asset]["normal_query"]:
                 items.append(self.item(p))
-            for f in b[asset]["faults"]:
-                for p in b[asset]["faults"][f]:
+            for f2 in b[asset]["faults"]:
+                for p in b[asset]["faults"][f2]:
                     items.append(self.item(p))
         uniq = {}
         for it in items:
