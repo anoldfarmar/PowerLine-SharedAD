@@ -1,0 +1,40 @@
+task: M3BASELINE-AnomalyDINO-full-v1
+title: AnomalyDINO-S/448 frozen config extended to 7 InsPLAD combos vs Y-T8/W-PC/W-T8
+authorized_by: user task brief (full-v1)
+gate_required: null
+budget: {gpu_hours: 2, wall_clock_h: 4}
+results_dir: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1
+scope:
+  combos:
+    - glass-insulator/missing-cap
+    - lightning-rod-suspension/rust
+    - polymer-insulator-upper-shackle/corrosion
+    - polymer-insulator-upper-shackle/rust
+    - vari-grip/bird-nest
+    - vari-grip/rust
+    - yoke-suspension/rust
+  budget: 10N frozen M3FULL support lists, refs 3001-3005, query_k5 queries
+  ad_configs: 35 (25 new + 10 reused from M3BASELINE-AnomalyDINO-v1 after verification)
+  systems: [Y-T8, W-PC, W-T8, AnomalyDINO-S/448]
+  method: identical to v1 frozen spec (official agnostic_no_mask fallback, 8-angle rotation,
+    masking=False, short-edge448 aspect-preserving patch-multiple crop, FP32 nonTF32,
+    batch=1 extraction, exact normalized-L2 FAISS NN=1, official mean_top1p)
+  sharing: per-asset normal banks and normal-query scores shared across faults;
+    vari/yoke features and banks reused from v1 cache after hash verification
+forbidden:
+  - retraining, new params, SubspaceAD, other model downloads, PCA masking, config tuning
+  - approximate retrieval, FP16, threshold selection, test-optimal F1, localization claims
+  - reading pre-correction M3FULL normal-key files; hardcoding bank sizes
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/metrics.json, key: ad_configs_completed, min: 35}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/metrics.json, key: set_match_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/metrics.json, key: reuse_verified, min: 10}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/metrics.json, key: repro_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/metrics.json, key: baseline_identity_ok, min: 1}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/FULL_BASELINE_REPORT.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/EXPECTED_CONFIGS.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3BASELINE-AnomalyDINO-full-v1/REUSE_MANIFEST.json}
+notes:
+  - 七组合等权宏平均 + 五资产等权（同资产故障先平均）+ 逐组合全表
+  - 明确披露 五参照非独立/同资产故障共享正常查询/polymer-rust 仅22故障查询不稳定
+  - GPU显存用进程级采样峰值口径，与PyTorch allocated分开报告
