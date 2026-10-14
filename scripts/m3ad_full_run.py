@@ -128,7 +128,7 @@ class Experiment:
         self.before = statehash(self.wrapper.model)
         assert self.before == self.v1ident["state_hash"], "model state differs from v1"
         assert sha(Path(__file__).parent / "m3ad_model.py") == \
-            self.v1fi["code_sha256"][str(self.root / "scripts/m3ad_model.py")], "conversion code changed since v1"
+            self.v1fi["sha256"][str(self.root / "scripts/m3ad_model.py")], "conversion code changed since v1"
         self.sampler = GpuSampler(1.0)
         self.cost = defaultdict(float); self.hits = 0; self.new = 0
         from src.post_eval import mean_top1p
