@@ -1,0 +1,40 @@
+task: CPLID-T0T1T2-detector-top8-v1
+title: YOLO-P3 + normal memory bank + top8 on CPLID, T0/T1/T2 detector training comparison
+authorized_by: user task brief (CPLID-T0T1T2)
+gate_required: null
+budget: {gpu_hours: 2, wall_clock_h: 6}
+results_dir: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1
+data_dir: /root/autodl-tmp/data/CPLID
+scope:
+  arms:
+    - {id: T0, desc: COCO-pretrained YOLOv8n frozen, no CPLID training}
+    - {id: T1, desc: single-class detector trained on isolated normal train images + insulator boxes}
+    - {id: T2, desc: contamination diagnostic - part of normal test source groups added to training, len(T2_train)==len(T1_train)}
+  refs: 5 support lists x 10 normal-part crops (10 source groups, PCG64(ref), same lists all arms)
+  ad_framework: P3 module4 [B,64,40,40], channel-L2 patches, official KCenterGreedy ratio 0.1 (1600/16000),
+    Euclidean NN, top8 mean, higher=more anomalous
+  crops: annotated insulator boxes; defective side uses labels/insulator only; crop = RGB Resize(320,320) ToTensor
+  metrics: crop-level image AUROC per arm x5 refs, paired T1-T0 / T2-T1, exposure diagnostics, optional image-level AUROC
+forbidden:
+  - loading any historical InsPLAD-det best.pt
+  - defective images in training/checkpoint-selection/bank/tuning
+  - labels/defect boxes for cropping or feature filtering
+  - mapper, extra pooling, multi-layer fusion, fault bank, param sweeps, self-supervision, classification training
+  - threshold selection on test, test-optimal recall/F1, claiming no-leak where source identity unknown
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/metrics.json, key: configs_completed, min: 15}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/metrics.json, key: correctness_passed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/metrics.json, key: audit_ok, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/metrics.json, key: t2_ok, min: 1}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/REPORT.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/DATA_AUDIT.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/SPLIT_MANIFEST.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/SUPPORT_LISTS.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/T2_EXPOSURE_MANIFEST.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/FROZEN_CONFIG.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/CPLID-T0T1T2-detector-top8-v1/REPRO_AND_CORRECTNESS.json}
+notes:
+  - seed 20261019 for splits; group-level 70/10/20; bank lists fixed before training
+  - 12 correctness checks before formal scoring (brief section 8)
+  - naming for report must be 文件及已识别来源组隔离评测 (no unseeable-claims)
+  - T2 is a contamination diagnostic, not a main performance result
