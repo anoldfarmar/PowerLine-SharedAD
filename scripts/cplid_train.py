@@ -53,12 +53,12 @@ def prep_arm(arm, train_images):
     nlab = 0
     for sp, paths in sets.items():
         for p in paths:
-            src = ROOT / ("Normal_Insulators/images" / Path(p).name)
+            src = Path(p)
             assert src.exists(), src
             dst = base / "images" / sp / Path(p).name
             if not dst.exists():
                 os.symlink(src.resolve(), dst)
-            xml = ROOT / "Normal_Insulators/labels" / (Path(p).stem + ".xml")
+            xml = src.parent.parent / "labels" / (Path(p).stem + ".xml")
             m = im2rec[p]
             lines = voc_to_yolo_txt(xml, m["width"], m["height"])
             assert lines, ("no insulator boxes", p)
