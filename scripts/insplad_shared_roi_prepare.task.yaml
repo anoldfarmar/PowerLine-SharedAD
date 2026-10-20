@@ -1,0 +1,14 @@
+task: InsPLAD-sharedROI-ABC-ref3001-v1-prepare
+title: Prepare and CPU-verify user-run InsPLAD small-image A/B/C scripts
+authorized_by: User requested prepared execution commands; formal GPU run reserved for user
+gate_required: null
+scope:
+  execution: Code, six CPU unit tests, frozen path/hash checks, actual CPU model geometry/batch/prefix checks only
+  delivery: Runnable launcher plus separate formal evaluation contract
+  formal_evaluation_status: Not executed; preparation PASS is NOT an experiment result
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/PREPARE.json, key: ready, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/CPU_PREFLIGHT.json, key: passed, min: 1}
+  - {type: file_exists, path: scripts/insplad_shared_roi_launch.sh}
+  - {type: file_exists, path: scripts/insplad_shared_roi.task.yaml}
+  - {type: file_exists, path: scripts/INSPLAD_SHARED_ROI.md}

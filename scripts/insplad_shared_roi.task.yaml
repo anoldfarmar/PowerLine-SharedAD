@@ -1,0 +1,24 @@
+task: InsPLAD-sharedROI-ABC-ref3001-v1
+title: Small-image shared P3 A/B/C diagnostic, user-run only
+authorized_by: User requested executable instructions for discussed small-image A/B/C experiment
+gate_required: null
+results_dir: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1
+scope:
+  data: InsPLAD defect_supervised only; same frozen 7 combinations, 10N ref3001 supports and all queries
+  A: Original COCO P3 top8; reconstruct using identical frozen prefix and verify every historical score
+  B: Same-forward P3 full-image RoIAlign; exact identity numerical control, not GT-box localization
+  C: Same-forward P3 expected-asset highest-confidence predicted-box RoIAlign; full-frame fallback, no dropped objects
+  input: Same PIL RGB square320 input for all arms; no LetterBox, no change of splits
+  selection: Known asset class routes detector candidates and memory bank; fault labels never select boxes
+  execution: Agent prepares and CPU-checks only; user starts GPU gates and full evaluation
+forbidden:
+  - Training, adapters, P2 arms, CPLID or full-scene mapping
+  - Query-built banks, test-threshold selection, bbox-GT or localization accuracy claims
+  - Discarding no-box cases or silently changing input geometry or support refs
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/COMPLETED.json, key: completed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/metrics.json, key: configurations, min: 21}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/REPRO_AND_CORRECTNESS.json, key: passed, min: 1}
+  - {type: csv_min_rows, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/performance_comparison.csv, min_rows: 7}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/DETECTION_SUMMARY.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/PERFORMANCE_TABLE.md}

@@ -1,0 +1,70 @@
+{
+  "smoke_all_assets": {
+    "coco_prefix": {
+      "prefix_parameters_and_bn_exact": true,
+      "normalized_p3_maxdiff": 0.0
+    },
+    "glass-insulator": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 5.37186861038208e-06,
+      "box_batch_maxdiff": 3.814697265625e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "lightning-rod-suspension": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 4.947185516357422e-06,
+      "box_batch_maxdiff": 6.109476089477539e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "polymer-insulator-upper-shackle": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 3.844499588012695e-06,
+      "box_batch_maxdiff": 3.814697265625e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "vari-grip": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 6.074085831642151e-06,
+      "box_batch_maxdiff": 3.814697265625e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "yoke-suspension": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 5.811452865600586e-06,
+      "box_batch_maxdiff": 7.62939453125e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    }
+  },
+  "full_roi_maxdiff": 0.0,
+  "p3_calls": 37,
+  "shapes": {
+    "A": [
+      2,
+      1600,
+      64
+    ],
+    "B": [
+      2,
+      1600,
+      64
+    ],
+    "C": [
+      2,
+      1600,
+      64
+    ]
+  },
+  "passed": true,
+  "model_state_unchanged": true,
+  "gpu_used": false
+}
