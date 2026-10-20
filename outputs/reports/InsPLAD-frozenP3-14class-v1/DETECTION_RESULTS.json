@@ -1,0 +1,953 @@
+{
+  "completed": true,
+  "methods": {
+    "frozen_p3": {
+      "weights": "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/runs/frozen_p3/weights/best.pt",
+      "weights_sha256": "7a7118fd4bcedc16dead2e50bdb53af5bcb5215a1785c9ab5583fafa8d318d00",
+      "mAP50": 0.9593919334852464,
+      "mAP50_95": 0.8215051354809262,
+      "metric_definition": "COCO AP, IoU .50:.95 step .05, 101 recall points, maxDets=100",
+      "per_class": [
+        {
+          "Class": "yoke",
+          "category_id": 1,
+          "AP50_95": 0.8253022414346873,
+          "AP50": 0.9548174753313806,
+          "AP75": 0.9089289147715729,
+          "validation_instances": 318
+        },
+        {
+          "Class": "yoke suspension",
+          "category_id": 2,
+          "AP50_95": 0.865008301693174,
+          "AP50": 0.9858980218978395,
+          "AP75": 0.9751483394461395,
+          "validation_instances": 1250
+        },
+        {
+          "Class": "spacer",
+          "category_id": 3,
+          "AP50_95": 0.43172764644885553,
+          "AP50": 0.8808644022296966,
+          "AP75": 0.29639213921392144,
+          "validation_instances": 22
+        },
+        {
+          "Class": "stockbridge damper",
+          "category_id": 4,
+          "AP50_95": 0.857043822958979,
+          "AP50": 0.9755554062757635,
+          "AP75": 0.9745774169117126,
+          "validation_instances": 1254
+        },
+        {
+          "Class": "lightning rod shackle",
+          "category_id": 5,
+          "AP50_95": 0.6460168347044017,
+          "AP50": 0.8459094981116146,
+          "AP75": 0.7228513359863283,
+          "validation_instances": 25
+        },
+        {
+          "Class": "lightning rod suspension",
+          "category_id": 6,
+          "AP50_95": 0.9304342225376865,
+          "AP50": 1.0,
+          "AP75": 1.0,
+          "validation_instances": 92
+        },
+        {
+          "Class": "polymer insulator",
+          "category_id": 7,
+          "AP50_95": 0.9337327923742835,
+          "AP50": 0.9849568265528345,
+          "AP75": 0.97391593065625,
+          "validation_instances": 855
+        },
+        {
+          "Class": "glass insulator",
+          "category_id": 8,
+          "AP50_95": 0.8521806539079975,
+          "AP50": 0.9618552096297375,
+          "AP75": 0.8720213562270385,
+          "validation_instances": 963
+        },
+        {
+          "Class": "tower id plate",
+          "category_id": 9,
+          "AP50_95": 0.9946849684968497,
+          "AP50": 1.0,
+          "AP75": 1.0,
+          "validation_instances": 44
+        },
+        {
+          "Class": "vari-grip",
+          "category_id": 10,
+          "AP50_95": 0.972332474071696,
+          "AP50": 0.9984399412803542,
+          "AP75": 0.9984399412803542,
+          "validation_instances": 162
+        },
+        {
+          "Class": "polymer insulator lower shackle",
+          "category_id": 11,
+          "AP50_95": 0.6616634932473754,
+          "AP50": 0.8998047195175378,
+          "AP75": 0.738026175444559,
+          "validation_instances": 382
+        },
+        {
+          "Class": "polymer insulator upper shackle",
+          "category_id": 12,
+          "AP50_95": 0.8747316847797572,
+          "AP50": 0.9850349489584157,
+          "AP75": 0.9481548892902999,
+          "validation_instances": 377
+        },
+        {
+          "Class": "spiral damper",
+          "category_id": 17,
+          "AP50_95": 0.8347076245962968,
+          "AP50": 0.9989586855230279,
+          "AP75": 0.9978965977474301,
+          "validation_instances": 189
+        },
+        {
+          "Class": "sphere",
+          "category_id": 18,
+          "AP50_95": null,
+          "AP50": null,
+          "AP75": null,
+          "validation_instances": 0
+        }
+      ],
+      "fixed_threshold_recall": {
+        "per_class": {
+          "1": {
+            "all": {
+              "gt": 318,
+              "matched": 299,
+              "recall": 0.940251572327044
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 318,
+              "matched": 299,
+              "recall": 0.940251572327044
+            }
+          },
+          "2": {
+            "all": {
+              "gt": 1250,
+              "matched": 1238,
+              "recall": 0.9904
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 384,
+              "matched": 380,
+              "recall": 0.9895833333333334
+            },
+            "large": {
+              "gt": 866,
+              "matched": 858,
+              "recall": 0.9907621247113164
+            }
+          },
+          "3": {
+            "all": {
+              "gt": 22,
+              "matched": 13,
+              "recall": 0.5909090909090909
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 22,
+              "matched": 13,
+              "recall": 0.5909090909090909
+            }
+          },
+          "4": {
+            "all": {
+              "gt": 1254,
+              "matched": 1227,
+              "recall": 0.9784688995215312
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 523,
+              "matched": 513,
+              "recall": 0.9808795411089866
+            },
+            "large": {
+              "gt": 731,
+              "matched": 714,
+              "recall": 0.9767441860465116
+            }
+          },
+          "5": {
+            "all": {
+              "gt": 25,
+              "matched": 23,
+              "recall": 0.92
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 2,
+              "matched": 1,
+              "recall": 0.5
+            },
+            "large": {
+              "gt": 23,
+              "matched": 22,
+              "recall": 0.9565217391304348
+            }
+          },
+          "6": {
+            "all": {
+              "gt": 92,
+              "matched": 92,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 1,
+              "matched": 1,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 91,
+              "matched": 91,
+              "recall": 1.0
+            }
+          },
+          "7": {
+            "all": {
+              "gt": 855,
+              "matched": 846,
+              "recall": 0.9894736842105263
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 9,
+              "matched": 8,
+              "recall": 0.8888888888888888
+            },
+            "large": {
+              "gt": 846,
+              "matched": 838,
+              "recall": 0.9905437352245863
+            }
+          },
+          "8": {
+            "all": {
+              "gt": 963,
+              "matched": 928,
+              "recall": 0.9636552440290758
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 15,
+              "matched": 15,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 948,
+              "matched": 913,
+              "recall": 0.9630801687763713
+            }
+          },
+          "9": {
+            "all": {
+              "gt": 44,
+              "matched": 44,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 44,
+              "matched": 44,
+              "recall": 1.0
+            }
+          },
+          "10": {
+            "all": {
+              "gt": 162,
+              "matched": 162,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 4,
+              "matched": 4,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 158,
+              "matched": 158,
+              "recall": 1.0
+            }
+          },
+          "11": {
+            "all": {
+              "gt": 382,
+              "matched": 327,
+              "recall": 0.856020942408377
+            },
+            "small": {
+              "gt": 7,
+              "matched": 3,
+              "recall": 0.42857142857142855
+            },
+            "medium": {
+              "gt": 233,
+              "matched": 200,
+              "recall": 0.8583690987124464
+            },
+            "large": {
+              "gt": 142,
+              "matched": 124,
+              "recall": 0.8732394366197183
+            }
+          },
+          "12": {
+            "all": {
+              "gt": 377,
+              "matched": 369,
+              "recall": 0.9787798408488063
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 27,
+              "matched": 24,
+              "recall": 0.8888888888888888
+            },
+            "large": {
+              "gt": 350,
+              "matched": 345,
+              "recall": 0.9857142857142858
+            }
+          },
+          "17": {
+            "all": {
+              "gt": 189,
+              "matched": 188,
+              "recall": 0.9947089947089947
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 189,
+              "matched": 188,
+              "recall": 0.9947089947089947
+            }
+          },
+          "18": {
+            "all": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            }
+          }
+        },
+        "conf": 0.25,
+        "iou": 0.5,
+        "input_imgsz": 1280,
+        "predictions_above_threshold": 6355,
+        "true_positives": 5756,
+        "precision": 0.9057435090479937,
+        "note": "Input-resized GT area bins, not official COCO AP-small; missed GTs included",
+        "prediction_json_category_id_base": 1,
+        "prediction_json_category_to_original": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7,
+          "8": 8,
+          "9": 9,
+          "10": 10,
+          "11": 11,
+          "12": 12,
+          "13": 17,
+          "14": 18
+        },
+        "excluded_non_target_category_ids": [],
+        "excluded_non_target_prediction_count": 0
+      },
+      "predictions": "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/evaluation/frozen_p3/predictions.json",
+      "native_yolo_metrics_saved_before_recovery": {
+        "mAP50": 0.9602192759490205,
+        "mAP50_95": 0.8211174894416614
+      }
+    },
+    "historical_full": {
+      "weights": "/root/autodl-tmp/runs/yolov8n_det/weights/best.pt",
+      "weights_sha256": "ea1526c29d4afcfb83cbc2a8d3eb48f498c380082d2a4dfbcc17d0b9e9c425fe",
+      "mAP50": 0.9557172035463235,
+      "mAP50_95": 0.8177301156720468,
+      "metric_definition": "COCO AP, IoU .50:.95 step .05, 101 recall points, maxDets=100",
+      "per_class": [
+        {
+          "Class": "yoke",
+          "category_id": 1,
+          "AP50_95": 0.8378716840728329,
+          "AP50": 0.954893938198626,
+          "AP75": 0.927270408257622,
+          "validation_instances": 318
+        },
+        {
+          "Class": "yoke suspension",
+          "category_id": 2,
+          "AP50_95": 0.8719339916932909,
+          "AP50": 0.9858992111207062,
+          "AP75": 0.9729151063432395,
+          "validation_instances": 1250
+        },
+        {
+          "Class": "spacer",
+          "category_id": 3,
+          "AP50_95": 0.4018624173312843,
+          "AP50": 0.8268533929883207,
+          "AP75": 0.2919734580771272,
+          "validation_instances": 22
+        },
+        {
+          "Class": "stockbridge damper",
+          "category_id": 4,
+          "AP50_95": 0.8661775216016843,
+          "AP50": 0.9808125794189936,
+          "AP75": 0.9714244783647421,
+          "validation_instances": 1254
+        },
+        {
+          "Class": "lightning rod shackle",
+          "category_id": 5,
+          "AP50_95": 0.6244611698882605,
+          "AP50": 0.8561927454618904,
+          "AP75": 0.7151780688412842,
+          "validation_instances": 25
+        },
+        {
+          "Class": "lightning rod suspension",
+          "category_id": 6,
+          "AP50_95": 0.9338640234573877,
+          "AP50": 1.0,
+          "AP75": 1.0,
+          "validation_instances": 92
+        },
+        {
+          "Class": "polymer insulator",
+          "category_id": 7,
+          "AP50_95": 0.9366576642209117,
+          "AP50": 0.9942336534547301,
+          "AP75": 0.9726319003373507,
+          "validation_instances": 855
+        },
+        {
+          "Class": "glass insulator",
+          "category_id": 8,
+          "AP50_95": 0.8497100045078674,
+          "AP50": 0.9587100423829558,
+          "AP75": 0.8618964248106629,
+          "validation_instances": 963
+        },
+        {
+          "Class": "tower id plate",
+          "category_id": 9,
+          "AP50_95": 0.9862751166002351,
+          "AP50": 1.0,
+          "AP75": 1.0,
+          "validation_instances": 44
+        },
+        {
+          "Class": "vari-grip",
+          "category_id": 10,
+          "AP50_95": 0.9673310025591405,
+          "AP50": 0.9982148551601021,
+          "AP75": 0.9982148551601021,
+          "validation_instances": 162
+        },
+        {
+          "Class": "polymer insulator lower shackle",
+          "category_id": 11,
+          "AP50_95": 0.6667572567663516,
+          "AP50": 0.8970850097236927,
+          "AP75": 0.7687321632937286,
+          "validation_instances": 382
+        },
+        {
+          "Class": "polymer insulator upper shackle",
+          "category_id": 12,
+          "AP50_95": 0.8648726123660923,
+          "AP50": 0.9745053396585741,
+          "AP75": 0.9427453727818909,
+          "validation_instances": 377
+        },
+        {
+          "Class": "spiral damper",
+          "category_id": 17,
+          "AP50_95": 0.8227170386712692,
+          "AP50": 0.996922878533613,
+          "AP75": 0.9763061298023717,
+          "validation_instances": 189
+        },
+        {
+          "Class": "sphere",
+          "category_id": 18,
+          "AP50_95": null,
+          "AP50": null,
+          "AP75": null,
+          "validation_instances": 0
+        }
+      ],
+      "fixed_threshold_recall": {
+        "per_class": {
+          "1": {
+            "all": {
+              "gt": 318,
+              "matched": 308,
+              "recall": 0.9685534591194969
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 318,
+              "matched": 308,
+              "recall": 0.9685534591194969
+            }
+          },
+          "2": {
+            "all": {
+              "gt": 1250,
+              "matched": 1239,
+              "recall": 0.9912
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 384,
+              "matched": 379,
+              "recall": 0.9869791666666666
+            },
+            "large": {
+              "gt": 866,
+              "matched": 860,
+              "recall": 0.9930715935334873
+            }
+          },
+          "3": {
+            "all": {
+              "gt": 22,
+              "matched": 17,
+              "recall": 0.7727272727272727
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 22,
+              "matched": 17,
+              "recall": 0.7727272727272727
+            }
+          },
+          "4": {
+            "all": {
+              "gt": 1254,
+              "matched": 1231,
+              "recall": 0.981658692185008
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 523,
+              "matched": 515,
+              "recall": 0.9847036328871893
+            },
+            "large": {
+              "gt": 731,
+              "matched": 716,
+              "recall": 0.9794801641586868
+            }
+          },
+          "5": {
+            "all": {
+              "gt": 25,
+              "matched": 24,
+              "recall": 0.96
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 2,
+              "matched": 1,
+              "recall": 0.5
+            },
+            "large": {
+              "gt": 23,
+              "matched": 23,
+              "recall": 1.0
+            }
+          },
+          "6": {
+            "all": {
+              "gt": 92,
+              "matched": 92,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 1,
+              "matched": 1,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 91,
+              "matched": 91,
+              "recall": 1.0
+            }
+          },
+          "7": {
+            "all": {
+              "gt": 855,
+              "matched": 852,
+              "recall": 0.9964912280701754
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 9,
+              "matched": 9,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 846,
+              "matched": 843,
+              "recall": 0.9964539007092199
+            }
+          },
+          "8": {
+            "all": {
+              "gt": 963,
+              "matched": 925,
+              "recall": 0.960539979231568
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 15,
+              "matched": 15,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 948,
+              "matched": 910,
+              "recall": 0.959915611814346
+            }
+          },
+          "9": {
+            "all": {
+              "gt": 44,
+              "matched": 44,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 44,
+              "matched": 44,
+              "recall": 1.0
+            }
+          },
+          "10": {
+            "all": {
+              "gt": 162,
+              "matched": 162,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 4,
+              "matched": 4,
+              "recall": 1.0
+            },
+            "large": {
+              "gt": 158,
+              "matched": 158,
+              "recall": 1.0
+            }
+          },
+          "11": {
+            "all": {
+              "gt": 382,
+              "matched": 331,
+              "recall": 0.8664921465968587
+            },
+            "small": {
+              "gt": 7,
+              "matched": 5,
+              "recall": 0.7142857142857143
+            },
+            "medium": {
+              "gt": 233,
+              "matched": 200,
+              "recall": 0.8583690987124464
+            },
+            "large": {
+              "gt": 142,
+              "matched": 126,
+              "recall": 0.8873239436619719
+            }
+          },
+          "12": {
+            "all": {
+              "gt": 377,
+              "matched": 369,
+              "recall": 0.9787798408488063
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 27,
+              "matched": 26,
+              "recall": 0.9629629629629629
+            },
+            "large": {
+              "gt": 350,
+              "matched": 343,
+              "recall": 0.98
+            }
+          },
+          "17": {
+            "all": {
+              "gt": 189,
+              "matched": 189,
+              "recall": 1.0
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 189,
+              "matched": 189,
+              "recall": 1.0
+            }
+          },
+          "18": {
+            "all": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "small": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "medium": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 0,
+              "matched": 0,
+              "recall": null
+            }
+          }
+        },
+        "conf": 0.25,
+        "iou": 0.5,
+        "input_imgsz": 1280,
+        "predictions_above_threshold": 6446,
+        "true_positives": 5783,
+        "precision": 0.8971455165994415,
+        "note": "Input-resized GT area bins, not official COCO AP-small; missed GTs included",
+        "prediction_json_category_id_base": 1,
+        "prediction_json_category_to_original": {
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7,
+          "8": 8,
+          "9": 9,
+          "10": 10,
+          "11": 11,
+          "12": 12,
+          "17": 17,
+          "18": 18
+        },
+        "excluded_non_target_category_ids": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "excluded_non_target_prediction_count": 2260
+      },
+      "predictions": "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/evaluation/historical_full/predictions.json",
+      "native_yolo_metrics_saved_before_recovery": {}
+    }
+  },
+  "metric_definition": "COCO AP from cached prediction JSON, maxDets=100",
+  "reference_note": "Historical 18-class fine-tune evaluated on same 14 target categories; not a matched same-recipe 14-class training ablation",
+  "map_evaluated_category_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    17
+  ],
+  "map_evaluated_class_count": 13
+}

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "train": {
+    "passed": true,
+    "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+    "p4_entry_updated": true,
+    "optimizer_step_checks": 7944,
+    "epochs_audited": 60
+  },
+  "checkpoints": {
+    "best": {
+      "passed": true,
+      "weights": "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/runs/frozen_p3/weights/best.pt",
+      "sha256": "7a7118fd4bcedc16dead2e50bdb53af5bcb5215a1785c9ab5583fafa8d318d00",
+      "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+      "p3_max_abs_diff": 0.0,
+      "shape": [
+        4,
+        64,
+        40,
+        40
+      ],
+      "device": "cuda:0"
+    },
+    "last": {
+      "passed": true,
+      "weights": "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/runs/frozen_p3/weights/last.pt",
+      "sha256": "6330aa414f579dde52422a2d6f4a34e8238c10f9b87e48478c1326031870960e",
+      "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+      "p3_max_abs_diff": 0.0,
+      "shape": [
+        4,
+        64,
+        40,
+        40
+      ],
+      "device": "cuda:0"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "recovery_code_sha256": "895d08ab59ebe63c22825f7060f7058918b294548bda2e10a6540210773e03dd",
+  "wrapper_code_sha256": "4abf3c0fdbcad1fdac2644c2fcf82460ca5bad4012caaa6d91a6b1b2fa2ca004",
+  "prediction_sha256": {
+    "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/evaluation/frozen_p3/predictions.json": "53830830876990e0cab54e575e1647564b862e681c4c5079891402dfb04222c7",
+    "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/evaluation/historical_full/predictions.json": "1331df1014399e3850d24a5c36ad56b725d83058d3b5b1740ca5aff168874ca8"
+  },
+  "original_frozen_inputs_sha256": "ac7b2c8a351098f2be41f59a9d2d453055a057276fe5590682569e0de7332b6c",
+  "training_restarted": false,
+  "gpu_inference_repeated": false,
+  "correction": "Filter valid non-target classes from old 18-class head; preserve both class-ID spaces",
+  "reporting_metric": "Common COCO AP, explicitly separate from original YOLO AP"
+}
