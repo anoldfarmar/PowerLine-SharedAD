@@ -1,0 +1,22 @@
+task: InsPLAD-sharedROI-C-vis20-v1
+title: Twenty C detector-box and anomaly-distance inspection panels
+authorized_by: User requested 20 visualizations for inspection
+gate_required: null
+scope:
+  input: Completed InsPLAD-sharedROI-ABC-ref3001-v1 saved C boxes, features, normal banks and raw scores
+  selection: Five assets x (one normal with box, two faults with box covering fault types, one fault fallback); SHA256 seed+path, no score selection
+  compute: CPU only, official Euclidean kernel on cached normalized ROI features; no model forwards, training or reevaluation
+  display: Viridis, per-asset fixed normal12 query99.5percentile scale; project into actual ROI in native image coordinates
+  outputs: Twenty four-panel PNGs, 20-page PDF, overview, ZIP, raw maps, manifest and score-equivalence checks
+forbidden:
+  - Changing original experiment files, memory banks, frozen splits, image scores or thresholds
+  - Claiming pixel GT, detection correctness, attention probabilities or representative fallback prevalence
+  - Substituting a full-image display for an actual predicted ROI without identifying fallback
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/VIS_CORRECTNESS.json, key: passed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/VIS_CORRECTNESS.json, key: png_count, min: 20}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/VIS_CORRECTNESS.json, key: all_seven_fault_combinations_covered, min: 1}
+  - {type: csv_min_rows, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/samples.csv, min_rows: 20}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/C_20_examples.pdf}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/OVERVIEW_20.png}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20/C_VIS20.zip}
