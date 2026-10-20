@@ -1,0 +1,49 @@
+{
+  "invocation_wall_seconds": 97.74292617011815,
+  "stages": {
+    "glass-insulator": {
+      "feature_stage_wall_seconds": 19.179926280863583,
+      "bank_and_scoring_wall_seconds": 7.3943350883200765,
+      "peak_gpu_allocated_bytes": 163905536,
+      "images": 1215,
+      "full_forward_batches": 76,
+      "C_support_fallback_rate": 0.0
+    },
+    "lightning-rod-suspension": {
+      "feature_stage_wall_seconds": 9.121910970658064,
+      "bank_and_scoring_wall_seconds": 6.600277302786708,
+      "peak_gpu_allocated_bytes": 198785024,
+      "images": 825,
+      "full_forward_batches": 52,
+      "C_support_fallback_rate": 0.0
+    },
+    "polymer-insulator-upper-shackle": {
+      "feature_stage_wall_seconds": 13.1588363526389,
+      "bank_and_scoring_wall_seconds": 7.781488667242229,
+      "peak_gpu_allocated_bytes": 198785024,
+      "images": 1257,
+      "full_forward_batches": 79,
+      "C_support_fallback_rate": 0.0
+    },
+    "vari-grip": {
+      "feature_stage_wall_seconds": 10.37161501031369,
+      "bank_and_scoring_wall_seconds": 7.3113762605935335,
+      "peak_gpu_allocated_bytes": 198785024,
+      "images": 1163,
+      "full_forward_batches": 73,
+      "C_support_fallback_rate": 0.0
+    },
+    "yoke-suspension": {
+      "feature_stage_wall_seconds": 5.369166371412575,
+      "bank_and_scoring_wall_seconds": 7.581007204949856,
+      "peak_gpu_allocated_bytes": 198785024,
+      "images": 805,
+      "full_forward_batches": 51,
+      "C_support_fallback_rate": 0.0
+    }
+  },
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "host_peak_rss_bytes": 2335203328,
+  "cache_bytes": 4324669062,
+  "note": "Stage wall times include CPU/I/O and cache hits; not isolated GPU kernel times; correctness smoke excluded from per-asset times."
+}

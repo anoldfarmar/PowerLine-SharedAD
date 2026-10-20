@@ -1,0 +1,200 @@
+{
+  "source_result_dir": "/root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1",
+  "frozen_id": "fff7020e4602c52af92502cf0509928c5c65f71a9e355bba9e5df02b3a7adc27",
+  "weights": {
+    "coco": "/root/autodl-tmp/third_party/yolov8n.pt",
+    "detector": "/root/autodl-tmp/version10-12/InsPLAD-frozenP3-14class-v1/runs/frozen_p3/weights/best.pt"
+  },
+  "weight_sha256": {
+    "coco": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+    "detector": "7a7118fd4bcedc16dead2e50bdb53af5bcb5215a1785c9ab5583fafa8d318d00"
+  },
+  "code_sha256": {
+    "insplad_shared_roi.py": "ef081b7f72f3f03ffec8c8eba66d7d50130372d9c94215a9d5132d697955fa9d",
+    "m3_common.py": "55a24e08e41697e58fdbe6edd8f23349cae41d56aa650a29db7109dd71bddfe7",
+    "m3score_pcverify.py": "b60b969edaefaddd82e0a27a9324092acba95b2effd2d84c0cc32a4ae6a250d2",
+    "insplad_shared_roi_visualize.py": "9f634c26fd7b57318bb2fb4fee2d00d7ff1ecc25b2d31b9c13b893b36db8e933"
+  },
+  "protocol": {
+    "ref": 3001,
+    "shots": 10,
+    "batch": 16,
+    "input": "PIL RGB Resize((320,320)) ToTensor; no LetterBox",
+    "layer": 4,
+    "feature_shape": [
+      1600,
+      64
+    ],
+    "normalized": "channel L2 AFTER ROI extraction",
+    "roi": {
+      "output_size": [
+        40,
+        40
+      ],
+      "spatial_scale": 0.125,
+      "aligned": true,
+      "sampling_ratio": 1
+    },
+    "detection": {
+      "conf": 0.25,
+      "iou": 0.7,
+      "max_det": 300,
+      "class_aware_nms": true,
+      "expected_classes": {
+        "glass-insulator": 7,
+        "lightning-rod-suspension": 5,
+        "polymer-insulator-upper-shackle": 11,
+        "vari-grip": 9,
+        "yoke-suspension": 1
+      },
+      "selection": "highest confidence in known asset class; lexicographic box tie break",
+      "fallback": "full-image ROI; never drop support/query"
+    },
+    "bank": "official KCenterGreedy ratio .1 seed7001; support-only, per arm",
+    "score": "official exact Euclidean 1NN; mean top8 of 1600 patch distances",
+    "precision": "FP32; TF32 false",
+    "atol": 0.0001,
+    "rtol": 0.0001
+  },
+  "source_artifact_sha256": {
+    "PERFORMANCE_TABLE.md": "172eff878bbc41f4b0d45d45bd7fecce57250a516a62620673e0b30b8f5bc662",
+    "metrics.json": "d437a1db8ba3171aa2505d999bf95d71919ffe5fe35fed547719008e629961c1",
+    "performance_comparison.csv": "8a737ddce37c01c730de09fa4c53e3f590fde65a632e7400c0a00e69e845f0a1",
+    "REPRO_AND_CORRECTNESS.json": "067ce27ace46f8f740ab62e1f627619bb416d8721b56ebbd1c35c918ac078c84",
+    "RESOURCE_COST.json": "9b85667b1f24cef31e32b81b1e5bde5c8c52d008ecaf493dab0610749e76781f",
+    "DETECTION_SUMMARY.json": "6d71b895a035967569353ad726a46f270c9c1b6f4ce87b6a437afb9ba593879e",
+    "COMPLETED.json": "780e92048278187c23fe5d0ff334b78329fdcd99429a3f14ed11e4aea3161a50",
+    "FROZEN_INPUTS.json": "44d77ca9522b91d8b2cc63dbae705c9978b90e3b48fa08b7c81e88c6d796e8e4",
+    "BANK_MANIFEST.json": "520456f321cbd4e3bb2466137365c719e5a30cfc42dc25f583516ed9fab51fa0",
+    "CACHE_MANIFEST.json": "1a8723f8f7a5351167166595d2d7d149165ec3265c143ebb670ff33820718c02"
+  },
+  "raw_score_sha256": {
+    "raw_scores/glass-insulator__missing-cap_A.json": "3e8064d5ac046ad371aa46e8ce4cb5ca85629ae90f5e4bf3e32d880fe0bff5fe",
+    "raw_scores/glass-insulator__missing-cap_B.json": "e0438fa767b18adcbbc04a5b2c0959b9c78585e1f2167e3792b43fc8036f1f8d",
+    "raw_scores/glass-insulator__missing-cap_C.json": "bd1e4252f8317501c82cf3e8631752b7c578abf20df19b6f5d60ac67051660eb",
+    "raw_scores/lightning-rod-suspension__rust_A.json": "83d32a00fef8bf9b57b293fc1c0c6709b746c13dfd5c368d4f58f4c98b760e3e",
+    "raw_scores/lightning-rod-suspension__rust_B.json": "358ea93126eb444da102890f8a7b0149bd8d76f178a4efb597d163dea85806a1",
+    "raw_scores/lightning-rod-suspension__rust_C.json": "38cfc46a2fe40dd1d3555d14e796420b03e9255d77fc3c68154dbd3b2b6a18a8",
+    "raw_scores/polymer-insulator-upper-shackle__corrosion_A.json": "48b646d5679bc920b02ca5ed51744e84ed58161f2f2eaf7188ae22d0ea0e9570",
+    "raw_scores/polymer-insulator-upper-shackle__corrosion_B.json": "6c96d22264559c9a9933735b1a3a26fdb0e414cfa5567e1dc908ed195618f938",
+    "raw_scores/polymer-insulator-upper-shackle__corrosion_C.json": "4c4a7325a4fa3d389d3da999746d23e14380ecdd8a48e4232d11fab7b210a0a9",
+    "raw_scores/polymer-insulator-upper-shackle__rust_A.json": "282a06fb30de3f4a1d404f31ad5afe6e1ef0c65f96ea6096a980fb6d93474529",
+    "raw_scores/polymer-insulator-upper-shackle__rust_B.json": "8236d3d4cc3ed7ec8281081b89e9339ba093d9afff97f457ea76663794f42122",
+    "raw_scores/polymer-insulator-upper-shackle__rust_C.json": "0ce5731814c3236c6de8decd09d3abe3e3333e48990f29e45c6a7683225b26dd",
+    "raw_scores/vari-grip__bird-nest_A.json": "174ff1dfabfe67709b9c1eea9f8537b2f38aa04ebb98fe6820c8ea604afb2252",
+    "raw_scores/vari-grip__bird-nest_B.json": "46f55295a0d8e947856b2186889a471f1d36e67799ee489883b54c0caa4ceece",
+    "raw_scores/vari-grip__bird-nest_C.json": "105de50b7affdf7f0e5d75b36392df639b1ae9c2bc36d3184f72f12486b0d5ed",
+    "raw_scores/vari-grip__rust_A.json": "36820e53fa539429bbcb7f04afd8b0cf6967f26347df9d7655261c58a2cdc384",
+    "raw_scores/vari-grip__rust_B.json": "46318d7f16b8ca4f567b3df072c7692a29b2637baeb66698dd3c7913245a3aa6",
+    "raw_scores/vari-grip__rust_C.json": "92b848c2030aeccadd17e026ba280d98090b56b011d2470dd039d947401230d6",
+    "raw_scores/yoke-suspension__rust_A.json": "4140deae48ff4a327eadf9a4608e107584f7f93b52db628ef67145ca8359f308",
+    "raw_scores/yoke-suspension__rust_B.json": "9cb13d86ed4d065382fde20e51575b84e68a5beeda5b72f5ab1cfd6dbb004320",
+    "raw_scores/yoke-suspension__rust_C.json": "15535d709886a898d2d2af793cb2bbcad4ed6b0ee7a39d6544cc72fcdfbee2ec"
+  },
+  "supports": {
+    "glass-insulator": [
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 30-11-2020_DJI_0090_cadeia_isolador_vidro_2848.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0178_cadeia_isolador_vidro_2559.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 04-12-2020_DJI_0897_cadeia_isolador_vidro_1102.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0132_cadeia_isolador_vidro_2532.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0603_cadeia_isolador_vidro_2306.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0025_cadeia_isolador_vidro_2606.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 21-10-2020_DJI_0625_cadeia_isolador_vidro_1542.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0021_cadeia_isolador_vidro_1397.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 07-12-2020_DJI_0290_cadeia_isolador_vidro_1291.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/glass-insulator/train/good/Fotos 27-11-2020_DJI_0408_cadeia_isolador_vidro_2357.jpg"
+    ],
+    "lightning-rod-suspension": [
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 09-12-2020_DJI_0361_suspensao_para_raio_130.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/train/good/Fotos 02-12-2020_DJI_0224_suspensao_para_raio_44.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 20-10-2020_DJI_0114_suspensao_para_raio_448.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/train/good/Fotos 20-10-2020_DJI_0221_suspensao_para_raio_473.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 24-11-2020_DJI_0356_suspensao_para_raio_620.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 25-11-2020_DJI_0116_suspensao_para_raio_641.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 08-12-2020_DJI_0586_suspensao_para_raio_122.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 20-11-2020_DJI_0135_suspensao_para_raio_513.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/val/good/Fotos 20-11-2020_DJI_0023_suspensao_para_raio_535.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/lightning-rod-suspension/train/good/Fotos 27-11-2020_DJI_0190_suspensao_para_raio_680.jpg"
+    ],
+    "polymer-insulator-upper-shackle": [
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 17-11-2020_DJI_0251_manilha_isolador_superior_1097.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 04-12-2020_DJI_0798_manilha_isolador_superior_417.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 27-11-2020_DJI_0596_manilha_isolador_superior_1567.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/val/good/Fotos 03-12-2020_DJI_0417_manilha_isolador_superior_303.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 24-11-2020_DJI_0245_manilha_isolador_superior_1482.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 27-11-2020_DJI_0293_manilha_isolador_superior_1594.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 19-11-2020_DJI_0080_manilha_isolador_superior_1234.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 18-11-2020_DJI_0042_manilha_isolador_superior_1208.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 20-11-2020_DJI_0100_manilha_isolador_superior_1319.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/polymer-insulator-upper-shackle/train/normal/Fotos 16-11-2020_DJI_0129_manilha_isolador_superior_1017.jpg"
+    ],
+    "vari-grip": [
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/val/good/Fotos 20-11-2020_DJI_0170_vari_grip_684.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/train/good/Fotos 27-11-2020_DJI_0422_vari_grip_937.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/val/good/Fotos 20-11-2020_DJI_0276_vari_grip_674.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/train/good/Fotos 02-12-2020_DJI_0373_vari_grip_70.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/val/good/Fotos 01-12-2020_DJI_0343_vari_grip_34.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/train/good/Fotos 20-10-2020_DJI_0253_vari_grip_655.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/train/good/Fotos 03-12-2020_DJI_0458_vari_grip_112.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/val/good/Fotos 20-10-2020_DJI_0338_vari_grip_604.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/train/good/Fotos 30-11-2020_DJI_0503_vari_grip_973.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/vari-grip/val/good/Fotos 24-11-2020_DJI_0377_vari_grip_821.jpg"
+    ],
+    "yoke-suspension": [
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 30-11-2020_DJI_0024_amarra_balancim_6494.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 23-11-2020_DJI_0188_amarra_balancim_5057.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 01-12-2020_DJI_0197_amarra_balancim_250.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 22-10-2020_DJI_0733_amarra_balancim_4627.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 26-11-2020_DJI_0451_amarra_balancim_5768.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0293_amarra_balancim_2629.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 14-12-2020_DJI_0154_amarra_balancim_2654.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 10-12-2020_DJI_0256_amarra_balancim_1971.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 11-12-2020_DJI_0023_amarra_balancim_2408.jpg",
+      "/root/autodl-tmp/data/insplad/defect_supervised/yoke-suspension/val/good/Fotos 24-11-2020_DJI_0185_amarra_balancim_5403.jpg"
+    ]
+  },
+  "query_counts": {
+    "glass-insulator": {
+      "normal": 500,
+      "defects": {
+        "missing-cap": 705
+      },
+      "unique_queries": 1205
+    },
+    "lightning-rod-suspension": {
+      "normal": 500,
+      "defects": {
+        "rust": 315
+      },
+      "unique_queries": 815
+    },
+    "polymer-insulator-upper-shackle": {
+      "normal": 500,
+      "defects": {
+        "corrosion": 725,
+        "rust": 22
+      },
+      "unique_queries": 1247
+    },
+    "vari-grip": {
+      "normal": 500,
+      "defects": {
+        "bird-nest": 358,
+        "rust": 295
+      },
+      "unique_queries": 1153
+    },
+    "yoke-suspension": {
+      "normal": 500,
+      "defects": {
+        "rust": 295
+      },
+      "unique_queries": 795
+    }
+  },
+  "visualizations": {
+    "result_dir": "/root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/vis_C_20",
+    "manifest_sha256": "ce52d51a6ee8c91953f2478743d90504bf8b0d0c8c9bbbea26abb69a2b1f5310",
+    "png_pdf_zip_not_in_git": true
+  }
+}

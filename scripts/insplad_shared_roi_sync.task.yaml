@@ -1,0 +1,19 @@
+task: InsPLAD-sharedROI-report-sync-v1
+title: Publish completed shared-ROI ABC and visualization code/report records
+authorized_by: User explicitly requested uploading code and reports to repository
+gate_required: null
+scope:
+  input: Completed InsPLAD-sharedROI-ABC-ref3001-v1 and InsPLAD-sharedROI-C-vis20-v1
+  action: Recheck existing acceptance and 21 raw AUROCs, export small immutable report copies and provenance, scoped commit and push main
+  code: Existing shared-ROI and visualization scripts already tracked; verify their hashes
+  exclusions: Raw images, weights, feature caches, PDF/PNG/ZIP and unrelated historical worktree changes
+forbidden:
+  - Changing original experimental outputs, splits, models or metrics
+  - Rerunning training/inference, broad git staging, force push or resolving remote conflicts automatically
+acceptance:
+  - {type: metric_min, path: outputs/reports/InsPLAD-sharedROI-ABC-ref3001-v1/SYNC_VERIFICATION.json, key: passed, min: 1}
+  - {type: metric_min, path: outputs/reports/InsPLAD-sharedROI-ABC-ref3001-v1/SYNC_VERIFICATION.json, key: independently_verified_score_files, min: 21}
+  - {type: metric_min, path: outputs/reports/InsPLAD-sharedROI-ABC-ref3001-v1/REPRO_AND_CORRECTNESS.json, key: passed, min: 1}
+  - {type: csv_min_rows, path: outputs/reports/InsPLAD-sharedROI-ABC-ref3001-v1/performance_comparison.csv, min_rows: 7}
+  - {type: file_exists, path: outputs/reports/InsPLAD-sharedROI-ABC-ref3001-v1/REPORT.md}
+  - {type: file_exists, path: outputs/reports/InsPLAD-sharedROI-C-vis20-v1/README.md}

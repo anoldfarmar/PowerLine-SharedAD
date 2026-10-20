@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "independently_verified_score_files": 21,
+  "auroc_recomputed_from_all_raw_scores": true,
+  "all_A_B_per_image_scores_equal": true,
+  "source_and_git_code_hashes_match": true,
+  "actual_checkpoint_hashes_verified": true,
+  "original_result_files_unchanged": true,
+  "macro": {
+    "A": 0.9128845693925423,
+    "B": 0.9128845693925423,
+    "C": 0.9127640234325243
+  },
+  "visualization_correctness_passed": true,
+  "max_visualization_score_abs_diff": 1.1920928955078125e-07,
+  "source_artifact_sha256": {
+    "PERFORMANCE_TABLE.md": "172eff878bbc41f4b0d45d45bd7fecce57250a516a62620673e0b30b8f5bc662",
+    "metrics.json": "d437a1db8ba3171aa2505d999bf95d71919ffe5fe35fed547719008e629961c1",
+    "performance_comparison.csv": "8a737ddce37c01c730de09fa4c53e3f590fde65a632e7400c0a00e69e845f0a1",
+    "REPRO_AND_CORRECTNESS.json": "067ce27ace46f8f740ab62e1f627619bb416d8721b56ebbd1c35c918ac078c84",
+    "RESOURCE_COST.json": "9b85667b1f24cef31e32b81b1e5bde5c8c52d008ecaf493dab0610749e76781f",
+    "DETECTION_SUMMARY.json": "6d71b895a035967569353ad726a46f270c9c1b6f4ce87b6a437afb9ba593879e",
+    "COMPLETED.json": "780e92048278187c23fe5d0ff334b78329fdcd99429a3f14ed11e4aea3161a50",
+    "FROZEN_INPUTS.json": "44d77ca9522b91d8b2cc63dbae705c9978b90e3b48fa08b7c81e88c6d796e8e4",
+    "BANK_MANIFEST.json": "520456f321cbd4e3bb2466137365c719e5a30cfc42dc25f583516ed9fab51fa0",
+    "CACHE_MANIFEST.json": "1a8723f8f7a5351167166595d2d7d149165ec3265c143ebb670ff33820718c02"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "smoke": {
+    "coco_prefix": {
+      "prefix_parameters_and_bn_exact": true,
+      "normalized_p3_maxdiff": 0.0
+    },
+    "glass-insulator": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 4.194676876068115e-06,
+      "box_batch_maxdiff": 1.9073486328125e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "lightning-rod-suspension": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 2.2798776626586914e-06,
+      "box_batch_maxdiff": 3.039836883544922e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "polymer-insulator-upper-shackle": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 2.9802322387695312e-06,
+      "box_batch_maxdiff": 3.0994415283203125e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "vari-grip": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 2.8740614652633667e-06,
+      "box_batch_maxdiff": 3.039836883544922e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    },
+    "yoke-suspension": {
+      "A_batch_feature_maxdiff": 0.0,
+      "B_batch_feature_maxdiff": 0.0,
+      "C_batch_feature_maxdiff": 2.9401853680610657e-06,
+      "box_batch_maxdiff": 3.0547380447387695e-05,
+      "repeat_C_feature_maxdiff": 0.0,
+      "same_forward_p3_and_full_roi_verified": true
+    }
+  },
+  "banks": {
+    "glass-insulator_A": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.0292354019346703e-07,
+      "historical_missing-cap_score_maxdiff": 2.384185791015625e-07
+    },
+    "glass-insulator_B": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.0292354019346703e-07,
+      "A_B_score_maxdiff": 0.0
+    },
+    "glass-insulator_C": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 5.095903903296062e-07
+    },
+    "lightning-rod-suspension_A": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.0948753853833324e-07,
+      "historical_rust_score_maxdiff": 2.384185791015625e-07
+    },
+    "lightning-rod-suspension_B": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.0948753853833324e-07,
+      "A_B_score_maxdiff": 0.0
+    },
+    "lightning-rod-suspension_C": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.1026818786129553e-07
+    },
+    "polymer-insulator-upper-shackle_A": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.14568937340065e-07,
+      "historical_corrosion_score_maxdiff": 2.384185791015625e-07,
+      "historical_rust_score_maxdiff": 1.7881393432617188e-07
+    },
+    "polymer-insulator-upper-shackle_B": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.14568937340065e-07,
+      "A_B_score_maxdiff": 0.0
+    },
+    "polymer-insulator-upper-shackle_C": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.1148570972240321e-07
+    },
+    "vari-grip_A": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.1081637757713878e-07,
+      "historical_bird-nest_score_maxdiff": 1.7881393432617188e-07,
+      "historical_rust_score_maxdiff": 1.7881393432617188e-07
+    },
+    "vari-grip_B": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.1081637757713878e-07,
+      "A_B_score_maxdiff": 0.0
+    },
+    "vari-grip_C": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 3.1356908652968585e-07
+    },
+    "yoke-suspension_A": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 1.8291265080350172e-07,
+      "historical_rust_score_maxdiff": 2.384185791015625e-07
+    },
+    "yoke-suspension_B": {
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 1.8291265080350172e-07,
+      "A_B_score_maxdiff": 0.0
+    },
+    "yoke-suspension_C": {
+      "repeat_bank_maxdiff": 0.0,
+      "score_batch_maxdiff": 0.0,
+      "nn_float64_maxdiff": 2.414525004379442e-07
+    }
+  },
+  "model_state_unchanged": true,
+  "all_queries_preserved": true
+}

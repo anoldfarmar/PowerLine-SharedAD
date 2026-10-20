@@ -1,0 +1,141 @@
+{
+  "glass-insulator": {
+    "support": {
+      "total": 10,
+      "fallback": 0,
+      "fallback_rate": 0.0,
+      "predicted_box_count": 10,
+      "mean_roi_area_fraction": 0.5852103350080797
+    },
+    "normal": {
+      "total": 500,
+      "fallback": 5,
+      "fallback_rate": 0.01,
+      "predicted_box_count": 495,
+      "mean_roi_area_fraction": 0.5106941378286399
+    },
+    "defects": {
+      "missing-cap": {
+        "total": 705,
+        "fallback": 223,
+        "fallback_rate": 0.31631205673758866,
+        "predicted_box_count": 482,
+        "mean_roi_area_fraction": 0.6925064000066703
+      }
+    }
+  },
+  "lightning-rod-suspension": {
+    "support": {
+      "total": 10,
+      "fallback": 0,
+      "fallback_rate": 0.0,
+      "predicted_box_count": 10,
+      "mean_roi_area_fraction": 0.48087702282682726
+    },
+    "normal": {
+      "total": 500,
+      "fallback": 2,
+      "fallback_rate": 0.004,
+      "predicted_box_count": 498,
+      "mean_roi_area_fraction": 0.44445504953948317
+    },
+    "defects": {
+      "rust": {
+        "total": 315,
+        "fallback": 64,
+        "fallback_rate": 0.20317460317460317,
+        "predicted_box_count": 251,
+        "mean_roi_area_fraction": 0.566116225323577
+      }
+    }
+  },
+  "polymer-insulator-upper-shackle": {
+    "support": {
+      "total": 10,
+      "fallback": 0,
+      "fallback_rate": 0.0,
+      "predicted_box_count": 10,
+      "mean_roi_area_fraction": 0.38706149969358605
+    },
+    "normal": {
+      "total": 500,
+      "fallback": 10,
+      "fallback_rate": 0.02,
+      "predicted_box_count": 490,
+      "mean_roi_area_fraction": 0.40000687747567715
+    },
+    "defects": {
+      "corrosion": {
+        "total": 725,
+        "fallback": 92,
+        "fallback_rate": 0.12689655172413794,
+        "predicted_box_count": 633,
+        "mean_roi_area_fraction": 0.6188717587707465
+      },
+      "rust": {
+        "total": 22,
+        "fallback": 0,
+        "fallback_rate": 0.0,
+        "predicted_box_count": 22,
+        "mean_roi_area_fraction": 0.5387555739921261
+      }
+    }
+  },
+  "vari-grip": {
+    "support": {
+      "total": 10,
+      "fallback": 0,
+      "fallback_rate": 0.0,
+      "predicted_box_count": 10,
+      "mean_roi_area_fraction": 0.4674140004061026
+    },
+    "normal": {
+      "total": 500,
+      "fallback": 1,
+      "fallback_rate": 0.002,
+      "predicted_box_count": 499,
+      "mean_roi_area_fraction": 0.5501790635770298
+    },
+    "defects": {
+      "bird-nest": {
+        "total": 358,
+        "fallback": 31,
+        "fallback_rate": 0.08659217877094973,
+        "predicted_box_count": 327,
+        "mean_roi_area_fraction": 0.5812456661245341
+      },
+      "rust": {
+        "total": 295,
+        "fallback": 44,
+        "fallback_rate": 0.14915254237288136,
+        "predicted_box_count": 251,
+        "mean_roi_area_fraction": 0.578109854857745
+      }
+    }
+  },
+  "yoke-suspension": {
+    "support": {
+      "total": 10,
+      "fallback": 0,
+      "fallback_rate": 0.0,
+      "predicted_box_count": 10,
+      "mean_roi_area_fraction": 0.4141708853572693
+    },
+    "normal": {
+      "total": 500,
+      "fallback": 3,
+      "fallback_rate": 0.006,
+      "predicted_box_count": 497,
+      "mean_roi_area_fraction": 0.46134161557945547
+    },
+    "defects": {
+      "rust": {
+        "total": 295,
+        "fallback": 3,
+        "fallback_rate": 0.010169491525423728,
+        "predicted_box_count": 292,
+        "mean_roi_area_fraction": 0.3920802884253873
+      }
+    }
+  }
+}
