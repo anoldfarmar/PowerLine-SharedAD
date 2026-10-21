@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "counts": {
+    "train": {
+      "images": 419,
+      "groups": 418,
+      "insulator_boxes": 758,
+      "clipped_boxes": 0
+    },
+    "val": {
+      "images": 61,
+      "groups": 60,
+      "insulator_boxes": 95,
+      "clipped_boxes": 0
+    },
+    "test": {
+      "images": 120,
+      "groups": 119,
+      "insulator_boxes": 220,
+      "clipped_boxes": 0
+    }
+  },
+  "groups_disjoint": true,
+  "exact_image_hashes_disjoint": true,
+  "matched_legacy_image_hashes": 600,
+  "xml_boxes_match_legacy_audit": true,
+  "defective_images_used": 0,
+  "identity_limit": "CPLID defects are synthetic; unknown original-source links are not claimed independent"
+}

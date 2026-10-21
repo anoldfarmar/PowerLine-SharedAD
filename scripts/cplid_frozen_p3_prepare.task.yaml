@@ -1,0 +1,17 @@
+task: CPLID-frozenP3-det-v1-prepare
+title: Prepare user-run CPLID localization training with strict COCO P3 preservation
+authorized_by: User requested CPLID training like InsPLAD and training commands
+gate_required: null
+scope:
+  source: /root/autodl-tmp/data/CPLID
+  data: Reuse old group-level normal split, relocate paths only after exact image hashes and audited XML boxes match
+  train: One insulator class; default60epochs/1280/batch8; originalCOCO freeze0-4 and BN, train5 onward
+  execution: Agent prepares and CPU-tests; user starts GPU training and final detection validation
+forbidden:
+  - Training or validating on defective images, changing original splits, or modifying older experiment files
+  - Agent starting GPU training, new anomaly scoring, adapters or mixing InsPLAD images into CPLID
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/PREPARE.json, key: ready, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/DATA_AUDIT.json, key: passed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/CPU_PREFLIGHT.json, key: passed, min: 1}
+  - {type: file_exists, path: scripts/cplid_frozen_p3_launch.sh}

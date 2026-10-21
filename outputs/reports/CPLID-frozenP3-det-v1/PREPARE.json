@@ -1,0 +1,26 @@
+{
+  "ready": true,
+  "counts": {
+    "train": {
+      "images": 419,
+      "groups": 418,
+      "insulator_boxes": 758,
+      "clipped_boxes": 0
+    },
+    "val": {
+      "images": 61,
+      "groups": 60,
+      "insulator_boxes": 95,
+      "clipped_boxes": 0
+    },
+    "test": {
+      "images": 120,
+      "groups": 119,
+      "insulator_boxes": 220,
+      "clipped_boxes": 0
+    }
+  },
+  "gpu_training_started": false,
+  "train_dataset": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/dataset/data.yaml",
+  "code_and_inputs_frozen": true
+}
