@@ -1,0 +1,61 @@
+{
+  "completed": true,
+  "splits": {
+    "val": {
+      "images": 61,
+      "GT_boxes": 95,
+      "mAP50": 0.9693462372365353,
+      "mAP50_95": 0.8304545738594703,
+      "per_class": [
+        {
+          "Class": "insulator",
+          "Images": 61,
+          "Instances": 95,
+          "Box-P": 0.94749533,
+          "Box-R": 0.91578947,
+          "Box-F1": 0.93137265,
+          "mAP50": 0.96934624,
+          "mAP75": 0.93968953,
+          "mAP50-95": 0.83045457
+        }
+      ],
+      "predictions": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/evaluation/val_best/predictions.json",
+      "metric": "Native Ultralytics detector AP; do not mix with historical COCO maxDets100 AP"
+    },
+    "test": {
+      "images": 120,
+      "GT_boxes": 220,
+      "mAP50": 0.9752664533801565,
+      "mAP50_95": 0.8091446374326633,
+      "per_class": [
+        {
+          "Class": "insulator",
+          "Images": 120,
+          "Instances": 220,
+          "Box-P": 0.9427766,
+          "Box-R": 0.97354751,
+          "Box-F1": 0.95791501,
+          "mAP50": 0.97526645,
+          "mAP75": 0.9485562,
+          "mAP50-95": 0.80914464
+        }
+      ],
+      "predictions": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/evaluation/test_best/predictions.json",
+      "metric": "Native Ultralytics detector AP; do not mix with historical COCO maxDets100 AP"
+    }
+  },
+  "weights": {
+    "passed": true,
+    "weights": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/runs/frozen_p3/weights/best.pt",
+    "sha256": "e98eb6432cd08e713475b643af0b6f168ce3144f9d145bcf3e1dd4de8fec31f7",
+    "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+    "p3_max_abs_diff": 0.0,
+    "shape": [
+      4,
+      64,
+      40,
+      40
+    ],
+    "device": "cuda:0"
+  }
+}

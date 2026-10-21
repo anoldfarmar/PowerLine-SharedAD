@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "train": {
+    "passed": true,
+    "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+    "p4_entry_updated": true,
+    "optimizer_step_checks": 426,
+    "epochs_audited": 60
+  },
+  "checkpoints": {
+    "best": {
+      "passed": true,
+      "weights": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/runs/frozen_p3/weights/best.pt",
+      "sha256": "e98eb6432cd08e713475b643af0b6f168ce3144f9d145bcf3e1dd4de8fec31f7",
+      "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+      "p3_max_abs_diff": 0.0,
+      "shape": [
+        4,
+        64,
+        40,
+        40
+      ],
+      "device": "cuda:0"
+    },
+    "last": {
+      "passed": true,
+      "weights": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/runs/frozen_p3/weights/last.pt",
+      "sha256": "9710dce92265bb71a40fbf625eab9124db350298218dcb7e7a8c868708212aaa",
+      "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+      "p3_max_abs_diff": 0.0,
+      "shape": [
+        4,
+        64,
+        40,
+        40
+      ],
+      "device": "cuda:0"
+    }
+  }
+}
