@@ -1,0 +1,20 @@
+{
+  "chosen_batch": 16,
+  "crop_batch": 32,
+  "warmup_calls_per_method": 111,
+  "latency_repeats": 3,
+  "throughput_repeats": 3,
+  "throughput_warmup_batches_per_method": 10,
+  "stage_profile_repeats": 1,
+  "stage_profile_per_box_group": 8,
+  "no_best_round_selection": true,
+  "sample_count": 320,
+  "batch_candidates": [
+    1,
+    8,
+    16
+  ],
+  "main_timing": "sync immediately before/after complete call only",
+  "profiling": "separate runs; sync at stages; not added to main latency",
+  "frozen_id": "3dd7f631ea55bedaac8d5cf8dbedf2ff246aebd07b164e739c68b4c23b5d338e"
+}

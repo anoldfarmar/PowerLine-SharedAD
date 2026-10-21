@@ -1,0 +1,43 @@
+{
+  "timing_records": 2088,
+  "peak_gpu_allocated_bytes": {
+    "T-CROP-small": 202310144,
+    "T-SHARE-small": 202310144
+  },
+  "resident_gpu_baseline_bytes": {
+    "T-CROP-small": 50448896,
+    "T-SHARE-small": 50448896
+  },
+  "note": "Both arms banks and shared model resident for fair alternation; peak allocated is not isolated deployment footprint",
+  "invocation_wall_seconds": 169.58819232694805,
+  "model_load_seconds": 0.3353063138201833,
+  "bank_build_seconds": {
+    "glass-insulator_T-CROP-small": 3.0442842254415154,
+    "glass-insulator_T-SHARE-small": 2.7622521556913853,
+    "lightning-rod-suspension_T-CROP-small": 2.647779389284551,
+    "lightning-rod-suspension_T-SHARE-small": 2.747175270691514,
+    "polymer-insulator-upper-shackle_T-CROP-small": 2.6838432755321264,
+    "polymer-insulator-upper-shackle_T-SHARE-small": 1.4718752764165401,
+    "vari-grip_T-CROP-small": 2.078014907427132,
+    "vari-grip_T-SHARE-small": 2.7355832383036613,
+    "yoke-suspension_T-CROP-small": 2.8103967094793916,
+    "yoke-suspension_T-SHARE-small": 2.373118817806244
+  },
+  "bank_bytes": {
+    "glass-insulator_T-CROP-small": 409600,
+    "glass-insulator_T-SHARE-small": 409600,
+    "lightning-rod-suspension_T-CROP-small": 409600,
+    "lightning-rod-suspension_T-SHARE-small": 409600,
+    "polymer-insulator-upper-shackle_T-CROP-small": 409600,
+    "polymer-insulator-upper-shackle_T-SHARE-small": 409600,
+    "vari-grip_T-CROP-small": 532480,
+    "vari-grip_T-SHARE-small": 532480,
+    "yoke-suspension_T-CROP-small": 409600,
+    "yoke-suspension_T-SHARE-small": 409600
+  },
+  "host_peak_rss_bytes": 2933288960,
+  "timing_frames": 320,
+  "accuracy_queries": 5215,
+  "gpu_competition_check": "no other compute PID before probe and every formal round",
+  "scope": "LOCAL_PRE_CROPPED_INPUT_ONLY; not original1920x1080 scene end-to-end speed"
+}

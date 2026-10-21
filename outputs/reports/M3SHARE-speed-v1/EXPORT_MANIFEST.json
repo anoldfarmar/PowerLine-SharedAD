@@ -1,0 +1,27 @@
+{
+  "task": "M3SHARE-speed-v1",
+  "exported": {
+    "METHOD_SPEC.md": "222006e2b9daf78a456d7015993b7078a41c89e198341369be2cfdb10bfa91de",
+    "DATA_AUDIT.json": "3d0c29821a0414017d2f3fae026cfe116c75f964597dad4507b246da201cb35d",
+    "FROZEN_INPUTS.json": "f91fc565cc53a826322fcf9a0275b81b5162c2a881feb6e6139627ce4b420bdc",
+    "REPRO_AND_CORRECTNESS.json": "4d615b706bc72ccceee22554b0d3a9957c7257e5c17eda3bd47857360fe8894d",
+    "TIMING_PROTOCOL.json": "296c7db56dd84b8f43cbea8fd973b45aa6613d9aef2ac6bf238da9ccabd1cc6f",
+    "PROBE.json": "84d412fca626583754092a56a9f60fb6a559dd7f04c0deb0184618dd734d12ef",
+    "TIMING_RAW.jsonl": "ee5c0decb726aac6b0519a8ad30fcc684054ed3958dedf1e145820ac7b4348d8",
+    "DISK_IO.json": "116f85015517aff70b64a1e98f5badf51a4e3fa9e40abe0e90fb354022e34b7e",
+    "RESOURCE_COST.json": "3c3512bcffe079712f18aed8791c40783db3aef12d5687a8f55800f97d8bb92e",
+    "ACCURACY_SUMMARY.json": "0d6d95199b1552e6448971ab731db4f3e7ced86b887dd44830c503efa8beba6d",
+    "SPEED_METRICS.json": "5a95a865fa193e9b358f8e60c8e69cbb5bc1a709bdd00b99c71b54a200070ba4",
+    "SPEED_REPORT.md": "eba3fbf2eb45eb218ffdbdc2bcfb84f9c0036ebd35a3e9eba5a5f9b9d393d3e3",
+    "COMPLETED.json": "d721c3951dde1a5d48de9c9cbf15fa57603f6e7be3a595d39ecf68e347303b6a",
+    "BANK_MANIFEST.json": "19afd87f1fe033c6c91ff3623ed689124ee253a758ad71f0933478a66de212f1"
+  },
+  "omitted": [
+    "cache/",
+    "accuracy/raw_scores.jsonl",
+    "images",
+    "weights"
+  ],
+  "original_result_dir": "/root/autodl-tmp/version10-12/M3SHARE-speed-v1",
+  "scope": "LOCAL_PRE_CROPPED_INPUT_ONLY; not original1920x1080 scene end-to-end speed"
+}

@@ -1,0 +1,493 @@
+{
+  "legacy_A_C": {
+    "glass-insulator/missing-cap": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 705,
+          "auroc": 0.9026070921985816
+        },
+        "at_least_one_box": {
+          "normal_count": 495,
+          "defect_count": 482,
+          "auroc": 0.8979588415273063
+        },
+        "no_box": {
+          "normal_count": 5,
+          "defect_count": 223,
+          "auroc": 0.4618834080717489
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 705,
+          "auroc": 0.9128737588652482
+        },
+        "at_least_one_box": {
+          "normal_count": 495,
+          "defect_count": 482,
+          "auroc": 0.8904941531497548
+        },
+        "no_box": {
+          "normal_count": 5,
+          "defect_count": 223,
+          "auroc": 0.45470852017937224
+        }
+      }
+    },
+    "lightning-rod-suspension/rust": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 315,
+          "auroc": 0.9754666666666666
+        },
+        "at_least_one_box": {
+          "normal_count": 498,
+          "defect_count": 251,
+          "auroc": 0.9714475431606907
+        },
+        "no_box": {
+          "normal_count": 2,
+          "defect_count": 64,
+          "auroc": 1.0
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 315,
+          "auroc": 0.9717206349206349
+        },
+        "at_least_one_box": {
+          "normal_count": 498,
+          "defect_count": 251,
+          "auroc": 0.9667274676394824
+        },
+        "no_box": {
+          "normal_count": 2,
+          "defect_count": 64,
+          "auroc": 1.0
+        }
+      }
+    },
+    "polymer-insulator-upper-shackle/corrosion": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 725,
+          "auroc": 0.8923282758620692
+        },
+        "at_least_one_box": {
+          "normal_count": 490,
+          "defect_count": 633,
+          "auroc": 0.8893477770255022
+        },
+        "no_box": {
+          "normal_count": 10,
+          "defect_count": 92,
+          "auroc": 0.9108695652173912
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 725,
+          "auroc": 0.8973324137931034
+        },
+        "at_least_one_box": {
+          "normal_count": 490,
+          "defect_count": 633,
+          "auroc": 0.8904665183608989
+        },
+        "no_box": {
+          "normal_count": 10,
+          "defect_count": 92,
+          "auroc": 0.8913043478260869
+        }
+      }
+    },
+    "polymer-insulator-upper-shackle/rust": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 22,
+          "auroc": 0.8662727272727273
+        },
+        "at_least_one_box": {
+          "normal_count": 490,
+          "defect_count": 22,
+          "auroc": 0.8658627087198516
+        },
+        "no_box": {
+          "normal_count": 10,
+          "defect_count": 0,
+          "auroc": null,
+          "reason": "AUROC undefined: missing a label class in this fixed subset"
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 22,
+          "auroc": 0.8635454545454546
+        },
+        "at_least_one_box": {
+          "normal_count": 490,
+          "defect_count": 22,
+          "auroc": 0.8691094619666049
+        },
+        "no_box": {
+          "normal_count": 10,
+          "defect_count": 0,
+          "auroc": null,
+          "reason": "AUROC undefined: missing a label class in this fixed subset"
+        }
+      }
+    },
+    "vari-grip/bird-nest": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 358,
+          "auroc": 0.9256256983240224
+        },
+        "at_least_one_box": {
+          "normal_count": 499,
+          "defect_count": 327,
+          "auroc": 0.9242276602133932
+        },
+        "no_box": {
+          "normal_count": 1,
+          "defect_count": 31,
+          "auroc": 1.0
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 358,
+          "auroc": 0.9138826815642458
+        },
+        "at_least_one_box": {
+          "normal_count": 499,
+          "defect_count": 327,
+          "auroc": 0.906399955875053
+        },
+        "no_box": {
+          "normal_count": 1,
+          "defect_count": 31,
+          "auroc": 1.0
+        }
+      }
+    },
+    "vari-grip/rust": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 295,
+          "auroc": 0.8738372881355932
+        },
+        "at_least_one_box": {
+          "normal_count": 499,
+          "defect_count": 251,
+          "auroc": 0.8676875663677954
+        },
+        "no_box": {
+          "normal_count": 1,
+          "defect_count": 44,
+          "auroc": 0.9772727272727273
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 295,
+          "auroc": 0.8911457627118644
+        },
+        "at_least_one_box": {
+          "normal_count": 499,
+          "defect_count": 251,
+          "auroc": 0.8748173638112879
+        },
+        "no_box": {
+          "normal_count": 1,
+          "defect_count": 44,
+          "auroc": 0.9772727272727273
+        }
+      }
+    },
+    "yoke-suspension/rust": {
+      "A": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 295,
+          "auroc": 0.9540542372881355
+        },
+        "at_least_one_box": {
+          "normal_count": 497,
+          "defect_count": 292,
+          "auroc": 0.9536534274137979
+        },
+        "no_box": {
+          "normal_count": 3,
+          "defect_count": 3,
+          "auroc": 1.0
+        }
+      },
+      "C": {
+        "all_queries": {
+          "normal_count": 500,
+          "defect_count": 295,
+          "auroc": 0.9388474576271186
+        },
+        "at_least_one_box": {
+          "normal_count": 497,
+          "defect_count": 292,
+          "auroc": 0.9405060499986219
+        },
+        "no_box": {
+          "normal_count": 3,
+          "defect_count": 3,
+          "auroc": 1.0
+        }
+      }
+    }
+  },
+  "new_local_arms": {
+    "glass-insulator/missing-cap": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 473,
+          "defect_count": 373,
+          "auroc": 0.8870027036371573
+        },
+        "T-SHARE-small": {
+          "normal_count": 473,
+          "defect_count": 373,
+          "auroc": 0.8891962205759825
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 5,
+          "defect_count": 223,
+          "auroc": 0.4860986547085201
+        },
+        "T-SHARE-small": {
+          "normal_count": 5,
+          "defect_count": 223,
+          "auroc": 0.45470852017937224
+        }
+      }
+    },
+    "lightning-rod-suspension/rust": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 492,
+          "defect_count": 247,
+          "auroc": 0.9454346466541589
+        },
+        "T-SHARE-small": {
+          "normal_count": 492,
+          "defect_count": 247,
+          "auroc": 0.9669694875086402
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 2,
+          "defect_count": 64,
+          "auroc": 0.9921875
+        },
+        "T-SHARE-small": {
+          "normal_count": 2,
+          "defect_count": 64,
+          "auroc": 1.0
+        }
+      }
+    },
+    "polymer-insulator-upper-shackle/corrosion": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 487,
+          "defect_count": 624,
+          "auroc": 0.9236889906807771
+        },
+        "T-SHARE-small": {
+          "normal_count": 487,
+          "defect_count": 624,
+          "auroc": 0.8913086400252725
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 10,
+          "defect_count": 92,
+          "auroc": 0.9249999999999999
+        },
+        "T-SHARE-small": {
+          "normal_count": 10,
+          "defect_count": 92,
+          "auroc": 0.8913043478260869
+        }
+      }
+    },
+    "polymer-insulator-upper-shackle/rust": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 487,
+          "defect_count": 22,
+          "auroc": 0.8983572895277208
+        },
+        "T-SHARE-small": {
+          "normal_count": 487,
+          "defect_count": 22,
+          "auroc": 0.8697965279074109
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 10,
+          "defect_count": 0,
+          "auroc": null,
+          "reason": "AUROC undefined: missing a label class in this fixed subset"
+        },
+        "T-SHARE-small": {
+          "normal_count": 10,
+          "defect_count": 0,
+          "auroc": null,
+          "reason": "AUROC undefined: missing a label class in this fixed subset"
+        }
+      }
+    },
+    "vari-grip/bird-nest": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 410,
+          "defect_count": 293,
+          "auroc": 0.8735037043203198
+        },
+        "T-SHARE-small": {
+          "normal_count": 410,
+          "defect_count": 293,
+          "auroc": 0.9189294930491968
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 1,
+          "defect_count": 31,
+          "auroc": 1.0
+        },
+        "T-SHARE-small": {
+          "normal_count": 1,
+          "defect_count": 31,
+          "auroc": 1.0
+        }
+      }
+    },
+    "vari-grip/rust": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 410,
+          "defect_count": 212,
+          "auroc": 0.738552692130695
+        },
+        "T-SHARE-small": {
+          "normal_count": 410,
+          "defect_count": 212,
+          "auroc": 0.8875517717441325
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 1,
+          "defect_count": 44,
+          "auroc": 0.9772727272727273
+        },
+        "T-SHARE-small": {
+          "normal_count": 1,
+          "defect_count": 44,
+          "auroc": 0.9772727272727273
+        }
+      }
+    },
+    "yoke-suspension/rust": {
+      "exactly_one_box": {
+        "T-CROP-small": {
+          "normal_count": 490,
+          "defect_count": 277,
+          "auroc": 0.9280556988138217
+        },
+        "T-SHARE-small": {
+          "normal_count": 490,
+          "defect_count": 277,
+          "auroc": 0.9384955426213807
+        }
+      },
+      "no_box_full_frame_fallback": {
+        "T-CROP-small": {
+          "normal_count": 3,
+          "defect_count": 3,
+          "auroc": 1.0
+        },
+        "T-SHARE-small": {
+          "normal_count": 3,
+          "defect_count": 3,
+          "auroc": 1.0
+        }
+      }
+    }
+  },
+  "no_box_label_counts": {
+    "glass-insulator": {
+      "normal": 5,
+      "defects": {
+        "missing-cap": 223
+      },
+      "note": "No expected-class output, not GT detector recall"
+    },
+    "lightning-rod-suspension": {
+      "normal": 2,
+      "defects": {
+        "rust": 64
+      },
+      "note": "No expected-class output, not GT detector recall"
+    },
+    "polymer-insulator-upper-shackle": {
+      "normal": 10,
+      "defects": {
+        "corrosion": 92,
+        "rust": 0
+      },
+      "note": "No expected-class output, not GT detector recall"
+    },
+    "vari-grip": {
+      "normal": 1,
+      "defects": {
+        "bird-nest": 31,
+        "rust": 44
+      },
+      "note": "No expected-class output, not GT detector recall"
+    },
+    "yoke-suspension": {
+      "normal": 3,
+      "defects": {
+        "rust": 3
+      },
+      "note": "No expected-class output, not GT detector recall"
+    }
+  },
+  "all_queries_retained": true,
+  "new_all_query_system_auroc": null,
+  "reason": "No frozen multi-box image aggregation or component-level anomaly GT; do not manufacture all-query AUROC",
+  "labels": "image-level only, not per predicted object",
+  "threshold_selected": false,
+  "source_identity_limit": "No reliable raw-full-scene mapping; local native-crop inputs only",
+  "raw_scores": {
+    "path": "/root/autodl-tmp/version10-12/M3SHARE-speed-v1/accuracy/raw_scores.jsonl",
+    "sha256": "8e8f0f235d1f8aadef5bf8cdc97f94abd6ae495a7994f7725d0e39a09c3357b1"
+  }
+}

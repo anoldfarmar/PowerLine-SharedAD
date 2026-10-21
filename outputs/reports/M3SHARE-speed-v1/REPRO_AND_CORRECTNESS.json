@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "atol": 0.0001,
+  "rtol": 0.0001,
+  "geometry": {
+    "stretch_roundtrip": true,
+    "explicit_letterbox_affine": true,
+    "roi_ramp_origin": [
+      9.75,
+      9.75
+    ]
+  },
+  "batch": {
+    "T-CROP-small": {
+      "8": {
+        "passed": true,
+        "box_maxdiff": 2.384185791015625e-07,
+        "score_maxdiff": 1.1920928955078125e-07,
+        "feature_maxdiff": 8.046627044677734e-07
+      },
+      "16": {
+        "passed": true,
+        "box_maxdiff": 7.152557373046875e-07,
+        "score_maxdiff": 1.1920928955078125e-07,
+        "feature_maxdiff": 8.940696716308594e-07
+      }
+    },
+    "T-SHARE-small": {
+      "8": {
+        "passed": true,
+        "box_maxdiff": 2.384185791015625e-07,
+        "score_maxdiff": 7.152557373046875e-07,
+        "feature_maxdiff": 8.955597877502441e-06
+      },
+      "16": {
+        "passed": true,
+        "box_maxdiff": 7.152557373046875e-07,
+        "score_maxdiff": 4.172325134277344e-07,
+        "feature_maxdiff": 9.208917617797852e-06
+      }
+    }
+  },
+  "counters": {
+    "T-CROP-small": {
+      "full_backbone_calls": 1,
+      "full_images": 4,
+      "crop_backbone_calls": 2,
+      "crop_images": 39
+    },
+    "T-SHARE-small": {
+      "full_backbone_calls": 1,
+      "full_images": 4,
+      "crop_backbone_calls": 0,
+      "crop_images": 0
+    }
+  },
+  "crop_prefix_matches_detector_parameters_and_bn": true,
+  "crop_batch_1_vs_32": {
+    "box_maxdiff": 0.0,
+    "score_maxdiff": 1.1920928955078125e-07,
+    "feature_maxdiff": 9.238719940185547e-07
+  },
+  "T-CROP-small_NN_chunk_maxdiff": 5.960464477539062e-07,
+  "T-SHARE-small_NN_chunk_maxdiff": 6.854534149169922e-07,
+  "accepted_frame_batches": [
+    1,
+    8,
+    16
+  ],
+  "actual_full_forward_counts_verified": true,
+  "actual_crop_batch_counts_verified": true,
+  "zero_multi_boundary_nonsquare_executed": true,
+  "all_speed_inputs_prediction_identity_checked": true,
+  "model_state_unchanged": true,
+  "prefix_state_unchanged": true,
+  "state_sha256": "5757381c3d19614d5a2b32be2e33fce525250fc9dee8d9b082c798e02937824f",
+  "prefix_state_sha256": "6649b5d2b9174c866f1591f59e45ea83fef7dbbea56251af6f431f4b508bc8d9",
+  "formal_actual_forward_execution": true,
+  "all_accuracy_queries_retained": true
+}
