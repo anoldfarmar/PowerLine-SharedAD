@@ -1,0 +1,92 @@
+{
+  "task": "CPLID-sharedP3-R0R1R2-v1",
+  "detector": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/runs/frozen_p3/weights/best.pt",
+  "detector_sha256": "e98eb6432cd08e713475b643af0b6f168ce3144f9d145bcf3e1dd4de8fec31f7",
+  "coco": "/root/autodl-tmp/third_party/yolov8n.pt",
+  "coco_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "detector_input": {
+    "size": [
+      1280,
+      1280
+    ],
+    "geometry": "RGB LetterBox auto=False, pad114, bilinear OpenCV resize",
+    "conf": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300,
+    "classes": [
+      0
+    ],
+    "frame_batch": 1
+  },
+  "features": {
+    "layer": 4,
+    "channels": 64,
+    "stride": 8,
+    "channel_L2": true,
+    "crop_size": [
+      320,
+      320
+    ],
+    "crop_integer": "floor left/top, ceil right/bottom, clipped to image",
+    "crop_resize": "PIL bilinear RGB",
+    "roi_size": [
+      40,
+      40
+    ],
+    "aligned": true,
+    "sampling_ratio": 1
+  },
+  "bank": {
+    "shots": "10 fixed normal training files/groups/GT objects per reference; one preselected object per file",
+    "support_geometry": "GT-anchored for ALL arms: R0/R1 GT crop; R2 GT ROI from full-image forward",
+    "coreset": "official anomalib KCenterGreedy ratio0.1 seed7001; independently seeded per path/ref",
+    "R0_R1": "identical support feature path; verified shared bank, no old bank reused"
+  },
+  "query": {
+    "R0": "GT native crop -> Resize320 -> original COCO prefix0..4",
+    "R1": "new detector -> native predicted crop -> Resize320 -> extra COCO prefix0..4",
+    "R2": "same new detector and same predictions -> same-forward P3 -> RoIAlign"
+  },
+  "scoring": {
+    "distance": "exact FP32 Euclidean on channel-normalized patches, official PatchCore distance",
+    "reduction": "mean largest8 patch 1NN distances",
+    "query_chunk": 2048,
+    "bank_chunk": 512
+  },
+  "matching": {
+    "iou": 0.5,
+    "rule": "confidence-descending greedy one-to-one whole-insulator GT matching",
+    "unmatched": "unassigned prediction; scored and counted as FP, never assigned fault label",
+    "no_box": "unlocalized; no fallback, no anomaly score; missed GT stay in coverage denominator"
+  },
+  "evaluation": {
+    "conditional": "R1/R2 AUROC over identical matched GT objects; R0 also reported on same subset",
+    "whole_image_AUROC": false,
+    "threshold_tuning": false,
+    "alarm_recall": "not defined without independent calibration",
+    "interpretation": "coverage is localization recall, not thresholded fault-diagnosis recall"
+  },
+  "timing": {
+    "reference": "ref3001 banks only, fixed representative; all queries and boxes",
+    "rounds": 3,
+    "warmup": 5,
+    "order": "alternate R1/R2 by frame+round",
+    "frame_batch": 1,
+    "crop_batch": 32,
+    "boundary": "decoded PIL RGB -> preprocessing/transfer/detection/NMS/crop-or-ROI/NN -> boxes,scores,status",
+    "decode": "separate",
+    "throughput": "sequential frame_batch1 throughput only; no larger-frame-batch claim",
+    "profiling": "one separate all-frame stage-profile pass, not added to independent end-to-end timing"
+  },
+  "numeric": {
+    "FP32": true,
+    "TF32": false,
+    "seed": 0,
+    "atol": 0.0001,
+    "rtol": 0.0001
+  },
+  "no_training": true,
+  "no_new_layers": true,
+  "no_parameter_search": true,
+  "limits": "CPLID defects synthetic; unknown shared source ancestry; R0 is a reference, not guaranteed upper bound"
+}

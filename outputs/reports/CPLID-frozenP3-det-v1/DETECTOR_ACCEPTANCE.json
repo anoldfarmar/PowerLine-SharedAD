@@ -1,0 +1,1325 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "epochs_verified": 60,
+  "optimizer_steps": 426,
+  "output_tolerance": {
+    "atol": 0.0001,
+    "rtol": 0.0001
+  },
+  "weights": {
+    "best": {
+      "sha256": "e98eb6432cd08e713475b643af0b6f168ce3144f9d145bcf3e1dd4de8fec31f7",
+      "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+      "probes": [
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0342.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0342.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0648.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0648.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1472.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1472.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1897.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1897.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        }
+      ]
+    },
+    "last": {
+      "sha256": "9710dce92265bb71a40fbf625eab9124db350298218dcb7e7a8c868708212aaa",
+      "prefix_hash": "b370260f2864d83e57b96b69bd7a8370445c95b77433226617511b2026b7e925",
+      "probes": [
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0342.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0342.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0648.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0648.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1472.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1472.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "whole_letterbox",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1897.jpg",
+          "shape": [
+            1,
+            64,
+            160,
+            160
+          ],
+          "max_abs_diff": 0.0
+        },
+        {
+          "kind": "GT_crop",
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1897.jpg",
+          "shape": [
+            1,
+            64,
+            40,
+            40
+          ],
+          "max_abs_diff": 0.0
+        }
+      ]
+    }
+  },
+  "fixed_threshold": {
+    "val": {
+      "conf": 0.25,
+      "iou": 0.5,
+      "GT": 95,
+      "predictions": 103,
+      "TP": 91,
+      "FN": 4,
+      "FP": 12,
+      "recall": 0.9578947368421052,
+      "precision": 0.883495145631068,
+      "per_image": [
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0069.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0122.jpg",
+          "gt": 3,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0203.jpg",
+          "gt": 3,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0226.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0277.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0344.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0386.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0403.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0469.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0545.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0572.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0765.jpg",
+          "gt": 4,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0822.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0863.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0878.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0907.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0953.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1000.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1063.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1072.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1128.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1380.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1400.jpg",
+          "gt": 2,
+          "predictions": 4,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1437.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1522.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1527.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1567.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1608.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1639.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1683.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1711.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1731.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1871.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1893.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1938.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2236.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2306.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2323.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2338.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2400.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2423.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2488.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2512.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2544.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2744.jpg",
+          "gt": 2,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2802.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2819.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2829.jpg",
+          "gt": 1,
+          "predictions": 3,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2830.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2855.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2893.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2933.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2976.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3024.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3072.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3109.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3169.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3284.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3357.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3388.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3516.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        }
+      ],
+      "matching": "confidence-descending greedy one-to-one IoU; all GT in denominator",
+      "prediction_file_sha256": "2fbcc5de6209e00b16a387f52f68eb243dc8d160c531c6731b13a912c8118379"
+    },
+    "test": {
+      "conf": 0.25,
+      "iou": 0.5,
+      "GT": 220,
+      "predictions": 237,
+      "TP": 215,
+      "FN": 5,
+      "FP": 22,
+      "recall": 0.9772727272727273,
+      "precision": 0.9071729957805907,
+      "per_image": [
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0078.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0150.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0177.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0178.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0223.jpg",
+          "gt": 5,
+          "predictions": 4,
+          "matched": 4
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0239.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0261.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0283.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0295.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0309.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0326.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0354.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0364.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0365.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0376.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0414.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0444.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0446.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0459.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0495.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0509.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0559.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0578.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0600.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0617.jpg",
+          "gt": 3,
+          "predictions": 4,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0638.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0642.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0664.jpg",
+          "gt": 4,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0680.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0739.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0748.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0756.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0777.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0799.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0802.jpg",
+          "gt": 4,
+          "predictions": 4,
+          "matched": 4
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0820.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0844.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0846.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0879.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0913.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0926.jpg",
+          "gt": 2,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/0943.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1010.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1018.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1055.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1074.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1102.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1143.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1181.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1214.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1233.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1271.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1347.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1364.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1366.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1385.jpg",
+          "gt": 1,
+          "predictions": 3,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1424.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1428.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1456.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1465.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1486.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1538.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1548.jpg",
+          "gt": 3,
+          "predictions": 5,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1593.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1654.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1698.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1712.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1714.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1717.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1816.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1845.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1899.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1924.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1965.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/1989.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2027.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2039.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2062.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2224.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2274.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2277.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2292.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2311.jpg",
+          "gt": 4,
+          "predictions": 4,
+          "matched": 4
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2314.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2358.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2424.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2447.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2501.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2527.jpg",
+          "gt": 4,
+          "predictions": 4,
+          "matched": 4
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2600.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2612.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2645.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2657.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2666.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2678.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2682.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2887.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2936.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2956.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2964.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2984.jpg",
+          "gt": 1,
+          "predictions": 2,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/2993.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3043.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3144.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3157.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3161.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3163.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3195.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3200.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3229.jpg",
+          "gt": 1,
+          "predictions": 3,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3280.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3326.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3352.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3369.jpg",
+          "gt": 2,
+          "predictions": 3,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3457.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3535.jpg",
+          "gt": 3,
+          "predictions": 3,
+          "matched": 3
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3546.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3559.jpg",
+          "gt": 2,
+          "predictions": 2,
+          "matched": 2
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3566.jpg",
+          "gt": 1,
+          "predictions": 1,
+          "matched": 1
+        },
+        {
+          "path": "/root/autodl-tmp/data/CPLID/Normal_Insulators/images/3598.jpg",
+          "gt": 3,
+          "predictions": 4,
+          "matched": 3
+        }
+      ],
+      "matching": "confidence-descending greedy one-to-one IoU; all GT in denominator",
+      "prediction_file_sha256": "3948e4f665e65d0fbc86ec8445abeb8ec8b3620828e0b1441af3a95339580011"
+    }
+  },
+  "source_hashes": {
+    "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/FROZEN_INPUTS.json": "6f558ba897f6487058e7c0aa0a19501ac39581d9878080765a130d2d69d8949d",
+    "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/FREEZE_CORRECTNESS.json": "169c572a4915b13fe8fd70360d4e27bfc222658ddcf00c3834ec707d9005fcc4",
+    "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/DETECTION_RESULTS.json": "4c29b2c3d6c2668fcabcfcd0993dc4b2133466879119a1ace5675dc38321eb1e"
+  },
+  "visualizations": "/root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/acceptance/vis",
+  "scope": "normal val/test only; no fault inference; prefix exact and output checks rerun"
+}

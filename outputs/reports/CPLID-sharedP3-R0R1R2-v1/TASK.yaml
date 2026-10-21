@@ -1,0 +1,23 @@
+task: CPLID-sharedP3-R0R1R2-v1
+title: Frozen CPLID R0/R1/R2 user-run evaluation
+gate_required: null
+authorized_by: User requested detector acceptance then frozen next-stage launch instructions
+scope:
+  training: false
+  evaluation: same detector R0/R1/R2, fixed5supportlists and whole-frame timing
+acceptance:
+- type: metric_min
+  path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/REPRO_AND_CORRECTNESS.json
+  key: passed
+  min: 1
+- type: metric_min
+  path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/metrics.json
+  key: completed
+  min: 1
+- type: csv_min_rows
+  path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/per_reference_metrics.csv
+  min_rows: 15
+- type: file_exists
+  path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/TIMING_RAW.jsonl
+- type: file_exists
+  path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/REPORT.md

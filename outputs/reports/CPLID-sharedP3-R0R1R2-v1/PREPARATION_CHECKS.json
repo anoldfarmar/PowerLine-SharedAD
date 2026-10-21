@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "CPU preparation only, not formal GPU gates or anomaly evaluation",
+  "device": "cpu",
+  "frozen_identity": "12c03d8e1f16d9ca30dc00594570e404f4b9a48bf92437c852bc70f90811198b",
+  "unit_tests_passed": 4,
+  "shell_syntax": true,
+  "training_probe_only": true,
+  "boxes_equal": true,
+  "boxes": 2,
+  "R1_counts": {
+    "full": 1,
+    "full_images": 1,
+    "crop": 1,
+    "crop_objects": 2
+  },
+  "R2_counts": {
+    "full": 1,
+    "full_images": 1,
+    "crop": 0,
+    "crop_objects": 0
+  },
+  "feature_shape": [
+    2,
+    1600,
+    64
+  ],
+  "crop_batch_maxdiff": 0.0,
+  "coordinate_ramp_maxdiff": 0.0,
+  "state_unchanged": true,
+  "dependencies": {
+    "anomalib_version": "2.6.2",
+    "torch_model_py": "/root/miniconda3/lib/python3.12/site-packages/anomalib/models/image/patchcore/torch_model.py",
+    "torch_model_sha256": "a5e5bc1ed22ed86db477000092e8e628b0c02a99cdd6ec6789c0ab8b924aaba9",
+    "kcenter_py": "/root/miniconda3/lib/python3.12/site-packages/anomalib/models/components/sampling/k_center_greedy.py",
+    "kcenter_sha256": "04a74842ed53c60493fc311653e01c3147601e3ff1be1de505b8881b2eb4b556"
+  },
+  "GPU_evaluation_started": false,
+  "formal_GPU_numerical_gates": "PENDING_USER_RUN"
+}

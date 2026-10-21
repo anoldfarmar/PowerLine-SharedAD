@@ -1,0 +1,30 @@
+task: CPLID-sharedP3-prepare-v1
+title: Accept completed detector and prepare frozen user-run R0/R1/R2 protocol
+gate_required: null
+authorized_by: User requested detector acceptance and next-stage protocol launch commands
+scope:
+  training: false
+  allowed: CPU detector audit, normal-only CPU smoke, freeze data/protocol/code, prepare scripts
+  excluded: GPU bank building, fault inference, formal GPU benchmarking, new training
+acceptance:
+  - type: metric_min
+    path: /root/autodl-tmp/version10-12/CPLID-frozenP3-det-v1/DETECTOR_ACCEPTANCE.json
+    key: passed
+    min: 1
+  - type: metric_min
+    path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/PREPARATION_CHECKS.json
+    key: passed
+    min: 1
+  - type: metric_min
+    path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/PREPARATION_CHECKS.json
+    key: unit_tests_passed
+    min: 4
+  - type: content_contains
+    path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/PREPARATION_CHECKS.json
+    needle: '"GPU_evaluation_started": false'
+  - type: file_exists
+    path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/FROZEN_INPUTS.json
+  - type: file_exists
+    path: /root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1/METHOD_SPEC.md
+  - type: file_exists
+    path: scripts/cplid_shared_p3_launch.sh
