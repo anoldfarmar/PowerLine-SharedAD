@@ -17,7 +17,7 @@ from insplad_freeze_utils import json_write
 def main():
     root=Path(__file__).resolve().parents[1]
     out=Path('/root/autodl-tmp/version10-12/CPLID-sharedP3-R0R1R2-v1')
-    subprocess.run([sys.executable,'-m','unittest','scripts/test_cplid_shared_p3.py','-v'],cwd=root,check=True)
+    subprocess.run([sys.executable,'-m','unittest','tests/test_cplid_shared_p3.py','-v'],cwd=root,check=True)
     subprocess.run(['bash','-n',str(root/'scripts/cplid_shared_p3_launch.sh')],check=True)
     f=read(out/'FROZEN_INPUTS.json');validate(f)
     import m3score_pcverify as pv

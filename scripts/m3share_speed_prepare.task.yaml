@@ -12,4 +12,4 @@ acceptance:
   - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/CPU_TESTS.json, key: tests_run, min: 7}
   - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/METHOD_SPEC.md}
   - {type: file_exists, path: scripts/m3share_speed_launch.sh}
-  - {type: file_exists, path: scripts/M3SHARE_SPEED.md}
+  - {type: file_exists, path: docs/insplad/M3SHARE_SPEED.md}

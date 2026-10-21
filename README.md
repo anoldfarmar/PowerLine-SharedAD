@@ -1,231 +1,99 @@
-# 共享 YOLO 骨干的部件定位与无监督异常诊断
+# PowerLine-SharedAD
 
-本仓库研究电力部件的“目标定位＋正常记忆库异常评分”：保护适合异常诊断的 COCO 预训练特征，训练其后的检测网络，再让**同一次检测前向**产生的空间特征服务于异常评分，减少两阶段系统重复提取特征的成本。
+**Shared-backbone detection and few-shot anomaly scoring for power-line assets.**
 
-已完成 InsPLAD 裁剪图基线、严格冻结 P3 的检测训练、小图共享验证及测速，以及 CPLID 原始整图上的精度—成本对照。**目前证据支持“共享确实节省计算”，不支持“所有场景精度无损”。**
+PowerLine-SharedAD studies whether one YOLOv8n forward pass can both locate an
+asset and supply local features for normal-reference anomaly detection. The
+detector starts from COCO weights. Modules 0–4, including the 64-channel,
+stride-8 backbone P3 output and their batch-normalization statistics, remain
+frozen while the later detection layers adapt to the target assets. At inference,
+predicted boxes index features from that same forward pass. Each ROI is matched
+to a memory bank built from normal support objects; the image/object score is
+the mean of the **eight largest** patch-to-bank nearest-neighbor distances.
 
-本文汇总截至 2026-10-21 的已完成实验。历史报告反映当时的比较范围；主线判断以下述更新结果为准，不以旧报告中的“下一步尚未验证”覆盖后来完成的实验。
+The anomaly branch is a frozen-feature memory method. “End-to-end” here means
+the complete inference pipeline, not joint training of detection and anomaly
+losses.
 
-## 1. 实验目的与研究主线
+## Current evidence
 
-三个核心问题：
+| Dataset and setting | Result | Boundary |
+|---|---|---|
+| InsPLAD, 10 normal supports, 7 asset–fault pairs | COCO YOLO P3 + top8 macro image AUROC **0.9159**, versus 0.8306 for the recorded WRN PatchCore baseline | Pre-cropped images; support frames are not proven independent of detector training frames |
+| InsPLAD frozen-prefix detector | AP50 **0.9594**, AP50:95 **0.8215** | Historical full-tuning reference used a different training recipe |
+| InsPLAD small-crop shared pipeline | 13.665 → **9.531 ms** mean per input; batch-16 throughput 122.86 → **203.83 images/s** | Existing crops, not original full UAV frames |
+| CPLID normal-image detector | Validation AP50 **0.9693**, AP50:95 **0.8305** | One insulator class; defect images were excluded from training and model selection |
+| CPLID full-frame two-stage R1 vs shared R2 | Mean 18.554 → **15.177 ms** (1.222× speedup); conditional object AUROC **0.7056 → 0.6800** | Sharing saves compute but lowers mean AUROC by 0.0256 across five reference selections |
 
-1. 原始 COCO YOLO 特征与电力场景训练后的 YOLO、WRN PatchCore 相比，异常区分能力如何？
-2. 严格保护异常特征、只训练后续网络，能否仍获得可用的部件定位能力？
-3. 同次前向共享空间特征，相对“先检测、再裁剪并重复提取特征”，能节省多少实际时间，付出多少异常评分精度？
+CPLID R0, which uses ground-truth boxes and a fresh crop feature pass, has
+mean AUROC 0.7287. Its faulty images are synthetic; common foreground or
+background ancestry has not been fully resolved. The five references are
+different bank samples on one query set, not five independent test sets.
+Localization coverage and thresholded fault recall are distinct: the latter
+has not been calibrated. These findings do not establish universal accuracy
+preservation or RK3588 performance.
 
-研究链路为：**裁剪级基线 → 冻结前缀训练检测器 → 小图共享正确性验证 → 小图实际成本 → CPLID 整图精度与成本验证**。InsPLAD 和 CPLID 的数据及指标边界不同，不把两者数字当作同一测试集的连续提升。
-
-“端到端”在这里指完整推理流程：异常分支仍是冻结特征＋正常记忆库，**不是检测与异常损失联合端到端训练**。
-
-## 2. 方法与实验链路
-
-### 2.1 异常评分基础
-
-YOLO 路径提取原始骨干第 **4 模块**的 P3（YOLOv8n：64通道、stride=8），不是 Neck 的同名 P3，也不是检测头输出。裁剪输入 Resize320 时得到40×40个 patch。
-
-正常支持图／目标 → 特征提取 → 每个 patch 通道 L2 归一化 → 正常库压缩 → 查询 patch 精确最近邻距离 → **最大的8个 patch 距离取均值（top8）**。top8 不是取8个最近原型。
-
-YOLO 正常库沿用官方 KCenterGreedy 10%抽样；种子、候选数、支持对象及查询输入以每个实验的冻结清单为准。WRN 主对照使用其冻结的官方 PatchCore 图像评分，不把不同评分函数混称为同一算法。
-
-### 2.2 严格冻结与共享
-
-从原始 COCO YOLOv8n 初始化，锁定 `model.model[:5]`（模块0～4）的参数及所有 BN 运行状态；训练模块5及之后的 P4/P5、Neck 和检测头。每次训练模式切换后仍维持冻结前缀 eval，并核验 live/EMA、实际 best/last 检查点及固定输入输出。
-
-共享与两阶段的区别：
+## Method and experiments
 
 ```text
-原始整图 → LetterBox → 同一个部件检测器 → 相同预测框
-                           │                  │
-                           │                  ├─ R1：原图高清裁剪 → Resize320
-                           │                  │        → 额外 COCO 前缀 → Crop正常库 → top8
-                           │                  │
-                           └─ 本次前向 P3 ────┴─ R2：坐标映射＋RoIAlign
-                                                        → ROI正常库 → top8
+Full UAV image -> frozen-P3 YOLO detector -> predicted asset boxes
+                  |                           |
+                  |                           +-> R1: native crop -> resize 320
+                  |                                  -> extra COCO prefix -> crop bank
+                  +-> P3 from this forward -> R2: ROIAlign 40x40 -> ROI bank
+
+Each query patch -> exact nearest normal prototype -> mean largest 8 distances
 ```
 
-另设 **R0：GT框裁原图 → Resize320 → COCO P3 → Crop正常库 → top8**，用于诊断参考；它不是完整系统的速度基线，也不是数学意义上的精度上界。
+R0 uses ground-truth boxes and crop features as a diagnostic reference. R1 and
+R2 use the same detector and predicted boxes. Their support objects are
+ground-truth anchored, and each feature path has its own matching bank.
 
-RoIAlign 把框对应的空间特征采样为固定网格，不能恢复整图缩放时丢失的纹理。各特征路径需要匹配的正常库，不能直接把 Crop 库当作 ROI 库。
+## Repository layout
 
-## 3. InsPLAD：从异常基线到共享验证
-
-### 3.1 数据与评测口径
-
-异常评测使用 `defect_supervised` 中已有部件小图：5资产、7个资产—故障组合。COCO完整基线覆盖5N/10N、ref3001–3005五组固定支持名单。N统计**正常裁剪文件预算**，不是已证明独立的拍摄源帧；五参照组表示同一查询集上正常库变化，不是五个独立数据集或五次检测训练。
-
-InsPLAD 检测训练则使用带部件框的整图及选定14类。项目未建立异常小图与原始检测大图之间可靠的完整身份映射，因此小图共享实验**不是原始航拍大图端到端验证**，不能按裸 DJI 编号猜测配对。
-
-### 3.2 COCO＋top8 完整基线
-
-下表为10N、五参照组的 AUROC 均值；“原训练YOLO”是历史电力场景检测模型，不是后续严格冻结 P3 的模型。
-
-| 资产／故障 | COCO＋top8 | 原训练YOLO＋top8 | WRN官方PatchCore |
-|---|---:|---:|---:|
-| glass-insulator／missing-cap | 0.8897 | 0.8311 | 0.8258 |
-| lightning-rod-suspension／rust | 0.9774 | 0.9206 | 0.7995 |
-| polymer-insulator-upper-shackle／corrosion | 0.8937 | 0.8598 | 0.8342 |
-| polymer-insulator-upper-shackle／rust | 0.8858 | 0.8227 | 0.7654 |
-| vari-grip／bird-nest | 0.9219 | 0.9018 | 0.9361 |
-| vari-grip／rust | 0.8886 | 0.8545 | 0.8186 |
-| yoke-suspension／rust | 0.9541 | 0.9172 | 0.8345 |
-| **七组合等权宏平均** | **0.9159** | **0.8725** | **0.8306** |
-
-| 支持预算 | COCO＋top8 | 原训练YOLO＋top8 | WRN官方PatchCore |
-|---|---:|---:|---:|
-| 5N：宏平均±参照组总体标准差 | 0.8909 ± 0.0115 | 0.8383 ± 0.0113 | 0.7922 ± 0.0192 |
-| 10N：宏平均±参照组总体标准差 | 0.9159 ± 0.0045 | 0.8725 ± 0.0099 | 0.8306 ± 0.0215 |
-
-10N下，COCO＋top8 的宏平均比原训练YOLO高 **4.33个百分点**，比WRN高 **8.53个百分点**；逐组合均值对原训练YOLO7/7领先，对WRN6/7领先。不能由此直接证明“微调必然破坏异常特征”：训练暴露、预处理等来源仍需区分。但该结果构成保护原始 COCO P3 的实证动机。
-
-共70个COCO配置，加140个核验复用对照，共210条配置记录。[完整表、标准差与范围](outputs/reports/InsPLAD-COCO-top8-full-v1/PERFORMANCE_TABLE.md) · [逐组指标](outputs/reports/InsPLAD-COCO-top8-full-v1/per_reference_metrics.csv) · [冻结输入](outputs/reports/InsPLAD-COCO-top8-full-v1/FROZEN_INPUTS.json)。
-
-补充系统基线 **AnomalyDINO-S/448**：10N、7组合宏平均0.7471。这是官方自定义数据集无掩码回退配置，包含旋转支持增强，不能当作其所有配置的上限，也不能将系统差距只归因于主干。[详细报告](outputs/reports/M3BASELINE-AnomalyDINO-full-v1/FULL_BASELINE_REPORT.md)。
-
-### 3.3 冻结 P3 后仍能定位吗？
-
-选择 C01–C12、C17、C18 共14个检测类别，验证集13类有GT，sphere无验证GT。两个模型的保存预测统一按 COCO maxDets=100 协议重算：
-
-| 模型 | AP50 | AP50:95 |
-|---|---:|---:|
-| 严格冻结P3，训练后续网络 | 0.9594 | 0.8215 |
-| 历史全量微调检测器 | 0.9557 | 0.8177 |
-
-best/last 的冻结前缀参数、BN及同输入 P3 检查通过。总体定位未出现明显下降，但历史模型是18类训练、统一评估所选14类，**不是同配方14类的严格训练消融**；spacer等类别召回仍需单独看。[检测报告](outputs/reports/InsPLAD-frozenP3-14class-v1/DETECTION_REPORT.md)。
-
-### 3.4 小图 A/B/C 验证
-
-固定10N/ref3001，5215张唯一查询、7组合；输入统一 Stretch-Resize320，不用 LetterBox：
-
-| 臂 | 实际路径 | 七组合宏平均AUROC |
-|---|---|---:|
-| A | 现成小图 → COCO P3＋top8 | 0.912885 |
-| B | 同次检测P3 → 全图ROI，恒等控制 | 0.912885 |
-| C | 同次P3 → 目标类别最高置信度预测ROI；无框回退全图 | 0.912764 |
-
-B不是GT框上限；A/B逐图分数一致。C宏平均接近A，但3组合提升、4组合下降，且异常查询存在1.02%～31.63%的回退（另一个组合为0%）。因此这是**预测ROI＋回退的混合系统**结果，不是所有故障无损或纯检测成功条件下的证明。
-
-此表是单参照组，不能与上一节五组均值混读。[A/B/C完整报告](outputs/reports/InsPLAD-sharedROI-ABC-ref3001-v1/REPORT.md) · [20张可视化说明](outputs/reports/InsPLAD-sharedROI-C-vis20-v1/README.md)。
-
-### 3.5 小图真实推理成本：M3SHARE-speed-v1
-
-320张固定小图、单帧重复3轮。实际执行检测与诊断，不用特征缓存替代前向；多框分别批量裁剪／ROI。
-
-| 指标 | 两阶段裁剪 | 同次前向共享P3 |
-|---|---:|---:|
-| 平均单帧延迟 | 13.665 ms | 9.531 ms |
-| P95单帧延迟 | 21.995 ms | 13.265 ms |
-| batch=16吞吐 | 122.86 文件/s | 203.83 文件/s |
-
-局部完整调用加速 **1.434倍**，平均延迟减少约30.3%；单独诊断阶段约6.996倍，不是整个系统7倍。无指定类别框占10%，两臂均执行全图回退，不视为正常。
-
-本轮多框新路径与A/C并非同一建库规则；同一恰好1框子集的七组合宏平均为0.8849／0.9089，不应冒充全量系统AUROC。所有速度仅对应**现成小图作为输入的局部流水线**。[成本与精度边界](outputs/reports/M3SHARE-speed-v1/SPEED_REPORT.md)。
-
-## 4. CPLID：原始整图上的精度—成本验证
-
-### 4.1 数据与严格冻结检测器
-
-数据位于 `/root/autodl-tmp/data/CPLID`，整图1152×864：600张正常图、1073个绝缘子GT；248张**合成故障图**，每图1个绝缘子框、1个缺陷框。
-
-沿用核验后的旧T1正常划分：训练419图／758框，验证61图／95框，测试120图／220框。正常精确重复组不跨角色；故障图不参加训练或检查点选择。不同哈希不证明没有共享前景、背景或源帧，合成来源关系尚未完全核实。
-
-从原始COCO初始化，60 epochs、imgsz1280、batch8、AdamW、FP32/noTF32，严格冻结模块0～4参数和BN；只训练之后的网络。使用同一个新 best 检测器完成下述 R1/R2，不分别训练两套定位模型。
-
-| 数据集 | 原生Ultralytics mAP50 | mAP50:95 | 固定conf=.25／IoU=.5召回 |
-|---|---:|---:|---:|
-| 正常验证 | 0.9693 | 0.8305 | 91/95＝95.79% |
-| 正常测试 | 0.9753 | 0.8091 | 215/220＝97.73% |
-
-这里是原生Ultralytics AP，与InsPLAD的COCO重算AP不能混用。60轮live/EMA证据通过，426次实际优化步检查；实际best/last重载后，正常训练整图及GT裁剪的P3与原COCO最大差均为0。[训练报告](outputs/reports/CPLID-frozenP3-det-v1/DETECTION_REPORT.md) · [补充验收](outputs/reports/CPLID-frozenP3-det-v1/DETECTOR_ACCEPTANCE.md)。
-
-### 4.2 R0／R1／R2冻结协议
-
-查询为120张留出正常图＋248张故障图，共 **368整图／468个GT对象**。复用ref3001–3005五组正常训练支持；每组10文件、10精确重复组、每文件1个预选正常对象，不因检测失败丢弃或重选支持。
-
-三臂正常支持均由GT锚定：R0/R1用相同GT裁剪特征和新建Crop库，R2用同批对象的整图GT ROI新建ROI库。**建库使用已有框标注**；无监督指异常评分不训练故障分类器，不意味着数据标注完全不存在。
-
-R1/R2查询使用相同检测器、阈值、NMS、预测框及排序。整图使用1280×1280 LetterBox；原生P3为160×160，ROI输出40×40。无框返回`unlocalized`，不回退、不打正常标签。预测按置信度顺序与GT一对一IoU≥.5匹配；未匹配框仍评分、计作FP，但不自动赋予故障标签。
-
-### 4.3 精度结果
-
-| 方法 | 各自有标签对象上的AUROC均值±总体标准差 | 相同463个匹配GT上的AUROC均值 |
-|---|---:|---:|
-| R0：GT裁剪参考（全468对象） | 0.728735 ± 0.021225 | 0.725900 |
-| R1：预测框裁剪（463对象） | 0.705568 ± 0.020261 | 0.705568 |
-| R2：同次前向P3＋RoIAlign（463对象） | 0.679961 ± 0.035901 | 0.679961 |
-
-相同对象上，预测框裁剪比GT裁剪下降 **2.03个AUROC百分点**；共享方案相对预测框裁剪再下降 **2.56个百分点**。R2−R1五组依次为 **+5.53、−5.61、−1.37、−8.79、−2.56个百分点**，1组提升、4组下降，不能挑ref3001宣称共享更优。
-
-定位覆盖为463/468＝98.93%：248个故障GT全部匹配、正常GT漏5个，另有34个未匹配预测框，0张无框图。**故障定位覆盖100%不等于异常告警召回100%**。R1/R2的AUROC是匹配目标条件下的排序指标，未定位对象仍保留在覆盖分母中；没有定义阈值化系统故障诊断召回或整图AUROC。
-
-### 4.4 成本结果与真正共享的证据
-
-同一RTX4080 SUPER，FP32、frame batch=1，五帧预热、368图重复3轮交替测速；图内裁剪最多32个一批。测速用固定ref3001匹配库，包含预处理／传输／检测／NMS／裁剪或ROI／最近邻评分，读盘解码另存，不以缓存代替实际前向。
-
-| 指标 | R1：两阶段裁剪 | R2：同次前向共享 |
-|---|---:|---:|
-| 平均每帧 | 18.554 ms | 15.177 ms |
-| P95 | 24.985 ms | 17.209 ms |
-| batch=1顺序吞吐 | 53.90 帧/s | 65.89 帧/s |
-| 单独诊断阶段均值 | 4.400 ms | 1.366 ms |
-| 三轮完整检测前向次数 | 1104 | 1104 |
-| 三轮额外裁剪前缀次数／裁剪数 | 1104／1491 | 0／0 |
-
-完整调用加速 **1.222倍**、平均延迟降低 **18.2%**；单独诊断阶段为3.222倍，不混称完整系统收益。此处顺序吞吐不是InsPLAD batch16吞吐，不做跨数据集直接比速。
-
-按实际框数：1框285图加速1.202倍，2–4框82图加速1.283倍，≥5框仅1图（6框）加速1.700倍；最后一组样本不足以支持普遍结论。无框组为空，不合成样本补表。
-
-整个评测调用约87.56秒，建库或核验载入约6.92秒；全运行PyTorch峰值已分配约169.1MiB，缓存约614.2MiB。峰值是两路径模型／库共同驻留口径，不是两种隔离部署的显存对比，也不是设备总显存。
-
-正确性门通过：坐标斜坡探针、真实bbox裁剪、批量特征／分数、分块检索与float64参考、重复建库／评分、空框／多框／边界／非方形输入、模型及BN状态不变。原始逐图分数与计时记录均已核验。
-
-[完整报告](outputs/reports/CPLID-sharedP3-R0R1R2-v1/REPORT.md) · [逐参照指标](outputs/reports/CPLID-sharedP3-R0R1R2-v1/per_reference_metrics.csv) · [覆盖](outputs/reports/CPLID-sharedP3-R0R1R2-v1/COVERAGE.json) · [速度](outputs/reports/CPLID-sharedP3-R0R1R2-v1/SPEED_METRICS.json) · [正确性](outputs/reports/CPLID-sharedP3-R0R1R2-v1/REPRO_AND_CORRECTNESS.json)。
-
-## 5. 当前结论与不能归因的部分
-
-- **已验证**：冻结COCO前缀可以保护同输入P3，同时训练出可评估的定位模型；共享的是同一次前向，而不只是同一份权重；共享有真实成本收益。
-- **未验证为无损**：InsPLAD单参照小图宏平均接近，但有回退和逐类下降；CPLID整图五参照有明确平均精度代价。不能将两者合并包装成全面无损。
-- **归因仍有限**：整图分辨率、背景上下文、裁剪几何、ROI采样及正常库一起变化；CPLID差距不能只归因于P3细节丢失，更不能归因于P3被训练破坏——冻结证据表明它未变。
-- **数据限制**：CPLID缺陷为合成，InsPLAD小图与大图映射缺失；支持文件预算不是独立源帧预算；同资产不同故障共享正常查询，五参照不独立；polymer/rust仅22个故障查询。
-- **指标限制**：AUROC不是召回率，无测试集选阈值、最优F1、统计显著性或无像素GT的定位精度声明；热力图是正常库距离响应，不是注意力或缺陷概率。
-- **历史结果**：旧CPLID T0/T1/T2曾有未实际消费bbox的整图Resize问题，其旧AUROC不作为本页裁剪级或整图共享验证结论；保留历史文件，不覆盖或混用旧缓存。
-
-下一步若继续研究，应先利用现有尺度与错误样本分析定位共享损失来源；P2、Adapter、蒸馏、阈值校准或新增训练均需另立冻结协议，本仓库不会据上述结果自动启动。
-
-## 6. 代码、复现入口与结果布局
-
-```text
-scripts/                  实验入口、数据适配、冻结审计、报告与验收
-outputs/reports/          当前主线的小型报告、配置、指标、清单及允许入库的原始分数
-outputs/M3*/              较早的正常库、特征、评分及机制诊断报告（各自协议独立）
-plan/                     冻结研究方案／历史任务合同，只读
-registry/                 任务激活、人工门和执行登记
-```
-
-服务器已配置环境以 `/root/miniconda3/bin/python` 为准：当前CPLID运行记录torch2.8.0+cu128、numpy2.3.2，YOLO训练环境ultralytics8.4.151。环境和第三方代码身份以各实验冻结清单为准，不通过重新安装或替换版本掩盖差异。
-
-典型本地路径（不是仓库随附的数据）：
-
-| 内容 | 路径 |
+| Path | Purpose |
 |---|---|
-| 仓库 | `/root/auto-exp` |
-| InsPLAD | `/root/autodl-tmp/data/insplad` |
-| CPLID | `/root/autodl-tmp/data/CPLID` |
-| 原始COCO权重 | `/root/autodl-tmp/third_party/yolov8n.pt` |
-| 大型实验产物 | `/root/autodl-tmp/version10-12/<任务名>/` |
+| `scripts/cplid_*.py`, `scripts/insplad_*.py` | Reproducible experiment entry points, feature extraction, detector audits |
+| `scripts/m3_common.py`, `scripts/m3score_pcverify.py` | Historical utility modules still imported by the current pipelines |
+| `scripts/m3share_speed*.py` | InsPLAD small-crop pipeline cost comparison |
+| `scripts/start_task.py`, `accept_check.py`, `log_run.py` | Frozen experiment activation, acceptance, registration |
+| `tests/` | CPU and numerical regression tests |
+| `docs/cplid/`, `docs/insplad/` | Dataset-specific runbooks and scope notes |
+| `outputs/reports/` | Versioned reports, metrics and lightweight evidence |
+| `plan/`, `registry/` | Historical task contracts and experiment provenance |
 
-已完成实验无需为了查看报告重新运行。复现前先核对数据、权重及冻结哈希，并确保GPU空闲；这些是显式启动训练／评测的入口：
+Only obsolete M3 investigation entry points were removed from the current
+working tree. They remain recoverable from Git history. Historical contracts
+and reports are retained as provenance; some older contracts require a
+historical checkout to rerun.
+
+## Reproduce the recorded pipeline
+
+The scripts were run on a Linux CUDA server with Python, PyTorch, Ultralytics,
+torchvision, anomalib, NumPy and the original datasets and weights at paths
+documented in each frozen run. Large datasets, model weights and caches are
+not part of this checkout. Verify their identities before running.
 
 ```bash
 cd /root/auto-exp
-# CPLID严格冻结检测训练（若要复现训练，先阅读对应说明）
 bash scripts/cplid_frozen_p3_launch.sh
-# CPLID R0/R1/R2正式评测与测速：已完成目录会检查并退出，不重新计时
 bash scripts/cplid_shared_p3_launch.sh
 ```
 
-InsPLAD入口与各自计时边界：[冻结检测训练](scripts/INSPLAD_FROZEN_P3.md) · [共享A/B/C](scripts/INSPLAD_SHARED_ROI.md) · [小图测速](scripts/M3SHARE_SPEED.md)。CPLID入口：[冻结检测器](scripts/CPLID_FROZEN_P3.md) · [R0/R1/R2协议与指令](scripts/CPLID_SHARED_P3.md)。
+Each launcher uses the repository's task and gate workflow. Read the runbooks
+and verify the required prior outputs before starting a run:
 
-执行遵循合同激活 → 正确性门 → 评测 → `accept_check.py` → `log_run.py` → 小型结果同步。受保护的方案、划分和人工门不随文档更新修改。本次发布只做CPU复算和文档同步，没有重训或重跑GPU评测。
+- [CPLID frozen-P3 detector](docs/cplid/CPLID_FROZEN_P3.md)
+- [CPLID full-frame R0/R1/R2](docs/cplid/CPLID_SHARED_P3.md)
+- [InsPLAD frozen detector](docs/insplad/INSPLAD_FROZEN_P3.md)
+- [InsPLAD shared ROI](docs/insplad/INSPLAD_SHARED_ROI.md)
+- [InsPLAD small-crop speed](docs/insplad/M3SHARE_SPEED.md)
 
-仓库不包含原始图像、模型大权重或特征缓存。CPLID五份原始分数已入库；InsPLAD COCO完整对照约29MiB原始分数留在数据盘，本次发布210份来源哈希、紧凑指标与冻结清单。[同步核验记录](outputs/reports/README-results-sync-v1/VERIFICATION.json) 可追溯源文件、独立AUROC重算及发布文件哈希。
+Run the lightweight tests with `python -m unittest discover -s tests -p 'test_*.py'`.
+GPU-backed experiments also run their own frozen correctness gates before
+scoring. Detailed metrics and limitations are in
+[CPLID R0/R1/R2](outputs/reports/CPLID-sharedP3-R0R1R2-v1/REPORT.md),
+[CPLID detection](outputs/reports/CPLID-frozenP3-det-v1/DETECTION_REPORT.md),
+and [InsPLAD small-crop speed](outputs/reports/M3SHARE-speed-v1/SPEED_REPORT.md).
+
+The [Chinese research summary](README.zh-CN.md) contains the full chronology.

@@ -11,4 +11,4 @@ acceptance:
   - {type: metric_min, path: /root/autodl-tmp/version10-12/InsPLAD-sharedROI-ABC-ref3001-v1/CPU_PREFLIGHT.json, key: passed, min: 1}
   - {type: file_exists, path: scripts/insplad_shared_roi_launch.sh}
   - {type: file_exists, path: scripts/insplad_shared_roi.task.yaml}
-  - {type: file_exists, path: scripts/INSPLAD_SHARED_ROI.md}
+  - {type: file_exists, path: docs/insplad/INSPLAD_SHARED_ROI.md}
