@@ -1,0 +1,30 @@
+task: M3SHARE-speed-v1
+title: Measured two-stage crop vs same-forward shared P3 cost, bounded by available data identity
+authorized_by: User detailed M3SHARE-speed-v1 task, including executable local analysis when original frames cannot be mapped
+gate_required: null
+results_dir: /root/autodl-tmp/version10-12/M3SHARE-speed-v1
+budget: {gpu_hours: 0.5, wall_clock_h: 1}
+scope:
+  audit: Preserve historical A/C; explicitly state existing cropped-image inputs and unavailable reliable full-scene anomaly mappings
+  new_arms: T-CROP-small and T-SHARE-small on identical native-resolution anomaly crops, all expected-class boxes sorted identically, existing full-frame fallback
+  samples: All5215 frozen queries for conditional accuracy; speed first64 per asset by frozen SHA256 path ordering (320), no labels/speed/score selection
+  banks: Same10N ref3001 support files and all predicted support boxes per arm, official KCenter .1 seed7001, exact Euclidean top8, separate matching banks
+  measurement: Actual FP32 forwards, TF32 disabled, alternating synchronized full-call timing; separate synchronized stage profiling and I/O
+  gates: Fixed atol=rtol1e-4; synthetic geometry/zero/multiple/boundary/non-square, state hashes, block/direct NN and batch feature/score equivalence, actual hook counters
+  probe: Before formal timing freeze warmup/repetitions/batch from a short probe by predefined selection rules, no accuracy-driven tuning
+  accuracy: Preserve legacy full A/C; new-arm AUROC only for exactly-one-box/fallback subsets, no undefined multi-object aggregation or pixel/localization claims
+  sync: Code, frozen metadata, report, raw timing and small machine results; no images, weights or feature banks
+  execution: Formal GPU gates/probe/timing/accuracy launched by user only; agent prepares and CPU-tests scripts
+forbidden:
+  - Training, adapters, distillation, new feature layers, threshold/top8/split modifications or DJI-based cross-package guesses
+  - Claiming raw-full-scene end-to-end speed from pre-cropped image measurements
+  - Using cached backbone features in formal timers, dropping zero-box cases or sequential per-component crop inference
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/COMPLETED.json, key: complete, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/REPRO_AND_CORRECTNESS.json, key: passed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/RESOURCE_COST.json, key: timing_records, min: 1}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/METHOD_SPEC.md}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/FROZEN_INPUTS.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/TIMING_RAW.jsonl}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/ACCURACY_SUMMARY.json}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/SPEED_REPORT.md}

@@ -1,0 +1,15 @@
+task: M3SHARE-speed-v1-prepare
+title: Prepare user-run shared/crop speed experiment without formal GPU execution
+authorized_by: User explicitly reserved final task launch for themselves
+gate_required: null
+scope:
+  execution: Scripts, CPU numerical/mock control-flow tests, source identity/hash/geometry metadata preparation only
+  not_executed: Actual GPU correctness gates, cost probe, formal timing, new accuracy evaluation
+  delivery: Parametrized scripts, frozen local input metadata, method specification, user command and safe post-run publishing
+acceptance:
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/PREPARE.json, key: ready, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/CPU_TESTS.json, key: passed, min: 1}
+  - {type: metric_min, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/CPU_TESTS.json, key: tests_run, min: 7}
+  - {type: file_exists, path: /root/autodl-tmp/version10-12/M3SHARE-speed-v1/METHOD_SPEC.md}
+  - {type: file_exists, path: scripts/m3share_speed_launch.sh}
+  - {type: file_exists, path: scripts/M3SHARE_SPEED.md}
