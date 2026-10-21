@@ -1,0 +1,121 @@
+{
+  "groups": {
+    "all": {
+      "R1": {
+        "mean_ms": 18.553521483292993,
+        "median_ms": 17.674583941698074,
+        "P95_ms": 24.985361518338323,
+        "sequential_batch1_fps": 53.89812391682497,
+        "frame_observations": 1104,
+        "amortized_ms_per_object": 13.73781872404793
+      },
+      "R2": {
+        "mean_ms": 15.177471629019989,
+        "median_ms": 14.74317628890276,
+        "P95_ms": 17.208559066057198,
+        "sequential_batch1_fps": 65.88712694991676,
+        "frame_observations": 1104,
+        "amortized_ms_per_object": 11.238047403378985
+      },
+      "speedup": 1.2224382253377335
+    },
+    "no_box": {
+      "R1": null,
+      "R2": null,
+      "speedup": null
+    },
+    "1": {
+      "R1": {
+        "mean_ms": 17.95917266751068,
+        "median_ms": 17.431613989174366,
+        "P95_ms": 23.663878533989184,
+        "sequential_batch1_fps": 55.681852305427505,
+        "frame_observations": 855,
+        "amortized_ms_per_object": 17.95917266751068
+      },
+      "R2": {
+        "mean_ms": 14.94309402653697,
+        "median_ms": 14.596291817724705,
+        "P95_ms": 16.322442702949047,
+        "sequential_batch1_fps": 66.92054525148082,
+        "frame_observations": 855,
+        "amortized_ms_per_object": 14.94309402653697
+      },
+      "speedup": 1.2018376271753057
+    },
+    "2-4": {
+      "R1": {
+        "mean_ms": 20.48512846912916,
+        "median_ms": 19.684819504618645,
+        "P95_ms": 26.93306328728795,
+        "sequential_batch1_fps": 48.815900837868206,
+        "frame_observations": 246,
+        "amortized_ms_per_object": 8.154274439167919
+      },
+      "R2": {
+        "mean_ms": 15.965169060945026,
+        "median_ms": 15.534980688244104,
+        "P95_ms": 17.565739806741476,
+        "sequential_batch1_fps": 62.63635519189466,
+        "frame_observations": 246,
+        "amortized_ms_per_object": 6.35506729610433
+      },
+      "speedup": 1.2831137829439674
+    },
+    "5+": {
+      "R1": {
+        "mean_ms": 29.551161142687004,
+        "median_ms": 29.30510975420475,
+        "P95_ms": 30.140494648367167,
+        "sequential_batch1_fps": 33.839617846876685,
+        "frame_observations": 3,
+        "amortized_ms_per_object": 4.925193523781167
+      },
+      "R2": {
+        "mean_ms": 17.383898918827374,
+        "median_ms": 17.419345676898956,
+        "P95_ms": 17.704863473773003,
+        "sequential_batch1_fps": 57.52449462973837,
+        "frame_observations": 3,
+        "amortized_ms_per_object": 2.897316486471229
+      },
+      "speedup": 1.699915610455032
+    },
+    "located": {
+      "R1": {
+        "mean_ms": 18.553521483292993,
+        "median_ms": 17.674583941698074,
+        "P95_ms": 24.985361518338323,
+        "sequential_batch1_fps": 53.89812391682497,
+        "frame_observations": 1104,
+        "amortized_ms_per_object": 13.73781872404793
+      },
+      "R2": {
+        "mean_ms": 15.177471629019989,
+        "median_ms": 14.74317628890276,
+        "P95_ms": 17.208559066057198,
+        "sequential_batch1_fps": 65.88712694991676,
+        "frame_observations": 1104,
+        "amortized_ms_per_object": 11.238047403378985
+      },
+      "speedup": 1.2224382253377335
+    }
+  },
+  "diagnostic_mean_ms": {
+    "R1": 4.4003816969368765,
+    "R2": 1.365524840682907
+  },
+  "diagnostic_speedup": 3.2224838141620475,
+  "frame_box_distribution": {
+    "1": 285,
+    "2": 50,
+    "3": 22,
+    "4": 10,
+    "6": 1
+  },
+  "precision": "FP32 noTF32",
+  "rounds": 3,
+  "frame_batch": 1,
+  "bank_reference": "ref3001",
+  "note": "Sequential batch1 throughput, not batched-frame throughput. IO/decode excluded and separately saved."
+}

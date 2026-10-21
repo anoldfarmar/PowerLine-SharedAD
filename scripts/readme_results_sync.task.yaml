@@ -1,0 +1,17 @@
+task: README-results-sync-v1
+title: Publish verified InsPLAD/CPLID results and rewrite repository README
+gate_required: null
+authorized_by: User explicitly requested repository update and README covering objectives, results and pipeline
+scope:
+  allowed: CPU result verification, documentation, whitelisted small result publication, registry and Git synchronization
+  excluded: Training, GPU inference, changed evaluation protocols, raw images, weights, feature caches
+acceptance:
+  - {type: metric_min, path: outputs/reports/README-results-sync-v1/VERIFICATION.json, key: passed, min: 1}
+  - {type: metric_min, path: outputs/reports/README-results-sync-v1/VERIFICATION.json, key: coco_raw_AUROC_verified, min: 210}
+  - {type: metric_min, path: outputs/reports/README-results-sync-v1/VERIFICATION.json, key: cplid_raw_AUROC_verified, min: 15}
+  - {type: file_exists, path: README.md}
+  - {type: content_contains, path: README.md, needle: 'InsPLAD'}
+  - {type: content_contains, path: README.md, needle: 'CPLID'}
+  - {type: content_contains, path: README.md, needle: '0.679961'}
+  - {type: file_exists, path: outputs/reports/InsPLAD-COCO-top8-full-v1/PERFORMANCE_TABLE.md}
+  - {type: file_exists, path: outputs/reports/CPLID-sharedP3-R0R1R2-v1/REPORT.md}

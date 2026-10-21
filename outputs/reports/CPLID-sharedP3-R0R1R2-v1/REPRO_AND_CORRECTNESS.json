@@ -1,0 +1,47 @@
+{
+  "coordinate_ramp_maxdiff": 0.0,
+  "crop_batch_feature_maxdiff": 0.0,
+  "crop_batch_score_maxdiff": 0.0,
+  "distance_float64_maxdiff": 7.184380142466473e-07,
+  "distance_chunk_maxdiff": 8.940696716308594e-07,
+  "roi_batch_feature_maxdiff": 0.0,
+  "roi_batch_score_maxdiff": 0.0,
+  "empty_crop_shape": [
+    0,
+    1600,
+    64
+  ],
+  "empty_roi_shape": [
+    0,
+    1600,
+    64
+  ],
+  "R1_repeat_feature_maxdiff": 0.0,
+  "R1_repeat_score_maxdiff": 0.0,
+  "R1_actual_forward_counts": {
+    "full": 1,
+    "full_images": 1,
+    "crop": 1,
+    "crop_objects": 2
+  },
+  "R2_repeat_feature_maxdiff": 0.0,
+  "R2_repeat_score_maxdiff": 0.0,
+  "R2_actual_forward_counts": {
+    "full": 1,
+    "full_images": 1,
+    "crop": 0,
+    "crop_objects": 0
+  },
+  "matching_synthetic": {
+    "0": 0,
+    "2": 1
+  },
+  "passed": true,
+  "state_unchanged_before_queries": true,
+  "bank_repeat": "ref3001 R0/R2 exact indices/features",
+  "atol": 0.0001,
+  "rtol": 0.0001,
+  "formal_frame_batch": 1,
+  "formal_crop_batch": 32,
+  "state_unchanged_after_all_inference": true
+}
