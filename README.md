@@ -97,3 +97,11 @@ scoring. Detailed metrics and limitations are in
 and [InsPLAD small-crop speed](outputs/reports/M3SHARE-speed-v1/SPEED_REPORT.md).
 
 The [Chinese research summary](README.zh-CN.md) contains the full chronology.
+
+## Retained experiment outputs
+
+Obsolete intermediate results were removed on 2026-10-27. COCO + top8,
+YOLO + top8, PatchCore, shared-backbone results, and required frozen/audit
+evidence are retained. See the [output index](outputs/README.md) for the
+keep/delete policy and Git recovery instructions. Historical scripts may
+require restoring their old outputs. No algorithm or evaluation scores changed.

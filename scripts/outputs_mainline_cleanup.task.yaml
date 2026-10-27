@@ -1,0 +1,14 @@
+task: Outputs-mainline-cleanup-v2
+title: Remove obsolete experiment outputs, preserve README mainline and runtime evidence
+gate_required: null
+authorized_by: Explicit user request on 2026-10-27
+scope:
+  delete: Allowlisted intermediate output directories only
+  preserve: Mainline reports, full YOLO/PatchCore comparison, data and WRN audits, all algorithm/deployment/protocol code
+  excluded: Training, evaluation, dataset changes, weight changes, Git history rewriting
+acceptance:
+  - {type: metric_min, path: outputs/CLEANUP_MANIFEST.json, key: checks.retained_files_unchanged, min: 1}
+  - {type: metric_min, path: outputs/CLEANUP_MANIFEST.json, key: checks.allowlisted_targets_absent, min: 1}
+  - {type: metric_min, path: outputs/CLEANUP_MANIFEST.json, key: checks.readme_links_resolve, min: 1}
+  - {type: metric_min, path: outputs/CLEANUP_MANIFEST.json, key: checks.current_runtime_dependencies_present, min: 1}
+  - {type: file_exists, path: outputs/M3diag5-testaudit/COUNTING_CORRECTION.md}
